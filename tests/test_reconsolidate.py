@@ -96,6 +96,14 @@ class ReconsolidationTests(unittest.TestCase):
         self.assertEqual((top["topic"], top["anchored"], top["relation"]),
                          ("preference.favorite_drink", True, "mismatch"))
 
+    def test_long_values_sharing_a_few_words_are_not_anchored(self):
+        # Regression: two unrelated free-text memories both mention "本地模型".
+        self.put("hardware.laptop", "虚构笔记本，用于本地大模型部署，内存 32GB",
+                 "我的电脑用来跑本地大模型", "2026-10-01T00:00:00Z")
+        self.put("preference.assistant_persona", "本地模型叫小林，话少、严谨，主要整理资料",
+                 "本地模型的人设是小林", "2026-10-01T00:00:00Z")
+        self.assertEqual(review(self.store, NS, SUBJ, now=NOW)["possible_duplicate_slots"], [])
+
     def test_locate_ablation_topic_only_ignores_values(self):
         self.put("preference.favorite_drink", "乌龙茶", "我最爱喝乌龙茶", "2026-10-01T00:00:00Z")
         self.put("preference.favorite_color", "蓝色", "我最喜欢蓝色", "2026-10-01T00:00:00Z")

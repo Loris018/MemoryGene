@@ -31,6 +31,20 @@ def attribute(topic):
     return parts[-1] if parts else ""
 
 
+def values_related(new, old):
+    """Same value, one contains the other, or at least half of the shorter
+    value's cues are shared. A few shared words inside long free-text values
+    ("本地", "模型") are not enough."""
+    a = unicodedata.normalize("NFKC", new).casefold().strip()
+    b = unicodedata.normalize("NFKC", old).casefold().strip()
+    if not a or not b:
+        return False
+    if a == b or a in b or b in a:
+        return True
+    ta, tb = terms(a), terms(b)
+    return bool(ta and tb) and len(ta & tb) / min(len(ta), len(tb)) >= 0.5
+
+
 def cues(topic, values, sources):
     """Recognition cues of a slot or a new statement, tagged by origin."""
     out = {("t", t) for t in topic_tokens(topic)}
@@ -149,10 +163,11 @@ def locate(store, namespace, subject, topic, value, source, *, now=None,
         score = sum(parts) / len(parts)
         # Sharing only category words ("preference", "favorite") is weak
         # evidence. A slot is anchored when the attribute word of either topic
-        # appears in the other, or when the values themselves share cues.
+        # appears in the other, or when the values are clearly related.
         anchored = (
-            attribute(topic) in slot_t or attribute(slot["topic"]) in probe_t
-            or bool({t for k, t in probe if k == "v"} & {t for k, t in sc if k == "v"})
+            ("t" in use and (attribute(topic) in slot_t or attribute(slot["topic"]) in probe_t))
+            or ("v" in use and any(values_related(value, e["candidate"]["value"])
+                                   for e in slot["events"]))
         )
         head = slot["head"]
         ranked.append({

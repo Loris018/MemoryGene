@@ -47,7 +47,7 @@ ATCG encoding is **not** compression, encryption, semantic understanding or stro
 
 | Experiment | Result | Details |
 | --- | --- | --- |
-| Unit / integration tests | 152/152 pass | `python -m unittest discover -s tests` |
+| Unit / integration tests | 153/153 pass | `python -m unittest discover -s tests` |
 | Structured dev set (24 scenarios, 47 inputs) | rules 24/24 current & history; overwrite baseline 12/24, append-latest 12/24; plain and complement index identical | [experiments/RESULTS.md](experiments/RESULTS.md) |
 | Equal-budget recovery (100 payloads × 6 damage modes) | plain copy = complement copy in every mode | same |
 | Rule extractor regression (47 fictional dialogues, 79 turns) | write decision 77/79, topic 57/57 — same authors wrote rules and cases, **not** a held-out benchmark | [experiments/NL_RESULTS.md](experiments/NL_RESULTS.md) |
@@ -65,7 +65,7 @@ git clone https://github.com/Loris018/MemoryGene.git && cd MemoryGene
 python3 -m venv .venv && source .venv/bin/activate   # Windows: .venv\Scripts\Activate.ps1
 python -m pip install -e .
 python examples/lifecycle.py                 # write, revise, history, forget
-python -m unittest discover -s tests         # 152 tests
+python -m unittest discover -s tests         # 153 tests
 python experiments/run.py --out /tmp/mg-results
 python experiments/nl_eval.py
 python experiments/reconsolidation_eval.py --out /tmp/mg-results

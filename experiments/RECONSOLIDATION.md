@@ -7,7 +7,7 @@ Raw rows: [results/reconsolidation.json](results/reconsolidation.json). Code: [s
 
 Before a statement is stored or a question answered, the agent can now see which existing memory it touches. This is the computational part we take from reconsolidation: a reactivated memory is the one that may be revised, so the system first has to find it.
 
-- **`locate`** ranks existing slots that may hold the same attribute. Cues are topic-name tokens, Chinese bigrams / words of values and verbatim sources, weighted by how rare each term is among the user's own slots. A slot is **anchored** only when the attribute word of either topic (`flower` in `preference.liked_flower`) appears in the other, or the values share cues; sharing category words such as `preference` / `favorite` is not enough.
+- **`locate`** ranks existing slots that may hold the same attribute. Cues are topic-name tokens, Chinese bigrams / words of values and verbatim sources, weighted by how rare each term is among the user's own slots. A slot is **anchored** only when the attribute word of either topic (`flower` in `preference.liked_flower`) appears in the other, or the values are clearly related (equal, one contains the other, or at least half of the shorter value's cues shared); sharing category words such as `preference` / `favorite` is not enough.
 - **`open_evidence`** returns pending/conflict evidence that nothing later has settled (no `resolves` link, no later confirmed statement, not equal to the current value, not expired).
 - **`advise`** returns at most a few suggestions after each write: `confirm_change`, `possible_same_slot`, `repeated_uncertain`. It never writes; the state machine stays the only path that changes memory.
 - **`recall`** additionally lists matching unresolved evidence under `unresolved`, each marked `not_a_fact`.
@@ -38,6 +38,10 @@ Fourteen hand-written fictional scenarios state when the agent should ask the us
 | Should stay quiet, interrupted anyway | 1 / 9 |
 
 The one unneeded interruption: "周五晚上去吃火锅" stored under `plan.dinner` was flagged as possibly the same slot as `preference.favorite_food = 火锅`, because the values are equal. Equal values are a strong lexical cue but not proof of the same attribute. The same authors wrote the rules and the scenarios, so this is a development check, not a benchmark.
+
+## Found on a real store
+
+Running `review` on the developer's own local memory store (three slots) flagged two unrelated long free-text memories as possible duplicates, only because both contained the words "本地" and "模型". The first version anchored on *any* shared value cue. The rule now requires related values (see above). The results in A and B did not change, and a regression test with fictional text was added. This is one observation on one small store, reported because it shows how lexical cues fail on long values.
 
 ## What this does and does not show
 
