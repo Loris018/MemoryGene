@@ -168,8 +168,11 @@ def score(items):
         qid = item["question_id"]
         kind = ("abstention" if qid.endswith("_abs")
                 else "history" if HISTORY_WORDS.search(item["question"]) else "current")
+        # One item (2133c1b5) has a session timestamped hours after its question;
+        # the evaluation clock is the later of the two so no evidence is "future".
+        clock = max(iso(item["question_date"]), *(iso(d) for d in item["haystack_dates"]))
         stream = {"dataset": "lme", "id": qid, "topic": "lme.answer",
-                  "now": iso(item["question_date"]), "candidates": cands,
+                  "now": clock, "candidates": cands,
                   "gold_current": None, "gold_history": []}
         row = {"question_id": qid, "kind": kind, "question": item["question"],
                "answer": item["answer"], "extracted": [
