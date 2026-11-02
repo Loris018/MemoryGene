@@ -22,3 +22,6 @@ evidence/08-tasks/harness-console.log
 
 # Raw Harness session logs embed the vendor system prompt and tool schemas; keep summaries only.
 evidence/dsh/*.session.jsonl
+
+# macOS Finder duplicates
+* 2.*

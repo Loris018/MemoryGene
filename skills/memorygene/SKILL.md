@@ -46,6 +46,7 @@ whenToUse: 当用户希望记住、读取、修订或遗忘长期事实，或要
 - `recall` / `topics` 只读取该 subject 的长期主题和当前会话主题；没有会话 ID 时只读长期主题。`current` 才是“现在的事实”；读取临时主题须加 `--scope session`，会话 ID 从宿主环境获取，不要为了找历史临时内容改写会话 ID。
 - 只在相关时提及记忆，不要无关打扰；不要主动朗读整段历史。
 - `current` 为 `null` 时就是没有当前事实，**不要**用旧历史值冒充现在。
+- `recall` 结果里的 `unresolved` 是**尚未确认**的证据（`not_a_fact: true`），不是事实。只有当它和当前问题直接相关时，才可以顺带确认一次，例如“你之前提过可能更喜欢百合，现在是改成百合了吗？”；不要把它当答案。
 
 ## 2. 何时写入
 
@@ -54,6 +55,13 @@ whenToUse: 当用户希望记住、读取、修订或遗忘长期事实，或要
 1. 闲聊、临时任务约束、一次性情绪：**不要写**（或 `--importance 0.2`，会被丢弃）。重复的无关内容不得积累成长期事实。
 2. 长期有用的偏好/事实：写成一条 Candidate。
 3. 写入前先 `current` 比较：相同值重复陈述不必再写（避免重复证据堆积）。
+4. 新起一个 topic 前，先用 `locate` 看是否已有同一属性的槽位，有就沿用旧 topic，避免同一件事分裂成多个 topic：
+
+```sh
+"{{MG_ADAPTER}}" locate --topic preference.liked_flower --value "栀子花" --source "我喜欢的花是栀子花"
+```
+
+`related` 里 `anchored: true` 的条目表示属性词或值对得上，可能是同一属性；`same_topic`、`relation`（match/mismatch/empty）和 `current` 帮你判断。它是字面线索，不理解同义词（如“茶”属于“饮品”），判断仍由你做。
 
 写入命令（适配器会填 event_id、接收时间、身份、分区；**不要手写 JSON**）：
 
@@ -87,6 +95,14 @@ whenToUse: 当用户希望记住、读取、修订或遗忘长期事实，或要
 - `discarded` / `rejected_sensitive` / `expired`：未落库或未生效；不要声称保存成功。
 
 用户明确确认了先前的 pending/conflict 证据时，可加 `--resolves <event_id>` 建立确认链（要求同主题同值、新输入能 confirmed/duplicate）；不要把冲突内容自动当作用户确认。
+
+`remember` 还会返回 `advice`（通常为空，只是建议，从不自动改记忆）：
+
+- `confirm_change`：用户新的明确说法与当前值不同，但没说“改成”。在合适时问一句是否改变；用户确认后用 `--intent change --resolves <evidence_id>` 再写一次。
+- `possible_same_slot`：新 topic 可能与已有 topic 是同一属性（主题名可能漂移了）。确认后 `forget` 新 topic，并按旧 topic 重新写入。
+- `repeated_uncertain`：同一个不确定说法已在不同时间出现至少两次。仅在与对话相关时问用户一次是否要定下来。
+
+没有 advice 时不要额外打扰用户。用户要求“检查一下我的记忆”时，可运行 `"{{MG_ADAPTER}}" review` 列出未解决证据和疑似重复槽位，逐项请用户决定。
 
 ## 3. 修订与历史
 

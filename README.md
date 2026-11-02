@@ -36,9 +36,9 @@ On top of that: append-only version history with `previous_id` and `resolves` li
 | Separate legitimate updates from corruption | **Working.** Versioning handles updates; checksum + `repair` handles damage; repair never rolls back a valid version |
 | Provenance, correction, deletion | **Working.** Verbatim source, consent evidence for sensitive data, dependent forgetting |
 | Selective memory | **Not yet an algorithm.** Importance is supplied by the calling model; repetition is ignored (repeated low-importance mentions leave no trace) |
-| Reconsolidation (find related old memory, decide update) | **Not yet.** Updates depend on the caller's `intent` label; an explicit new assertion without `change` stays in `conflict` |
-| Proactive self-checking | **Not yet.** `recall` searches current values only; unresolved conflicts are not surfaced |
-| Memory identity | **Main bottleneck.** In the held-out test, an independent LLM matched the canonical topic name only 11/27 times; all 10 end-to-end failures came from extraction, 0 from the storage policy |
+| Reconsolidation (find related old memory, decide update) | **Partly, new in this version.** Read-only `locate` finds the slot a statement touches; `advise` turns a silent `conflict` into one `confirm_change` question. The update itself still needs the user's explicit confirmation |
+| Proactive self-checking | **Partly, new.** `recall` now lists unresolved evidence marked `not_a_fact`; `review` lists open evidence and duplicate-looking slots; `repeated_uncertain` asks once when a hesitation recurs. No user study yet |
+| Memory identity | **Improved, still the main bottleneck.** On recorded outputs of an independent LLM, attaching statements to the right existing slot rose from 11/23 (exact topic) to 20/23 with lexical anchoring, 0 wrong attaches; the rest needs world knowledge (tea ⊂ drink). Exploratory, see [RECONSOLIDATION.md](experiments/RECONSOLIDATION.md) |
 | DNA-inspired organisation | **No measurable benefit so far (negative result).** The "complement index" is a reversible re-encoding of the lookup key: identical results, 4× key bytes, slower. The "complement backup" is `byte XOR 0xFF`, equivalent to a plain copy in all corruption tests. We keep these as baselines, not as contributions |
 
 ATCG encoding is **not** compression, encryption, semantic understanding or stronger error correction.
@@ -47,11 +47,13 @@ ATCG encoding is **not** compression, encryption, semantic understanding or stro
 
 | Experiment | Result | Details |
 | --- | --- | --- |
-| Unit / integration tests | 139/139 pass | `python -m unittest discover -s tests` |
+| Unit / integration tests | 152/152 pass | `python -m unittest discover -s tests` |
 | Structured dev set (24 scenarios, 47 inputs) | rules 24/24 current & history; overwrite baseline 12/24, append-latest 12/24; plain and complement index identical | [experiments/RESULTS.md](experiments/RESULTS.md) |
 | Equal-budget recovery (100 payloads × 6 damage modes) | plain copy = complement copy in every mode | same |
 | Rule extractor regression (47 fictional dialogues, 79 turns) | write decision 77/79, topic 57/57 — same authors wrote rules and cases, **not** a held-out benchmark | [experiments/NL_RESULTS.md](experiments/NL_RESULTS.md) |
 | Held-out NL (30 new dialogues, independent `deepseek-flash` extractor) | decision 36/40, exact topic 11/27; end-to-end oracle 30/30 vs model 20/30 | [held-out result](experiments/heldout-2026-10-29/RESULT.md) |
+| Slot recognition under topic drift (exploratory) | exact topic 11/23 → anchored lexical cues 20/23, 0 wrong; value/source cues added nothing over topic cues | [experiments/RECONSOLIDATION.md](experiments/RECONSOLIDATION.md) |
+| Advice scenarios (14, dev) | should-advise 5/5; unneeded interruptions 1/9 | same |
 | Real agent host (DeepSeek Harness, headless) | write → cross-session read → revise → forget; task resume across 2 sessions | [docs/DSH-INTEGRATION.md](docs/DSH-INTEGRATION.md) |
 
 Limitations: baselines are weak (no certainty rules), datasets are small and fictional, labels have a single annotator, and there is no comparison yet with other memory frameworks. These results show the implementation behaves as designed, not that it is better than existing systems.
@@ -63,9 +65,10 @@ git clone https://github.com/Loris018/MemoryGene.git && cd MemoryGene
 python3 -m venv .venv && source .venv/bin/activate   # Windows: .venv\Scripts\Activate.ps1
 python -m pip install -e .
 python examples/lifecycle.py                 # write, revise, history, forget
-python -m unittest discover -s tests         # 139 tests
+python -m unittest discover -s tests         # 152 tests
 python experiments/run.py --out /tmp/mg-results
 python experiments/nl_eval.py
+python experiments/reconsolidation_eval.py --out /tmp/mg-results
 ```
 
 ```python
@@ -81,13 +84,14 @@ with MemoryStore(":memory:") as memory:
     print(memory.verify())
 ```
 
-Structured CLI (`memorygene --db PATH ingest|current|history|topics|verify|repair|forget`) and the agent adapter (`memorygene-dsh doctor|recall|topics|current|remember|history|forget|task-*`) are documented in [docs/USAGE.zh.md](docs/USAGE.zh.md). The adapter never guesses natural-language meaning, never fabricates consent or sources, and never creates a database implicitly.
+Structured CLI (`memorygene --db PATH ingest|current|history|topics|verify|repair|forget`) and the agent adapter (`memorygene-dsh doctor|recall|locate|review|topics|current|remember|history|forget|task-*`) are documented in [docs/USAGE.zh.md](docs/USAGE.zh.md). The adapter never guesses natural-language meaning, never fabricates consent or sources, and never creates a database implicitly.
 
 ## Repository layout
 
 ```
 src/memorygene/   core.py (state machine, storage), codec.py (dna-v1 encoding),
-                  recall.py, tasks.py, extract.py (rule-based baseline extractor),
+                  recall.py, reconsolidate.py (locate / advice / review),
+                  tasks.py, extract.py (rule-based baseline extractor),
                   adapter.py (agent CLI), cli.py
 tests/            unit and integration tests
 experiments/      dev-set policy/recovery/index experiments, NL evaluation, held-out benchmark
@@ -99,7 +103,7 @@ evidence/         curated logs from real runs (raw host session logs are not pub
 
 ## Roadmap (not yet results)
 
-1. **Memory identity + reconsolidation loop** — locate related old memories (synonymous topics, pending/conflict evidence) before writing, and return an explained decision: update, ask the user, or keep.
+1. **Memory identity beyond lexical cues** — first version done (`locate` / `advise` / `review`); next: a fresh held-out dialogue set, giving the extractor the existing topic catalogue, and optional embedding cues for world knowledge (tea ⊂ drink).
 2. **A falsifiable DNA hypothesis** — use complementary "recognition strands" to locate memories and detect mismatches, borrowing the mismatch-repair question of *which strand is authoritative*; compare fairly against exact-key, lexical and embedding matching, and report it as negative if it does not help.
 3. **Fair baselines** — LLM-chosen add/update/delete (Mem0-style) and bitemporal fact invalidation (Graphiti-style), plus the knowledge-update subset of LongMemEval.
 4. **Cross-session evidence accumulation** for selective memory.
@@ -119,7 +123,9 @@ MemoryGene 研究大语言模型 / AI Agent 的自适应长期记忆：如何区
 
 **目前已经可靠的部分**：证据状态机（不确定不会被写成事实，冲突保留待确认）、版本历史、到期、会话与跨会话分区、按主题遗忘、完整性校验与修复、任务接续，以及在真实 Agent 宿主里跨会话验证过的接入。
 
-**还没有做到的部分**：选择性记忆与再巩固目前依赖调用方模型给出的标签，系统内部还没有对应的算法；主动检查冲突尚未实现；主题识别（判断是不是同一条记忆）是实测出来的最大瓶颈。
+**本版新增（再巩固支持）**：写入前可用 `locate` 找到这句话涉及的旧记忆；写入后 `advise` 在需要时给出一个建议（确认是否改变、可能是同一属性、反复出现的犹豫），从不自动改记忆；`recall` 会附带标明“不是事实”的未解决证据；`review` 做一次自检。在独立模型的抽取结果上，挂回正确旧槽位的比例从 11/23 提高到 20/23，没有挂错（探索性结果）。
+
+**还没有做到的部分**：选择性记忆仍依赖调用方模型给出的重要性；主题识别是字面线索，不懂“茶属于饮品”这类常识；建议机制还没有做用户研究。
 
 **DNA 部分的负面结果**：现有"互补索引"和"互补备份"与普通索引、普通副本结果完全相同，没有显示出独立优势，我们如实保留这一结论，并在路线图中提出可证伪的新假设。
 

@@ -25,6 +25,7 @@ from pathlib import Path
 from . import __version__, tasks
 from .core import Candidate, MemoryStore, canonical
 from .recall import recall
+from .reconsolidate import advise, locate, review
 
 TOPIC_PATTERN = re.compile(r"^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$")
 MAX_TOPIC_CHARS = 120
@@ -251,6 +252,7 @@ def cmd_remember(args, settings):
         result = store.ingest(
             candidate, event_id, now=now, resolves=args.resolves
         )
+        advice = advise(store, candidate, result, now=now, visible_session=session)
     return payload(
         command="remember",
         db=settings["db"],
@@ -258,6 +260,7 @@ def cmd_remember(args, settings):
         subject=settings["subject"],
         event_id=event_id,
         result=result,
+        advice=advice,
     )
 
 
@@ -309,6 +312,28 @@ def cmd_recall(args, settings):
             now=args.now, visible_session=resolve_session(args, settings),
             limit=args.limit, budget_chars=args.budget_chars,
         )
+
+
+def cmd_locate(args, settings):
+    check_topic(args.topic)
+    with open_store(settings, args.allow_create) as store:
+        related = locate(
+            store, settings["namespace"], settings["subject"], args.topic,
+            unicodedata.normalize("NFC", args.value), args.source or "",
+            now=args.now, visible_session=resolve_session(args, settings),
+            limit=args.limit,
+        )
+    return payload(command="locate", db=settings["db"], related=related,
+                   note="lexical recognition cues; suggestions only, nothing was written")
+
+
+def cmd_review(args, settings):
+    with open_store(settings, args.allow_create) as store:
+        result = review(
+            store, settings["namespace"], settings["subject"], now=args.now,
+            visible_session=resolve_session(args, settings),
+        )
+    return payload(db=settings["db"], **{k: v for k, v in result.items() if k != "ok"})
 
 
 def cmd_forget(args, settings):
@@ -476,6 +501,12 @@ def build_parser():
     search.add_argument("--query", required=True)
     search.add_argument("--limit", type=int, default=5)
     search.add_argument("--budget-chars", type=int, default=2000)
+    find = sub.add_parser("locate", help="rank existing slots that may hold the same attribute")
+    find.add_argument("--topic", required=True)
+    find.add_argument("--value", required=True)
+    find.add_argument("--source", default="")
+    find.add_argument("--limit", type=int, default=5)
+    sub.add_parser("review", help="unresolved evidence and possible duplicate slots")
     sub.add_parser("verify")
     repair = sub.add_parser("repair")
     repair.add_argument("--event-id", required=True)
@@ -502,6 +533,8 @@ COMMANDS = {
     "history": cmd_history,
     "topics": cmd_topics,
     "recall": cmd_recall,
+    "locate": cmd_locate,
+    "review": cmd_review,
     "verify": cmd_verify,
     "forget": cmd_forget,
     "repair": cmd_repair,

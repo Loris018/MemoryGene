@@ -1,0 +1,443 @@
+{
+  "now": "2026-11-02T00:00:00Z",
+  "drift": {
+    "rows": [
+      {
+        "case": "h01-explicit-flower",
+        "turn": 0,
+        "model_topic": "preference.favorite_flower",
+        "expected": "preference.favorite_flower",
+        "slots": 9,
+        "exact_topic": "preference.favorite_flower",
+        "topic_cues": "preference.favorite_flower",
+        "topic_value_source_cues": "preference.favorite_flower"
+      },
+      {
+        "case": "h02-also-like",
+        "turn": 0,
+        "model_topic": "preference.favorite_flower",
+        "expected": "preference.favorite_flower",
+        "slots": 9,
+        "exact_topic": "preference.favorite_flower",
+        "topic_cues": "preference.favorite_flower",
+        "topic_value_source_cues": "preference.favorite_flower"
+      },
+      {
+        "case": "h02-also-like",
+        "turn": 1,
+        "model_topic": "preference.liked_flower",
+        "expected": "preference.favorite_flower",
+        "slots": 9,
+        "exact_topic": null,
+        "topic_cues": "preference.favorite_flower",
+        "topic_value_source_cues": "preference.favorite_flower"
+      },
+      {
+        "case": "h03-explicit-change",
+        "turn": 0,
+        "model_topic": "preference.favorite_flower",
+        "expected": "preference.favorite_flower",
+        "slots": 9,
+        "exact_topic": "preference.favorite_flower",
+        "topic_cues": "preference.favorite_flower",
+        "topic_value_source_cues": "preference.favorite_flower"
+      },
+      {
+        "case": "h03-explicit-change",
+        "turn": 1,
+        "model_topic": "preference.favorite_flower",
+        "expected": "preference.favorite_flower",
+        "slots": 9,
+        "exact_topic": "preference.favorite_flower",
+        "topic_cues": "preference.favorite_flower",
+        "topic_value_source_cues": "preference.favorite_flower"
+      },
+      {
+        "case": "h04-hesitation",
+        "turn": 0,
+        "model_topic": "preference.liked_flower",
+        "expected": "preference.favorite_flower",
+        "slots": 9,
+        "exact_topic": null,
+        "topic_cues": "preference.favorite_flower",
+        "topic_value_source_cues": "preference.favorite_flower"
+      },
+      {
+        "case": "h10-sensitive-consent",
+        "turn": 0,
+        "model_topic": "location.home_address",
+        "expected": null,
+        "slots": 8,
+        "exact_topic": null,
+        "topic_cues": null,
+        "topic_value_source_cues": null
+      },
+      {
+        "case": "h13-correction",
+        "turn": 0,
+        "model_topic": "personal.birthday",
+        "expected": null,
+        "slots": 8,
+        "exact_topic": null,
+        "topic_cues": null,
+        "topic_value_source_cues": null
+      },
+      {
+        "case": "h13-correction",
+        "turn": 1,
+        "model_topic": "personal.birthday",
+        "expected": null,
+        "slots": 8,
+        "exact_topic": null,
+        "topic_cues": null,
+        "topic_value_source_cues": null
+      },
+      {
+        "case": "h14-unmarked-conflict",
+        "turn": 0,
+        "model_topic": "personal.residence.city",
+        "expected": "profile.city",
+        "slots": 9,
+        "exact_topic": null,
+        "topic_cues": "profile.city",
+        "topic_value_source_cues": "profile.city"
+      },
+      {
+        "case": "h14-unmarked-conflict",
+        "turn": 1,
+        "model_topic": "personal.residence.city",
+        "expected": "profile.city",
+        "slots": 9,
+        "exact_topic": null,
+        "topic_cues": "profile.city",
+        "topic_value_source_cues": "profile.city"
+      },
+      {
+        "case": "h15-explicit-change-city",
+        "turn": 0,
+        "model_topic": "personal.residence.city",
+        "expected": "profile.city",
+        "slots": 9,
+        "exact_topic": null,
+        "topic_cues": "profile.city",
+        "topic_value_source_cues": "profile.city"
+      },
+      {
+        "case": "h15-explicit-change-city",
+        "turn": 1,
+        "model_topic": "personal.residence.city",
+        "expected": "profile.city",
+        "slots": 9,
+        "exact_topic": null,
+        "topic_cues": "profile.city",
+        "topic_value_source_cues": "profile.city"
+      },
+      {
+        "case": "h16-expired-coupon",
+        "turn": 0,
+        "model_topic": "shopping.coupon_code",
+        "expected": "promotion.code",
+        "slots": 9,
+        "exact_topic": null,
+        "topic_cues": "promotion.code",
+        "topic_value_source_cues": "promotion.code"
+      },
+      {
+        "case": "h17-expiry-restate",
+        "turn": 0,
+        "model_topic": "shopping.coupon_code",
+        "expected": "promotion.code",
+        "slots": 9,
+        "exact_topic": null,
+        "topic_cues": "promotion.code",
+        "topic_value_source_cues": "promotion.code"
+      },
+      {
+        "case": "h17-expiry-restate",
+        "turn": 1,
+        "model_topic": "shopping.coupon_code",
+        "expected": "promotion.code",
+        "slots": 9,
+        "exact_topic": null,
+        "topic_cues": "promotion.code",
+        "topic_value_source_cues": "promotion.code"
+      },
+      {
+        "case": "h18-duplicate",
+        "turn": 0,
+        "model_topic": "preference.favorite_tea",
+        "expected": "preference.favorite_drink",
+        "slots": 9,
+        "exact_topic": null,
+        "topic_cues": null,
+        "topic_value_source_cues": null
+      },
+      {
+        "case": "h19-synonym",
+        "turn": 0,
+        "model_topic": "preference.favorite_color",
+        "expected": "preference.favorite_color",
+        "slots": 9,
+        "exact_topic": "preference.favorite_color",
+        "topic_cues": "preference.favorite_color",
+        "topic_value_source_cues": "preference.favorite_color"
+      },
+      {
+        "case": "h20-prefer-more",
+        "turn": 0,
+        "model_topic": "preference.favorite_coffee",
+        "expected": "preference.favorite_drink",
+        "slots": 9,
+        "exact_topic": null,
+        "topic_cues": null,
+        "topic_value_source_cues": null
+      },
+      {
+        "case": "h20-prefer-more",
+        "turn": 1,
+        "model_topic": "preference.favorite_coffee",
+        "expected": "preference.favorite_drink",
+        "slots": 9,
+        "exact_topic": null,
+        "topic_cues": null,
+        "topic_value_source_cues": null
+      },
+      {
+        "case": "h21-change-mind",
+        "turn": 0,
+        "model_topic": "preference.favorite_season",
+        "expected": "preference.favorite_season",
+        "slots": 9,
+        "exact_topic": "preference.favorite_season",
+        "topic_cues": "preference.favorite_season",
+        "topic_value_source_cues": "preference.favorite_season"
+      },
+      {
+        "case": "h21-change-mind",
+        "turn": 1,
+        "model_topic": "preference.favorite_season",
+        "expected": "preference.favorite_season",
+        "slots": 9,
+        "exact_topic": "preference.favorite_season",
+        "topic_cues": "preference.favorite_season",
+        "topic_value_source_cues": "preference.favorite_season"
+      },
+      {
+        "case": "h26-sensitive-health-consent",
+        "turn": 0,
+        "model_topic": "health.allergy.penicillin",
+        "expected": null,
+        "slots": 8,
+        "exact_topic": null,
+        "topic_cues": null,
+        "topic_value_source_cues": null
+      },
+      {
+        "case": "h28-change-without-prior",
+        "turn": 0,
+        "model_topic": "preference.favorite_color",
+        "expected": "preference.favorite_color",
+        "slots": 9,
+        "exact_topic": "preference.favorite_color",
+        "topic_cues": "preference.favorite_color",
+        "topic_value_source_cues": "preference.favorite_color"
+      },
+      {
+        "case": "h29-history-statement",
+        "turn": 0,
+        "model_topic": "preference.favorite_season",
+        "expected": "preference.favorite_season",
+        "slots": 9,
+        "exact_topic": "preference.favorite_season",
+        "topic_cues": "preference.favorite_season",
+        "topic_value_source_cues": "preference.favorite_season"
+      },
+      {
+        "case": "h30-supplement-then-confirm",
+        "turn": 0,
+        "model_topic": "preference.favorite_flower",
+        "expected": "preference.favorite_flower",
+        "slots": 9,
+        "exact_topic": "preference.favorite_flower",
+        "topic_cues": "preference.favorite_flower",
+        "topic_value_source_cues": "preference.favorite_flower"
+      },
+      {
+        "case": "h30-supplement-then-confirm",
+        "turn": 1,
+        "model_topic": "preference.favorite_flower",
+        "expected": "preference.favorite_flower",
+        "slots": 9,
+        "exact_topic": "preference.favorite_flower",
+        "topic_cues": "preference.favorite_flower",
+        "topic_value_source_cues": "preference.favorite_flower"
+      }
+    ],
+    "summary": {
+      "exact_topic": {
+        "attach_correct": 11,
+        "attach_wrong": 0,
+        "missed": 12,
+        "new_correct": 4,
+        "new_but_attached": 0,
+        "should_attach": 23,
+        "should_be_new": 4
+      },
+      "topic_cues": {
+        "attach_correct": 20,
+        "attach_wrong": 0,
+        "missed": 3,
+        "new_correct": 4,
+        "new_but_attached": 0,
+        "should_attach": 23,
+        "should_be_new": 4
+      },
+      "topic_value_source_cues": {
+        "attach_correct": 20,
+        "attach_wrong": 0,
+        "missed": 3,
+        "new_correct": 4,
+        "new_but_attached": 0,
+        "should_attach": 23,
+        "should_be_new": 4
+      }
+    }
+  },
+  "advice": {
+    "rows": [
+      {
+        "scenario": "explicit change without change marker",
+        "status": "conflict",
+        "expected": [
+          "confirm_change"
+        ],
+        "advice": [
+          "confirm_change"
+        ],
+        "ok": true
+      },
+      {
+        "scenario": "stated change is applied silently",
+        "status": "confirmed",
+        "expected": [],
+        "advice": [],
+        "ok": true
+      },
+      {
+        "scenario": "older evidence arriving late",
+        "status": "conflict",
+        "expected": [],
+        "advice": [],
+        "ok": true
+      },
+      {
+        "scenario": "single hesitation stays quiet",
+        "status": "pending",
+        "expected": [],
+        "advice": [],
+        "ok": true
+      },
+      {
+        "scenario": "repeated hesitation",
+        "status": "pending",
+        "expected": [
+          "repeated_uncertain"
+        ],
+        "advice": [
+          "repeated_uncertain"
+        ],
+        "ok": true
+      },
+      {
+        "scenario": "repeat of same value",
+        "status": "duplicate",
+        "expected": [],
+        "advice": [],
+        "ok": true
+      },
+      {
+        "scenario": "renamed flower topic",
+        "status": "confirmed",
+        "expected": [
+          "possible_same_slot"
+        ],
+        "advice": [
+          "possible_same_slot"
+        ],
+        "ok": true
+      },
+      {
+        "scenario": "renamed city topic",
+        "status": "confirmed",
+        "expected": [
+          "possible_same_slot"
+        ],
+        "advice": [
+          "possible_same_slot"
+        ],
+        "ok": true
+      },
+      {
+        "scenario": "renamed drink topic via value",
+        "status": "confirmed",
+        "expected": [
+          "possible_same_slot"
+        ],
+        "advice": [
+          "possible_same_slot"
+        ],
+        "ok": true
+      },
+      {
+        "scenario": "new favorite of a different kind",
+        "status": "confirmed",
+        "expected": [],
+        "advice": [],
+        "ok": true
+      },
+      {
+        "scenario": "unrelated new profile fact",
+        "status": "confirmed",
+        "expected": [],
+        "advice": [],
+        "ok": true
+      },
+      {
+        "scenario": "first ever statement",
+        "status": "confirmed",
+        "expected": [],
+        "advice": [],
+        "ok": true
+      },
+      {
+        "scenario": "low importance chatter",
+        "status": "discarded",
+        "expected": [],
+        "advice": [],
+        "ok": true
+      },
+      {
+        "scenario": "same value under a plan topic",
+        "status": "confirmed",
+        "expected": [],
+        "advice": [
+          "possible_same_slot"
+        ],
+        "ok": false
+      }
+    ],
+    "summary": {
+      "scenarios": 14,
+      "exact_match": 13,
+      "should_advise": 5,
+      "advised_correctly": 5,
+      "should_stay_quiet": 9,
+      "unneeded_interruptions": 1
+    }
+  },
+  "limitations": [
+    "Part A topic names were seen while designing the anchoring rule; exploratory only.",
+    "Part B scenarios were written by the same authors as the rules; development check.",
+    "Lexical cues only: no synonyms, no embeddings; one extractor run."
+  ]
+}

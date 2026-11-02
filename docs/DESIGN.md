@@ -94,3 +94,13 @@ plain 消融配置直接存规范 JSON。二者都是一一映射、都使用同
 - **存储与兼容**：`task_checkpoints` 是同一 SQLite 文件中的可选扩展表，首次成功保存才创建；核心 config 仍为 schema 1。存在该表后 dev1 会拒绝打开数据库，属显式兼容边界。
 - **外来库拒绝**：打开已存在的文件时必须有 `config/events/heads` 三张核心表且无未知表，否则拒绝纳管；不能仅凭表名（如 `task_checkpoints`）判断是 MemoryGene 库。
 - **非目标**：recall 不做同义词/语义排序；任务接续不自动概括整段对话、不替换/压缩宿主上下文、不验证对话 locator；二者都不构成权限控制。
+
+## 0.2.0.dev2+：再巩固支持（只读）
+
+`reconsolidate.py` 不改表结构、不写库；状态机仍是唯一改变记忆的路径。
+
+- **定位 `locate`**：识别线索 = 主题名词项 + 值与原话的中文双字/词项，按该用户各槽位中的稀有度加权。主题部分用加权 Dice，内容部分用重叠系数（避免证据越多越稀释）。**锚定**规则：任一主题的属性词（主题名最后一个词）出现在另一方，或值的线索重合；只共享 `preference`/`favorite` 这类类别词不算。
+- **未解决证据 `open_evidence`**：pending/conflict 且没有被 `resolves` 指向、之后没有任何 confirmed、不等于当前值、未到期。
+- **建议 `advise`**：`confirm_change`（明确且更新的说法因未声明改变而进入 conflict）、`possible_same_slot`（新主题首次确认且与已有槽位锚定）、`repeated_uncertain`（同一不确定值在不同时间出现至少两次）。只是建议，执行仍需用户确认后的显式写入。
+- **`recall.unresolved`** 与 **`review`**：把悬而未决的证据以 `not_a_fact` 标出，供宿主在相关时询问；不把它们当答案。
+- 局限：字面线索，不懂上下位关系（茶⊂饮品）；相同值会被当成强线索（“计划吃火锅”与“最喜欢火锅”可能被误提示）。评估见 [experiments/RECONSOLIDATION.md](../experiments/RECONSOLIDATION.md)。
