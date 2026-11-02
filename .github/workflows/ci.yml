@@ -1,0 +1,25 @@
+name: test-and-package
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ['3.10', '3.11', '3.12', '3.13', '3.14']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - run: python -m pip install . build twine ruff
+      - run: ruff check src tests experiments examples
+      - run: python -m unittest discover -s tests -v
+      - run: python examples/lifecycle.py
+      - run: python experiments/run.py --out smoke-results
+      - run: python experiments/nl_eval.py
+      - run: python experiments/reconsolidation_eval.py --out smoke-results
+      - run: python scripts/acceptance.py
+      - run: python -m build
+      - run: python -m twine check dist/*
