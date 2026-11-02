@@ -227,7 +227,7 @@ def s02_irrelevant_content_not_accumulated():
     check("current head unchanged", (body["current"]["id"]) == (head_before), head_before,
           body["current"]["id"])
     duplicates = sql(
-        "SELECT COUNT(*) FROM events WHERE payload LIKE '%\"status\":\"duplicate\"%'"
+        "SELECT COUNT(*) FROM events WHERE CAST(payload AS TEXT) LIKE '%\"status\":\"duplicate\"%'"
     )[0][0]
     check("duplicates retained as evidence", duplicates >= 2, ">=2", duplicates)
 
@@ -545,7 +545,7 @@ def s12_sensitive_consent_not_fabricated():
     check("no fabricated consent", (body["result"]["status"]) == ("rejected_sensitive"), "rejected_sensitive",
           body["result"]["status"])
     count = sql(
-        "SELECT COUNT(*) FROM events WHERE payload LIKE '%13800000000%'"
+        "SELECT COUNT(*) FROM events WHERE CAST(payload AS TEXT) LIKE '%13800000000%'"
     )[0][0]
     check("sensitive value not persisted", count == 0, 0, count)
 
