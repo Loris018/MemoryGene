@@ -6,7 +6,7 @@
 >
 > **这不是强制机制**：宿主只负责注入文字，**不保证**模型每轮都执行；它也不能拦截
 > 或自动写入任何数据。需要宿主强制执行只能自研 Host 插件并装进某个 profile（见
-> `docs/DSH-INTEGRATION.md` §4），我没有做，也不建议去改 Desktop profile。
+> `docs/DSH-INTEGRATION.md` §4），本项目未实现，也不建议修改 Desktop profile。
 >
 > **如何开启**：复制到项目根目录并改名为 `AGENTS.md`。
 > **如何关闭**：删除或改名该项目根目录下的 `AGENTS.md`，与数据库和 Skill 无关。

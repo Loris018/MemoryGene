@@ -85,4 +85,4 @@ On the developer's own local store (4 stored versions in 3 slots), 3 versions do
 
 - The complement *encoding* (`dna-v1`) contributes nothing measurable, as before.
 - What helps is a second strand carrying **independent information** (verbatim evidence) plus a local pairing check: damage shows up as an unpaired value, legitimate updates bring their own evidence, and repair means re-reading the template with the user, never guessing.
-- Whether to call this "DNA-inspired" is a framing choice. Computationally it is evidence grounding. We keep the analogy only as a description of the structure — two strands, local mismatch detection, the template strand used for repair — not as a claim of biological mechanism.
+- Whether to call this "DNA-inspired" is a framing choice. Computationally it is evidence grounding. The analogy is kept only as a description of the structure — two strands, local mismatch detection, the template strand used for repair — not as a claim of biological mechanism.

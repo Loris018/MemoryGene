@@ -2,7 +2,7 @@
 
 Research prototype for the project *Bioinspired Adaptive Memory Systems Based on Neural Reconsolidation and DNA Repair*.
 
-MemoryGene is a long-term memory layer I'm building for LLM agents. It's plain Python on top of SQLite, with no runtime dependencies. The current version is 0.2.0.dev2 and needs Python 3.10 or later.
+MemoryGene is a long-term memory layer for LLM agents, implemented in Python on top of SQLite with no runtime dependencies. The current version is 0.2.0.dev2 and needs Python 3.10 or later.
 
 中文简介在[文末](#中文简介)。
 
@@ -14,7 +14,7 @@ MemoryGene is a long-term memory layer I'm building for LLM agents. It's plain P
 4. Can the assistant notice, during a conversation, that something it remembers is outdated or contradicted, without interrupting all the time?
 5. Do ideas from biology, namely memory reconsolidation and DNA complementarity and repair, give any measurable benefit when translated into software?
 
-I started from long-term companion chat, where shared history and changing preferences matter a lot. Nothing in the design is tied to that, though, and it should work just as well for personal assistants, study buddies or agents that collaborate on a project.
+The project originated in the setting of long-term companion chat, where shared history and changing preferences are central. The design is not specific to that setting and applies equally to personal assistants, learning companions and collaborative agents.
 
 ## How it works
 
@@ -48,7 +48,7 @@ All data used here is fictional. Each experiment can be reproduced from this rep
 
 | Experiment | Result | Report |
 | --- | --- | --- |
-| Policy scenarios (24 scenarios, 47 inputs) | my rules 24/24 correct; overwrite and append-latest baselines 12/24 | [RESULTS](experiments/RESULTS.md) |
+| Policy scenarios (24 scenarios, 47 inputs) | MemoryGene 24/24 correct; overwrite and append-latest baselines 12/24 | [RESULTS](experiments/RESULTS.md) |
 | Uncertain inputs wrongly confirmed | 0/7 (baselines 7/7) | same |
 | Independent LLM extraction on new dialogues (30 dialogues) | write decisions 36/40; exact topic names only 11/27 | [held-out](experiments/heldout-2026-10-29/RESULT.md) |
 | Finding the right existing memory despite a renamed topic | 11/23 with exact names, 20/23 with the new matching, no wrong matches | [RECONSOLIDATION](experiments/RECONSOLIDATION.md) |
@@ -59,13 +59,13 @@ All data used here is fictional. Each experiment can be reproduced from this rep
 
 ## Limitations and negative results
 
-Some of these are negative results. I'm keeping them here because they shaped the design as much as the things that worked.
+Several of the findings below are negative. They are documented here because they informed the design as much as the positive results.
 
-- **Complementary encoding gave no benefit.** My first DNA-inspired design stored lookup keys as complementary base sequences and kept a complementary backup copy. Both turned out to be equivalent to ordinary storage: identical results, four times larger keys, slower lookups, and recovery exactly the same as a plain copy. They're kept only as baselines now.
-- **My pre-registered pairing rule lost to the simplest baseline.** I fixed the hypothesis and thresholds before running the two-strand experiment. A tolerant rule that accepted partial matches did worse than plain substring matching on two damage types. The stricter rule now in use was chosen after seeing those results and still needs fresh data.
+- **Complementary encoding gave no benefit.** The initial DNA-inspired design stored lookup keys as complementary base sequences and kept a complementary backup copy. Both turned out to be equivalent to ordinary storage: identical results, four times larger keys, slower lookups, and recovery exactly the same as a plain copy. Both are retained only as baselines.
+- **The pre-registered pairing rule underperformed the simplest baseline.** The hypothesis and thresholds were fixed before the two-strand experiment was run. A tolerant rule that accepted partial matches did worse than plain substring matching on two damage types. The stricter rule now in use was chosen after seeing those results and still needs fresh data.
 - **Selective memory is not yet learned.** Importance is still supplied by the calling model. Repeated low-importance remarks are dropped and leave no trace.
 - **Matching is lexical.** It cannot know that tea is a kind of drink. Equal values can be mistaken for the same attribute.
-- **The data is small and fictional.** I wrote the labels myself, and there has been no user study yet. These results show that the prototype behaves as designed. They do not show that it is better than existing memory systems; a fair comparison is the next step.
+- **The data is small and fictional.** Labels were written by the project authors, and no user study has been conducted yet. These results show that the prototype behaves as designed. They do not show that it is better than existing memory systems; a fair comparison is the next step.
 
 ## Getting started
 
@@ -113,7 +113,7 @@ skills/, tools/   agent skill template and host integration files
 
 ## Related work
 
-I looked at Mem0, Letta, Graphiti, MemoryBank and a few agent memory plugins before settling on this design. A summary is in [docs/RESEARCH-2026-10-28.zh.md](docs/RESEARCH-2026-10-28.zh.md). The design contract is in [docs/DESIGN.md](docs/DESIGN.md), and the experiment plan is in [docs/EXPERIMENTS.md](docs/EXPERIMENTS.md).
+The design was informed by a review of Mem0, Letta, Graphiti, MemoryBank and several agent memory plugins. A summary is in [docs/RESEARCH-2026-10-28.zh.md](docs/RESEARCH-2026-10-28.zh.md). The design contract is in [docs/DESIGN.md](docs/DESIGN.md), and the experiment plan is in [docs/EXPERIMENTS.md](docs/EXPERIMENTS.md).
 
 ## Privacy
 
@@ -121,16 +121,16 @@ The database is not encrypted, and namespaces are logical partitions rather than
 
 ## 中文简介
 
-MemoryGene 是我在做的一个大语言模型助手长期记忆项目。我想搞清楚这几件事：哪些信息值得长期保存；怎样区分稳定偏好、临时想法、犹豫和明确决定；用户改变主意时怎样更新记忆并保留历史；以及神经记忆再巩固、DNA 互补与修复这些生物学思想，转化成软件机制后是否真的有用。
+MemoryGene 是面向大语言模型助手的长期记忆研究项目，研究以下问题：哪些信息值得长期保存；如何区分稳定偏好、临时想法、犹豫与明确决定；用户改变主意时如何更新记忆并保留历史；以及神经记忆再巩固、DNA 互补与修复等生物学原理转化为软件机制后能否带来可测量的收益。
 
-目前的原型包括：
+当前原型包括：
 
-- 证据状态机：不确定的话不会被当成事实，有冲突时保留证据、等待确认。
-- 完整的版本历史，按主题遗忘时连同依赖一起删除。
-- 再巩固支持：写入前先找到相关的旧记忆；在需要时提醒助手向用户确认一次，平时保持安静。
-- 值与原话的"双链配对"检查：发现那些走正常写入流程、因而校验和发现不了的语义错误。
+- 证据状态机：不确定的陈述不会被确认为事实，出现冲突时保留证据并等待确认。
+- 完整的版本历史；按主题遗忘时同时删除相关依赖。
+- 再巩固支持：写入前定位相关的已有记忆，必要时提示助手向用户确认，其余情况下不打扰用户。
+- 值与原话的"双链配对"检查：识别经由正常写入流程产生、校验和无法发现的语义错误。
 
-负面结果我也都留着。最初的"互补编码"和"互补备份"与普通存储完全等价，没有带来任何好处。事先登记的宽松配对规则也不如最简单的子串匹配。数据规模小、全部为虚构，目前还没有与现有记忆系统做公平比较，这是下一步的工作。
+项目同时记录了负面结果：最初的"互补编码"与"互补备份"与普通存储完全等价，未带来额外收益；预先登记的宽松配对规则不及最简单的子串匹配。目前数据规模较小且均为虚构，与现有记忆系统的公平比较是下一阶段的工作。
 
 ## License
 

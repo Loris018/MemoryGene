@@ -12,7 +12,7 @@
 - 独立抽取器：DeepSeek Harness headless，模型 **deepseek-flash**（现有账号登录，provider `deepseek-account`）。
   没有给模型看标签、旧案例或 MemoryGene 规则；固定 now 与提示模板。
 - 提示模板与哈希：`prompt.md`，sha256 `703acbec…ff6`。每 5 组一批，共 6 批；原始输出与 session id 在 `raw/`。
-- 标签是我自己写的；标签驱动的 oracle 候选通过**同一套** MemoryGene 策略，oracle 最终结果与人工预期
+- 标签由项目作者编写；标签驱动的 oracle 候选通过**同一套** MemoryGene 策略，oracle 最终结果与人工预期
   **30/30 一致**（只说明标签与现有策略自洽，不是外部金标准）。
 
 ## L1 抽取结果（分母公开）

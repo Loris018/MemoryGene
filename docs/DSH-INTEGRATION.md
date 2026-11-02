@@ -1,59 +1,59 @@
-# 接入 DeepSeek Harness
+# DeepSeek Harness 接入说明
 
-我平时用 DeepSeek Harness（桌面版 0.2.1-rc.2）跑本地 Agent，所以第一个接入对象选了它。下面的结论只在这个版本上验证过，换版本要重新跑一遍检查。
+本文说明 MemoryGene 与 DeepSeek Harness（桌面版 0.2.1-rc.2）的接入方式。以下结论仅在该版本上验证，升级后需重新运行检查。
 
-## Harness 怎么发现 Skill
+## Skill 发现机制
 
-Harness 会按优先级扫描这几个目录，每个目录只看一层：
+Harness 按以下优先级扫描 Skill 目录，每个目录仅扫描一层：
 
 | 优先级 | 目录 |
 | --- | --- |
 | 100 | `<项目根>/.dsh/skills` |
 | 200 | `<项目根>/.agents/skills` |
-| 300 | 配置里的 `customSkillDirs` |
+| 300 | 配置项 `customSkillDirs` |
 | 400 | `~/.dsh/skills` |
 | 500 | `~/.agents/skills` |
 
-Skill 必须放成 `<目录>/<名字>/SKILL.md`，frontmatter 里要有 `name` 和 `description`。项目根是离会话目录最近、带 `.git` 的那一级目录，找不到就用会话目录本身。
+Skill 文件需位于 `<目录>/<名称>/SKILL.md`，frontmatter 中须包含 `name` 与 `description`。项目根为距会话工作目录最近、包含 `.git` 的上级目录；若不存在，则使用会话工作目录本身。
 
 ## 安装
 
 ```sh
-.venv/bin/python scripts/install_dsh_skill.py                  # 项目级：只在这个项目里生效
-.venv/bin/python scripts/install_dsh_skill.py --target user    # 用户级：所有工作区都能用
-.venv/bin/python scripts/install_dsh_skill.py --check          # 只检查，不改动
-.venv/bin/python scripts/install_dsh_skill.py --uninstall      # 恢复安装前的状态
+.venv/bin/python scripts/install_dsh_skill.py                  # 项目级安装，仅在本项目内生效
+.venv/bin/python scripts/install_dsh_skill.py --target user    # 用户级安装，对所有工作区生效
+.venv/bin/python scripts/install_dsh_skill.py --check          # 仅检查，不做修改
+.venv/bin/python scripts/install_dsh_skill.py --uninstall      # 恢复至安装前状态
 ```
 
-安装脚本只写三样东西：Skill 文件、适配器配置（`.memorygene/dsh.json` 或 `~/.memorygene/dsh.json`），以及一份卸载用的清单。它不会碰 Harness 的 profile、插件、账号或计费设置。
+安装脚本仅写入三类文件：Skill 文件、适配器配置（`.memorygene/dsh.json` 或 `~/.memorygene/dsh.json`）以及用于卸载的清单。安装过程不修改 Harness 的 profile、插件、账号或计费设置。
 
-## 实际怎么工作
+## 调用流程
 
-流程是：Harness 把 Skill 列进目录 → 模型需要时调用 `skill(memorygene)` 读说明 → 按说明调用 `memorygene-dsh` → 适配器读写 SQLite → 模型根据返回结果回答。
+Harness 将 Skill 列入目录 → 模型按需调用 `skill(memorygene)` 读取说明 → 依照说明调用 `memorygene-dsh` → 适配器读写 SQLite → 模型依据返回结果作答。
 
-这是**显式调用**：模型可以选择不用，Harness 不会在每一轮强制执行。如果想让模型在任何项目里都主动用记忆，可以运行 `scripts/install_global_auto.py`，它会往 `~/.dsh/AGENTS.md` 里加一段提示（`--uninstall` 移除）。但这只是提示词约定，模型不一定照做。
+该流程为**显式调用**：模型可以选择不调用，Harness 不会在每一轮强制执行。如需模型在所有项目中主动使用记忆，可运行 `scripts/install_global_auto.py`，在 `~/.dsh/AGENTS.md` 中加入一段提示（使用 `--uninstall` 移除）。该方式属于提示词约定，不保证模型每次遵循。
 
-我也研究过能不能做成宿主强制的自动记忆（每轮前读、对话后写）。这个版本没有 hooks，插件只能通过 profile 加载，而桌面版的 profile 由应用独占。所以目前没有做插件，也不建议去改桌面 profile。
+宿主强制的自动记忆（每轮前读取、对话后写入）目前无法实现：该版本没有 hooks 机制，插件只能通过 profile 加载，而桌面版 profile 由应用独占。因此本项目暂不提供插件，也不建议修改桌面 profile。
 
-## 验证过的情况
+## 验证结果
 
-- 项目级和用户级 Skill 都能被 Harness 发现并载入，桌面 GUI 里也确认过。
-- 4 个独立的 headless 会话依次完成了：写入 → 换会话读取 → 明确修改 → 遗忘。记录在 `evidence/01-e2e/`。
-- 任务接续功能在两个独立会话里跑通（保存 → 新会话恢复），记录在 `evidence/08-tasks/`。
-- 用户级全局提示开启后，在两个不同项目里，用户没提 Skill 名字，模型也会自动写入和召回记忆。
+- 项目级与用户级 Skill 均可被 Harness 发现并载入，已在桌面 GUI 中确认。
+- 4 个独立的 headless 会话依次完成写入、跨会话读取、明确修改与遗忘，记录见 `evidence/01-e2e/`。
+- 任务接续功能在两个独立会话中完成保存与恢复，记录见 `evidence/08-tasks/`。
+- 启用用户级全局提示后，在两个不同项目中，即使用户未提及 Skill 名称，模型也能自动写入并召回记忆。
 
-## 数据和身份
+## 数据与身份
 
-- 数据库默认是 `<项目>/var/memorygene.db`，按 `--db`、`MEMORYGENE_DB`、配置文件的顺序查找；找不到就报错，不会偷偷新建一个。
-- `namespace` 默认 `dsh`，`subject` 默认 `owner`。不同的人要用不同的 subject。
-- 会话内的临时记忆自动使用 Harness 的 `DSH_SESSION_ID`。
-- `namespace` 和 `subject` 只是逻辑分区，不是权限控制。
+- 数据库默认位于 `<项目>/var/memorygene.db`，依次按 `--db`、`MEMORYGENE_DB`、配置文件解析路径；无法解析时报错，不会隐式创建新库。
+- `namespace` 默认为 `dsh`，`subject` 默认为 `owner`；不同用户应使用不同的 subject。
+- 会话级记忆自动使用 Harness 提供的 `DSH_SESSION_ID`。
+- `namespace` 与 `subject` 仅为逻辑分区，不具备访问控制功能。
 
-## 复查命令
+## 复验命令
 
 ```sh
 python3 tools/dsh/probe_skills.py --cwd "$PWD" --skill "$PWD/.dsh/skills/memorygene/SKILL.md"
 .venv/bin/python scripts/install_dsh_skill.py --check
-.venv/bin/python scripts/e2e_harness.py      # 会真的调用模型
+.venv/bin/python scripts/e2e_harness.py      # 将实际调用模型
 .venv/bin/python scripts/acceptance.py       # 库级验收，不调用模型
 ```
