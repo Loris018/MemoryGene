@@ -1,0 +1,10 @@
+cwd:            <repo>
+project root:   <repo>
+skill file:     <repo>/.dsh/skills/memorygene/SKILL.md
+name:           memorygene
+root:           <repo>/.dsh/skills (rank 100, project-dsh)
+discovered:     True
+winning:        True
+warning:        skill "memorygene" from user-dsh ignored because a higher-priority skill already exists
+evidence level: L2 (rule reimplementation of the installed provider)
+probe exit=0

@@ -1,0 +1,10 @@
+=== clean wheel verification 2026-10-29T09:42:57Z ===
+version 0.2.0.dev2 path /private/tmp/mg-dev2-verify-venv/lib/python3.12/site-packages/memorygene/__init__.py
+--- tests against installed wheel ---
+Ran 139 tests in 4.321s
+
+OK
+--- adapter smoke ---
+remember confirmed
+recall matched 1 matches 1
+verify {'ok': True, 'events': 1, 'task_checkpoints': 0, 'heads': 1, 'problems': [], 'scan': 'full'}

@@ -1,0 +1,550 @@
+{
+  "metadata": {
+    "generated_at": "2026-11-02T03:32:39.276683+00:00",
+    "fictional_data": true,
+    "purpose": "rule-based extractor prototype regression/quality check",
+    "not_a_benchmark": true,
+    "now": "2026-10-24T10:00:00+00:00",
+    "evidence_at": "2026-10-01T00:00:00+00:00",
+    "namespace": "nl-fixture",
+    "subject": "fictional-user",
+    "cases": 47,
+    "turns": 79,
+    "python": "3.11.7 (main, Dec 15 2023, 12:09:56) [Clang 14.0.6 ]",
+    "command": "PYTHONPATH=src .venv/bin/python experiments/nl_eval.py",
+    "label_definition_should_write": "extractor should emit a Candidate for the storage layer; rejected/discarded/expired candidates can still be should_write",
+    "importance_band_rule": "low < 0.5 <= mid < 0.9 <= high",
+    "oracle_importance_representative": {
+      "low": 0.3,
+      "mid": 0.7,
+      "high": 0.95
+    }
+  },
+  "L1": {
+    "metrics": {
+      "decision": {
+        "correct": 77,
+        "total": 79,
+        "rate": 0.9746835443037974
+      },
+      "topic": {
+        "correct": 57,
+        "total": 57,
+        "rate": 1.0
+      },
+      "value": {
+        "correct": 56,
+        "total": 57,
+        "rate": 0.9824561403508771
+      },
+      "certainty": {
+        "correct": 57,
+        "total": 57,
+        "rate": 1.0
+      },
+      "intent": {
+        "correct": 56,
+        "total": 57,
+        "rate": 0.9824561403508771
+      },
+      "importance_band": {
+        "correct": 56,
+        "total": 57,
+        "rate": 0.9824561403508771
+      },
+      "source_verbatim": {
+        "correct": 57,
+        "total": 57,
+        "rate": 1.0
+      },
+      "source_not_bloated": {
+        "correct": 57,
+        "total": 57,
+        "rate": 1.0
+      },
+      "source_exact": {
+        "correct": 57,
+        "total": 57,
+        "rate": 1.0
+      },
+      "sensitive": {
+        "correct": 57,
+        "total": 57,
+        "rate": 1.0
+      },
+      "consent": {
+        "correct": 57,
+        "total": 57,
+        "rate": 1.0
+      },
+      "skip_reason": {
+        "correct": 20,
+        "total": 22,
+        "rate": 0.9090909090909091
+      }
+    },
+    "failure_count": 7,
+    "failures": [
+      {
+        "case": "nl-value-blue-rose",
+        "turn": 0,
+        "text": "我最喜欢蓝色玫瑰。",
+        "field": "value",
+        "expected": "蓝色玫瑰",
+        "observed": "玫瑰"
+      },
+      {
+        "case": "nl-also-usually",
+        "turn": 0,
+        "text": "我平时也喜欢跑步。",
+        "field": "intent",
+        "expected": "assert",
+        "observed": "supplement"
+      },
+      {
+        "case": "nl-not-really-like",
+        "turn": 0,
+        "text": "其实我也没有很喜欢蓝色啦。",
+        "field": "decision",
+        "expected": "skip",
+        "observed": "write"
+      },
+      {
+        "case": "nl-not-really-like",
+        "turn": 0,
+        "text": "其实我也没有很喜欢蓝色啦。",
+        "field": "skip_reason",
+        "expected": "negation",
+        "observed": "write:assert"
+      },
+      {
+        "case": "nl-casual-uncertain",
+        "turn": 0,
+        "text": "随口说一句，我可能喜欢蓝色啦。",
+        "field": "importance_band",
+        "expected": "low",
+        "observed": "mid"
+      },
+      {
+        "case": "nl-spouse-third-party",
+        "turn": 0,
+        "text": "我配偶最喜欢百合。",
+        "field": "decision",
+        "expected": "skip",
+        "observed": "write"
+      },
+      {
+        "case": "nl-spouse-third-party",
+        "turn": 0,
+        "text": "我配偶最喜欢百合。",
+        "field": "skip_reason",
+        "expected": "third_party",
+        "observed": "write:assert"
+      }
+    ]
+  },
+  "L2": {
+    "cases": 47,
+    "turns": 79,
+    "oracle": {
+      "current_correct": {
+        "correct": 47,
+        "total": 47,
+        "rate": 1.0
+      },
+      "history_correct": {
+        "correct": 47,
+        "total": 47,
+        "rate": 1.0
+      },
+      "statuses_correct": {
+        "correct": 79,
+        "total": 79,
+        "rate": 1.0
+      }
+    },
+    "extractor": {
+      "current_correct": {
+        "correct": 44,
+        "total": 47,
+        "rate": 0.9361702127659575
+      },
+      "history_correct": {
+        "correct": 44,
+        "total": 47,
+        "rate": 0.9361702127659575
+      },
+      "statuses_correct": {
+        "correct": 76,
+        "total": 79,
+        "rate": 0.9620253164556962
+      }
+    },
+    "oracle_vs_extractor_outcomes_different": 4,
+    "classification": {
+      "extraction_only": {
+        "count": 5,
+        "cases": [
+          "nl-value-blue-rose",
+          "nl-also-usually",
+          "nl-not-really-like",
+          "nl-casual-uncertain",
+          "nl-spouse-third-party"
+        ]
+      },
+      "storage_only": {
+        "count": 0,
+        "cases": []
+      },
+      "both": {
+        "count": 0,
+        "cases": []
+      },
+      "neither": {
+        "count": 0,
+        "cases": []
+      }
+    },
+    "status_confusion": {
+      "oracle": {},
+      "extractor": {
+        "skipped->confirmed": 2,
+        "discarded->pending": 1
+      }
+    },
+    "failing_cases": [
+      {
+        "case": "nl-value-blue-rose",
+        "verdict": "extraction_only",
+        "expected": {
+          "statuses": [
+            "confirmed"
+          ],
+          "current": "蓝色玫瑰",
+          "history": [
+            "蓝色玫瑰"
+          ]
+        },
+        "oracle": {
+          "statuses": [
+            "confirmed"
+          ],
+          "current": "蓝色玫瑰",
+          "history": [
+            "蓝色玫瑰"
+          ]
+        },
+        "extractor": {
+          "statuses": [
+            "confirmed"
+          ],
+          "current": "玫瑰",
+          "history": [
+            "玫瑰"
+          ]
+        },
+        "extraction_failures": [
+          {
+            "decision_correct": true,
+            "mismatches": [
+              {
+                "field": "value",
+                "expected": "蓝色玫瑰",
+                "observed": "玫瑰"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "case": "nl-also-usually",
+        "verdict": "extraction_only",
+        "expected": {
+          "statuses": [
+            "confirmed"
+          ],
+          "current": "跑步",
+          "history": [
+            "跑步"
+          ]
+        },
+        "oracle": {
+          "statuses": [
+            "confirmed"
+          ],
+          "current": "跑步",
+          "history": [
+            "跑步"
+          ]
+        },
+        "extractor": {
+          "statuses": [
+            "confirmed"
+          ],
+          "current": "跑步",
+          "history": [
+            "跑步"
+          ]
+        },
+        "extraction_failures": [
+          {
+            "decision_correct": true,
+            "mismatches": [
+              {
+                "field": "intent",
+                "expected": "assert",
+                "observed": "supplement"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "case": "nl-not-really-like",
+        "verdict": "extraction_only",
+        "expected": {
+          "statuses": [
+            "skipped"
+          ],
+          "current": null,
+          "history": []
+        },
+        "oracle": {
+          "statuses": [
+            "skipped"
+          ],
+          "current": null,
+          "history": []
+        },
+        "extractor": {
+          "statuses": [
+            "confirmed"
+          ],
+          "current": "蓝色",
+          "history": [
+            "蓝色"
+          ]
+        },
+        "extraction_failures": [
+          {
+            "decision_correct": false,
+            "mismatches": [
+              {
+                "field": "decision",
+                "expected": "skip",
+                "observed": "write"
+              },
+              {
+                "field": "skip_reason",
+                "expected": "negation",
+                "observed": "write:assert"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "case": "nl-casual-uncertain",
+        "verdict": "extraction_only",
+        "expected": {
+          "statuses": [
+            "discarded"
+          ],
+          "current": null,
+          "history": []
+        },
+        "oracle": {
+          "statuses": [
+            "discarded"
+          ],
+          "current": null,
+          "history": []
+        },
+        "extractor": {
+          "statuses": [
+            "pending"
+          ],
+          "current": null,
+          "history": []
+        },
+        "extraction_failures": [
+          {
+            "decision_correct": true,
+            "mismatches": [
+              {
+                "field": "importance_band",
+                "expected": "low",
+                "observed": "mid"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "case": "nl-spouse-third-party",
+        "verdict": "extraction_only",
+        "expected": {
+          "statuses": [
+            "skipped"
+          ],
+          "current": null,
+          "history": []
+        },
+        "oracle": {
+          "statuses": [
+            "skipped"
+          ],
+          "current": null,
+          "history": []
+        },
+        "extractor": {
+          "statuses": [
+            "confirmed"
+          ],
+          "current": "百合",
+          "history": [
+            "百合"
+          ]
+        },
+        "extraction_failures": [
+          {
+            "decision_correct": false,
+            "mismatches": [
+              {
+                "field": "decision",
+                "expected": "skip",
+                "observed": "write"
+              },
+              {
+                "field": "skip_reason",
+                "expected": "third_party",
+                "observed": "write:assert"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "fairness": {
+    "configs": [
+      {
+        "index": "plain",
+        "protection": "none",
+        "events": 56,
+        "payload_bytes": 27163,
+        "backup_bytes": 0,
+        "route_key_bytes": 4184,
+        "database_bytes": 36864,
+        "semantic_digest": "8d12163d88585d702057c64f01262bc57941d52ba6d20b5f6b6df4784072be1e",
+        "redundancy_bytes": 0,
+        "logical_bytes": 31347,
+        "logical_overhead_vs_no_protection": 0.0,
+        "database_overhead_vs_no_protection": 0.0
+      },
+      {
+        "index": "plain",
+        "protection": "copy",
+        "events": 56,
+        "payload_bytes": 27163,
+        "backup_bytes": 27163,
+        "route_key_bytes": 4184,
+        "database_bytes": 36864,
+        "semantic_digest": "8d12163d88585d702057c64f01262bc57941d52ba6d20b5f6b6df4784072be1e",
+        "redundancy_bytes": 27163,
+        "logical_bytes": 58510,
+        "logical_overhead_vs_no_protection": 0.8665263023574824,
+        "database_overhead_vs_no_protection": 0.0
+      },
+      {
+        "index": "plain",
+        "protection": "complement",
+        "events": 56,
+        "payload_bytes": 27163,
+        "backup_bytes": 27163,
+        "route_key_bytes": 4184,
+        "database_bytes": 36864,
+        "semantic_digest": "8d12163d88585d702057c64f01262bc57941d52ba6d20b5f6b6df4784072be1e",
+        "redundancy_bytes": 27163,
+        "logical_bytes": 58510,
+        "logical_overhead_vs_no_protection": 0.8665263023574824,
+        "database_overhead_vs_no_protection": 0.0
+      },
+      {
+        "index": "complement",
+        "protection": "none",
+        "events": 56,
+        "payload_bytes": 27163,
+        "backup_bytes": 0,
+        "route_key_bytes": 16736,
+        "database_bytes": 36864,
+        "semantic_digest": "8d12163d88585d702057c64f01262bc57941d52ba6d20b5f6b6df4784072be1e",
+        "redundancy_bytes": 0,
+        "logical_bytes": 43899,
+        "logical_overhead_vs_no_protection": 0.4004210929275529,
+        "database_overhead_vs_no_protection": 0.0
+      },
+      {
+        "index": "complement",
+        "protection": "copy",
+        "events": 56,
+        "payload_bytes": 27163,
+        "backup_bytes": 27163,
+        "route_key_bytes": 16736,
+        "database_bytes": 45056,
+        "semantic_digest": "8d12163d88585d702057c64f01262bc57941d52ba6d20b5f6b6df4784072be1e",
+        "redundancy_bytes": 27163,
+        "logical_bytes": 71062,
+        "logical_overhead_vs_no_protection": 1.2669473952850352,
+        "database_overhead_vs_no_protection": 0.2222222222222222
+      },
+      {
+        "index": "complement",
+        "protection": "complement",
+        "events": 56,
+        "payload_bytes": 27163,
+        "backup_bytes": 27163,
+        "route_key_bytes": 16736,
+        "database_bytes": 45056,
+        "semantic_digest": "8d12163d88585d702057c64f01262bc57941d52ba6d20b5f6b6df4784072be1e",
+        "redundancy_bytes": 27163,
+        "logical_bytes": 71062,
+        "logical_overhead_vs_no_protection": 1.2669473952850352,
+        "database_overhead_vs_no_protection": 0.2222222222222222
+      }
+    ],
+    "semantic_identical": true,
+    "main_l2_extractor_digest_matches_fairness": true,
+    "main_l2_extractor_digest": "8d12163d88585d702057c64f01262bc57941d52ba6d20b5f6b6df4784072be1e",
+    "semantic_digests": {
+      "plain/none": "8d12163d88585d702057c64f01262bc57941d52ba6d20b5f6b6df4784072be1e",
+      "plain/copy": "8d12163d88585d702057c64f01262bc57941d52ba6d20b5f6b6df4784072be1e",
+      "plain/complement": "8d12163d88585d702057c64f01262bc57941d52ba6d20b5f6b6df4784072be1e",
+      "complement/none": "8d12163d88585d702057c64f01262bc57941d52ba6d20b5f6b6df4784072be1e",
+      "complement/copy": "8d12163d88585d702057c64f01262bc57941d52ba6d20b5f6b6df4784072be1e",
+      "complement/complement": "8d12163d88585d702057c64f01262bc57941d52ba6d20b5f6b6df4784072be1e"
+    },
+    "equal_redundancy_bytes": true,
+    "redundancy_bytes_per_config": {
+      "plain/none": 0,
+      "plain/copy": 27163,
+      "plain/complement": 27163,
+      "complement/none": 0,
+      "complement/copy": 27163,
+      "complement/complement": 27163
+    },
+    "index_route_key_byte_ratio_complement_over_plain": 4.0,
+    "logical_bytes_note": "logical_bytes = payload 表字节 + backup 副本字节 + route 键字节的实测合计；与 SQLite 页对齐后的 database_bytes 分开报告。",
+    "database_size_note": "database_bytes 是相同案例序列写入后、按案例 forget 隔离、关闭连接后的实测文件大小；含 SQLite 页分配与 freelist，不做压缩或纠错推断。"
+  },
+  "limitations": [
+    "人工标签与规则由同一作者同期开发，本评估是回归/质量检查，不是独立留出基准。",
+    "案例全部为虚构中文对话；不包含真实聊天记录或个人数据。",
+    "固定现在时间 2026-10-24T10:00:00Z、固定 namespace/subject；每组对话独立建库。",
+    "每轮只评估首个提取结果；同一轮多记忆陈述的切分不在本评估范围。",
+    "主题映射是固定表，未映射主题只能弃权；不能据此推断通用语义理解能力。",
+    "值匹配为字符串精确匹配，同义值、数字格式差异均计为错误。",
+    "未做标注者一致性、置信区间、模型多次采样或主动召回评估。",
+    "plain/complement 与 copy/complement 只比较编码/副本表示；不声称压缩、加密、语义或纠错优势。"
+  ]
+}

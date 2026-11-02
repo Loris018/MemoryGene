@@ -1,0 +1,19 @@
+module: /tmp/audit_baseline/src/memorygene/__init__.py
+
+=== A. MemoryStore(opened on a FOREIGN sqlite database) ===
+ before tables: ['invoices']
+ after  tables: ['invoices', 'config', 'events', 'sqlite_sequence', 'heads']
+ injected config: {'schema': '1', 'codec': 'dna-v1', 'index': 'complement', 'protection': 'complement'}
+ foreign row intact: (42.5,)
+
+=== A2. non-empty SQLite DB without MemoryGene tables -> adopted (no marker check) ===
+ adopted foreign DB silently; current: None
+
+=== B. fuzz: plain vs complement policy equivalence (500 steps, wide field space) ===
+ divergences: 0 of 500 steps
+
+=== C. fuzz invariants (500 steps, one store) ===
+ invariant violations: [] | total: 0
+
+=== D. fuzz random corruption: never returns wrong bytes silently ===
+ corruption fuzz: wrong-bytes returns: 0 | accepted-or-refused correctly: 300

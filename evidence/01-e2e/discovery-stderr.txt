@@ -1,0 +1,2 @@
+dsh: reasoning:
+The user says don't call any tools. Just list available skill names, one per line. The catalog says memorygene. So output just that.

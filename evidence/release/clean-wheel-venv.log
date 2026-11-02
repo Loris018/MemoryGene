@@ -1,0 +1,12 @@
+=== clean wheel venv install verification 2026-10-24T07:49:37Z ===
+wheel sha256: 6439a91c2c92dbb4c199358a22d530bdc5fee6c25e333b2ba8bf9a6b90649e4f
+import 0.2.0.dev1 /private/tmp/mg-wheel-venv/lib/python3.12/site-packages/memorygene/__init__.py
+--- tests against installed wheel (source tree fixtures) ---
+Ran 88 tests in 2.306s
+
+OK
+--- adapter end-to-end ---
+remember confirmed
+current 玫瑰
+verify True 1
+forgotten 1

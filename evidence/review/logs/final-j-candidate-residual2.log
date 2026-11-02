@@ -1,0 +1,43 @@
+=== HEAD vs candidate-ZIP docs/VALIDATION.json diff ===
+
+=== working-tree VALIDATION diff vs HEAD (Lead in-flight final timestamp) ===
+diff --git a/docs/VALIDATION.json b/docs/VALIDATION.json
+index 1911492..78a1c28 100644
+--- a/docs/VALIDATION.json
++++ b/docs/VALIDATION.json
+@@ -1,7 +1,7 @@
+ {
+   "version": "0.2.0.dev1",
+   "release_label": "0.2.0.dev1 + DSH integration (2026-10-24)",
+-  "checked_at": "2026-10-24T07:48:50.660833+00:00",
++  "checked_at": "2026-10-24T07:50:03.332227+00:00",
+   "environment": {
+     "python_project_venv": "Python 3.11.7",
+     "python_clean_wheel_venv": "Python 3.12 (Homebrew)",
+
+=== historical 87-test log shipped in candidate ZIP? ===
+/tmp/cand_zip2/MemoryGene/evidence/release/zip-install-verification.log:20:Ran 87 tests in 2.349s
+/tmp/cand_zip2/MemoryGene/evidence/release/zip-install-verification.log:36:Ran 87 tests in 2.332s
+(if present: stale pre-fix log still shipped)
+=== candidate ZIP evidence/release logs list ===
+MemoryGene/evidence/release/build.log
+MemoryGene/evidence/release/clean-wheel-venv.log
+MemoryGene/evidence/release/final-verification.log
+MemoryGene/evidence/release/twine.log
+MemoryGene/evidence/release/zip-final-check.log
+MemoryGene/evidence/release/zip-install-verification.log
+MemoryGene/evidence/release/zip-integrity.log
+
+=== VALIDATION verify-head item vs final-verification.log content ===
+[{'command': '.venv/bin/python -m unittest tests.test_memorygene.VerifyAndEdgeCaseTests -v', 'evidence': 'detects head rollback and missing head; 88/88 suite passes', 'exit_code': 0, 'log': 'evidence/release/final-verification.log', 'name': 'verify-head-invariants'}]
+  targeted verify-head command/evidence NOT in cited log
+
+=== foreign views-only adoption re-test on candidate src ===
+views-only foreign DB -> ADOPTED; objects: ['config', 'events', 'heads', 'sqlite_sequence', 'v']
+
+=== candidate ZIP vs working tree untracked audit logs (final rebuild checklist) ===
+untracked (not in candidate ZIP unless committed):
+?? evidence/review/logs/final-g-candidate-artifacts.log
+?? evidence/review/logs/final-h-candidate-full.log
+?? evidence/review/logs/final-i-candidate-residual.log
+?? evidence/review/logs/final-j-candidate-residual2.log

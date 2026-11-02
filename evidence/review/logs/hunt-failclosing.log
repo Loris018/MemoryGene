@@ -1,0 +1,26 @@
+module: /tmp/audit_baseline/src/memorygene/__init__.py
+
+===== docs table divergence: expired head + older SAME-value explicit evidence =====
+
+--- 1 dangling/cross head
+ UPDATE rejected by FK: IntegrityError FOREIGN KEY constraint failed
+ cross-route head -> IntegrityError (expected): Head points outside requested memory route
+ current with dangling head -> None
+
+--- 2 non-head route corruption
+ history before: ['1', '2']
+ history after non-head route corruption: ['2']  (silently dropped id=1)
+ current: 2
+
+--- 3 head route corruption
+ current after head route corruption -> None
+ history still: ['1']
+
+--- 4 head event route corruption
+ current -> IntegrityError (fail closed): Head points outside requested memory route
+
+--- expired-head same value older evidence
+ head live? None
+ status: confirmed  previous_id: None
+ current now: {'candidate': {'at': '2026-09-01T00:00:00Z', 'certainty': 'explicit', 'consent': False, 'expires_at': None, 'importance': 0.7, 'intent': 'assert', 'namespace': 'demo', 'scope': 'persistent', 'sensitive': False, 'session': '', 'source': 'fiction', 'subject': 'u', 'topic': 't', 'value': 'A'}, 'id': '2', 'previous_id': None, 'recorded_at': '2026-10-24T10:00:00+00:00', 'resolves': None, 'schema': 1, 'status': 'confirmed'}
+ DESIGN table implies condition 6 requires different value, condition 9 'no live old value' => confirmed

@@ -1,0 +1,40 @@
+{
+  "ok": true,
+  "project": "<repo>",
+  "target": "project",
+  "skill_root": "<repo>/.dsh/skills",
+  "skill_file": "<repo>/.dsh/skills/memorygene/SKILL.md",
+  "config": "<repo>/.memorygene/dsh.json",
+  "adapter": "<repo>/.venv/bin/memorygene-dsh",
+  "python": "<repo>/.venv/bin/python",
+  "checks": {
+    "template_present": true,
+    "adapter_present": true,
+    "python_present": true,
+    "skill_installed": true,
+    "frontmatter_valid": true,
+    "frontmatter": {
+      "name": "memorygene",
+      "description": "用 MemoryGene 本地 SQLite 记忆库保存明确的长期事实与偏好，或显式保存带来源的任务接续记录；支持查询、修订、到期过滤与遗忘。数据只写本地库，不联网。",
+      "whenToUse": "当用户希望记住、读取、修订或遗忘长期事实，或要求整理当前任务以便继续时。任务接续需显式保存，不自动采集整段对话；仅使用已授权的本地库。"
+    },
+    "config_present": true,
+    "config_valid": true,
+    "project_root_marker": true
+  },
+  "warnings": [],
+  "config_data": {
+    "db": "<repo>/var/memorygene.db",
+    "namespace": "dsh",
+    "subject": "owner",
+    "adapter": "<repo>/.venv/bin/memorygene-dsh",
+    "python": "<repo>/.venv/bin/python",
+    "installed_by": "memorygene/scripts/install_dsh_skill.py",
+    "installed_at": "2026-10-29T05:58:06.334715+00:00",
+    "target": "project"
+  },
+  "discovery_roots": {
+    "project": "<repo>/.dsh/skills",
+    "user": "~/.dsh/skills"
+  }
+}

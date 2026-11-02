@@ -1,0 +1,68 @@
+## C. final ZIP / MANIFEST verification
+
+### artifact sha256
+0a900fa7e187e253f94614568670900a4f0e797be12499d887f720a9ddf3da70  <repo>-0.2.0.dev1-dsh.zip
+d98eace55679d2c3f380efc9c91ba58e1519766d8c1d4f05f6309bd386117138  <repo>-0.2.0.dev1-dsh-MANIFEST.json
+b4267836abe51da7b54f02830392273df6609705eeaecb746831d6fba95cfd7c  <repo>/dist/memorygene-0.2.0.dev1-py3-none-any.whl
+346b6a051492fa8e37fa1b05d63d6903440d6bb12ce33768405129930c27ca6c  <repo>/dist/memorygene-0.2.0.dev1.tar.gz
+
+### sizes vs MANIFEST
+-rw-r--r--@ 1 user  staff  890701 Oct 24 15:40 <repo>-0.2.0.dev1-dsh.zip
+-rw-r--r--@ 1 user  staff   26704 Oct 24 15:39 <repo>/dist/memorygene-0.2.0.dev1-py3-none-any.whl
+-rw-r--r--@ 1 user  staff  241515 Oct 24 15:39 <repo>/dist/memorygene-0.2.0.dev1.tar.gz
+
+### unzip -t
+    testing: MemoryGene/packages/memorygene-0.2.0.dev1.tar.gz   OK
+No errors detected in compressed data of <repo>-0.2.0.dev1-dsh.zip.
+
+### file counts
+zip_entries_all:      145
+zip_regular_files:      145
+manifest_declared_files: 145
+validation_json_says: No errors detected; 142 files; ZIP sha256/size recorded in ../MemoryGene-0.2.0.dev1-dsh-MANIFEST.json (a ZIP cannot embed its own hash)
+
+### forbidden content scan
+pattern \.venv/ -> 0
+pattern \.git/ -> 0
+pattern \.dsh/ -> 0
+pattern \.memorygene/ -> 0
+pattern local-memory\.db -> 0
+pattern \.db$ -> 0
+pattern \.db- -> 0
+pattern var/ -> 0
+pattern dist/ -> 0
+pattern build/ -> 0
+pattern __pycache__ -> 0
+pattern \.egg-info -> 0
+pattern \.DS_Store -> 0
+pattern \.pyc$ -> 0
+
+### required content presence
+^MemoryGene/README\.md$ -> 1
+^MemoryGene/docs/USAGE\.zh\.md$ -> 1
+^MemoryGene/docs/DSH-INTEGRATION\.md$ -> 1
+^MemoryGene/docs/ACCEPTANCE\.md$ -> 1
+^MemoryGene/src/memorygene/core\.py$ -> 1
+^MemoryGene/src/memorygene/adapter\.py$ -> 1
+^MemoryGene/src/memorygene/extract\.py$ -> 1
+^MemoryGene/tests/test_adapter\.py$ -> 1
+^MemoryGene/tests/test_extract\.py$ -> 1
+^MemoryGene/skills/memorygene/SKILL\.md$ -> 1
+^MemoryGene/scripts/install_dsh_skill\.py$ -> 1
+^MemoryGene/tools/dsh/probe_skills\.py$ -> 1
+^MemoryGene/dist/.*\.whl$ -> 0
+^MemoryGene/dist/.*\.tar\.gz$ -> 0
+^MemoryGene/evidence/review/audit-initial\.md$ -> 1
+^MemoryGene/\.github/workflows/ci\.yml$ -> 1
+
+### is wheel/sdist inside ZIP identical to dist/? (hash compare)
+MISSING IN ZIP: dist/memorygene-0.2.0.dev1-py3-none-any.whl
+MISSING IN ZIP: dist/memorygene-0.2.0.dev1.tar.gz
+
+### extracted-ZIP tests (PYTHONPATH=zip/src, project venv 3.11.7)
+Ran 87 tests in 1.930s
+
+OK
+
+### extracted-ZIP tests with zip src but zipped adapter paths
+files:      154

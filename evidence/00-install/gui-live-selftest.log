@@ -1,0 +1,346 @@
+=== GUI live session evidence: 2026-10-24T07:32:23Z ===
+DSH_SESSION_ID=session-8b5a3864-e699-4b7f-aee4-a72899e6f0e8
+
+--- 0. catalog: this live GUI session lists skill 'memorygene' (see session system-reminder) ---
+--- 1. doctor with installed production config (before explicit creation) ---
+{'db': '<repo>/var/memorygene.db', 'db_exists': True, 'ready': True, 'config': '<repo>/.memorygene/dsh.json', 'namespace': 'dsh', 'subject': 'owner'}
+
+--- 2. explicit creation of the empty production database (admin setup, not implicit) ---
+{'ok': True, 'db': '<repo>/var/memorygene.db'} {'ok': True, 'events': 0, 'heads': 0, 'problems': [], 'scan': 'full'}
+
+--- 3. GUI self-test against an isolated fictional test DB ---
+[explicitly create test DB]
+{'ok': True, 'events': 0, 'heads': 0, 'problems': [], 'scan': 'full'}
+[remember rose]
+{
+  "ok": true,
+  "version": "0.2.0.dev1",
+  "command": "remember",
+  "db": "<repo>/evidence/00-install/gui-live/gui-test.db",
+  "namespace": "dsh-gui",
+  "subject": "gui-selftest",
+  "event_id": "dsh-2026-10-24T073223.3814590000-c33105b2",
+  "result": {
+    "id": "dsh-2026-10-24T073223.3814590000-c33105b2",
+    "status": "confirmed",
+    "candidate": {
+      "namespace": "dsh-gui",
+      "subject": "gui-selftest",
+      "topic": "preference.favorite_flower",
+      "value": "玫瑰",
+      "source": "虚构自测：我最喜欢玫瑰。",
+      "at": "2026-10-24T07:32:23.381459+00:00",
+      "certainty": "explicit",
+      "intent": "assert",
+      "importance": 0.8,
+      "scope": "persistent",
+      "session": "",
+      "expires_at": null,
+      "sensitive": false,
+      "consent": false
+    },
+    "previous_id": null,
+    "schema": 1,
+    "recorded_at": "2026-10-24T07:32:23.381459+00:00",
+    "resolves": null
+  }
+}
+exit=0
+[supplement gardenia uncertain]
+{
+  "ok": true,
+  "version": "0.2.0.dev1",
+  "command": "remember",
+  "db": "<repo>/evidence/00-install/gui-live/gui-test.db",
+  "namespace": "dsh-gui",
+  "subject": "gui-selftest",
+  "event_id": "dsh-2026-10-24T073223.4231870000-447655bb",
+  "result": {
+    "id": "dsh-2026-10-24T073223.4231870000-447655bb",
+    "status": "pending",
+    "candidate": {
+      "namespace": "dsh-gui",
+      "subject": "gui-selftest",
+      "topic": "preference.favorite_flower",
+      "value": "栀子花",
+      "source": "虚构自测：栀子花也好看。",
+      "at": "2026-10-24T07:32:23.423187+00:00",
+      "certainty": "uncertain",
+      "intent": "supplement",
+      "importance": 0.6,
+      "scope": "persistent",
+      "session": "",
+      "expires_at": null,
+      "sensitive": false,
+      "consent": false
+    },
+    "previous_id": "dsh-2026-10-24T073223.3814590000-c33105b2",
+    "schema": 1,
+    "recorded_at": "2026-10-24T07:32:23.423187+00:00",
+    "resolves": null
+  }
+}
+exit=0
+[current should stay rose]
+{
+  "ok": true,
+  "version": "0.2.0.dev1",
+  "command": "current",
+  "db": "<repo>/evidence/00-install/gui-live/gui-test.db",
+  "current": {
+    "candidate": {
+      "at": "2026-10-24T07:32:23.381459+00:00",
+      "certainty": "explicit",
+      "consent": false,
+      "expires_at": null,
+      "importance": 0.8,
+      "intent": "assert",
+      "namespace": "dsh-gui",
+      "scope": "persistent",
+      "sensitive": false,
+      "session": "",
+      "source": "虚构自测：我最喜欢玫瑰。",
+      "subject": "gui-selftest",
+      "topic": "preference.favorite_flower",
+      "value": "玫瑰"
+    },
+    "id": "dsh-2026-10-24T073223.3814590000-c33105b2",
+    "previous_id": null,
+    "recorded_at": "2026-10-24T07:32:23.381459+00:00",
+    "resolves": null,
+    "schema": 1,
+    "status": "confirmed"
+  }
+}
+exit=0
+[explicit change]
+{
+  "ok": true,
+  "version": "0.2.0.dev1",
+  "command": "remember",
+  "db": "<repo>/evidence/00-install/gui-live/gui-test.db",
+  "namespace": "dsh-gui",
+  "subject": "gui-selftest",
+  "event_id": "dsh-2026-10-24T073223.5051160000-321291c8",
+  "result": {
+    "id": "dsh-2026-10-24T073223.5051160000-321291c8",
+    "status": "confirmed",
+    "candidate": {
+      "namespace": "dsh-gui",
+      "subject": "gui-selftest",
+      "topic": "preference.favorite_flower",
+      "value": "栀子花",
+      "source": "虚构自测：现在最喜欢栀子花了。",
+      "at": "2026-10-24T07:32:23.505116+00:00",
+      "certainty": "explicit",
+      "intent": "change",
+      "importance": 0.8,
+      "scope": "persistent",
+      "session": "",
+      "expires_at": null,
+      "sensitive": false,
+      "consent": false
+    },
+    "previous_id": "dsh-2026-10-24T073223.3814590000-c33105b2",
+    "schema": 1,
+    "recorded_at": "2026-10-24T07:32:23.505116+00:00",
+    "resolves": null
+  }
+}
+exit=0
+[current should be gardenia]
+{
+  "ok": true,
+  "version": "0.2.0.dev1",
+  "command": "current",
+  "db": "<repo>/evidence/00-install/gui-live/gui-test.db",
+  "current": {
+    "candidate": {
+      "at": "2026-10-24T07:32:23.505116+00:00",
+      "certainty": "explicit",
+      "consent": false,
+      "expires_at": null,
+      "importance": 0.8,
+      "intent": "change",
+      "namespace": "dsh-gui",
+      "scope": "persistent",
+      "sensitive": false,
+      "session": "",
+      "source": "虚构自测：现在最喜欢栀子花了。",
+      "subject": "gui-selftest",
+      "topic": "preference.favorite_flower",
+      "value": "栀子花"
+    },
+    "id": "dsh-2026-10-24T073223.5051160000-321291c8",
+    "previous_id": "dsh-2026-10-24T073223.3814590000-c33105b2",
+    "recorded_at": "2026-10-24T07:32:23.505116+00:00",
+    "resolves": null,
+    "schema": 1,
+    "status": "confirmed"
+  }
+}
+exit=0
+[history]
+{
+  "ok": true,
+  "version": "0.2.0.dev1",
+  "command": "history",
+  "db": "<repo>/evidence/00-install/gui-live/gui-test.db",
+  "history": [
+    {
+      "candidate": {
+        "at": "2026-10-24T07:32:23.381459+00:00",
+        "certainty": "explicit",
+        "consent": false,
+        "expires_at": null,
+        "importance": 0.8,
+        "intent": "assert",
+        "namespace": "dsh-gui",
+        "scope": "persistent",
+        "sensitive": false,
+        "session": "",
+        "source": "虚构自测：我最喜欢玫瑰。",
+        "subject": "gui-selftest",
+        "topic": "preference.favorite_flower",
+        "value": "玫瑰"
+      },
+      "id": "dsh-2026-10-24T073223.3814590000-c33105b2",
+      "previous_id": null,
+      "recorded_at": "2026-10-24T07:32:23.381459+00:00",
+      "resolves": null,
+      "schema": 1,
+      "status": "confirmed"
+    },
+    {
+      "candidate": {
+        "at": "2026-10-24T07:32:23.423187+00:00",
+        "certainty": "uncertain",
+        "consent": false,
+        "expires_at": null,
+        "importance": 0.6,
+        "intent": "supplement",
+        "namespace": "dsh-gui",
+        "scope": "persistent",
+        "sensitive": false,
+        "session": "",
+        "source": "虚构自测：栀子花也好看。",
+        "subject": "gui-selftest",
+        "topic": "preference.favorite_flower",
+        "value": "栀子花"
+      },
+      "id": "dsh-2026-10-24T073223.4231870000-447655bb",
+      "previous_id": "dsh-2026-10-24T073223.3814590000-c33105b2",
+      "recorded_at": "2026-10-24T07:32:23.423187+00:00",
+      "resolves": null,
+      "schema": 1,
+      "status": "pending"
+    },
+    {
+      "candidate": {
+        "at": "2026-10-24T07:32:23.505116+00:00",
+        "certainty": "explicit",
+        "consent": false,
+        "expires_at": null,
+        "importance": 0.8,
+        "intent": "change",
+        "namespace": "dsh-gui",
+        "scope": "persistent",
+        "sensitive": false,
+        "session": "",
+        "source": "虚构自测：现在最喜欢栀子花了。",
+        "subject": "gui-selftest",
+        "topic": "preference.favorite_flower",
+        "value": "栀子花"
+      },
+      "id": "dsh-2026-10-24T073223.5051160000-321291c8",
+      "previous_id": "dsh-2026-10-24T073223.3814590000-c33105b2",
+      "recorded_at": "2026-10-24T07:32:23.505116+00:00",
+      "resolves": null,
+      "schema": 1,
+      "status": "confirmed"
+    }
+  ]
+}
+exit=0
+[topics]
+{
+  "ok": true,
+  "version": "0.2.0.dev1",
+  "command": "topics",
+  "db": "<repo>/evidence/00-install/gui-live/gui-test.db",
+  "namespace": "dsh-gui",
+  "subject": "gui-selftest",
+  "topics": [
+    {
+      "namespace": "dsh-gui",
+      "subject": "gui-selftest",
+      "topic": "preference.favorite_flower",
+      "scope": "persistent",
+      "session": "",
+      "status": "current",
+      "current": {
+        "id": "dsh-2026-10-24T073223.5051160000-321291c8",
+        "value": "栀子花",
+        "at": "2026-10-24T07:32:23.505116+00:00",
+        "expires_at": null
+      },
+      "evidence": {
+        "confirmed": 2,
+        "pending": 1,
+        "conflict": 0,
+        "duplicate": 0
+      }
+    }
+  ]
+}
+exit=0
+[verify]
+{
+  "ok": true,
+  "version": "0.2.0.dev1",
+  "command": "verify",
+  "db": "<repo>/evidence/00-install/gui-live/gui-test.db",
+  "integrity": {
+    "ok": true,
+    "events": 3,
+    "heads": 1,
+    "problems": [],
+    "scan": "full"
+  },
+  "note": "verify is a read-only full scan; it never repairs or changes heads"
+}
+exit=0
+[forget]
+{
+  "ok": true,
+  "version": "0.2.0.dev1",
+  "command": "forget",
+  "db": "<repo>/evidence/00-install/gui-live/gui-test.db",
+  "forgotten": 3
+}
+exit=0
+[current after forget]
+{
+  "ok": true,
+  "version": "0.2.0.dev1",
+  "command": "current",
+  "db": "<repo>/evidence/00-install/gui-live/gui-test.db",
+  "current": null
+}
+exit=0
+[verify after forget]
+{
+  "ok": true,
+  "version": "0.2.0.dev1",
+  "command": "verify",
+  "db": "<repo>/evidence/00-install/gui-live/gui-test.db",
+  "integrity": {
+    "ok": true,
+    "events": 0,
+    "heads": 0,
+    "problems": [],
+    "scan": "full"
+  },
+  "note": "verify is a read-only full scan; it never repairs or changes heads"
+}
+exit=0

@@ -1,0 +1,99 @@
+======================================================================
+PART A1: P1-1 CLI read/delete refuses missing DB
+ cli current  missing-db -> rc=2 out='' file_created=False err='{"error": "MemoryGene database not found at $TMPDIR/tmp31q61v7p/miss-current.db'
+ cli forget   missing-db -> rc=2 out='' file_created=False err='{"error": "MemoryGene database not found at $TMPDIR/tmp31q61v7p/miss-forget.db;'
+ cli history  missing-db -> rc=2 out='' file_created=False err='{"error": "MemoryGene database not found at $TMPDIR/tmp31q61v7p/miss-history.db'
+ cli verify   missing-db -> rc=2 out='' file_created=False err='{"error": "MemoryGene database not found at $TMPDIR/tmp31q61v7p/miss-verify.db;'
+ cli repair   missing-db -> rc=2 out='' file_created=False err='{"error": "MemoryGene database not found at $TMPDIR/tmp31q61v7p/miss-repair.db;'
+ cli topics   missing-db -> rc=2 out='' file_created=False err='{"error": "MemoryGene database not found at $TMPDIR/tmp31q61v7p/miss-topics.db;'
+ cli ingest new-db -> rc=0 created=True status='confirmed'
+
+======================================================================
+PART A2: P1-2 foreign SQLite rejection (no schema injection)
+ adapter on foreign db -> rc=2 err=Not a MemoryGene database; refusing to adopt a foreign SQLite file with tables ['invoices']
+ tables after: ['invoices'] (expected only ['invoices'])
+ foreign row intact: (42.5,)
+ MemoryStore(foreign) -> rc=1 tail=ValueError: Not a MemoryGene database; refusing to adopt a foreign SQLite file with tables ['invoices']
+ tables after API attempt: ['invoices']
+
+======================================================================
+PART A3: P1-3 verify detects metadata damage that single-topic read hides
+ single-topic current (documented limitation): None
+ verify ok: False problems: [{'kind': 'head', 'route': 'CORRUPT', 'event_id': '2', 'problem': "head route does not match its event's routing fields"}]
+ history after non-head route tamper (documented limitation): ['2']
+ verify ok: False problems: [{'kind': 'event', 'event_id': '1', 'problem': 'Event identity/routing mismatch'}]
+
+ verify FALSE-NEGATIVE probes:
+  delete-heads-row -> verify ok: True problems: [] (missing head undetected)
+  corrupt-backup -> verify ok: True problems: [] (backup damage undetected)
+
+ verify plain-index ok: True
+
+======================================================================
+PART B: adapter precedence / allow-create / config resolution
+
+### doctor via upward config discovery
+ rc=0
+ out={"ok": true, "version": "0.2.0.dev1", "python": "<repo>/.venv/bin/python3", "db": "$TMPDIR/tmpvp03f2ss/proj/var/m.db", "db_configured": true, "db_exists": false, "config": "$TMPDIR/tmpvp03f2ss/proj/.memorygene/dsh.json", "namespace": 
+ err=None
+ env-over-config db: $TMPDIR/tmpvp03f2ss/env.db namespace: env-ns
+ argv-over-env db: $TMPDIR/tmpvp03f2ss/argv.db
+ nonexistent --config -> rc: 2 err: Configuration file not found: $TMPDIR/tmpvp03f2ss/nope.json
+ missing db current -> rc=2 created=False err=MemoryGene database not found at $TMPDIR/tmpvp03f2ss/new/created.db. Refusing to create a new database implicitly; pass --allow-create only when a new store is intended, or fix the configured path.
+ --allow-create current -> rc=0 created=True mode=0o600 current=None
+ --allow-create AFTER subcommand -> rc=0 created=True mode=0o600
+ --allow-create on foreign db -> rc=2 err=Not a MemoryGene database; refusing to adopt a foreign SQLite file with tables ['invoices']
+ doctor missing db -> rc=0 ready=False created=False
+
+======================================================================
+PART C: topic validation edge cases
+  topic='Preference.Flower'            len= 17 rc=2 status=None err=topic must be a stable dotted canonical name, e.g. preference.favorite_flower (lowercase ascii letters, digits, '.', '-', '_')
+  topic='a..b'                         len=  4 rc=2 status=None err=topic must be a stable dotted canonical name, e.g. preference.favorite_flower (lowercase ascii letters, digits, '.', '-', '_')
+  topic='café'                         len=  4 rc=2 status=None err=topic must be a stable dotted canonical name, e.g. preference.favorite_flower (lowercase ascii letters, digits, '.', '-', '_')
+  topic='1abc'                         len=  4 rc=2 status=None err=topic must be a stable dotted canonical name, e.g. preference.favorite_flower (lowercase ascii letters, digits, '.', '-', '_')
+  topic='a.'                           len=  2 rc=2 status=None err=topic must be a stable dotted canonical name, e.g. preference.favorite_flower (lowercase ascii letters, digits, '.', '-', '_')
+  topic='.a'                           len=  2 rc=2 status=None err=topic must be a stable dotted canonical name, e.g. preference.favorite_flower (lowercase ascii letters, digits, '.', '-', '_')
+  topic='a_b-c.d'                      len=  7 rc=0 status=confirmed err=
+  topic='aaaaaaaaaaaaaaaaaaaaaaaaaa'   len=121 rc=2 status=None err=topic exceeds 120 characters
+  topic='aaaaaaaaaaaaaaaaaaaaaaaaaa'   len=120 rc=0 status=confirmed err=
+
+======================================================================
+PART D: consent / sensitive handling
+  sensitive no consent                                 rc=0 ok=True status=rejected_sensitive err=
+  consent boolean only (no evidence)                   rc=2 ok=None status=None err=Sensitive memory needs verbatim --consent-evidence from the user; a boolean alone is not evidence of consent.
+  consent empty evidence                               rc=2 ok=None status=None err=Sensitive memory needs verbatim --consent-evidence from the user; a boolean alone is not evidence of consent.
+  consent evidence w/o sensitive                       rc=2 ok=None status=None err=--consent is only meaningful together with --sensitive
+  sensitive + consent + arbitrary nonempty evidence    rc=0 ok=True status=confirmed err=
+  persisted events: 1
+   status: confirmed | sensitive: True | consent: True | source tail: 我的手机号是 13800000000。【用户同意原话：随便一句不是用户同意】
+
+======================================================================
+PART E: session handling
+ current with blank --session (persistent) -> rc=0 err=
+ remember persistent + explicit --session -> rc=2 err=Persistent scope must not carry a session ID
+ current persistent + explicit --session -> rc=0 (silently accepted?) current=None
+ session scope uses DSH_SESSION_ID -> rc=0 status=confirmed
+ session scope whitespace env -> rc=2 err=Session-scoped memory requires a session ID (--session or DSH_SESSION_ID); persistent memory is the default.
+ topics: []
+
+======================================================================
+PART F: argument-injection / normalize_argv probes (memory text that looks like a global flag)
+  argv=['remember', '--topic', 't', '--value', '--db=$TMPDIR/tmpvp03f2ss/evil.db', '--source', 's']
+    rc=2 ok=None status=None err= evil_created=False
+  argv=['remember', '--topic', 't', '--value', 'A', '--source', '--allow-create', 'extra']
+    rc=0 ok=True status=confirmed err= evil_created=False
+  argv=['remember', '--topic', 't', '--value', '--session', 'A2', '--source', 's']
+    rc=2 ok=None status=None err= evil_created=False
+
+======================================================================
+PART G: value NFC / idempotent retry / limits
+ NFD value status: confirmed | stored value == NFC: True 'café'
+ retry with NFC value, same id -> identical: True
+  value 2001 chars     rc=2 err=value exceeds 2000 characters
+  source 4001 chars    rc=2 err=source exceeds 4000 characters
+  event-id 161 chars   rc=2 err=event_id exceeds 160 characters
+
+======================================================================
+PART H: verify/topics via adapter on clean db, and corrupt db error paths
+ adapter verify clean -> rc: 0 ok: True
+ adapter topics -> rc: 0 count: 1

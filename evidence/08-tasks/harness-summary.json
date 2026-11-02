@@ -1,0 +1,43 @@
+{
+  "passed": true,
+  "checks": {
+    "save_session_completed": true,
+    "save_skill_and_adapter_completed": true,
+    "saved_in_actual_session": true,
+    "goal_preserved": true,
+    "constraint_preserved": true,
+    "pending_not_promoted": true,
+    "no_long_term_fact_written": true,
+    "resume_session_completed": true,
+    "resume_skill_and_adapter_completed": true,
+    "explicit_resume_tool_completed": true,
+    "answer_contains_task_and_constraint": true,
+    "resume_did_not_write": true,
+    "resume_returned_expected_record": true
+  },
+  "scope": "Explicit Skill + CLI, two fictional headless sessions. No GUI, automatic compaction or native context switching test.",
+  "post_audit": "Structured output with DSH exit footer checked against recorded tool calls; no extra model session.",
+  "sessions": [
+    {
+      "name": "A-save",
+      "exit": 0,
+      "elapsed_seconds": 15.7,
+      "session_id": "session-a9ec6c88-ffa1-4b66-b44e-06d2cbdcf697",
+      "tool_evidence": {
+        "skill": true,
+        "adapter": true
+      }
+    },
+    {
+      "name": "B-resume",
+      "exit": 0,
+      "elapsed_seconds": 18.2,
+      "session_id": "session-ea041870-4ef0-4330-9129-488c12a407ec",
+      "tool_evidence": {
+        "skill": true,
+        "adapter": true
+      }
+    }
+  ],
+  "raw_evidence": "evidence/08-tasks/harness/run-20261029T055415936649Z"
+}

@@ -1,0 +1,74 @@
+=== FINAL spot check 2026-10-24T07:53:51Z ===
+HEAD: a1612922e0d7a015145d0fcd3f10e72549b5b378 2026-10-24 15:53:18 +0800 test: final ZIP extraction verification (88 tests, no forbidden content)
+git status:
+?? evidence/review/logs/final-k-final-artifact-check.log
+
+--- artifact hashes/sizes/counts ---
+797c6b221f26431817e494b8089ff30f02250ea9abffca34928669f2f355b526  <repo>-0.2.0.dev1-dsh.zip
+0296bafcabc964d164fb058175b31159583691183632a8791877dd858f08913d  <repo>/dist/memorygene-0.2.0.dev1-py3-none-any.whl
+a96b0e503d6440423f3c14b57cf0c0e85c6cb29e03fec73de0a87ca242e4dcdd  <repo>/dist/memorygene-0.2.0.dev1.tar.gz
+40a1b96b3a6d45e4543031b2bc954ea79caaebc22568a365475d27d1cf18a851  <repo>-0.2.0.dev1-dsh-MANIFEST.json
+-rw-r--r--@ 1 user  staff  936883 Oct 24 15:53 <repo>-0.2.0.dev1-dsh.zip
+-rw-r--r--@ 1 user  staff   27166 Oct 24 15:53 <repo>/dist/memorygene-0.2.0.dev1-py3-none-any.whl
+-rw-r--r--@ 1 user  staff  242372 Oct 24 15:53 <repo>/dist/memorygene-0.2.0.dev1.tar.gz
+zip entries:      172
+git tracked:      170
+
+--- expected vs actual ---
+OK   zip_sha expected 797c6b221f264318… manifest 797c6b221f264318…
+OK   zip_bytes expected 936883 manifest 936883
+OK   zip_files expected 172 manifest 172
+OK   wheel_sha expected 0296bafcabc964d1… manifest 0296bafcabc964d1…
+MISMATCH  wheel_bytes expected 26704 manifest 27166
+OK   sdist_sha expected a96b0e503d644042… manifest a96b0e503d644042…
+OK   final_commit expected a161292 manifest a161292
+OK   tests expected 88 manifest 88
+verify_head_invariants: {'status': 'head rollback and missing head detected', 'test': 'tests/test_memorygene.py::VerifyAndEdgeCaseTests::test_verify_detects_head_rollback_and_missing_head', 'log': 'evidence/release/final-verification.log'}
+zip_extraction: {'status': 'OK', 'tests': 88, 'log': 'evidence/release/zip-final-check.log'}
+go_audit: ['final_audit_report']
+
+--- unzip -t / forbidden scan ---
+    testing: MemoryGene/packages/memorygene-0.2.0.dev1.tar.gz   OK
+No errors detected in compressed data of <repo>-0.2.0.dev1-dsh.zip.
+  \.venv/ -> 0
+  \.git/ -> 0
+  \.dsh/ -> 0
+  \.memorygene/ -> 0
+  local-memory\.db -> 0
+  \.db$ -> 0
+  var/ -> 0
+  dist/ -> 0
+  build/ -> 0
+  __pycache__ -> 0
+  \.egg-info -> 0
+  \.pyc$ -> 0
+
+--- key content in final ZIP ---
+  MATCH src/memorygene/core.py
+  MATCH docs/VALIDATION.json
+  MATCH evidence/review/audit-final.md
+  MATCH evidence/review/logs/final-j-candidate-residual2.log
+  MATCH evidence/review/scripts/repro_verify_head_rollback.py
+  MATCH docs/USAGE.zh.md
+  MATCH experiments/NL_RESULTS.md
+  MATCH experiments/RESULTS.md
+  MATCH evidence/release/zip-install-verification.log
+
+--- P2 fixes re-check ---
+1) VALIDATION 142? 0 ; zip-integrity evidence:
+['No errors detected; final file count and ZIP/wheel/sdist sha256 are recorded in ../MemoryGene-0.2.0.dev1-dsh-MANIFEST.json (a ZIP cannot embed its own hash/count)']
+2) RESULTS.md line3 + timings:
+版本：0.2.0.dev1；运行时间（UTC）：2026-10-24T07:48:39.281875+00:00；Python：3.11.7；固定种子：20261024。
+| plain | 2100/2100 | 19.21 μs/次 | 17890 | 286720 |
+| complement | 2100/2100 | 61.52 μs/次 | 71560 | 606208 |
+results.json: 2026-10-24T07:48:39.281875+00:00 [('plain', 19210.556666666667), ('complement', 61525.0)]
+3) NL digests:
+1
+0
+4) USAGE 87 left:
+0
+5) historical marker:
+1:[HISTORICAL] 本文件记录的是修复 verify 之前的 ZIP 安装验证（当时 87 项测试）。最终 88 项测试的验证见 evidence/release/final-verification.log 与 zip-final-check.log。
+6) verify test output in final log:
+7) var db mode:
+-rw-------@ 1 user  staff  36864 Oct 24 15:32 <repo>/var/memorygene.db

@@ -1,0 +1,43 @@
+=== new HEAD 98722de: fixes verification (auditor independent) ===
+commit: 98722de0de3f7da4c84b4dfd4406dfcb36f74cf9 2026-10-24 15:48:55 +0800 fix(verify): detect head rollback and missing head; refresh final verification log
+
+--- P1-new-2 repro: verify must now detect head rollback + missing head ---
+healthy current: 栀子花 (id=2)
+after head rollback, current: 玫瑰 (old value resurrected)
+verify() -> {'ok': False, 'problems': [{'kind': 'head', 'route': 'GGCATCTCGCGTGCGGGCAGGCAATCTCTCATTCTCGAGGTCTCTCATTCTCGAGTTCTCTCATTCTCGATTGCGGGATCGATAGCCGGATAGAGTGCGGGCACGAGTTCTCTCATTCTCTCTCGGAG', 'event_id': '1', 'problem': 'head is not the latest confirmed event of its route (rolled back or inconsistent)'}]}
+Traceback (most recent call last):
+  File "<repo>/evidence/review/scripts/repro_verify_head_rollback.py", line 22, in <module>
+    assert report["ok"] is True, "unexpected: verify detected rollback"
+           ^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpected: verify detected rollback
+[expected AssertionError: verify DETECTED the previously-missed damage]
+
+--- unittest (expect 88) ---
+Ran 88 tests in 1.917s
+
+OK
+
+--- ruff (expect All checks passed) ---
+All checks passed!
+
+--- targeted new test ---
+----------------------------------------------------------------------
+Ran 1 test in 0.002s
+
+OK
+
+--- final-verification.log (new, in 98722de) ---
+
+--- VALIDATION.json tests/checked_at (98722de) ---
+checked_at: 2026-10-24T07:48:50.660833+00:00
+[('ruff', None, 0), ('source-tests', 88, 0), ('clean-wheel-venv-install', 88, 0)]
+
+--- docs wording about verify (98722de) ---
+/tmp/final2_tree/README.md:84:memorygene-dsh verify                                  # 只读全库完整性扫描
+/tmp/final2_tree/README.md:97:- **保护**：SHA-256 校验；无冗余、普通副本或等字节预算的打包互补副本；payload 损坏读写失败关闭；`verify` 可全库扫描发现 payload/digest/route 异常、head 指向缺失/未确认/路由不符事件、head 回滚或缺失（不检测被删除的非 head 历史事件）。
+/tmp/final2_tree/SECURITY.md:24:- `verify` 是只读全库扫描：payload/digest/身份/路由不一致、head 指向缺失/未确认/路由不符事件、head 回滚或缺失都会报告；它不修复、不改 heads。单主题读取只校验它触达的行，route/heads 元数据损坏可能表现为“为空/缺事件”或“旧值像当前值”，发现此类问题应运行 `verify`。`verify` 不检测被删除的非 head 历史事件（seq 空洞也可能来自合法回滚事务）。
+/tmp/final2_tree/docs/DESIGN.md:81:- 损坏的检测范围分两层：payload/digest 字节损坏在读写该事件时严格失败关闭；`route`/`heads` 元数据损坏可能让单主题读取看起来“为空/缺事件”，需要用只读的 `verify()` 全库扫描才能发现。`verify` 不修复、不改 heads。
+/tmp/final2_tree/docs/DESIGN.md:87:- `verify()`：全库扫描 events 与 heads，报告字节/摘要/身份/路由不一致、head 指向未确认/缺失/路由不符事件、head 回滚（不是该 route 最新 confirmed）与「有 confirmed 却无 head」。只检测不修复；不检测被删除的非 head 历史事件。
+/tmp/final2_tree/docs/AUDIT.md:16:| P1-3 | “损坏 fail-closed”承诺过宽：route/heads 元数据损坏会让单主题读取静默返回空/缺事件 | 新增只读 `verify()` 全库扫描检测元数据损坏（含 head 回滚与缺失 head）；README/SECURITY/AUDIT 明确限定“payload/digest 字节损坏严格失败关闭；元数据损坏需 verify 检测” | 已修复（检测）并收紧文档；单主题读路径不做全库扫描，属明确限制 |
+/tmp/final2_tree/docs/AUDIT.md:37:| 单主题读取漏掉元数据损坏 | `verify()` 全库扫描报告 route/heads 异常、head 回滚与缺失 head；单主题热路径不做全库扫描（明确限制） |
+/tmp/final2_tree/docs/AUDIT.md:57:- 同文件副本不是灾备；不支持 SQLite 页损坏、全文件丢失、防恶意重写摘要；`verify` 可发现 route/heads 元数据异常、head 回滚与缺失 head，但不检测被删除的非 head 历史事件，单主题读取也不会主动全库扫描。

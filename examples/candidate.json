@@ -1,0 +1,11 @@
+{
+  "event_id": "demo-1",
+  "candidate": {
+    "namespace": "demo",
+    "subject": "fictional-user",
+    "topic": "preference.favorite_flower",
+    "value": "玫瑰",
+    "source": "虚构用户：我最喜欢玫瑰。",
+    "at": "2026-10-01T00:00:00Z"
+  }
+}

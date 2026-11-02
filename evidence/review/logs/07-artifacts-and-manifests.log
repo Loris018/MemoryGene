@@ -1,0 +1,107 @@
+## shipped artifact facts (read-only; extracted copies under /tmp)
+
+### manifest sha256 vs actual
+-- zip:    e84906cb57bc1edff1774187a577e7fe9b20eed977d4400664b27c8ad499286d  <repo>-0.2.0.dev1.zip
+-- wheel:  b9ec5e429e2464356d9c558b8c00961996c7f5e991c7b059121dcb1638701a11  <workspace>/packages/memorygene-0.2.0.dev1-py3-none-any.whl
+-- sdist:  5c04d267f272e05fc3369c2092d7d9f355d77f5e4dcd03f3a53647f0a7ac3083  <workspace>/packages/memorygene-0.2.0.dev1.tar.gz
+-- sizes:
+-rw-r--r--@ 1 user  staff  151699 Oct 24 12:41 <repo>-0.2.0.dev1.zip
+-rw-r--r--@ 1 user  staff   11130 Oct 24 12:40 <workspace>/packages/memorygene-0.2.0.dev1-py3-none-any.whl
+-rw-r--r--@ 1 user  staff  150737 Oct 24 12:40 <workspace>/packages/memorygene-0.2.0.dev1.tar.gz
+
+### declared in RELEASE-MANIFEST.json
+{
+  "checked_at": "2026-10-24T04:41:11.626266+00:00",
+  "archive_crc": "passed",
+  "archive_tests": 36,
+  "archive_runtime": "installed wheel in separate virtual environment",
+  "final_metadata": "passed",
+  "sdist_validation_record": "present",
+  "files": [
+    {
+      "file": "MemoryGene-0.2.0.dev1.zip",
+      "bytes": 151699,
+      "sha256": "e84906cb57bc1edff1774187a577e7fe9b20eed977d4400664b27c8ad499286d"
+    },
+    {
+      "file": "packages/memorygene-0.2.0.dev1-py3-none-any.whl",
+      "bytes": 11130,
+      "sha256": "b9ec5e429e2464356d9c558b8c00961996c7f5e991c7b059121dcb1638701a11"
+    },
+    {
+      "file": "packages/memorygene-0.2.0.dev1.tar.gz",
+      "bytes": 150737,
+      "sha256": "5c04d267f272e05fc3369c2092d7d9f355d77f5e4dcd03f3a53647f0a7ac3083"
+    }
+  ]
+}
+
+### unzip -t
+    testing: MemoryGene/tests/test_memorygene.py   OK
+No errors detected in compressed data of <repo>-0.2.0.dev1.zip.
+
+### results.json identities
+25216bd569fd186cf853606ce776c49df1134b140e5818607919ce6b496a0552  /tmp/audit_baseline/experiments/results/results.json
+2ef4a7418cc7b2e7eb45bc2e1b394bbe55c73a830a6aff004a786c6a294ee581  /tmp/audit_zip/MemoryGene/experiments/results/results.json
+2ef4a7418cc7b2e7eb45bc2e1b394bbe55c73a830a6aff004a786c6a294ee581  /tmp/audit_pkg/sdist/memorygene-0.2.0.dev1/experiments/results/results.json
+
+### git baseline vs ZIP differing files (all other tracked files byte-identical)
+DIFF: experiments/results/results.json
+MISSING IN ZIP: local-memory.db
+ZIP extra files not tracked at 4bb7306: src/memorygene/__pycache__/__init__.cpython-311.pyc src/memorygene/__pycache__/__init__.cpython-313.pyc src/memorygene/__pycache__/cli.cpython-311.pyc src/memorygene/__pycache__/cli.cpython-313.pyc src/memorygene/__pycache__/codec.cpython-311.pyc src/memorygene/__pycache__/codec.cpython-313.pyc src/memorygene/__pycache__/core.cpython-311.pyc src/memorygene/__pycache__/core.cpython-313.pyc tests/__pycache__/test_memorygene.cpython-311.pyc tests/__pycache__/test_memorygene.cpython-313.pyc 
+
+### tests run from extracted ZIP
+Ran 36 tests in 0.324s
+
+OK
+
+### tests run from installed wheel (fresh /tmp venv, 3.13.3)
+Ran 36 tests in 0.304s
+
+OK
+
+### wheel import / example / CLI
+0.2.0.dev1
+lifecycle current = 栀子花
+{
+  "id": "demo-1",
+
+### tracked local-memory.db in git baseline
+100644 blob a1a69a28f1698d98d46a8e86525161f9594898ac	local-memory.db
+sha256: 934ab034bb4e7fcbb244fa4585aede303ef957b2caabd7ca83955ddfbcf5fbcb  -
+contents (fictional demo only): event id demo-1, source 虚构用户：我最喜欢玫瑰。
+recorded_at=2026-10-24T04:50:36 (after validation at 04:40, after ZIP built 04:41)
+
+### CORRECTION: extra files check must use archive listing (the pycache above was created by my own test runs inside /tmp extraction)
+archive listing count:       29 files
+pycache/cache entries in shipped archive: 0
+shipped archive top entries:
+.github/workflows/ci.yml
+.gitignore
+CONTRIBUTING.md
+LICENSE
+MANIFEST.in
+README.md
+SECURITY.md
+docs/AUDIT.md
+docs/DESIGN.md
+docs/EXPERIMENTS.md
+docs/PROVENANCE.md
+docs/RELEASE.md
+docs/VALIDATION.json
+examples/candidate.json
+examples/lifecycle.py
+experiments/RESULTS.md
+experiments/results/mechanism.png
+experiments/results/policy.png
+experiments/results/results.json
+experiments/results/trace.json
+experiments/run.py
+experiments/scenarios.json
+pyproject.toml
+skills/memorygene/SKILL.md
+src/memorygene/__init__.py
+src/memorygene/cli.py
+src/memorygene/codec.py
+src/memorygene/core.py
+tests/test_memorygene.py

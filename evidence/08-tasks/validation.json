@@ -1,0 +1,70 @@
+{
+  "version": "0.2.0.dev2",
+  "checked_at": "2026-10-29T06:00:04.149920+00:00",
+  "base_commit": "2408658",
+  "source_tests": {
+    "passed": 138,
+    "new_task_tests": 20,
+    "new_harness_guard_tests": 3,
+    "log": "tests.log"
+  },
+  "ruff": {
+    "passed": true,
+    "scope": [
+      "src",
+      "tests",
+      "scripts",
+      "experiments",
+      "examples"
+    ]
+  },
+  "acceptance": {
+    "scenarios": 12,
+    "checks": 52,
+    "evidence": "acceptance-results.json"
+  },
+  "harness": {
+    "sessions": 2,
+    "checks": 13,
+    "passed": true,
+    "evidence": "harness-summary.json",
+    "scope": "Explicit Skill save and cross-session authorized read; no native context replacement",
+    "note": "Runtime unchanged after real sessions; one Skill sentence later clarified not to repeat authorization requests for already authorized tasks; structured output post-audited from recorded events."
+  },
+  "wheel": {
+    "task_tests": 20,
+    "isolated_env": "~/Documents/Codex/2026-10-24/referenced-chatgpt-conversation-this-is-an/work/tasks-wheel-env",
+    "python": "3.11.7",
+    "log": "wheel-task-tests.log"
+  },
+  "installed_skills": [
+    "project",
+    "user"
+  ],
+  "production_db": {
+    "unchanged": true,
+    "before": {
+      "sha256": "9a961889c8231ed4881d33147295562ea709297a3bc9273552960e9b5944d9e4",
+      "events": 4
+    },
+    "after": {
+      "sha256": "9a961889c8231ed4881d33147295562ea709297a3bc9273552960e9b5944d9e4",
+      "events": 4
+    },
+    "task_extension_created": false
+  },
+  "generic_codex_skill_validation": {
+    "passed": false,
+    "reason": "DSH supports whenToUse; generic Codex validator rejects this field. DSH installer checks and actual skill loading passed.",
+    "log": "codex-skill-validator.log"
+  },
+  "limitations": [
+    "Conversation locators are caller-provided, not independently resolved or semantically verified",
+    "Explicitly declared memory dependencies only; undeclared copied text and external files are not tracked",
+    "Task reads return review_required; no automatic conversation compaction, native context switching, or GUI validation",
+    "Logical deletion, not physical erasure; expiry is read-time filtering",
+    "New optional task-v1 table is created on first successful task-save; dev1 then refuses that database",
+    "Local macOS validation; no remote CI, Windows/Linux test or held-out continuation benchmark"
+  ],
+  "evidence_root": "evidence/08-tasks"
+}

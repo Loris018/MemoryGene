@@ -1,0 +1,8 @@
+committed == ZIP == sdist (full JSON): False
+fresh semantics == committed semantics: True
+committed generated_at: 2026-10-24T07:48:39.281875+00:00 | python: 3.11.7 (main, Dec 15
+RESULTS.md line3 claims: 2026-10-24T07:36:13.906279+00:00 / Python 3.11.7
+committed index median ns: [('plain', 19210.556666666667), ('complement', 61525.0)]
+RESULTS.md claims 19.77 us plain / 61.63 us complement
+committed route bytes/db bytes: [('plain', 17890, 286720), ('complement', 71560, 606208)] | README/RESULTS claims 17890/71560, 286720/606208
+fresh index median ns (descriptive): [('plain', 19032.64), ('complement', 60757.363333333335)]

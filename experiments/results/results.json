@@ -1,0 +1,305 @@
+{
+  "version": "0.2.0.dev2",
+  "generated_at": "2026-10-29T09:42:30.502851+00:00",
+  "seed": 20261024,
+  "python": "3.11.7 (main, Dec 15 2023, 12:09:56) [Clang 14.0.6 ]",
+  "platform": "macOS-27.2-arm64-arm-64bit",
+  "evidence_clock": "2026-10-24T10:00:00Z",
+  "policies": [
+    {
+      "mode": "overwrite",
+      "scenarios": 24,
+      "transitions": 47,
+      "current_correct": 12,
+      "current_accuracy": 0.5,
+      "history_correct": 6,
+      "history_accuracy": 0.25,
+      "false_activations": 20,
+      "uncertain_writes": 7,
+      "uncertain_total": 7
+    },
+    {
+      "mode": "append_all",
+      "scenarios": 24,
+      "transitions": 47,
+      "current_correct": 12,
+      "current_accuracy": 0.5,
+      "history_correct": 7,
+      "history_accuracy": 0.2916666666666667,
+      "false_activations": 20,
+      "uncertain_writes": 7,
+      "uncertain_total": 7
+    },
+    {
+      "mode": "rules_plain",
+      "scenarios": 24,
+      "transitions": 47,
+      "current_correct": 24,
+      "current_accuracy": 1.0,
+      "history_correct": 24,
+      "history_accuracy": 1.0,
+      "false_activations": 0,
+      "uncertain_writes": 0,
+      "uncertain_total": 7
+    },
+    {
+      "mode": "rules_complement",
+      "scenarios": 24,
+      "transitions": 47,
+      "current_correct": 24,
+      "current_accuracy": 1.0,
+      "history_correct": 24,
+      "history_accuracy": 1.0,
+      "false_activations": 0,
+      "uncertain_writes": 0,
+      "uncertain_total": 7
+    }
+  ],
+  "protection": [
+    {
+      "mode": "none",
+      "damage": "healthy",
+      "trials": 100,
+      "recovered": 100,
+      "recovery_rate": 1.0,
+      "primary_bytes": 19412,
+      "redundancy_bytes": 0,
+      "checksum_ascii_bytes": 6400,
+      "median_recovery_ns": 375.0
+    },
+    {
+      "mode": "none",
+      "damage": "primary_loss",
+      "trials": 100,
+      "recovered": 0,
+      "recovery_rate": 0.0,
+      "primary_bytes": 19412,
+      "redundancy_bytes": 0,
+      "checksum_ascii_bytes": 6400,
+      "median_recovery_ns": 417.0
+    },
+    {
+      "mode": "none",
+      "damage": "primary_bitflip",
+      "trials": 100,
+      "recovered": 0,
+      "recovery_rate": 0.0,
+      "primary_bytes": 19412,
+      "redundancy_bytes": 0,
+      "checksum_ascii_bytes": 6400,
+      "median_recovery_ns": 458.0
+    },
+    {
+      "mode": "none",
+      "damage": "backup_loss",
+      "trials": 100,
+      "recovered": 100,
+      "recovery_rate": 1.0,
+      "primary_bytes": 19412,
+      "redundancy_bytes": 0,
+      "checksum_ascii_bytes": 6400,
+      "median_recovery_ns": 375.0
+    },
+    {
+      "mode": "none",
+      "damage": "both_loss",
+      "trials": 100,
+      "recovered": 0,
+      "recovery_rate": 0.0,
+      "primary_bytes": 19412,
+      "redundancy_bytes": 0,
+      "checksum_ascii_bytes": 6400,
+      "median_recovery_ns": 416.0
+    },
+    {
+      "mode": "none",
+      "damage": "checksum_loss",
+      "trials": 100,
+      "recovered": 0,
+      "recovery_rate": 0.0,
+      "primary_bytes": 19412,
+      "redundancy_bytes": 0,
+      "checksum_ascii_bytes": 6400,
+      "median_recovery_ns": 458.0
+    },
+    {
+      "mode": "copy",
+      "damage": "healthy",
+      "trials": 100,
+      "recovered": 100,
+      "recovery_rate": 1.0,
+      "primary_bytes": 19412,
+      "redundancy_bytes": 19412,
+      "checksum_ascii_bytes": 6400,
+      "median_recovery_ns": 375.0
+    },
+    {
+      "mode": "copy",
+      "damage": "primary_loss",
+      "trials": 100,
+      "recovered": 100,
+      "recovery_rate": 1.0,
+      "primary_bytes": 19412,
+      "redundancy_bytes": 19412,
+      "checksum_ascii_bytes": 6400,
+      "median_recovery_ns": 625.0
+    },
+    {
+      "mode": "copy",
+      "damage": "primary_bitflip",
+      "trials": 100,
+      "recovered": 100,
+      "recovery_rate": 1.0,
+      "primary_bytes": 19412,
+      "redundancy_bytes": 19412,
+      "checksum_ascii_bytes": 6400,
+      "median_recovery_ns": 667.0
+    },
+    {
+      "mode": "copy",
+      "damage": "backup_loss",
+      "trials": 100,
+      "recovered": 100,
+      "recovery_rate": 1.0,
+      "primary_bytes": 19412,
+      "redundancy_bytes": 19412,
+      "checksum_ascii_bytes": 6400,
+      "median_recovery_ns": 375.0
+    },
+    {
+      "mode": "copy",
+      "damage": "both_loss",
+      "trials": 100,
+      "recovered": 0,
+      "recovery_rate": 0.0,
+      "primary_bytes": 19412,
+      "redundancy_bytes": 19412,
+      "checksum_ascii_bytes": 6400,
+      "median_recovery_ns": 417.0
+    },
+    {
+      "mode": "copy",
+      "damage": "checksum_loss",
+      "trials": 100,
+      "recovered": 0,
+      "recovery_rate": 0.0,
+      "primary_bytes": 19412,
+      "redundancy_bytes": 19412,
+      "checksum_ascii_bytes": 6400,
+      "median_recovery_ns": 750.0
+    },
+    {
+      "mode": "complement",
+      "damage": "healthy",
+      "trials": 100,
+      "recovered": 100,
+      "recovery_rate": 1.0,
+      "primary_bytes": 19412,
+      "redundancy_bytes": 19412,
+      "checksum_ascii_bytes": 6400,
+      "median_recovery_ns": 375.0
+    },
+    {
+      "mode": "complement",
+      "damage": "primary_loss",
+      "trials": 100,
+      "recovered": 100,
+      "recovery_rate": 1.0,
+      "primary_bytes": 19412,
+      "redundancy_bytes": 19412,
+      "checksum_ascii_bytes": 6400,
+      "median_recovery_ns": 4416.5
+    },
+    {
+      "mode": "complement",
+      "damage": "primary_bitflip",
+      "trials": 100,
+      "recovered": 100,
+      "recovery_rate": 1.0,
+      "primary_bytes": 19412,
+      "redundancy_bytes": 19412,
+      "checksum_ascii_bytes": 6400,
+      "median_recovery_ns": 4666.5
+    },
+    {
+      "mode": "complement",
+      "damage": "backup_loss",
+      "trials": 100,
+      "recovered": 100,
+      "recovery_rate": 1.0,
+      "primary_bytes": 19412,
+      "redundancy_bytes": 19412,
+      "checksum_ascii_bytes": 6400,
+      "median_recovery_ns": 375.0
+    },
+    {
+      "mode": "complement",
+      "damage": "both_loss",
+      "trials": 100,
+      "recovered": 0,
+      "recovery_rate": 0.0,
+      "primary_bytes": 19412,
+      "redundancy_bytes": 19412,
+      "checksum_ascii_bytes": 6400,
+      "median_recovery_ns": 417.0
+    },
+    {
+      "mode": "complement",
+      "damage": "checksum_loss",
+      "trials": 100,
+      "recovered": 0,
+      "recovery_rate": 0.0,
+      "primary_bytes": 19412,
+      "redundancy_bytes": 19412,
+      "checksum_ascii_bytes": 6400,
+      "median_recovery_ns": 4395.5
+    }
+  ],
+  "index": [
+    {
+      "mode": "plain",
+      "records": 300,
+      "repeats": 7,
+      "correct": 2100,
+      "queries": 2100,
+      "median_query_ns": 12821.25,
+      "per_repeat_ns": [
+        12821.25,
+        13469.166666666666,
+        12691.25,
+        13681.11,
+        12493.75,
+        13350.693333333333,
+        12456.11
+      ],
+      "event_route_bytes": 17890,
+      "database_bytes": 286720
+    },
+    {
+      "mode": "complement",
+      "records": 300,
+      "repeats": 7,
+      "correct": 2100,
+      "queries": 2100,
+      "median_query_ns": 41661.39,
+      "per_repeat_ns": [
+        45540.556666666664,
+        40859.026666666665,
+        41661.39,
+        41347.36,
+        41788.89,
+        41566.94666666666,
+        42008.61
+      ],
+      "event_route_bytes": 71560,
+      "database_bytes": 606208
+    }
+  ],
+  "limitations": [
+    "Hand-labelled development fixtures, not a held-out or natural-language benchmark.",
+    "Policies receive certainty/intent/importance labels; extractor errors are excluded.",
+    "Exact-key retrieval only; semantic relevance and proactive recall are not evaluated.",
+    "Recovery covers payload bytes, not SQLite page/index/head-pointer destruction.",
+    "Timings are descriptive on one local machine; execution order is fixed."
+  ]
+}

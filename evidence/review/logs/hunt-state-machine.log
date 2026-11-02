@@ -1,0 +1,46 @@
+module: /tmp/audit_baseline/src/memorygene/__init__.py
+
+=== A. expired head + OLDER same-value explicit assert ===
+ current at NOW: None
+ status: conflict | previous_id: 1
+ current after: None
+ DESIGN table: cond6 requires value-different; cond9 'no live old value' => confirmed. Observed: conflict
+
+=== B. expired head + NEWER same-value explicit assert ===
+ status: confirmed previous_id: 1 | current: 2
+
+=== C. expired head + NEWER different-value explicit assert ===
+ status: confirmed (doc cond9: no live old value => confirmed?) | current: {'candidate': {'at': '2026-10-10T00:00:00Z', 'certainty': 'explicit', 'consent': False, 'expires_at': None, 'importance': 0.7, 'intent': 'assert', 'namespace': 'demo', 'scope': 'persistent', 'sensitive': False, 'session': '', 'source': 'fiction', 'subject': 'u', 'topic': 't', 'value': 'B'}, 'id': '2', 'previous_id': '1', 'recorded_at': '2026-10-24T10:00:00+00:00', 'resolves': None, 'schema': 1, 'status': 'confirmed'}
+
+=== D. supplement on empty slot explicit ===
+ status: confirmed (doc: explicit supplement on empty slot => confirmed)
+
+=== E. duplicate does not extend TTL / change head ===
+ duplicate status: confirmed | current at 10-25: value
+
+=== F. resolve pending with duplicate value ===
+ status: duplicate resolves: 2
+ history: [('1', 'confirmed', None), ('2', 'pending', None), ('3', 'duplicate', '2')] (target still pending?)
+
+=== G. resolve target from another route / gone ===
+ cross-subject resolve rejected: Resolution requires pending/conflicting evidence on the same route and value
+ ghost resolve rejected: Resolution requires pending/conflicting evidence on the same route and value
+
+=== H. conflict status events never head, but persist ===
+ status: conflict previous_id: 1 current: 1
+ history ids: ['1', '2']
+
+=== I. retry after forget recreates deleted evidence (no tombstone) ===
+ after forget, re-ingest same event_id/content -> confirmed | history: ['1']
+
+=== J. equal evidence timestamps, different values: later write overwrites ===
+ status: confirmed | current: B (same timestamp, no conflict)
+
+=== K. NFC/NFD in VALUE (routing is NFC-normalized, value is not) ===
+ status: conflict | current: 'café'
+
+=== L. whitespace-only session for session scope ===
+ session=' ' accepted as session-scoped memory; current(scope=session,session=' '): 1
+
+=== M. huge value / event id lengths (no limits) ===
+ status: confirmed payload bytes: 101384

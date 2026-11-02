@@ -1,0 +1,11 @@
+cwd:            <repo>
+project root:   <repo>
+scanned roots (rank order):
+  100  project-dsh     <repo>/.dsh/skills  [present]
+  200  project-agents  <repo>/.agents/skills  [missing]
+  400  user-dsh        ~/.dsh/skills  [missing]
+  500  user-agents     ~/.agents/skills  [missing]
+discovered skills: 1
+  - memorygene  (rank 100, project-dsh)  path=<repo>/.dsh/skills/memorygene/SKILL.md
+      用 MemoryGene 本地 SQLite 记忆库保存用户明确陈述的长期事实与偏好，支持跨会话查询、明确修订、历史、到期过滤与遗忘。数据只写本地库，不联网。
+evidence level: L2 (rule reimplementation of the installed provider)

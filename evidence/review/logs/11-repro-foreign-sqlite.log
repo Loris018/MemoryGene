@@ -1,0 +1,3 @@
+tables after MemoryStore(): ['config', 'events', 'heads', 'invoices', 'sqlite_sequence']
+expected: refuse to manage a database without MemoryGene config marker
+observed: adopted + schema injected; foreign data still present -> (42.5,)

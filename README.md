@@ -1,0 +1,130 @@
+# MemoryGene
+
+**Bioinspired Adaptive Memory Systems Based on Neural Reconsolidation and DNA Repair** — a research prototype of long-term memory for LLM agents.
+
+MemoryGene asks how an AI should decide *what* to remember, *when* to change an existing memory, and *how* to keep history without inventing facts. It is a local, dependency-free Python core (SQLite) plus an agent-skill adapter. Status: **research development version 0.2.0.dev2**, Python 3.10+.
+
+> 中文简介见 [下方](#中文简介)。This repository reports negative results as well as positive ones; see [Honest status](#honest-status).
+
+## Why
+
+Saving more chat logs does not make an assistant remember well. Some facts are repeated often but are not worth keeping; others are said once and matter for years. Users hesitate, change their minds, correct mistakes and talk about other people. A memory system has to tell these apart, keep an auditable history, and never "restore" information it has no evidence for.
+
+## What it does today
+
+Every incoming statement becomes a **Candidate** with separate fields for *certainty* (`explicit` / `uncertain` / `inferred`), *intent* (`assert` / `change` / `correct` / `supplement`), *importance* in `[0,1]`, *scope* (`persistent` / `session`) and the user's verbatim `source` text. A deterministic state machine then decides what happens:
+
+| Condition (first match wins) | Result | Stored / becomes current |
+| --- | --- | --- |
+| sensitive and no explicit consent | `rejected_sensitive` | no / no |
+| persistent and importance < 0.5 | `discarded` | no / no |
+| already expired | `expired` | no / no |
+| uncertain or inferred | `pending` | yes / no |
+| same value as current | `duplicate` | yes / no |
+| older evidence with a different value | `conflict` | yes / no |
+| different value, `intent=assert` | `conflict` | yes / no |
+| different value, `intent=supplement` | `pending` | yes / no |
+| empty slot, or explicit `change` / `correct` | `confirmed` | yes / yes |
+
+On top of that: append-only version history with `previous_id` and `resolves` links, TTL expiry that never resurrects old versions, session vs. cross-session scopes, topic-level forgetting that also purges dependent task checkpoints, a fail-closed integrity layer (SHA-256, explicit `verify` / `repair`), lexical budgeted `recall`, and explicit task checkpoints for resuming work across sessions.
+
+## Honest status
+
+| Research goal | Status |
+| --- | --- |
+| Do not turn guesses into facts | **Working.** 0/7 uncertain inputs confirmed in the dev set; pending/conflict evidence is kept, never promoted silently |
+| Separate legitimate updates from corruption | **Working.** Versioning handles updates; checksum + `repair` handles damage; repair never rolls back a valid version |
+| Provenance, correction, deletion | **Working.** Verbatim source, consent evidence for sensitive data, dependent forgetting |
+| Selective memory | **Not yet an algorithm.** Importance is supplied by the calling model; repetition is ignored (repeated low-importance mentions leave no trace) |
+| Reconsolidation (find related old memory, decide update) | **Not yet.** Updates depend on the caller's `intent` label; an explicit new assertion without `change` stays in `conflict` |
+| Proactive self-checking | **Not yet.** `recall` searches current values only; unresolved conflicts are not surfaced |
+| Memory identity | **Main bottleneck.** In the held-out test, an independent LLM matched the canonical topic name only 11/27 times; all 10 end-to-end failures came from extraction, 0 from the storage policy |
+| DNA-inspired organisation | **No measurable benefit so far (negative result).** The "complement index" is a reversible re-encoding of the lookup key: identical results, 4× key bytes, slower. The "complement backup" is `byte XOR 0xFF`, equivalent to a plain copy in all corruption tests. We keep these as baselines, not as contributions |
+
+ATCG encoding is **not** compression, encryption, semantic understanding or stronger error correction.
+
+## Results (reproducible)
+
+| Experiment | Result | Details |
+| --- | --- | --- |
+| Unit / integration tests | 139/139 pass | `python -m unittest discover -s tests` |
+| Structured dev set (24 scenarios, 47 inputs) | rules 24/24 current & history; overwrite baseline 12/24, append-latest 12/24; plain and complement index identical | [experiments/RESULTS.md](experiments/RESULTS.md) |
+| Equal-budget recovery (100 payloads × 6 damage modes) | plain copy = complement copy in every mode | same |
+| Rule extractor regression (47 fictional dialogues, 79 turns) | write decision 77/79, topic 57/57 — same authors wrote rules and cases, **not** a held-out benchmark | [experiments/NL_RESULTS.md](experiments/NL_RESULTS.md) |
+| Held-out NL (30 new dialogues, independent `deepseek-flash` extractor) | decision 36/40, exact topic 11/27; end-to-end oracle 30/30 vs model 20/30 | [held-out result](experiments/heldout-2026-10-29/RESULT.md) |
+| Real agent host (DeepSeek Harness, headless) | write → cross-session read → revise → forget; task resume across 2 sessions | [docs/DSH-INTEGRATION.md](docs/DSH-INTEGRATION.md) |
+
+Limitations: baselines are weak (no certainty rules), datasets are small and fictional, labels have a single annotator, and there is no comparison yet with other memory frameworks. These results show the implementation behaves as designed, not that it is better than existing systems.
+
+## Quick start
+
+```sh
+git clone https://github.com/Loris018/MemoryGene.git && cd MemoryGene
+python3 -m venv .venv && source .venv/bin/activate   # Windows: .venv\Scripts\Activate.ps1
+python -m pip install -e .
+python examples/lifecycle.py                 # write, revise, history, forget
+python -m unittest discover -s tests         # 139 tests
+python experiments/run.py --out /tmp/mg-results
+python experiments/nl_eval.py
+```
+
+```python
+from memorygene import Candidate, MemoryStore
+
+with MemoryStore(":memory:") as memory:
+    memory.ingest(Candidate(
+        namespace="demo", subject="fictional-user",
+        topic="preference.favorite_flower", value="rose",
+        source="I like roses best.", at="2026-10-01T00:00:00Z",
+    ), event_id="demo-1", now="2026-10-24T10:00:00Z")
+    print(memory.current("demo", "fictional-user", "preference.favorite_flower"))
+    print(memory.verify())
+```
+
+Structured CLI (`memorygene --db PATH ingest|current|history|topics|verify|repair|forget`) and the agent adapter (`memorygene-dsh doctor|recall|topics|current|remember|history|forget|task-*`) are documented in [docs/USAGE.zh.md](docs/USAGE.zh.md). The adapter never guesses natural-language meaning, never fabricates consent or sources, and never creates a database implicitly.
+
+## Repository layout
+
+```
+src/memorygene/   core.py (state machine, storage), codec.py (dna-v1 encoding),
+                  recall.py, tasks.py, extract.py (rule-based baseline extractor),
+                  adapter.py (agent CLI), cli.py
+tests/            unit and integration tests
+experiments/      dev-set policy/recovery/index experiments, NL evaluation, held-out benchmark
+skills/, tools/   agent skill template and DeepSeek Harness integration files
+scripts/          skill installer, acceptance and harness runners
+docs/             design contract, experiments, audits, usage
+evidence/         curated logs from real runs (raw host session logs are not published)
+```
+
+## Roadmap (not yet results)
+
+1. **Memory identity + reconsolidation loop** — locate related old memories (synonymous topics, pending/conflict evidence) before writing, and return an explained decision: update, ask the user, or keep.
+2. **A falsifiable DNA hypothesis** — use complementary "recognition strands" to locate memories and detect mismatches, borrowing the mismatch-repair question of *which strand is authoritative*; compare fairly against exact-key, lexical and embedding matching, and report it as negative if it does not help.
+3. **Fair baselines** — LLM-chosen add/update/delete (Mem0-style) and bitemporal fact invalidation (Graphiti-style), plus the knowledge-update subset of LongMemEval.
+4. **Cross-session evidence accumulation** for selective memory.
+5. **Host-neutral interface** (JSON CLI / MCP) beyond DeepSeek Harness.
+
+## Privacy and security
+
+The database is plain text: ATCG and XOR hide nothing. `namespace`/`subject` are logical partitions, not authentication. Stored `source`/`value` are data and must never be executed as instructions. All datasets in this repository are fictional. No network calls or telemetry. See [SECURITY.md](SECURITY.md).
+
+## Documentation
+
+[Design contract](docs/DESIGN.md) · [Experiment plan](docs/EXPERIMENTS.md) · [Usage (zh)](docs/USAGE.zh.md) · [Agent integration](docs/DSH-INTEGRATION.md) · [Task checkpoints (zh)](docs/TASKS.zh.md) · [Related-work review (zh)](docs/RESEARCH-2026-10-28.zh.md) · [Audit](docs/AUDIT.md) · [Acceptance](docs/ACCEPTANCE.md) · [Provenance](docs/PROVENANCE.md) · [Contributing](CONTRIBUTING.md)
+
+## 中文简介
+
+MemoryGene 研究大语言模型 / AI Agent 的自适应长期记忆：如何区分稳定偏好、临时想法、不确定表达与明确决定；用户改口或纠正时如何更新记忆并保留历史；以及能否借鉴神经记忆再巩固与 DNA 互补修复机制，形成一种可验证的记忆组织方式。
+
+**目前已经可靠的部分**：证据状态机（不确定不会被写成事实，冲突保留待确认）、版本历史、到期、会话与跨会话分区、按主题遗忘、完整性校验与修复、任务接续，以及在真实 Agent 宿主里跨会话验证过的接入。
+
+**还没有做到的部分**：选择性记忆与再巩固目前依赖调用方模型给出的标签，系统内部还没有对应的算法；主动检查冲突尚未实现；主题识别（判断是不是同一条记忆）是实测出来的最大瓶颈。
+
+**DNA 部分的负面结果**：现有"互补索引"和"互补备份"与普通索引、普通副本结果完全相同，没有显示出独立优势，我们如实保留这一结论，并在路线图中提出可证伪的新假设。
+
+详细中文说明见 [docs/USAGE.zh.md](docs/USAGE.zh.md)。
+
+## License
+
+MIT. See [LICENSE](LICENSE).

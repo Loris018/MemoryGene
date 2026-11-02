@@ -1,0 +1,11 @@
+cwd:            /private/tmp/mg-probe-project
+project root:   /private/tmp/mg-probe-project
+scanned roots (rank order):
+  100  project-dsh     /private/tmp/mg-probe-project/.dsh/skills  [present]
+  200  project-agents  /private/tmp/mg-probe-project/.agents/skills  [missing]
+  400  user-dsh        ~/.dsh/skills  [missing]
+  500  user-agents     ~/.agents/skills  [missing]
+discovered skills: 1
+  - dsh-probe-dummy  (rank 100, project-dsh)  path=/private/tmp/mg-probe-project/.dsh/skills/dsh-probe-dummy/SKILL.md
+      Fictional throwaway probe skill used once to prove that a project-scoped DSH skill is discovered by a real headless session.
+evidence level: L2 (rule reimplementation of the installed provider)

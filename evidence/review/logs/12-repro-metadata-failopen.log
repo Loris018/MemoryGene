@@ -1,0 +1,7 @@
+case 1: heads.route corrupted -> current() silently returns None
+  current(): None
+case 2: events.route corrupted on a non-head event -> history() silently drops it
+  history ids: ['2']
+  expected: IntegrityError (README: '损坏读写失败关闭'), observed: silently missing id=1
+case 3 (control): payload corruption IS fail-closed
+  IntegrityError: Corrupt event; call repair explicitly

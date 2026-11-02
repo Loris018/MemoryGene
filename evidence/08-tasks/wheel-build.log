@@ -1,0 +1,15 @@
+Looking in indexes: https://pypi.tuna.tsinghua.edu.cn/simple, https://mirrors.aliyun.com/pypi/simple
+Processing <repo>
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: memorygene
+  Building wheel for memorygene (pyproject.toml): started
+  Building wheel for memorygene (pyproject.toml): finished with status 'done'
+  Created wheel for memorygene: filename=memorygene-0.2.0.dev2-py3-none-any.whl size=35966 sha256=73ef409798198958a16d46331c98a62a5611219bf5e91c20dc9f30f4002cf6fa
+  Stored in directory: $TMPDIR/pip-ephem-wheel-cache-iqf96q71/wheels/a7/b8/31/08ffbeea9ad2f97714e58f9e47b3413843b7725f7aeae24501
+Successfully built memorygene
+WARNING: Skipping <repo>/.venv/lib/python3.11/site-packages/memorygene-0.2.0.dev1.dist-info due to invalid metadata entry 'name'
+WARNING: Skipping <repo>/.venv/lib/python3.11/site-packages/memorygene-0.2.0.dev1.dist-info due to invalid metadata entry 'name'
+
+[notice] A new release of pip is available: 23.2.1 -> 26.2.2
+[notice] To update, run: python -m pip install --upgrade pip

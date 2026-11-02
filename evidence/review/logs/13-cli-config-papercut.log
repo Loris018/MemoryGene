@@ -1,0 +1,17 @@
+## P2-4: --index/--protection are creation flags but must be repeated on every later CLI call
+
+create with non-default config:
+$ memorygene --db p.db --index plain --protection none ingest examples/candidate.json
+{
+  "id": "demo-1",
+  "status": "confirmed",
+exit=0
+
+query with CLI defaults (README examples never pass these flags):
+$ memorygene --db p.db current --namespace demo --subject fictional-user --topic preference.favorite_flower
+{"error": "Database schema/config mismatch; explicit migration required"}
+exit=2
+
+create with --protection copy then query with defaults:
+{"error": "Database schema/config mismatch; explicit migration required"}
+exit=2

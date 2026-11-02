@@ -1,0 +1,50 @@
+{
+  "checked_at": "2026-10-28T11:40:18.609914+00:00",
+  "base_commit": "f02f241cec0ab3c7d763555d98693d66cf2de158",
+  "python": "3.11.7",
+  "source_tests": {
+    "passed": 115,
+    "new_recall_tests": 9,
+    "log": "tests.log"
+  },
+  "acceptance": {
+    "scenarios": 12,
+    "checks_passed": 52,
+    "log": "acceptance-results.json"
+  },
+  "ruff": {
+    "scope": [
+      "src",
+      "tests",
+      "scripts",
+      "experiments",
+      "examples"
+    ],
+    "passed": true,
+    "log": "ruff.log",
+    "whole_tree_note": "ruff check . additionally finds existing issues in historical evidence scripts; not modified. See ruff-all-historical.log."
+  },
+  "installed_skills": [
+    "project",
+    "user"
+  ],
+  "production_db": {
+    "before_sha256": "9a961889c8231ed4881d33147295562ea709297a3bc9273552960e9b5944d9e4",
+    "after_sha256": "9a961889c8231ed4881d33147295562ea709297a3bc9273552960e9b5944d9e4",
+    "events_before": 4,
+    "events_after": 4,
+    "unchanged": true
+  },
+  "limitations": [
+    "Local macOS source tests only; no new wheel/remote CI/real Harness session validation",
+    "DSH-native plugin compatibility not tested or enabled",
+    "No competitor performance benchmark; official docs and selected source review",
+    "Lexical retrieval only; no semantic matching, lifecycle automation or dynamic redundancy",
+    "DSH-specific whenToUse frontmatter remains; installation checks are not generic Codex Skill conformance"
+  ],
+  "generic_codex_skill_validator": {
+    "passed": false,
+    "reason": "Project venv lacks PyYAML; validator stopped before checking Skill content. DSH project/user installation checks passed separately.",
+    "log": "codex-skill-validator.log"
+  }
+}

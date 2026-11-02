@@ -1,0 +1,25 @@
+[setup] explicitly created empty test database via --allow-create: <repo>/evidence/01-e2e/harness.db
+[dsh] session A-write: --profile headless --patch <repo>/tools/dsh/headless-account.patch.yml --json 请按 memorygene skill 的流程操作（先运行 doctor，再使用适配器）。用户这句是长期偏好，请写入：我最喜欢玫瑰。topic 用 preference.favorite_flower，source 用用户原话「我最喜欢玫瑰。」，certainty=explicit，intent=assert，importance=0.8。写入后用 current 验证，最后一行只输出 RESULT_A=<status>|<current value>。
+[result] A-write: exit=0 elapsed=8.1s session=session-403b2666-cc8e-48a1-b35a-e5616008b3fc final='已按 memorygene 流程完成：我运行 `doctor` 后确认配置就绪（`ready: true`，数据库 `evidence/01-e2e/harness.db`，namespace 为 `dsh-harness`，subject 为 `harness-test-user`）。写入前，`current` 返回 `null`；随后使用适配器的 `remember` 写入，返回 `status` 为 `confirmed`；再用 `current` 验证，得到的当前值为「玫瑰」。\n\nRESULT_A=confirmed|玫瑰'
+[check] PASS harness session completed: expected=0 actual=0
+[check] PASS skill invoked (adapter command in tool events): expected=True actual=10
+[check] PASS DB current after session A: expected='玫瑰' actual='玫瑰'
+[check] PASS topic listed: expected=True actual=['preference.favorite_flower']
+[dsh] session B-recall-and-supplement: --profile headless --patch <repo>/tools/dsh/headless-account.patch.yml --json 请按 memorygene skill 操作。先用 current 查询主题 preference.favorite_flower，告诉我用户现在最喜欢什么花。然后用户补充说：「栀子花也好看。」这只是一个不确定的补充，不是新的最爱；按 skill 规则写入（certainty=uncertain，intent=supplement）。最后再次 current 确认当前最爱没有被改变，最后一行只输出 RESULT_B=<current value>|<是否改变>。
+[result] B-recall-and-supplement: exit=0 elapsed=9.7s session=session-15b3232d-9b37-434f-9c19-004669e6f4b4 final='我已按 memorygene skill 的流程完成检查与写入：\n\n- **doctor**：`ready: true`，数据库、namespace（`dsh-harness`）与 subject（`harness-test-user`）均已就绪。\n- **首次 current**：`preference.favorite_flower` 的当前值（status=`confirmed`）是 **玫瑰**（来源：“我最喜欢玫瑰。”）。\n- **写入补充**：将“栀子花”以 `certainty=uncertain`、`intent=supplement`、`importance=0.5` 写入，返回 `status=pending`；该条仅作为不确定证据保留，**未成为当前事实**。\n- **再次 current**：当前值仍为 **玫瑰**，状态是 `confirmed`，未被改变。\n\n所以，你现在最喜欢的花是**玫瑰**；栀子花只是你觉得“也好看”的不确定补充，没有被当作新的最爱。\n\nRESULT_B=玫瑰|否'
+[check] PASS harness session completed: expected=0 actual=0
+[check] PASS new independent session: expected=True actual='session-15b3232d-9b37-434f-9c19-004669e6f4b4'
+[check] PASS cross-session recall kept current: expected='玫瑰' actual='玫瑰'
+[check] PASS supplement stored as pending: expected='>=1' actual=[('confirmed', '玫瑰'), ('pending', '栀子花')]
+[dsh] session C-explicit-change: --profile headless --patch <repo>/tools/dsh/headless-account.patch.yml --json 请按 memorygene skill 操作。用户现在明确说：「现在最喜欢栀子花了。」请按明确修订写入（certainty=explicit，intent=change，topic 用 preference.favorite_flower，source 用原话）。然后查 current 和 history，说明当前值和历史确认过的值，最后一行只输出 RESULT_C=<current value>|<历史确认值列表>。
+[result] C-explicit-change: exit=0 elapsed=11.6s session=session-f92ee108-c5d7-430c-8390-59d8e40eac66 final='rtainty=explicit`、`intent=change`、`importance=0.8`、`source="现在最喜欢栀子花了。"`，返回 `status=confirmed`，`previous_id` 指向原来的玫瑰版本，说明是一次合法的覆盖式修订（旧值进入历史，未被删除）。\n\n**current**：栀子花（confirmed，2026-10-24T07:31:32Z，来源原话「现在最喜欢栀子花了。」）。\n\n**history 三条**：\n- 玫瑰 — `confirmed`（来源「我最喜欢玫瑰。」），已被新版本取代，是唯一一条**历史确认值**。\n- 栀子花 — `pending`（来源「栀子花也好看。」，`certainty=uncertain`、`intent=supplement`）：只是旧证据，从未成为当前事实，不计入历史确认值。\n- 栀子花 — `confirmed`（本次修订），即当前值。\n\n所以：现在最喜欢的是**栀子花**，此前确认过的历史值是**玫瑰**（那次「也好看」的表述只是 pending 证据，不算确认）。\n\nRESULT_C=栀子花|玫瑰'
+[check] PASS harness session completed: expected=0 actual=0
+[check] PASS new independent session: expected=True actual='session-f92ee108-c5d7-430c-8390-59d8e40eac66'
+[check] PASS current updated: expected='栀子花' actual='栀子花'
+[check] PASS history kept both confirmed values: expected=['玫瑰', '栀子花'] actual=['玫瑰', '栀子花']
+[dsh] session D-forget: --profile headless --patch <repo>/tools/dsh/headless-account.patch.yml --json 请按 memorygene skill 操作。用户要求忘掉主题 preference.favorite_flower。请执行遗忘，然后验证 current 为空、topics 中不再有该主题。最后一行只输出 RESULT_D=<current是否为空>|<主题是否消失>。
+[result] D-forget: exit=0 elapsed=14.3s session=session-9d8e3503-2aad-41d0-a721-710634508acb final='RESULT_D=true|true'
+[check] PASS harness session completed: expected=0 actual=0
+[check] PASS new independent session: expected=True actual='session-9d8e3503-2aad-41d0-a721-710634508acb'
+[check] PASS current is null after forget: expected=None actual=None
+[check] PASS topic gone: expected=True actual=[]

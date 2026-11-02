@@ -1,0 +1,26 @@
+=== A. re-run original P1 repro scripts against final tree 56b9d2d ===
+
+--- repro_silent_create_and_forget.py (expect: refusal, no DB created) ---
+expected: refuse or at least warn; observed:
+  forget on missing/typo db -> exit=2 stdout='' stderr='{"error": "MemoryGene database not found at $TMPDIR/tmpw8802qx1/membory.db; refusing to create a database for a read/delete command (only ingest creates a new store)"}'
+  new db file created: False size=0
+  current on it -> exit=2 stdout='' stderr='{"error": "MemoryGene database not found at $TMPDIR/tmpw8802qx1/membory.db; refusing to create a database for a read/delete command (only ingest creates a new store)"}'
+
+--- repro_foreign_sqlite_adoption.py (expect: ValueError, only invoices remains) ---
+Traceback (most recent call last):
+  File "<repo>/evidence/review/scripts/repro_foreign_sqlite_adoption.py", line 13, in <module>
+    with MemoryStore(p) as s:
+         ^^^^^^^^^^^^^^
+  File "/tmp/final_tree/src/memorygene/core.py", line 150, in __init__
+    raise ValueError(
+ValueError: Not a MemoryGene database; refusing to adopt a foreign SQLite file with tables ['invoices']
+[script exited nonzero: expected rejection]
+
+--- repro_metadata_corruption_not_fail_closed.py (single-topic reads still documented-silent; verify now detects) ---
+case 1: heads.route corrupted -> current() silently returns None
+  current(): None
+case 2: events.route corrupted on a non-head event -> history() silently drops it
+  history ids: ['2']
+  expected: IntegrityError (README: '损坏读写失败关闭'), observed: silently missing id=1
+case 3 (control): payload corruption IS fail-closed
+  IntegrityError: Corrupt event; call repair explicitly

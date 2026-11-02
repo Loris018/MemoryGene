@@ -1,0 +1,499 @@
+{
+  "generated_at": "2026-10-29T09:42:33.016796+00:00",
+  "fixture_clock": "2026-10-24T12:00:00Z",
+  "adapter": "<repo>/.venv/bin/memorygene-dsh",
+  "database": "<repo>/evidence/02-e2e/acceptance.db",
+  "namespace": "dsh-acceptance",
+  "subject": "acceptance-user",
+  "scenarios": 12,
+  "passed": 12,
+  "failed": [],
+  "checks_total": 52,
+  "checks_passed": 52,
+  "results": [
+    {
+      "id": "S01",
+      "title": "一句话的重要信息能被保存",
+      "passed": true,
+      "checks": [
+        {
+          "name": "write status",
+          "passed": true,
+          "expected": "confirmed",
+          "actual": "confirmed"
+        },
+        {
+          "name": "current value",
+          "passed": true,
+          "expected": "玫瑰",
+          "actual": "玫瑰"
+        },
+        {
+          "name": "persisted event row",
+          "passed": true,
+          "expected": ">=1",
+          "actual": 1
+        }
+      ],
+      "failures": []
+    },
+    {
+      "id": "S02",
+      "title": "重复的无关内容不持续积累为长期事实",
+      "passed": true,
+      "checks": [
+        {
+          "name": "all discarded",
+          "passed": true,
+          "expected": "discarded*5",
+          "actual": [
+            "discarded",
+            "discarded",
+            "discarded",
+            "discarded",
+            "discarded"
+          ]
+        },
+        {
+          "name": "no event rows grew",
+          "passed": true,
+          "expected": 1,
+          "actual": 1
+        },
+        {
+          "name": "no chitchat topic",
+          "passed": true,
+          "expected": false,
+          "actual": false
+        },
+        {
+          "name": "duplicate status 1",
+          "passed": true,
+          "expected": "duplicate",
+          "actual": "duplicate"
+        },
+        {
+          "name": "duplicate status 2",
+          "passed": true,
+          "expected": "duplicate",
+          "actual": "duplicate"
+        },
+        {
+          "name": "current head unchanged",
+          "passed": true,
+          "expected": "dsh-2026-10-24T120000Z-bc92c11a",
+          "actual": "dsh-2026-10-24T120000Z-bc92c11a"
+        },
+        {
+          "name": "duplicates retained as evidence",
+          "passed": true,
+          "expected": ">=2",
+          "actual": 3
+        }
+      ],
+      "failures": []
+    },
+    {
+      "id": "S03",
+      "title": "“也好看”不改变“最喜欢”",
+      "passed": true,
+      "checks": [
+        {
+          "name": "supplement pending",
+          "passed": true,
+          "expected": "pending",
+          "actual": "pending"
+        },
+        {
+          "name": "current still rose",
+          "passed": true,
+          "expected": "玫瑰",
+          "actual": "玫瑰"
+        },
+        {
+          "name": "pending evidence recorded",
+          "passed": true,
+          "expected": 1,
+          "actual": 1
+        }
+      ],
+      "failures": []
+    },
+    {
+      "id": "S04",
+      "title": "明确说“现在最喜欢栀子花”后当前更新、历史保留玫瑰",
+      "passed": true,
+      "checks": [
+        {
+          "name": "change confirmed",
+          "passed": true,
+          "expected": "confirmed",
+          "actual": "confirmed"
+        },
+        {
+          "name": "current updated",
+          "passed": true,
+          "expected": "栀子花",
+          "actual": "栀子花"
+        },
+        {
+          "name": "history keeps rose then gardenia",
+          "passed": true,
+          "expected": [
+            "玫瑰",
+            "栀子花"
+          ],
+          "actual": [
+            "玫瑰",
+            "栀子花"
+          ]
+        },
+        {
+          "name": "old version is not current",
+          "passed": true,
+          "expected": "confirmed",
+          "actual": "confirmed"
+        }
+      ],
+      "failures": []
+    },
+    {
+      "id": "S05",
+      "title": "未明确确认的冲突不覆盖",
+      "passed": true,
+      "checks": [
+        {
+          "name": "conflict status",
+          "passed": true,
+          "expected": "conflict",
+          "actual": "conflict"
+        },
+        {
+          "name": "current unchanged",
+          "passed": true,
+          "expected": "玫瑰",
+          "actual": "玫瑰"
+        },
+        {
+          "name": "conflict recorded as evidence",
+          "passed": true,
+          "expected": 1,
+          "actual": 1
+        }
+      ],
+      "failures": []
+    },
+    {
+      "id": "S06",
+      "title": "新进程/重开数据库后仍能正确查询",
+      "passed": true,
+      "checks": [
+        {
+          "name": "first query",
+          "passed": true,
+          "expected": "虚构城",
+          "actual": "虚构城"
+        },
+        {
+          "name": "fresh processes all read value",
+          "passed": true,
+          "expected": [
+            "虚构城",
+            "虚构城",
+            "虚构城"
+          ],
+          "actual": [
+            "虚构城",
+            "虚构城",
+            "虚构城"
+          ]
+        }
+      ],
+      "failures": []
+    },
+    {
+      "id": "S07",
+      "title": "不同用户及不同会话隔离",
+      "passed": true,
+      "checks": [
+        {
+          "name": "other subject sees nothing",
+          "passed": true,
+          "expected": null,
+          "actual": null
+        },
+        {
+          "name": "other subject topics empty",
+          "passed": true,
+          "expected": [],
+          "actual": []
+        },
+        {
+          "name": "session memory not persistent",
+          "passed": true,
+          "expected": null,
+          "actual": null
+        },
+        {
+          "name": "same session visible",
+          "passed": true,
+          "expected": "session-acceptance-a",
+          "actual": "session-acceptance-a"
+        },
+        {
+          "name": "other session isolated",
+          "passed": true,
+          "expected": null,
+          "actual": null
+        },
+        {
+          "name": "same session topic visible",
+          "passed": true,
+          "expected": true,
+          "actual": [
+            "preference.favorite_drink",
+            "preference.favorite_flower",
+            "preference.favorite_flower.change_test",
+            "preference.favorite_flower.conflict_test",
+            "preference.favorite_flower.second_test",
+            "profile.city",
+            "task.context"
+          ]
+        },
+        {
+          "name": "other session topic hidden",
+          "passed": true,
+          "expected": false,
+          "actual": [
+            "preference.favorite_drink",
+            "preference.favorite_flower",
+            "preference.favorite_flower.change_test",
+            "preference.favorite_flower.conflict_test",
+            "preference.favorite_flower.second_test",
+            "profile.city"
+          ]
+        },
+        {
+          "name": "persistent topic shared",
+          "passed": true,
+          "expected": true,
+          "actual": [
+            "preference.favorite_drink",
+            "preference.favorite_flower",
+            "preference.favorite_flower.change_test",
+            "preference.favorite_flower.conflict_test",
+            "preference.favorite_flower.second_test",
+            "profile.city"
+          ]
+        }
+      ],
+      "failures": []
+    },
+    {
+      "id": "S08",
+      "title": "到期记忆不再被当作当前事实",
+      "passed": true,
+      "checks": [
+        {
+          "name": "current before expiry",
+          "passed": true,
+          "expected": "FICTIONAL-CODE",
+          "actual": "FICTIONAL-CODE"
+        },
+        {
+          "name": "current after expiry",
+          "passed": true,
+          "expected": null,
+          "actual": null
+        },
+        {
+          "name": "expired history filtered",
+          "passed": true,
+          "expected": [],
+          "actual": []
+        },
+        {
+          "name": "topic status expired",
+          "passed": true,
+          "expected": "expired",
+          "actual": "expired"
+        }
+      ],
+      "failures": []
+    },
+    {
+      "id": "S09",
+      "title": "遗忘后主记录、历史与冗余副本都从逻辑库删除",
+      "passed": true,
+      "checks": [
+        {
+          "name": "forget count",
+          "passed": true,
+          "expected": 2,
+          "actual": 2
+        },
+        {
+          "name": "event rows for topic removed",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "head row removed",
+          "passed": true,
+          "expected": 8,
+          "actual": 8
+        },
+        {
+          "name": "no residual copies of forgotten route",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        },
+        {
+          "name": "deleted event IDs absent",
+          "passed": true,
+          "expected": [],
+          "actual": []
+        },
+        {
+          "name": "unrelated topics unchanged",
+          "passed": true,
+          "expected": true,
+          "actual": true
+        },
+        {
+          "name": "current is null after forget",
+          "passed": true,
+          "expected": null,
+          "actual": null
+        },
+        {
+          "name": "history empty after forget",
+          "passed": true,
+          "expected": [],
+          "actual": []
+        },
+        {
+          "name": "topic gone from topics",
+          "passed": true,
+          "expected": 0,
+          "actual": [
+            "preference.favorite_drink",
+            "preference.favorite_flower",
+            "preference.favorite_flower.change_test",
+            "preference.favorite_flower.conflict_test",
+            "preference.favorite_flower.second_test",
+            "profile.city",
+            "promotion.code",
+            "task.context"
+          ]
+        },
+        {
+          "name": "repair of forgotten id errors",
+          "passed": true,
+          "expected": 2,
+          "actual": 2
+        }
+      ],
+      "failures": []
+    },
+    {
+      "id": "S10",
+      "title": "损坏恢复不会回滚合法的新版本",
+      "passed": true,
+      "checks": [
+        {
+          "name": "corruption fails closed",
+          "passed": true,
+          "expected": 2,
+          "actual": 2
+        },
+        {
+          "name": "head unchanged by repair",
+          "passed": true,
+          "expected": [
+            [
+              "dsh-2026-10-24T120000Z-0c9cb2c0"
+            ]
+          ],
+          "actual": [
+            [
+              "dsh-2026-10-24T120000Z-0c9cb2c0"
+            ]
+          ]
+        },
+        {
+          "name": "repaired latest is still current",
+          "passed": true,
+          "expected": "栀子花",
+          "actual": "栀子花"
+        },
+        {
+          "name": "repair did not resurrect rose as current",
+          "passed": true,
+          "expected": [
+            "玫瑰",
+            "栀子花"
+          ],
+          "actual": [
+            "玫瑰",
+            "栀子花"
+          ]
+        }
+      ],
+      "failures": []
+    },
+    {
+      "id": "S11",
+      "title": "无法校验恢复时明确报错、不猜测",
+      "passed": true,
+      "checks": [
+        {
+          "name": "repair fails with explicit error",
+          "passed": true,
+          "expected": "refusing to guess",
+          "actual": "No verified copy; refusing to guess"
+        },
+        {
+          "name": "failed repair left bytes untouched",
+          "passed": true,
+          "expected": [
+            "00",
+            "00"
+          ],
+          "actual": [
+            "00",
+            "00"
+          ]
+        }
+      ],
+      "failures": []
+    },
+    {
+      "id": "S12",
+      "title": "不捏造用户同意（补充验收）",
+      "passed": true,
+      "checks": [
+        {
+          "name": "no fabricated consent",
+          "passed": true,
+          "expected": "rejected_sensitive",
+          "actual": "rejected_sensitive"
+        },
+        {
+          "name": "sensitive value not persisted",
+          "passed": true,
+          "expected": 0,
+          "actual": 0
+        }
+      ],
+      "failures": []
+    }
+  ],
+  "notes": [
+    "Every adapter invocation is a separate OS process, so S06 also covers closing and reopening the SQLite file. It does not by itself prove cross-Harness-session memory; see evidence/01-e2e for real headless sessions.",
+    "All names and values are fictional.",
+    "expires_at behavior is read-time filtering; expired rows stay on disk."
+  ]
+}

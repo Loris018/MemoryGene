@@ -1,0 +1,24 @@
+# Reuse the DeepSeek account login that the desktop app already stores, for
+# headless verification sessions. This overlay contains no credentials: it only
+# enables the account/credentials plugins that the headless profile disables by
+# default, and points the default model at the account provider.
+#
+# Usage:
+#   dsh --profile headless --patch tools/dsh/headless-account.patch.yml --json "..."
+#
+# This file is verification tooling, not part of the MemoryGene skill. It does
+# not change any global DSH profile or billing setting.
+- id: credentials
+  name: '@deepseek-ai/dsh-credentials-local'
+  disabled: false
+- id: deepseek-account
+  name: '@deepseek-ai/dsh-deepseek-account-platform'
+  disabled: false
+- id: authorization
+  name: '@deepseek-ai/dsh-authorization'
+  disabled: false
+- id: agent-default-model
+  name: '@deepseek-ai/dsh-agent-default-model'
+  config:
+    provider: deepseek-account
+    model: deepseek-flash

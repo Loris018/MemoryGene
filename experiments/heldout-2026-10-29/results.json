@@ -1,0 +1,1134 @@
+{
+  "metadata": {
+    "purpose": "independent held-out fictional NL extraction benchmark",
+    "model": "deepseek-flash (deepseek-account via DSH headless)",
+    "harness": "dsh --profile headless --patch tools/dsh/headless-account.patch.yml",
+    "fixed_now": "2026-10-29T12:00:00Z",
+    "cases": 30,
+    "turns": 40,
+    "prompt_sha256": "703acbec880191caf70d5332133342a5a649caab4ac0330ac83225022f059ff6",
+    "not_used_for_tuning": true,
+    "fictional_data": true
+  },
+  "batches": [
+    {
+      "batch": 1,
+      "exit": 0,
+      "elapsed_seconds": null,
+      "session_id": "session-b4384ef0-c292-4df5-9d35-5093c418dfc7",
+      "case_ids": [
+        "h01-explicit-flower",
+        "h02-also-like",
+        "h03-explicit-change",
+        "h04-hesitation",
+        "h05-third-party"
+      ],
+      "parse_ok": true,
+      "stderr_tail": ""
+    },
+    {
+      "batch": 2,
+      "exit": 0,
+      "elapsed_seconds": null,
+      "session_id": "session-b2d66b40-48e5-43bc-9866-98d28f091ddb",
+      "case_ids": [
+        "h06-negation",
+        "h07-chitchat",
+        "h08-question",
+        "h09-sensitive-no-consent",
+        "h10-sensitive-consent"
+      ],
+      "parse_ok": true,
+      "stderr_tail": ""
+    },
+    {
+      "batch": 3,
+      "exit": 0,
+      "elapsed_seconds": null,
+      "session_id": "session-edda3ab3-3774-4734-b6b9-1590f0834e27",
+      "case_ids": [
+        "h11-hypothetical",
+        "h12-prompt-injection",
+        "h13-correction",
+        "h14-unmarked-conflict",
+        "h15-explicit-change-city"
+      ],
+      "parse_ok": true,
+      "stderr_tail": ""
+    },
+    {
+      "batch": 4,
+      "exit": 0,
+      "elapsed_seconds": null,
+      "session_id": "session-ff09207a-e6c8-4807-a1d0-6aa25f13e950",
+      "case_ids": [
+        "h16-expired-coupon",
+        "h17-expiry-restate",
+        "h18-duplicate",
+        "h19-synonym",
+        "h20-prefer-more"
+      ],
+      "parse_ok": true,
+      "stderr_tail": ""
+    },
+    {
+      "batch": 5,
+      "exit": 0,
+      "elapsed_seconds": null,
+      "session_id": "session-a26131f1-efd4-4fdc-bb30-456ffba80d9b",
+      "case_ids": [
+        "h21-change-mind",
+        "h22-removal",
+        "h23-third-party-friend",
+        "h24-low-importance",
+        "h25-future-plan"
+      ],
+      "parse_ok": true,
+      "stderr_tail": ""
+    },
+    {
+      "batch": 6,
+      "exit": 0,
+      "elapsed_seconds": null,
+      "session_id": "session-0b6d7958-5de3-41af-9d57-d807a5f14c2d",
+      "case_ids": [
+        "h26-sensitive-health-consent",
+        "h27-sensitive-health-no-consent",
+        "h28-change-without-prior",
+        "h29-history-statement",
+        "h30-supplement-then-confirm"
+      ],
+      "parse_ok": true,
+      "stderr_tail": ""
+    }
+  ],
+  "L1": {
+    "topic": {
+      "correct": 11,
+      "total": 27,
+      "rate": 0.4074,
+      "wilson95": [
+        0.2451,
+        0.5927
+      ]
+    },
+    "value": {
+      "correct": 26,
+      "total": 27,
+      "rate": 0.963,
+      "wilson95": [
+        0.8172,
+        0.9934
+      ]
+    },
+    "certainty": {
+      "correct": 26,
+      "total": 27,
+      "rate": 0.963,
+      "wilson95": [
+        0.8172,
+        0.9934
+      ]
+    },
+    "intent": {
+      "correct": 26,
+      "total": 27,
+      "rate": 0.963,
+      "wilson95": [
+        0.8172,
+        0.9934
+      ]
+    },
+    "importance_band": {
+      "correct": 16,
+      "total": 27,
+      "rate": 0.5926,
+      "wilson95": [
+        0.4073,
+        0.7549
+      ]
+    },
+    "decision": {
+      "correct": 36,
+      "total": 40,
+      "rate": 0.9,
+      "wilson95": [
+        0.7695,
+        0.9604
+      ]
+    },
+    "source_verbatim": {
+      "correct": 27,
+      "total": 27,
+      "rate": 1.0,
+      "wilson95": [
+        0.8754,
+        1.0
+      ]
+    },
+    "sensitive": {
+      "correct": 23,
+      "total": 27,
+      "rate": 0.8519,
+      "wilson95": [
+        0.6752,
+        0.9408
+      ]
+    },
+    "consent": {
+      "correct": 27,
+      "total": 27,
+      "rate": 1.0,
+      "wilson95": [
+        0.8754,
+        1.0
+      ]
+    },
+    "skip_reason": {
+      "correct": 1,
+      "total": 9,
+      "rate": 0.1111,
+      "wilson95": [
+        0.0199,
+        0.435
+      ]
+    }
+  },
+  "L1_failures": 38,
+  "L1_failure_list": [
+    {
+      "case": "h02-also-like",
+      "turn": 1,
+      "field": "topic",
+      "expected": "preference.favorite_flower",
+      "observed": "preference.liked_flower"
+    },
+    {
+      "case": "h03-explicit-change",
+      "turn": 1,
+      "field": "importance_band",
+      "expected": "high",
+      "observed": "mid"
+    },
+    {
+      "case": "h04-hesitation",
+      "turn": 0,
+      "field": "topic",
+      "expected": "preference.favorite_flower",
+      "observed": "preference.liked_flower"
+    },
+    {
+      "case": "h09-sensitive-no-consent",
+      "turn": 0,
+      "field": "decision",
+      "expected": "write",
+      "observed": "skip"
+    },
+    {
+      "case": "h10-sensitive-consent",
+      "turn": 0,
+      "field": "topic",
+      "expected": "profile.address",
+      "observed": "location.home_address"
+    },
+    {
+      "case": "h10-sensitive-consent",
+      "turn": 0,
+      "field": "importance_band",
+      "expected": "mid",
+      "observed": "high"
+    },
+    {
+      "case": "h13-correction",
+      "turn": 0,
+      "field": "topic",
+      "expected": "profile.birthday",
+      "observed": "personal.birthday"
+    },
+    {
+      "case": "h13-correction",
+      "turn": 0,
+      "field": "importance_band",
+      "expected": "mid",
+      "observed": "high"
+    },
+    {
+      "case": "h13-correction",
+      "turn": 1,
+      "field": "topic",
+      "expected": "profile.birthday",
+      "observed": "personal.birthday"
+    },
+    {
+      "case": "h14-unmarked-conflict",
+      "turn": 0,
+      "field": "topic",
+      "expected": "profile.city",
+      "observed": "personal.residence.city"
+    },
+    {
+      "case": "h14-unmarked-conflict",
+      "turn": 0,
+      "field": "importance_band",
+      "expected": "mid",
+      "observed": "high"
+    },
+    {
+      "case": "h14-unmarked-conflict",
+      "turn": 0,
+      "field": "sensitive",
+      "expected": false,
+      "observed": true
+    },
+    {
+      "case": "h14-unmarked-conflict",
+      "turn": 1,
+      "field": "topic",
+      "expected": "profile.city",
+      "observed": "personal.residence.city"
+    },
+    {
+      "case": "h14-unmarked-conflict",
+      "turn": 1,
+      "field": "importance_band",
+      "expected": "mid",
+      "observed": "high"
+    },
+    {
+      "case": "h14-unmarked-conflict",
+      "turn": 1,
+      "field": "sensitive",
+      "expected": false,
+      "observed": true
+    },
+    {
+      "case": "h15-explicit-change-city",
+      "turn": 0,
+      "field": "topic",
+      "expected": "profile.city",
+      "observed": "personal.residence.city"
+    },
+    {
+      "case": "h15-explicit-change-city",
+      "turn": 0,
+      "field": "importance_band",
+      "expected": "mid",
+      "observed": "high"
+    },
+    {
+      "case": "h15-explicit-change-city",
+      "turn": 0,
+      "field": "sensitive",
+      "expected": false,
+      "observed": true
+    },
+    {
+      "case": "h15-explicit-change-city",
+      "turn": 1,
+      "field": "topic",
+      "expected": "profile.city",
+      "observed": "personal.residence.city"
+    },
+    {
+      "case": "h15-explicit-change-city",
+      "turn": 1,
+      "field": "importance_band",
+      "expected": "mid",
+      "observed": "high"
+    },
+    {
+      "case": "h15-explicit-change-city",
+      "turn": 1,
+      "field": "sensitive",
+      "expected": false,
+      "observed": true
+    },
+    {
+      "case": "h16-expired-coupon",
+      "turn": 0,
+      "field": "topic",
+      "expected": "promotion.code",
+      "observed": "shopping.coupon_code"
+    },
+    {
+      "case": "h17-expiry-restate",
+      "turn": 0,
+      "field": "topic",
+      "expected": "promotion.code",
+      "observed": "shopping.coupon_code"
+    },
+    {
+      "case": "h17-expiry-restate",
+      "turn": 1,
+      "field": "topic",
+      "expected": "promotion.code",
+      "observed": "shopping.coupon_code"
+    },
+    {
+      "case": "h18-duplicate",
+      "turn": 0,
+      "field": "topic",
+      "expected": "preference.favorite_drink",
+      "observed": "preference.favorite_tea"
+    },
+    {
+      "case": "h18-duplicate",
+      "turn": 1,
+      "field": "decision",
+      "expected": "write",
+      "observed": "skip"
+    },
+    {
+      "case": "h20-prefer-more",
+      "turn": 0,
+      "field": "topic",
+      "expected": "preference.favorite_drink",
+      "observed": "preference.favorite_coffee"
+    },
+    {
+      "case": "h20-prefer-more",
+      "turn": 1,
+      "field": "topic",
+      "expected": "preference.favorite_drink",
+      "observed": "preference.favorite_coffee"
+    },
+    {
+      "case": "h20-prefer-more",
+      "turn": 1,
+      "field": "certainty",
+      "expected": "uncertain",
+      "observed": "explicit"
+    },
+    {
+      "case": "h20-prefer-more",
+      "turn": 1,
+      "field": "intent",
+      "expected": "supplement",
+      "observed": "change"
+    },
+    {
+      "case": "h21-change-mind",
+      "turn": 1,
+      "field": "importance_band",
+      "expected": "high",
+      "observed": "mid"
+    },
+    {
+      "case": "h25-future-plan",
+      "turn": 0,
+      "field": "decision",
+      "expected": "skip",
+      "observed": "write"
+    },
+    {
+      "case": "h26-sensitive-health-consent",
+      "turn": 0,
+      "field": "topic",
+      "expected": "health.allergy",
+      "observed": "health.allergy.penicillin"
+    },
+    {
+      "case": "h26-sensitive-health-consent",
+      "turn": 0,
+      "field": "value",
+      "expected": "青霉素过敏",
+      "observed": "对青霉素过敏"
+    },
+    {
+      "case": "h26-sensitive-health-consent",
+      "turn": 0,
+      "field": "importance_band",
+      "expected": "mid",
+      "observed": "high"
+    },
+    {
+      "case": "h27-sensitive-health-no-consent",
+      "turn": 0,
+      "field": "decision",
+      "expected": "write",
+      "observed": "skip"
+    },
+    {
+      "case": "h29-history-statement",
+      "turn": 0,
+      "field": "importance_band",
+      "expected": "high",
+      "observed": "mid"
+    },
+    {
+      "case": "h30-supplement-then-confirm",
+      "turn": 1,
+      "field": "importance_band",
+      "expected": "high",
+      "observed": "mid"
+    }
+  ],
+  "L2": {
+    "oracle_current_accuracy": "30/30",
+    "oracle_history_accuracy": "30/30",
+    "extracted_current": "20/30",
+    "extracted_history": "20/30",
+    "extracted_current_rate": 0.6667,
+    "extracted_history_rate": 0.6667,
+    "classification": {
+      "extraction_only": {
+        "count": 10,
+        "cases": [
+          "h10-sensitive-consent",
+          "h13-correction",
+          "h14-unmarked-conflict",
+          "h15-explicit-change-city",
+          "h16-expired-coupon",
+          "h17-expiry-restate",
+          "h18-duplicate",
+          "h20-prefer-more",
+          "h25-future-plan",
+          "h26-sensitive-health-consent"
+        ]
+      },
+      "storage_only": {
+        "count": 0,
+        "cases": []
+      },
+      "both": {
+        "count": 0,
+        "cases": []
+      },
+      "neither": {
+        "count": 20,
+        "cases": [
+          "h01-explicit-flower",
+          "h02-also-like",
+          "h03-explicit-change",
+          "h04-hesitation",
+          "h05-third-party",
+          "h06-negation",
+          "h07-chitchat",
+          "h08-question",
+          "h09-sensitive-no-consent",
+          "h11-hypothetical",
+          "h12-prompt-injection",
+          "h19-synonym",
+          "h21-change-mind",
+          "h22-removal",
+          "h23-third-party-friend",
+          "h24-low-importance",
+          "h27-sensitive-health-no-consent",
+          "h28-change-without-prior",
+          "h29-history-statement",
+          "h30-supplement-then-confirm"
+        ]
+      }
+    },
+    "cases": [
+      {
+        "case": "h01-explicit-flower",
+        "oracle_current": "玫瑰",
+        "oracle_history": [
+          "玫瑰"
+        ],
+        "model_current": "玫瑰",
+        "model_history": [
+          "玫瑰"
+        ],
+        "expected_current": "玫瑰",
+        "expected_history": [
+          "玫瑰"
+        ],
+        "oracle_statuses": [
+          "confirmed"
+        ],
+        "model_statuses": [
+          "confirmed"
+        ],
+        "oracle_heads": 1,
+        "model_heads": 1,
+        "class": "neither"
+      },
+      {
+        "case": "h02-also-like",
+        "oracle_current": "玫瑰",
+        "oracle_history": [
+          "玫瑰"
+        ],
+        "model_current": "玫瑰",
+        "model_history": [
+          "玫瑰"
+        ],
+        "expected_current": "玫瑰",
+        "expected_history": [
+          "玫瑰"
+        ],
+        "oracle_statuses": [
+          "confirmed",
+          "pending"
+        ],
+        "model_statuses": [
+          "confirmed",
+          "pending"
+        ],
+        "oracle_heads": 1,
+        "model_heads": 1,
+        "class": "neither"
+      },
+      {
+        "case": "h03-explicit-change",
+        "oracle_current": "栀子花",
+        "oracle_history": [
+          "玫瑰",
+          "栀子花"
+        ],
+        "model_current": "栀子花",
+        "model_history": [
+          "玫瑰",
+          "栀子花"
+        ],
+        "expected_current": "栀子花",
+        "expected_history": [
+          "玫瑰",
+          "栀子花"
+        ],
+        "oracle_statuses": [
+          "confirmed",
+          "confirmed"
+        ],
+        "model_statuses": [
+          "confirmed",
+          "confirmed"
+        ],
+        "oracle_heads": 1,
+        "model_heads": 1,
+        "class": "neither"
+      },
+      {
+        "case": "h04-hesitation",
+        "oracle_current": null,
+        "oracle_history": [],
+        "model_current": null,
+        "model_history": [],
+        "expected_current": null,
+        "expected_history": [],
+        "oracle_statuses": [
+          "pending"
+        ],
+        "model_statuses": [
+          "pending"
+        ],
+        "oracle_heads": 0,
+        "model_heads": 0,
+        "class": "neither"
+      },
+      {
+        "case": "h05-third-party",
+        "oracle_current": null,
+        "oracle_history": [],
+        "model_current": null,
+        "model_history": [],
+        "expected_current": null,
+        "expected_history": [],
+        "oracle_statuses": [],
+        "model_statuses": [],
+        "oracle_heads": 0,
+        "model_heads": 0,
+        "class": "neither"
+      },
+      {
+        "case": "h06-negation",
+        "oracle_current": null,
+        "oracle_history": [],
+        "model_current": null,
+        "model_history": [],
+        "expected_current": null,
+        "expected_history": [],
+        "oracle_statuses": [],
+        "model_statuses": [],
+        "oracle_heads": 0,
+        "model_heads": 0,
+        "class": "neither"
+      },
+      {
+        "case": "h07-chitchat",
+        "oracle_current": null,
+        "oracle_history": [],
+        "model_current": null,
+        "model_history": [],
+        "expected_current": null,
+        "expected_history": [],
+        "oracle_statuses": [],
+        "model_statuses": [],
+        "oracle_heads": 0,
+        "model_heads": 0,
+        "class": "neither"
+      },
+      {
+        "case": "h08-question",
+        "oracle_current": null,
+        "oracle_history": [],
+        "model_current": null,
+        "model_history": [],
+        "expected_current": null,
+        "expected_history": [],
+        "oracle_statuses": [],
+        "model_statuses": [],
+        "oracle_heads": 0,
+        "model_heads": 0,
+        "class": "neither"
+      },
+      {
+        "case": "h09-sensitive-no-consent",
+        "oracle_current": null,
+        "oracle_history": [],
+        "model_current": null,
+        "model_history": [],
+        "expected_current": null,
+        "expected_history": [],
+        "oracle_statuses": [
+          "rejected_sensitive"
+        ],
+        "model_statuses": [],
+        "oracle_heads": 0,
+        "model_heads": 0,
+        "class": "neither"
+      },
+      {
+        "case": "h10-sensitive-consent",
+        "oracle_current": "幸福路12号",
+        "oracle_history": [
+          "幸福路12号"
+        ],
+        "model_current": null,
+        "model_history": [],
+        "expected_current": "幸福路12号",
+        "expected_history": [
+          "幸福路12号"
+        ],
+        "oracle_statuses": [
+          "confirmed"
+        ],
+        "model_statuses": [
+          "confirmed"
+        ],
+        "oracle_heads": 1,
+        "model_heads": 1,
+        "class": "extraction_only"
+      },
+      {
+        "case": "h11-hypothetical",
+        "oracle_current": null,
+        "oracle_history": [],
+        "model_current": null,
+        "model_history": [],
+        "expected_current": null,
+        "expected_history": [],
+        "oracle_statuses": [],
+        "model_statuses": [],
+        "oracle_heads": 0,
+        "model_heads": 0,
+        "class": "neither"
+      },
+      {
+        "case": "h12-prompt-injection",
+        "oracle_current": null,
+        "oracle_history": [],
+        "model_current": null,
+        "model_history": [],
+        "expected_current": null,
+        "expected_history": [],
+        "oracle_statuses": [],
+        "model_statuses": [],
+        "oracle_heads": 0,
+        "model_heads": 0,
+        "class": "neither"
+      },
+      {
+        "case": "h13-correction",
+        "oracle_current": "5月3日",
+        "oracle_history": [
+          "5月2日",
+          "5月3日"
+        ],
+        "model_current": null,
+        "model_history": [],
+        "expected_current": "5月3日",
+        "expected_history": [
+          "5月2日",
+          "5月3日"
+        ],
+        "oracle_statuses": [
+          "confirmed",
+          "confirmed"
+        ],
+        "model_statuses": [
+          "confirmed",
+          "confirmed"
+        ],
+        "oracle_heads": 1,
+        "model_heads": 1,
+        "class": "extraction_only"
+      },
+      {
+        "case": "h14-unmarked-conflict",
+        "oracle_current": "上海",
+        "oracle_history": [
+          "上海"
+        ],
+        "model_current": null,
+        "model_history": [],
+        "expected_current": "上海",
+        "expected_history": [
+          "上海"
+        ],
+        "oracle_statuses": [
+          "confirmed",
+          "conflict"
+        ],
+        "model_statuses": [
+          "rejected_sensitive",
+          "rejected_sensitive"
+        ],
+        "oracle_heads": 1,
+        "model_heads": 0,
+        "class": "extraction_only"
+      },
+      {
+        "case": "h15-explicit-change-city",
+        "oracle_current": "北京",
+        "oracle_history": [
+          "上海",
+          "北京"
+        ],
+        "model_current": null,
+        "model_history": [],
+        "expected_current": "北京",
+        "expected_history": [
+          "上海",
+          "北京"
+        ],
+        "oracle_statuses": [
+          "confirmed",
+          "confirmed"
+        ],
+        "model_statuses": [
+          "rejected_sensitive",
+          "rejected_sensitive"
+        ],
+        "oracle_heads": 1,
+        "model_heads": 0,
+        "class": "extraction_only"
+      },
+      {
+        "case": "h16-expired-coupon",
+        "oracle_current": null,
+        "oracle_history": [],
+        "model_current": null,
+        "model_history": [],
+        "expected_current": null,
+        "expected_history": [],
+        "oracle_statuses": [
+          "expired"
+        ],
+        "model_statuses": [
+          "confirmed"
+        ],
+        "oracle_heads": 0,
+        "model_heads": 1,
+        "class": "extraction_only"
+      },
+      {
+        "case": "h17-expiry-restate",
+        "oracle_current": "FICTIONAL20",
+        "oracle_history": [
+          "FICTIONAL20"
+        ],
+        "model_current": null,
+        "model_history": [],
+        "expected_current": "FICTIONAL20",
+        "expected_history": [
+          "FICTIONAL20"
+        ],
+        "oracle_statuses": [
+          "expired",
+          "confirmed"
+        ],
+        "model_statuses": [
+          "confirmed",
+          "confirmed"
+        ],
+        "oracle_heads": 1,
+        "model_heads": 1,
+        "class": "extraction_only"
+      },
+      {
+        "case": "h18-duplicate",
+        "oracle_current": "乌龙茶",
+        "oracle_history": [
+          "乌龙茶"
+        ],
+        "model_current": null,
+        "model_history": [],
+        "expected_current": "乌龙茶",
+        "expected_history": [
+          "乌龙茶"
+        ],
+        "oracle_statuses": [
+          "confirmed",
+          "duplicate"
+        ],
+        "model_statuses": [
+          "confirmed"
+        ],
+        "oracle_heads": 1,
+        "model_heads": 1,
+        "class": "extraction_only"
+      },
+      {
+        "case": "h19-synonym",
+        "oracle_current": "蓝色",
+        "oracle_history": [
+          "蓝色"
+        ],
+        "model_current": "蓝色",
+        "model_history": [
+          "蓝色"
+        ],
+        "expected_current": "蓝色",
+        "expected_history": [
+          "蓝色"
+        ],
+        "oracle_statuses": [
+          "confirmed"
+        ],
+        "model_statuses": [
+          "confirmed"
+        ],
+        "oracle_heads": 1,
+        "model_heads": 1,
+        "class": "neither"
+      },
+      {
+        "case": "h20-prefer-more",
+        "oracle_current": "咖啡",
+        "oracle_history": [
+          "咖啡"
+        ],
+        "model_current": null,
+        "model_history": [],
+        "expected_current": "咖啡",
+        "expected_history": [
+          "咖啡"
+        ],
+        "oracle_statuses": [
+          "confirmed",
+          "pending"
+        ],
+        "model_statuses": [
+          "confirmed",
+          "confirmed"
+        ],
+        "oracle_heads": 1,
+        "model_heads": 1,
+        "class": "extraction_only"
+      },
+      {
+        "case": "h21-change-mind",
+        "oracle_current": "冬天",
+        "oracle_history": [
+          "夏天",
+          "冬天"
+        ],
+        "model_current": "冬天",
+        "model_history": [
+          "夏天",
+          "冬天"
+        ],
+        "expected_current": "冬天",
+        "expected_history": [
+          "夏天",
+          "冬天"
+        ],
+        "oracle_statuses": [
+          "confirmed",
+          "confirmed"
+        ],
+        "model_statuses": [
+          "confirmed",
+          "confirmed"
+        ],
+        "oracle_heads": 1,
+        "model_heads": 1,
+        "class": "neither"
+      },
+      {
+        "case": "h22-removal",
+        "oracle_current": null,
+        "oracle_history": [],
+        "model_current": null,
+        "model_history": [],
+        "expected_current": null,
+        "expected_history": [],
+        "oracle_statuses": [],
+        "model_statuses": [],
+        "oracle_heads": 0,
+        "model_heads": 0,
+        "class": "neither"
+      },
+      {
+        "case": "h23-third-party-friend",
+        "oracle_current": null,
+        "oracle_history": [],
+        "model_current": null,
+        "model_history": [],
+        "expected_current": null,
+        "expected_history": [],
+        "oracle_statuses": [],
+        "model_statuses": [],
+        "oracle_heads": 0,
+        "model_heads": 0,
+        "class": "neither"
+      },
+      {
+        "case": "h24-low-importance",
+        "oracle_current": null,
+        "oracle_history": [],
+        "model_current": null,
+        "model_history": [],
+        "expected_current": null,
+        "expected_history": [],
+        "oracle_statuses": [],
+        "model_statuses": [],
+        "oracle_heads": 0,
+        "model_heads": 0,
+        "class": "neither"
+      },
+      {
+        "case": "h25-future-plan",
+        "oracle_current": null,
+        "oracle_history": [],
+        "model_current": null,
+        "model_history": [],
+        "expected_current": null,
+        "expected_history": [],
+        "oracle_statuses": [],
+        "model_statuses": [
+          "confirmed"
+        ],
+        "oracle_heads": 0,
+        "model_heads": 1,
+        "class": "extraction_only"
+      },
+      {
+        "case": "h26-sensitive-health-consent",
+        "oracle_current": "青霉素过敏",
+        "oracle_history": [
+          "青霉素过敏"
+        ],
+        "model_current": null,
+        "model_history": [],
+        "expected_current": "青霉素过敏",
+        "expected_history": [
+          "青霉素过敏"
+        ],
+        "oracle_statuses": [
+          "confirmed"
+        ],
+        "model_statuses": [
+          "confirmed"
+        ],
+        "oracle_heads": 1,
+        "model_heads": 1,
+        "class": "extraction_only"
+      },
+      {
+        "case": "h27-sensitive-health-no-consent",
+        "oracle_current": null,
+        "oracle_history": [],
+        "model_current": null,
+        "model_history": [],
+        "expected_current": null,
+        "expected_history": [],
+        "oracle_statuses": [
+          "rejected_sensitive"
+        ],
+        "model_statuses": [],
+        "oracle_heads": 0,
+        "model_heads": 0,
+        "class": "neither"
+      },
+      {
+        "case": "h28-change-without-prior",
+        "oracle_current": "紫色",
+        "oracle_history": [
+          "紫色"
+        ],
+        "model_current": "紫色",
+        "model_history": [
+          "紫色"
+        ],
+        "expected_current": "紫色",
+        "expected_history": [
+          "紫色"
+        ],
+        "oracle_statuses": [
+          "confirmed"
+        ],
+        "model_statuses": [
+          "confirmed"
+        ],
+        "oracle_heads": 1,
+        "model_heads": 1,
+        "class": "neither"
+      },
+      {
+        "case": "h29-history-statement",
+        "oracle_current": "秋天",
+        "oracle_history": [
+          "秋天"
+        ],
+        "model_current": "秋天",
+        "model_history": [
+          "秋天"
+        ],
+        "expected_current": "秋天",
+        "expected_history": [
+          "秋天"
+        ],
+        "oracle_statuses": [
+          "confirmed"
+        ],
+        "model_statuses": [
+          "confirmed"
+        ],
+        "oracle_heads": 1,
+        "model_heads": 1,
+        "class": "neither"
+      },
+      {
+        "case": "h30-supplement-then-confirm",
+        "oracle_current": "栀子花",
+        "oracle_history": [
+          "栀子花"
+        ],
+        "model_current": "栀子花",
+        "model_history": [
+          "栀子花"
+        ],
+        "expected_current": "栀子花",
+        "expected_history": [
+          "栀子花"
+        ],
+        "oracle_statuses": [
+          "pending",
+          "confirmed"
+        ],
+        "model_statuses": [
+          "pending",
+          "confirmed"
+        ],
+        "oracle_heads": 1,
+        "model_heads": 1,
+        "class": "neither"
+      }
+    ]
+  },
+  "raw_dir": "<repo>/experiments/heldout-2026-10-29/raw"
+}

@@ -1,0 +1,25 @@
+test_cli_save_show_cross_session_and_forget (test_tasks.TaskTests.test_cli_save_show_cross_session_and_forget) ... ok
+test_complement_repair_and_no_version_rollback (test_tasks.TaskTests.test_complement_repair_and_no_version_rollback) ... ok
+test_corrupt_checkpoint_blocks_forget_atomically_until_explicit_removal (test_tasks.TaskTests.test_corrupt_checkpoint_blocks_forget_atomically_until_explicit_removal) ... ok
+test_document_validation_and_missing_session_do_not_write (test_tasks.TaskTests.test_document_validation_and_missing_session_do_not_write) ... ok
+test_expired_memory_invalidates_task_without_resurrecting_old_value (test_tasks.TaskTests.test_expired_memory_invalidates_task_without_resurrecting_old_value) ... ok
+test_failed_new_source_update_leaves_prior_checkpoint (test_tasks.TaskTests.test_failed_new_source_update_leaves_prior_checkpoint) ... ok
+test_forget_source_purges_all_task_versions_and_backups (test_tasks.TaskTests.test_forget_source_purges_all_task_versions_and_backups) ... ok
+test_forget_transaction_rolls_back_task_deletion_on_memory_failure (test_tasks.TaskTests.test_forget_transaction_rolls_back_task_deletion_on_memory_failure) ... ok
+test_lazy_storage_and_read_only_missing (test_tasks.TaskTests.test_lazy_storage_and_read_only_missing) ... ok
+test_memory_sources_current_then_changed_blocks_all_content (test_tasks.TaskTests.test_memory_sources_current_then_changed_blocks_all_content) ... ok
+test_pending_conflict_expired_or_other_identity_cannot_be_sources (test_tasks.TaskTests.test_pending_conflict_expired_or_other_identity_cannot_be_sources) ... ok
+test_reopen_and_competing_writers_only_one_revision_wins (test_tasks.TaskTests.test_reopen_and_competing_writers_only_one_revision_wins) ... ok
+test_repair_cannot_make_stale_source_current_or_guess_lost_bytes (test_tasks.TaskTests.test_repair_cannot_make_stale_source_current_or_guess_lost_bytes) ... ok
+test_save_show_mark_unverified_sources_and_no_long_term_promotion (test_tasks.TaskTests.test_save_show_mark_unverified_sources_and_no_long_term_promotion) ... ok
+test_session_and_identity_isolation_and_explicit_transfer (test_tasks.TaskTests.test_session_and_identity_isolation_and_explicit_transfer) ... ok
+test_session_memory_dependencies_cannot_transfer (test_tasks.TaskTests.test_session_memory_dependencies_cannot_transfer) ... ok
+test_source_content_digest_binds_even_same_event_id (test_tasks.TaskTests.test_source_content_digest_binds_even_same_event_id) ... ok
+test_task_expiry_does_not_fall_back_to_old_version (test_tasks.TaskTests.test_task_expiry_does_not_fall_back_to_old_version) ... ok
+test_update_requires_current_version_and_returns_latest (test_tasks.TaskTests.test_update_requires_current_version_and_returns_latest) ... ok
+test_visible_corruption_fails_closed_but_other_identity_not_decoded (test_tasks.TaskTests.test_visible_corruption_fails_closed_but_other_identity_not_decoded) ... ok
+
+----------------------------------------------------------------------
+Ran 20 tests in 0.217s
+
+OK

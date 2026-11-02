@@ -1,0 +1,38 @@
+# Audit environment (baseline commit 4bb7306)
+date_local: 2026-10-24T15:31:22+0800
+date_utc:   2026-10-24T07:31:22Z
+project:    <repo>
+HEAD:       4bb73068c6c5710a1750f56b195a4d47804a3ff7
+git_status_at_start:
+ M experiments/results/results.json
+ M pyproject.toml
+ M skills/memorygene/SKILL.md
+ M src/memorygene/cli.py
+ M src/memorygene/core.py
+ M tests/test_memorygene.py
+?? .dsh/
+?? .memorygene/
+?? docs/USAGE.zh.md
+?? evidence/
+?? experiments/nl_cases.json
+?? scripts/
+?? src/memorygene/adapter.py
+?? src/memorygene/extract.py
+?? tests/test_adapter.py
+?? tests/test_extract.py
+?? tools/
+git_remote: 
+venv_python: Python 3.11.7
+homebrew_3.12: Python 3.12.10
+homebrew_3.13: Python 3.13.3
+platform_3.11: macOS-27.0.1-arm64-arm-64bit
+platform_3.13: macOS-27.0.1-arm64-arm-64bit-Mach-O
+tooling: ruff=MISSING build_module=present twine=present
+
+# NOTE (15:31 local): dev tooling appeared in .venv during the audit (concurrent Lead work):
+#   ruff 0.17.2, build 1.6.1, twine 7.0.0, setuptools 84.2.1 (editable memorygene install)
+# At audit start (15:24) the venv had only memorygene/pip/setuptools; ruff/build/twine were MISSING.
+# Re-check after they appeared:
+#   ruff: need `cd` outside repo or `python -m ruff` works from repo after install
+# All baseline verification runs used PYTHONPATH=/tmp/audit_baseline/src (git 4bb7306 export),
+# so the concurrent source edits in the worktree do not affect baseline results.

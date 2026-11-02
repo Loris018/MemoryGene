@@ -1,0 +1,47 @@
+=== final tree / artifacts identity (audit baseline) ===
+2026-10-24T07:48:42Z
+HEAD: 56b9d2d4f19adf51d08ce078a91f32bf5dcd5974
+2026-10-24 15:40:10 +0800 test: record final ZIP extraction verification
+git status (auditor made no source edits; new files only under evidence/review/):
+ M README.md
+ M SECURITY.md
+ M docs/ACCEPTANCE.md
+ M docs/AUDIT.md
+ M docs/DESIGN.md
+ M docs/RELEASE.md
+ M docs/VALIDATION.json
+ M evidence/release/final-verification.log
+ M experiments/results/nl_results.json
+ M experiments/results/nl_trace.json
+ M experiments/results/results.json
+ M skills/memorygene/SKILL.md
+ M src/memorygene/core.py
+ M tests/test_memorygene.py
+?? evidence/review/logs/final-00-identity.log
+?? evidence/review/logs/final-a-p1-repros.log
+?? evidence/review/logs/final-acceptance.log
+?? evidence/review/logs/final-b-c-extras.log
+?? evidence/review/logs/final-c-zip-manifest.log
+?? evidence/review/logs/final-clean-wheel-install.log
+?? evidence/review/logs/final-d1-adapter-core.log
+?? evidence/review/logs/final-d2-verify-foreign-extract-zip.log
+?? evidence/review/logs/final-dsh-probe.log
+?? evidence/review/logs/final-e-nl-and-claims.log
+?? evidence/review/logs/final-experiments.log
+?? evidence/review/logs/final-extract-fuzz.log
+?? evidence/review/logs/final-fuzz-regression.log
+?? evidence/review/logs/final-lifecycle.log
+?? evidence/review/logs/final-nl-eval.log
+?? evidence/review/logs/final-p1-verify-gap.log
+?? evidence/review/logs/final-ruff.log
+?? evidence/review/logs/final-unittest.log
+?? evidence/review/scripts/repro_verify_head_rollback.py
+
+artifact sha256:
+0a900fa7e187e253f94614568670900a4f0e797be12499d887f720a9ddf3da70  <repo>-0.2.0.dev1-dsh.zip
+d98eace55679d2c3f380efc9c91ba58e1519766d8c1d4f05f6309bd386117138  <repo>-0.2.0.dev1-dsh-MANIFEST.json
+b4267836abe51da7b54f02830392273df6609705eeaecb746831d6fba95cfd7c  <repo>/dist/memorygene-0.2.0.dev1-py3-none-any.whl
+346b6a051492fa8e37fa1b05d63d6903440d6bb12ce33768405129930c27ca6c  <repo>/dist/memorygene-0.2.0.dev1.tar.gz
+
+ZIP:      145 entries; manifest declares 145 files
+VALIDATION says zip-integrity: No errors detected; 142 files; ZIP sha256/size recorded in ../MemoryGene-0.2.0.dev1-dsh-MANIFEST.json (a ZIP cannot embed its own hash)

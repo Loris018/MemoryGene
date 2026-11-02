@@ -1,0 +1,61 @@
+{
+  "review_date": "2026-10-28",
+  "method": "Official docs and selected source code at pinned revisions; no competitor installed or benchmarked.",
+  "sources": [
+    {
+      "repo": "mem0ai/mem0",
+      "sha": "26cdefb46600c0fa5953c4b5ee5003c125539fc4",
+      "url": "https://github.com/mem0ai/mem0/blob/26cdefb46600c0fa5953c4b5ee5003c125539fc4/skills/mem0/SKILL.md",
+      "ok": true,
+      "length": 8793
+    },
+    {
+      "repo": "letta-ai/skills",
+      "sha": "6785511e7d3913d9ec598435a77ae637cd45fc89",
+      "url": "https://github.com/letta-ai/skills/blob/6785511e7d3913d9ec598435a77ae637cd45fc89/letta/agent-development/references/memory-architecture.md",
+      "ok": true,
+      "length": 3029
+    },
+    {
+      "repo": "vectorize-io/hindsight",
+      "sha": "14e7306e27cdbd03ad5f17cf46f22a5f6d6ec5a2",
+      "url": "https://github.com/vectorize-io/hindsight/blob/14e7306e27cdbd03ad5f17cf46f22a5f6d6ec5a2/README.md",
+      "ok": true,
+      "length": 24807
+    },
+    {
+      "repo": "getzep/graphiti",
+      "sha": "b1c609f185107dc40e1ec8bad467be72c42dfe15",
+      "url": "https://github.com/getzep/graphiti/blob/b1c609f185107dc40e1ec8bad467be72c42dfe15/README.md",
+      "ok": true,
+      "length": 35175
+    },
+    {
+      "repo": "thedotmack/claude-mem",
+      "sha": "8e91e3abb0f4536d374095193c18d72fa9d92b05",
+      "url": "https://github.com/thedotmack/claude-mem/blob/8e91e3abb0f4536d374095193c18d72fa9d92b05/docs/native-harness-integrations.md",
+      "ok": true,
+      "length": 5375
+    },
+    {
+      "repo": "modelcontextprotocol/servers",
+      "sha": "ef9808f71090d0db3eda99e2af2ba78f1086f4fb",
+      "url": "https://github.com/modelcontextprotocol/servers/blob/ef9808f71090d0db3eda99e2af2ba78f1086f4fb/src/memory/README.md",
+      "ok": true,
+      "length": 13108
+    },
+    {
+      "repo": "zhongwanjun/MemoryBank-SiliconFriend",
+      "sha": "cf61c4196e4cfdb0f2b7a0316249fa40312dc3a9",
+      "url": "https://github.com/zhongwanjun/MemoryBank-SiliconFriend/blob/cf61c4196e4cfdb0f2b7a0316249fa40312dc3a9/README.md",
+      "ok": true,
+      "length": 6914
+    },
+    {
+      "repo": "volcengine/OpenViking",
+      "sha": "71038a1d44a89ee26f3288167b42fca16f842137",
+      "url": "https://github.com/volcengine/OpenViking/blob/71038a1d44a89ee26f3288167b42fca16f842137/docs/en/concepts/03-context-layers.md",
+      "ok": true
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+L1 metrics:
+   decision : {'correct': 77, 'total': 79, 'rate': 0.9746835443037974}
+   topic : {'correct': 57, 'total': 57, 'rate': 1.0}
+   value : {'correct': 56, 'total': 57, 'rate': 0.9824561403508771}
+   certainty : {'correct': 57, 'total': 57, 'rate': 1.0}
+   intent : {'correct': 56, 'total': 57, 'rate': 0.9824561403508771}
+   importance_band : {'correct': 56, 'total': 57, 'rate': 0.9824561403508771}
+   source_verbatim : {'correct': 57, 'total': 57, 'rate': 1.0}
+   source_not_bloated : {'correct': 57, 'total': 57, 'rate': 1.0}
+   source_exact : {'correct': 57, 'total': 57, 'rate': 1.0}
+   sensitive : {'correct': 57, 'total': 57, 'rate': 1.0}
+   consent : {'correct': 57, 'total': 57, 'rate': 1.0}
+   skip_reason : {'correct': 20, 'total': 22, 'rate': 0.9090909090909091}
+L1 failure_count: 7 failures: [('nl-value-blue-rose', 0, 'value', '蓝色玫瑰', None), ('nl-also-usually', 0, 'intent', 'assert', None), ('nl-not-really-like', 0, 'decision', 'skip', None), ('nl-not-really-like', 0, 'skip_reason', 'negation', None), ('nl-casual-uncertain', 0, 'importance_band', 'low', None), ('nl-spouse-third-party', 0, 'decision', 'skip', None), ('nl-spouse-third-party', 0, 'skip_reason', 'third_party', None)]
+L2 extractor: {'current_correct': {'correct': 44, 'total': 47, 'rate': 0.9361702127659575}, 'history_correct': {'correct': 44, 'total': 47, 'rate': 0.9361702127659575}, 'statuses_correct': {'correct': 76, 'total': 79, 'rate': 0.9620253164556962}}
+L2 oracle: {'current_correct': {'correct': 47, 'total': 47, 'rate': 1.0}, 'history_correct': {'correct': 47, 'total': 47, 'rate': 1.0}, 'statuses_correct': {'correct': 79, 'total': 79, 'rate': 1.0}}
+L2 classification: {'extraction_only': {'count': 5, 'cases': ['nl-value-blue-rose', 'nl-also-usually', 'nl-not-really-like', 'nl-casual-uncertain', 'nl-spouse-third-party']}, 'storage_only': {'count': 0, 'cases': []}, 'both': {'count': 0, 'cases': []}, 'neither': {'count': 0, 'cases': []}} status_confusion: {'oracle': {}, 'extractor': {'skipped->confirmed': 2, 'discarded->pending': 1}}
+
+README/AUDIT claims vs actual:
+  47 cases/79 turns -> 47 79
+  L1 decision 77/79 -> {'correct': 77, 'total': 79, 'rate': 0.9746835443037974}
+  L2 extractor current 44/47 -> None
+
+broken relative links in docs: none
+
+binary/compressed entries in ZIP (9):
+   MemoryGene/evidence/01-e2e/B-recall-and-supplement-session/session.v4.jsonl.zstd
+   MemoryGene/evidence/01-e2e/refusal-missing-db/A-write-session/session.v4.jsonl.zstd
+   MemoryGene/evidence/01-e2e/C-explicit-change-session/session.v4.jsonl.zstd
+   MemoryGene/evidence/01-e2e/D-forget-session/session.v4.jsonl.zstd
+   MemoryGene/evidence/01-e2e/A-write-session/session.v4.jsonl.zstd
+   MemoryGene/experiments/results/mechanism.png
+   MemoryGene/experiments/results/policy.png
+   MemoryGene/packages/memorygene-0.2.0.dev1-py3-none-any.whl
+   MemoryGene/packages/memorygene-0.2.0.dev1.tar.gz
+
+evidence/release logs in ZIP: ['MemoryGene/evidence/release/build.log', 'MemoryGene/evidence/release/clean-wheel-venv.log', 'MemoryGene/evidence/release/final-verification.log', 'MemoryGene/evidence/release/twine.log', 'MemoryGene/evidence/release/zip-final-check.log', 'MemoryGene/evidence/release/zip-install-verification.log', 'MemoryGene/evidence/release/zip-integrity.log']
+
+docs lines containing ~ (host path): 15 [('README.md', 14), ('docs/DSH-INTEGRATION.md', 32), ('docs/DSH-INTEGRATION.md', 120), ('docs/USAGE.zh.md', 12), ('docs/USAGE.zh.md', 24), ('docs/USAGE.zh.md', 37), ('docs/USAGE.zh.md', 47), ('docs/USAGE.zh.md', 81), ('docs/USAGE.zh.md', 149), ('docs/USAGE.zh.md', 273), ('docs/USAGE.zh.md', 351), ('docs/RELEASE.md', 34)]

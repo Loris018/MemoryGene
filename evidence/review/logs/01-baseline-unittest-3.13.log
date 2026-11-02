@@ -1,0 +1,41 @@
+test_all_bytes_and_unicode_roundtrip (test_memorygene.CodecTests.test_all_bytes_and_unicode_roundtrip) ... ok
+test_equal_budget_and_no_guess (test_memorygene.CodecTests.test_equal_budget_and_no_guess) ... ok
+test_invalid_sequences (test_memorygene.CodecTests.test_invalid_sequences) ... ok
+test_known_example (test_memorygene.CodecTests.test_known_example) ... ok
+test_all_protection_modes_at_store_level (test_memorygene.IntegrationTests.test_all_protection_modes_at_store_level) ... ok
+test_cli_ingest_recall_and_forget (test_memorygene.IntegrationTests.test_cli_ingest_recall_and_forget) ... ok
+test_cli_invalid_timestamp_is_clean_error (test_memorygene.IntegrationTests.test_cli_invalid_timestamp_is_clean_error) ... ok
+test_missing_config_is_not_silently_adopted (test_memorygene.IntegrationTests.test_missing_config_is_not_silently_adopted) ... ok
+test_plain_and_complement_policy_equivalence (test_memorygene.IntegrationTests.test_plain_and_complement_policy_equivalence) ... ok
+test_reopen_and_config_guard (test_memorygene.IntegrationTests.test_reopen_and_config_guard) ... ok
+test_synthetic_scenarios (test_memorygene.IntegrationTests.test_synthetic_scenarios) ... ok
+test_two_connections_serialize_conflicting_writes (test_memorygene.IntegrationTests.test_two_connections_serialize_conflicting_writes) ... ok
+test_bad_head_pointer_cannot_leak_other_subject (test_memorygene.StoreTests.test_bad_head_pointer_cannot_leak_other_subject) ... ok
+test_both_copies_lost_fail_closed (test_memorygene.StoreTests.test_both_copies_lost_fail_closed) ... ok
+test_conflict_requires_explicit_change (test_memorygene.StoreTests.test_conflict_requires_explicit_change) ... ok
+test_correction_preserves_original (test_memorygene.StoreTests.test_correction_preserves_original) ... ok
+test_corrupt_primary_explicit_repair (test_memorygene.StoreTests.test_corrupt_primary_explicit_repair) ... ok
+test_duplicate_evidence_does_not_create_new_head (test_memorygene.StoreTests.test_duplicate_evidence_does_not_create_new_head) ... ok
+test_expired_input_not_stored (test_memorygene.StoreTests.test_expired_input_not_stored) ... ok
+test_expiry_does_not_resurrect_superseded (test_memorygene.StoreTests.test_expiry_does_not_resurrect_superseded) ... ok
+test_explicit_resolution_links_pending_evidence (test_memorygene.StoreTests.test_explicit_resolution_links_pending_evidence) ... ok
+test_flower_lifecycle (test_memorygene.StoreTests.test_flower_lifecycle) ... ok
+test_forget_removes_all_copies_and_is_scoped (test_memorygene.StoreTests.test_forget_removes_all_copies_and_is_scoped) ... ok
+test_healthy_primary_repairs_bad_backup (test_memorygene.StoreTests.test_healthy_primary_repairs_bad_backup) ... ok
+test_idempotent_retry_and_mismatched_retry (test_memorygene.StoreTests.test_idempotent_retry_and_mismatched_retry) ... ok
+test_inferred_never_confirmed (test_memorygene.StoreTests.test_inferred_never_confirmed) ... ok
+test_low_value_and_sensitive_not_persisted (test_memorygene.StoreTests.test_low_value_and_sensitive_not_persisted) ... ok
+test_out_of_order_cannot_overwrite (test_memorygene.StoreTests.test_out_of_order_cannot_overwrite) ... ok
+test_repair_latest_never_rolls_back_change (test_memorygene.StoreTests.test_repair_latest_never_rolls_back_change) ... ok
+test_resolution_cannot_cross_subjects_or_confirm_uncertainty (test_memorygene.StoreTests.test_resolution_cannot_cross_subjects_or_confirm_uncertainty) ... ok
+test_routing_is_unambiguous_and_normalized (test_memorygene.StoreTests.test_routing_is_unambiguous_and_normalized) ... ok
+test_scope_and_subject_isolation (test_memorygene.StoreTests.test_scope_and_subject_isolation) ... ok
+test_sensitive_consent (test_memorygene.StoreTests.test_sensitive_consent) ... ok
+test_supplement_does_not_replace_single_slot (test_memorygene.StoreTests.test_supplement_does_not_replace_single_slot) ... ok
+test_uncertain_change_does_not_override (test_memorygene.StoreTests.test_uncertain_change_does_not_override) ... ok
+test_validation_no_nan_or_naive_time (test_memorygene.StoreTests.test_validation_no_nan_or_naive_time) ... ok
+
+----------------------------------------------------------------------
+Ran 36 tests in 0.308s
+
+OK

@@ -1,0 +1,4 @@
+only_task_checkpoints rejected: Not a MemoryGene database; refusing to adopt a SQLite file without core tables ['config', 'events', 'heads'] | tables unchanged: True
+core_missing_config rejected: Not a MemoryGene database; refusing to adopt a SQLite file without core tables ['config'] | tables unchanged: True
+unrelated rejected: Not a MemoryGene database; refusing to adopt a SQLite file without core tables ['config', 'events', 'heads'] | tables unchanged: True
+dev1 rejects task DB: ValueError Not a MemoryGene database; refusing to adopt a foreign SQLite file with tables ['task_checkpoints']

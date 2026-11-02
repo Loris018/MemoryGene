@@ -1,0 +1,745 @@
+[
+  {
+    "id": "flower-evolution",
+    "topic": "favorite_flower",
+    "turns": [
+      {
+        "namespace": "fixture",
+        "subject": "fictional",
+        "at": "2026-10-01T00:00:00Z",
+        "topic": "favorite_flower",
+        "value": "玫瑰",
+        "source": "最喜欢玫瑰"
+      },
+      {
+        "namespace": "fixture",
+        "subject": "fictional",
+        "at": "2026-10-01T00:00:00Z",
+        "topic": "favorite_flower",
+        "value": "栀子花",
+        "source": "最近栀子花也好看",
+        "certainty": "uncertain",
+        "intent": "supplement"
+      },
+      {
+        "namespace": "fixture",
+        "subject": "fictional",
+        "at": "2026-10-01T00:00:00Z",
+        "topic": "favorite_flower",
+        "value": "栀子花",
+        "source": "现在最喜欢栀子花",
+        "intent": "change"
+      }
+    ],
+    "expected_statuses": [
+      "confirmed",
+      "pending",
+      "confirmed"
+    ],
+    "expected_current": "栀子花",
+    "expected_history": [
+      "玫瑰",
+      "栀子花"
+    ]
+  },
+  {
+    "id": "important-once",
+    "topic": "anniversary",
+    "turns": [
+      {
+        "namespace": "fixture",
+        "subject": "fictional",
+        "at": "2026-10-01T00:00:00Z",
+        "topic": "anniversary",
+        "value": "06-01",
+        "source": "请记住我们的纪念日是六月一日",
+        "importance": 1
+      }
+    ],
+    "expected_statuses": [
+      "confirmed"
+    ],
+    "expected_current": "06-01",
+    "expected_history": [
+      "06-01"
+    ]
+  },
+  {
+    "id": "repeated-noise",
+    "topic": "temporary_task",
+    "turns": [
+      {
+        "namespace": "fixture",
+        "subject": "fictional",
+        "at": "2026-10-01T00:00:00Z",
+        "topic": "temporary_task",
+        "value": "红色按钮",
+        "source": "这次测试按红色按钮",
+        "importance": 0.1
+      },
+      {
+        "namespace": "fixture",
+        "subject": "fictional",
+        "at": "2026-10-01T00:00:00Z",
+        "topic": "temporary_task",
+        "value": "红色按钮",
+        "source": "这次测试按红色按钮",
+        "importance": 0.1
+      },
+      {
+        "namespace": "fixture",
+        "subject": "fictional",
+        "at": "2026-10-01T00:00:00Z",
+        "topic": "temporary_task",
+        "value": "红色按钮",
+        "source": "这次测试按红色按钮",
+        "importance": 0.1
+      },
+      {
+        "namespace": "fixture",
+        "subject": "fictional",
+        "at": "2026-10-01T00:00:00Z",
+        "topic": "temporary_task",
+        "value": "红色按钮",
+        "source": "这次测试按红色按钮",
+        "importance": 0.1
+      }
+    ],
+    "expected_statuses": [
+      "discarded",
+      "discarded",
+      "discarded",
+      "discarded"
+    ],
+    "expected_current": null,
+    "expected_history": []
+  },
+  {
+    "id": "hesitation-first",
+    "topic": "trip",
+    "turns": [
+      {
+        "namespace": "fixture",
+        "subject": "fictional",
+        "at": "2026-10-01T00:00:00Z",
+        "topic": "trip",
+        "value": "东京",
+        "source": "可能想去东京，未决定",
+        "certainty": "uncertain"
+      }
+    ],
+    "expected_statuses": [
+      "pending"
+    ],
+    "expected_current": null,
+    "expected_history": []
+  },
+  {
+    "id": "unmarked-conflict",
+    "topic": "home_city",
+    "turns": [
+      {
+        "namespace": "fixture",
+        "subject": "fictional",
+        "at": "2026-10-01T00:00:00Z",
+        "topic": "home_city",
+        "value": "上海",
+        "source": "我住上海"
+      },
+      {
+        "namespace": "fixture",
+        "subject": "fictional",
+        "at": "2026-10-01T00:00:00Z",
+        "topic": "home_city",
+        "value": "北京",
+        "source": "我住北京"
+      }
+    ],
+    "expected_statuses": [
+      "confirmed",
+      "conflict"
+    ],
+    "expected_current": "上海",
+    "expected_history": [
+      "上海"
+    ]
+  },
+  {
+    "id": "explicit-correction",
+    "topic": "birthday",
+    "turns": [
+      {
+        "namespace": "fixture",
+        "subject": "fictional",
+        "at": "2026-10-01T00:00:00Z",
+        "topic": "birthday",
+        "value": "05-02",
+        "source": "生日五月二日"
+      },
+      {
+        "namespace": "fixture",
+        "subject": "fictional",
+        "at": "2026-10-01T00:00:00Z",
+        "topic": "birthday",
+        "value": "05-03",
+        "source": "刚说错了，是五月三日",
+        "intent": "correct"
+      }
+    ],
+    "expected_statuses": [
+      "confirmed",
+      "confirmed"
+    ],
+    "expected_current": "05-03",
+    "expected_history": [
+      "05-02",
+      "05-03"
+    ]
+  },
+  {
+    "id": "explicit-change",
+    "topic": "drink",
+    "turns": [
+      {
+        "namespace": "fixture",
+        "subject": "fictional",
+        "at": "2026-10-01T00:00:00Z",
+        "topic": "drink",
+        "value": "咖啡",
+        "source": "我喜欢咖啡"
+      },
+      {
+        "namespace": "fixture",
+        "subject": "fictional",
+        "at": "2026-10-01T00:00:00Z",
+        "topic": "drink",
+        "value": "茶",
+        "source": "现在改喝茶",
+        "intent": "change"
+      }
+    ],
+    "expected_statuses": [
+      "confirmed",
+      "confirmed"
+    ],
+    "expected_current": "茶",
+    "expected_history": [
+      "咖啡",
+      "茶"
+    ]
+  },
+  {
+    "id": "inference",
+    "topic": "job",
+    "turns": [
+      {
+        "namespace": "fixture",
+        "subject": "fictional",
+        "at": "2026-10-01T00:00:00Z",
+        "topic": "job",
+        "value": "设计师",
+        "source": "模型根据用户问配色推测职业",
+        "certainty": "inferred"
+      }
+    ],
+    "expected_statuses": [
+      "pending"
+    ],
+    "expected_current": null,
+    "expected_history": []
+  },
+  {
+    "id": "uncertain-change",
+    "topic": "diet",
+    "turns": [
+      {
+        "namespace": "fixture",
+        "subject": "fictional",
+        "at": "2026-10-01T00:00:00Z",
+        "topic": "diet",
+        "value": "素食",
+        "source": "我吃素"
+      },
+      {
+        "namespace": "fixture",
+        "subject": "fictional",
+        "at": "2026-10-01T00:00:00Z",
+        "topic": "diet",
+        "value": "荤食",
+        "source": "也许以后不吃素",
+        "certainty": "uncertain",
+        "intent": "change"
+      }
+    ],
+    "expected_statuses": [
+      "confirmed",
+      "pending"
+    ],
+    "expected_current": "素食",
+    "expected_history": [
+      "素食"
+    ]
+  },
+  {
+    "id": "duplicate",
+    "topic": "language",
+    "turns": [
+      {
+        "namespace": "fixture",
+        "subject": "fictional",
+        "at": "2026-10-01T00:00:00Z",
+        "topic": "language",
+        "value": "中文",
+        "source": "请用中文"
+      },
+      {
+        "namespace": "fixture",
+        "subject": "fictional",
+        "at": "2026-10-01T00:00:00Z",
+        "topic": "language",
+        "value": "中文",
+        "source": "再次提醒请用中文"
+      }
+    ],
+    "expected_statuses": [
+      "confirmed",
+      "duplicate"
+    ],
+    "expected_current": "中文",
+    "expected_history": [
+      "中文"
+    ]
+  },
+  {
+    "id": "supplement",
+    "topic": "favorite_music",
+    "turns": [
+      {
+        "namespace": "fixture",
+        "subject": "fictional",
+        "at": "2026-10-01T00:00:00Z",
+        "topic": "favorite_music",
+        "value": "爵士",
+        "source": "最喜欢爵士"
+      },
+      {
+        "namespace": "fixture",
+        "subject": "fictional",
+        "at": "2026-10-01T00:00:00Z",
+        "topic": "favorite_music",
+        "value": "古典",
+        "source": "古典也不错",
+        "intent": "supplement"
+      }
+    ],
+    "expected_statuses": [
+      "confirmed",
+      "pending"
+    ],
+    "expected_current": "爵士",
+    "expected_history": [
+      "爵士"
+    ]
+  },
+  {
+    "id": "backfill",
+    "topic": "goal",
+    "turns": [
+      {
+        "namespace": "fixture",
+        "subject": "fictional",
+        "at": "2026-10-20T00:00:00Z",
+        "topic": "goal",
+        "value": "跑步",
+        "source": "现在改为跑步"
+      },
+      {
+        "namespace": "fixture",
+        "subject": "fictional",
+        "at": "2026-09-01T00:00:00Z",
+        "topic": "goal",
+        "value": "游泳",
+        "source": "旧笔记：改为游泳",
+        "intent": "change"
+      }
+    ],
+    "expected_statuses": [
+      "confirmed",
+      "conflict"
+    ],
+    "expected_current": "跑步",
+    "expected_history": [
+      "跑步"
+    ]
+  },
+  {
+    "id": "sensitive-no-consent",
+    "topic": "health.allergy.unconsented",
+    "turns": [
+      {
+        "namespace": "fixture",
+        "subject": "fictional",
+        "at": "2026-10-01T00:00:00Z",
+        "topic": "health.allergy.unconsented",
+        "value": "虚构诊断",
+        "source": "虚构敏感健康内容",
+        "sensitive": true
+      }
+    ],
+    "expected_statuses": [
+      "rejected_sensitive"
+    ],
+    "expected_current": null,
+    "expected_history": []
+  },
+  {
+    "id": "sensitive-consented",
+    "topic": "health.allergy.consented",
+    "turns": [
+      {
+        "namespace": "fixture",
+        "subject": "fictional",
+        "at": "2026-10-01T00:00:00Z",
+        "topic": "health.allergy.consented",
+        "value": "虚构过敏提示",
+        "source": "请记住这个虚构过敏提示",
+        "sensitive": true,
+        "consent": true
+      }
+    ],
+    "expected_statuses": [
+      "confirmed"
+    ],
+    "expected_current": "虚构过敏提示",
+    "expected_history": [
+      "虚构过敏提示"
+    ]
+  },
+  {
+    "id": "expired-on-arrival",
+    "topic": "appointment",
+    "turns": [
+      {
+        "namespace": "fixture",
+        "subject": "fictional",
+        "at": "2026-10-01T00:00:00Z",
+        "topic": "appointment",
+        "value": "周二",
+        "source": "虚构旧预约",
+        "expires_at": "2026-10-02T00:00:00Z"
+      }
+    ],
+    "expected_statuses": [
+      "expired"
+    ],
+    "expected_current": null,
+    "expected_history": []
+  },
+  {
+    "id": "low-importance-change",
+    "topic": "favorite_color",
+    "turns": [
+      {
+        "namespace": "fixture",
+        "subject": "fictional",
+        "at": "2026-10-01T00:00:00Z",
+        "topic": "favorite_color",
+        "value": "蓝色",
+        "source": "最爱蓝色"
+      },
+      {
+        "namespace": "fixture",
+        "subject": "fictional",
+        "at": "2026-10-01T00:00:00Z",
+        "topic": "favorite_color",
+        "value": "红色",
+        "source": "这次任务改红色",
+        "importance": 0.1,
+        "intent": "change"
+      }
+    ],
+    "expected_statuses": [
+      "confirmed",
+      "discarded"
+    ],
+    "expected_current": "蓝色",
+    "expected_history": [
+      "蓝色"
+    ]
+  },
+  {
+    "id": "three-versions",
+    "topic": "project",
+    "turns": [
+      {
+        "namespace": "fixture",
+        "subject": "fictional",
+        "at": "2026-10-01T00:00:00Z",
+        "topic": "project",
+        "value": "Alpha",
+        "source": "项目叫 Alpha"
+      },
+      {
+        "namespace": "fixture",
+        "subject": "fictional",
+        "at": "2026-10-01T00:00:00Z",
+        "topic": "project",
+        "value": "Beta",
+        "source": "更名 Beta",
+        "intent": "change"
+      },
+      {
+        "namespace": "fixture",
+        "subject": "fictional",
+        "at": "2026-10-01T00:00:00Z",
+        "topic": "project",
+        "value": "Gamma",
+        "source": "最终改名 Gamma",
+        "intent": "correct"
+      }
+    ],
+    "expected_statuses": [
+      "confirmed",
+      "confirmed",
+      "confirmed"
+    ],
+    "expected_current": "Gamma",
+    "expected_history": [
+      "Alpha",
+      "Beta",
+      "Gamma"
+    ]
+  },
+  {
+    "id": "pending-to-confirmed",
+    "topic": "meeting",
+    "turns": [
+      {
+        "namespace": "fixture",
+        "subject": "fictional",
+        "at": "2026-10-01T00:00:00Z",
+        "topic": "meeting",
+        "value": "周五",
+        "source": "可能周五",
+        "certainty": "uncertain"
+      },
+      {
+        "namespace": "fixture",
+        "subject": "fictional",
+        "at": "2026-10-01T00:00:00Z",
+        "topic": "meeting",
+        "value": "周五",
+        "source": "确定周五",
+        "intent": "change"
+      }
+    ],
+    "expected_statuses": [
+      "pending",
+      "confirmed"
+    ],
+    "expected_current": "周五",
+    "expected_history": [
+      "周五"
+    ]
+  },
+  {
+    "id": "conflict-to-correction",
+    "topic": "pet_name",
+    "turns": [
+      {
+        "namespace": "fixture",
+        "subject": "fictional",
+        "at": "2026-10-01T00:00:00Z",
+        "topic": "pet_name",
+        "value": "米米",
+        "source": "宠物叫米米"
+      },
+      {
+        "namespace": "fixture",
+        "subject": "fictional",
+        "at": "2026-10-01T00:00:00Z",
+        "topic": "pet_name",
+        "value": "团团",
+        "source": "宠物叫团团"
+      },
+      {
+        "namespace": "fixture",
+        "subject": "fictional",
+        "at": "2026-10-01T00:00:00Z",
+        "topic": "pet_name",
+        "value": "团团",
+        "source": "更正：其实叫团团",
+        "intent": "correct"
+      }
+    ],
+    "expected_statuses": [
+      "confirmed",
+      "conflict",
+      "confirmed"
+    ],
+    "expected_current": "团团",
+    "expected_history": [
+      "米米",
+      "团团"
+    ]
+  },
+  {
+    "id": "inferred-after-confirmed",
+    "topic": "sleep",
+    "turns": [
+      {
+        "namespace": "fixture",
+        "subject": "fictional",
+        "at": "2026-10-01T00:00:00Z",
+        "topic": "sleep",
+        "value": "23:00",
+        "source": "通常十一点睡"
+      },
+      {
+        "namespace": "fixture",
+        "subject": "fictional",
+        "at": "2026-10-01T00:00:00Z",
+        "topic": "sleep",
+        "value": "02:00",
+        "source": "模型推测最近两点睡",
+        "certainty": "inferred"
+      }
+    ],
+    "expected_statuses": [
+      "confirmed",
+      "pending"
+    ],
+    "expected_current": "23:00",
+    "expected_history": [
+      "23:00"
+    ]
+  },
+  {
+    "id": "uncertain-correction",
+    "topic": "destination",
+    "turns": [
+      {
+        "namespace": "fixture",
+        "subject": "fictional",
+        "at": "2026-10-01T00:00:00Z",
+        "topic": "destination",
+        "value": "杭州",
+        "source": "确认去杭州"
+      },
+      {
+        "namespace": "fixture",
+        "subject": "fictional",
+        "at": "2026-10-01T00:00:00Z",
+        "topic": "destination",
+        "value": "苏州",
+        "source": "可能记错，也许苏州",
+        "certainty": "uncertain",
+        "intent": "correct"
+      }
+    ],
+    "expected_statuses": [
+      "confirmed",
+      "pending"
+    ],
+    "expected_current": "杭州",
+    "expected_history": [
+      "杭州"
+    ]
+  },
+  {
+    "id": "noise-before-important",
+    "topic": "promise",
+    "turns": [
+      {
+        "namespace": "fixture",
+        "subject": "fictional",
+        "at": "2026-10-01T00:00:00Z",
+        "topic": "promise",
+        "value": "临时",
+        "source": "重复测试噪声",
+        "importance": 0.2
+      },
+      {
+        "namespace": "fixture",
+        "subject": "fictional",
+        "at": "2026-10-01T00:00:00Z",
+        "topic": "promise",
+        "value": "周日联系",
+        "source": "请记住每周日联系我",
+        "importance": 1
+      }
+    ],
+    "expected_statuses": [
+      "discarded",
+      "confirmed"
+    ],
+    "expected_current": "周日联系",
+    "expected_history": [
+      "周日联系"
+    ]
+  },
+  {
+    "id": "new-explicit-topic",
+    "topic": "book",
+    "turns": [
+      {
+        "namespace": "fixture",
+        "subject": "fictional",
+        "at": "2026-10-01T00:00:00Z",
+        "topic": "book",
+        "value": "三体",
+        "source": "我最喜欢三体"
+      }
+    ],
+    "expected_statuses": [
+      "confirmed"
+    ],
+    "expected_current": "三体",
+    "expected_history": [
+      "三体"
+    ]
+  },
+  {
+    "id": "nonmonotonic-preference",
+    "topic": "season",
+    "turns": [
+      {
+        "namespace": "fixture",
+        "subject": "fictional",
+        "at": "2026-10-01T00:00:00Z",
+        "topic": "season",
+        "value": "春天",
+        "source": "最喜欢春天"
+      },
+      {
+        "namespace": "fixture",
+        "subject": "fictional",
+        "at": "2026-10-01T00:00:00Z",
+        "topic": "season",
+        "value": "冬天",
+        "source": "现在最喜欢冬天",
+        "intent": "change"
+      },
+      {
+        "namespace": "fixture",
+        "subject": "fictional",
+        "at": "2026-10-01T00:00:00Z",
+        "topic": "season",
+        "value": "春天",
+        "source": "后来又最喜欢春天",
+        "intent": "change"
+      }
+    ],
+    "expected_statuses": [
+      "confirmed",
+      "confirmed",
+      "confirmed"
+    ],
+    "expected_current": "春天",
+    "expected_history": [
+      "春天",
+      "冬天",
+      "春天"
+    ]
+  }
+]
