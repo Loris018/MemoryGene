@@ -17,6 +17,7 @@ import unicodedata
 
 from .core import Candidate, instant, now_string
 from .recall import terms
+from .strands import pairing
 
 _TOPIC_SPLIT = re.compile(r"[^a-z0-9]+")
 
@@ -201,6 +202,8 @@ def advise(store, candidate: Candidate, result, *, now=None, visible_session="")
       word or shared value cues), i.e. the topic name may have drifted.
     * ``repeated_uncertain``: the same uncertain value has now been heard at
       least twice, at different times; the user may be asked once.
+    * ``unpaired_value``: the value does not pair with its own verbatim source
+      (content not found in the evidence, or negated there); see strands.py.
     """
     status = result["status"]
     if status in {"discarded", "rejected_sensitive", "expired", "duplicate"}:
@@ -212,6 +215,15 @@ def advise(store, candidate: Candidate, result, *, now=None, visible_session="")
     )
     same = next((r for r in related if r["same_topic"] and r["scope"] == candidate.scope), None)
     advice = []
+    pair = pairing(candidate.value, candidate.source)
+    if not pair["paired"]:
+        advice.append({
+            "kind": "unpaired_value", "topic": candidate.topic,
+            "coverage": pair["coverage"], "negated": pair["negated"],
+            "unsupported": pair["unsupported"], "evidence_id": result["id"],
+            "next": "the stored value says more than (or the opposite of) the quoted "
+                    "evidence; quote the user's words that support it, or ask the user",
+        })
     if (status == "conflict" and candidate.certainty == "explicit" and same
             and same["current"] is not None):
         head = store.current(candidate.namespace, candidate.subject, candidate.topic,
@@ -254,7 +266,7 @@ def advise(store, candidate: Candidate, result, *, now=None, visible_session="")
 
 
 def review(store, namespace, subject, *, now=None, visible_session=""):
-    """Self-check: unresolved evidence and slots that look like duplicates."""
+    """Self-check: unresolved evidence, duplicate-looking slots, unpaired values."""
     found = slots(store, namespace, subject, now=now, visible_session=visible_session)
     unresolved = []
     for slot in found:
@@ -265,6 +277,15 @@ def review(store, namespace, subject, *, now=None, visible_session=""):
                 "status": event["status"], "value": c["value"], "source": c["source"],
                 "current": slot["head"]["candidate"]["value"] if slot["head"] else None,
             })
+    unpaired = []
+    for slot in found:
+        if slot["head"]:
+            c = slot["head"]["candidate"]
+            pair = pairing(c["value"], c["source"])
+            if not pair["paired"]:
+                unpaired.append({"topic": slot["topic"], "scope": slot["scope"],
+                                 "evidence_id": slot["head"]["id"],
+                                 "coverage": pair["coverage"], "negated": pair["negated"]})
     duplicates = []
     live = [s for s in found if s["head"]]
     for i, slot in enumerate(live):
@@ -280,5 +301,6 @@ def review(store, namespace, subject, *, now=None, visible_session=""):
     return {
         "ok": True, "command": "review",
         "unresolved": unresolved, "possible_duplicate_slots": duplicates,
+        "unpaired_current": unpaired,
         "slots": len(found),
     }

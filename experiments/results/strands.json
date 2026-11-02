@@ -1,0 +1,80 @@
+{
+  "now": "2026-11-02T00:00:00Z",
+  "preregistration": "experiments/STRANDS.md",
+  "detection": {
+    "substitute": {
+      "n": 87,
+      "M0_byte_protection": 0,
+      "M1_containment": 87,
+      "M2_strand_pairing": 87,
+      "M3_posthoc_strict": 87
+    },
+    "embellish": {
+      "n": 87,
+      "M0_byte_protection": 0,
+      "M1_containment": 87,
+      "M2_strand_pairing": 51,
+      "M3_posthoc_strict": 87
+    },
+    "merge": {
+      "n": 87,
+      "M0_byte_protection": 0,
+      "M1_containment": 87,
+      "M2_strand_pairing": 23,
+      "M3_posthoc_strict": 87
+    },
+    "negation_loss": {
+      "n": 87,
+      "M0_byte_protection": 0,
+      "M1_containment": 0,
+      "M2_strand_pairing": 87,
+      "M3_posthoc_strict": 87
+    },
+    "truncate": {
+      "n": 33,
+      "M0_byte_protection": 0,
+      "M1_containment": 0,
+      "M2_strand_pairing": 0,
+      "M3_posthoc_strict": 0
+    }
+  },
+  "false_alarms": {
+    "gold": {
+      "n": 87,
+      "M1_containment": 0,
+      "M2_strand_pairing": 1,
+      "M3_posthoc_strict": 0,
+      "M1_examples": [],
+      "M2_examples": [
+        {
+          "id": "nl-correction#1",
+          "value": "百合",
+          "source": "我说错了，其实不是玫瑰，是百合",
+          "pairing": {
+            "paired": false,
+            "coverage": 1.0,
+            "unsupported": [],
+            "negated": true,
+            "mode": "preregistered"
+          }
+        }
+      ],
+      "M3_examples": []
+    },
+    "heldout_llm": {
+      "n": 28,
+      "M1_containment": 0,
+      "M2_strand_pairing": 0,
+      "M3_posthoc_strict": 0,
+      "M1_examples": [],
+      "M2_examples": [],
+      "M3_examples": []
+    }
+  },
+  "note": "M0-M2 are pre-registered. M3 (containment + clause-scoped negation) was added after seeing M0-M2 results and is exploratory.",
+  "limitations": [
+    "Damage is synthetic (deterministic operators), not observed rewrite errors.",
+    "Legitimate pairs are small, fictional and written by the same team; one LLM run.",
+    "Lexical pairing: no paraphrase, number or date normalisation."
+  ]
+}

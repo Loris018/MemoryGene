@@ -39,7 +39,7 @@ On top of that: append-only version history with `previous_id` and `resolves` li
 | Reconsolidation (find related old memory, decide update) | **Partly, new in this version.** Read-only `locate` finds the slot a statement touches; `advise` turns a silent `conflict` into one `confirm_change` question. The update itself still needs the user's explicit confirmation |
 | Proactive self-checking | **Partly, new.** `recall` now lists unresolved evidence marked `not_a_fact`; `review` lists open evidence and duplicate-looking slots; `repeated_uncertain` asks once when a hesitation recurs. No user study yet |
 | Memory identity | **Improved, still the main bottleneck.** On recorded outputs of an independent LLM, attaching statements to the right existing slot rose from 11/23 (exact topic) to 20/23 with lexical anchoring, 0 wrong attaches; the rest needs world knowledge (tea ⊂ drink). Exploratory, see [RECONSOLIDATION.md](experiments/RECONSOLIDATION.md) |
-| DNA-inspired organisation | **No measurable benefit so far (negative result).** The "complement index" is a reversible re-encoding of the lookup key: identical results, 4× key bytes, slower. The "complement backup" is `byte XOR 0xFF`, equivalent to a plain copy in all corruption tests. We keep these as baselines, not as contributions |
+| DNA-inspired organisation | **Complement encoding: negative result.** The "complement index" is a reversible re-encoding of the lookup key (identical results, 4× key bytes, slower); the "complement backup" is `byte XOR 0xFF`, equivalent to a plain copy. **Two-strand pairing (new, P2): partly supported.** Checking the stored value against its verbatim evidence catches in-path semantic damage that byte protection misses entirely (0/381). However, our pre-registered partial-match rule lost to plain containment (H2c failed); the current rule was chosen afterwards and still needs fresh data. See [STRANDS.md](experiments/STRANDS.md) |
 
 ATCG encoding is **not** compression, encryption, semantic understanding or stronger error correction.
 
@@ -47,13 +47,14 @@ ATCG encoding is **not** compression, encryption, semantic understanding or stro
 
 | Experiment | Result | Details |
 | --- | --- | --- |
-| Unit / integration tests | 153/153 pass | `python -m unittest discover -s tests` |
+| Unit / integration tests | 162/162 pass | `python -m unittest discover -s tests` |
 | Structured dev set (24 scenarios, 47 inputs) | rules 24/24 current & history; overwrite baseline 12/24, append-latest 12/24; plain and complement index identical | [experiments/RESULTS.md](experiments/RESULTS.md) |
 | Equal-budget recovery (100 payloads × 6 damage modes) | plain copy = complement copy in every mode | same |
 | Rule extractor regression (47 fictional dialogues, 79 turns) | write decision 77/79, topic 57/57 — same authors wrote rules and cases, **not** a held-out benchmark | [experiments/NL_RESULTS.md](experiments/NL_RESULTS.md) |
 | Held-out NL (30 new dialogues, independent `deepseek-flash` extractor) | decision 36/40, exact topic 11/27; end-to-end oracle 30/30 vs model 20/30 | [held-out result](experiments/heldout-2026-10-29/RESULT.md) |
 | Slot recognition under topic drift (exploratory) | exact topic 11/23 → anchored lexical cues 20/23, 0 wrong; value/source cues added nothing over topic cues | [experiments/RECONSOLIDATION.md](experiments/RECONSOLIDATION.md) |
 | Advice scenarios (14, dev) | should-advise 5/5; unneeded interruptions 1/9 | same |
+| Two-strand pairing, pre-registered (87 gold pairs × 5 synthetic damage types) | byte protection 0/381 detected; pre-registered pairing beat containment only on negation loss and lost on embellish/merge (H2c failed); post-hoc strict rule 4/5 types, 0 false alarms; truncation undetectable | [experiments/STRANDS.md](experiments/STRANDS.md) |
 | Real agent host (DeepSeek Harness, headless) | write → cross-session read → revise → forget; task resume across 2 sessions | [docs/DSH-INTEGRATION.md](docs/DSH-INTEGRATION.md) |
 
 Limitations: baselines are weak (no certainty rules), datasets are small and fictional, labels have a single annotator, and there is no comparison yet with other memory frameworks. These results show the implementation behaves as designed, not that it is better than existing systems.
@@ -65,10 +66,11 @@ git clone https://github.com/Loris018/MemoryGene.git && cd MemoryGene
 python3 -m venv .venv && source .venv/bin/activate   # Windows: .venv\Scripts\Activate.ps1
 python -m pip install -e .
 python examples/lifecycle.py                 # write, revise, history, forget
-python -m unittest discover -s tests         # 153 tests
+python -m unittest discover -s tests         # 162 tests
 python experiments/run.py --out /tmp/mg-results
 python experiments/nl_eval.py
 python experiments/reconsolidation_eval.py --out /tmp/mg-results
+python experiments/strand_eval.py --out /tmp/mg-results
 ```
 
 ```python
@@ -91,6 +93,7 @@ Structured CLI (`memorygene --db PATH ingest|current|history|topics|verify|repai
 ```
 src/memorygene/   core.py (state machine, storage), codec.py (dna-v1 encoding),
                   recall.py, reconsolidate.py (locate / advice / review),
+                  strands.py (value-vs-evidence pairing),
                   tasks.py, extract.py (rule-based baseline extractor),
                   adapter.py (agent CLI), cli.py
 tests/            unit and integration tests
@@ -104,7 +107,7 @@ evidence/         curated logs from real runs (raw host session logs are not pub
 ## Roadmap (not yet results)
 
 1. **Memory identity beyond lexical cues** — first version done (`locate` / `advise` / `review`); next: a fresh held-out dialogue set, giving the extractor the existing topic catalogue, and optional embedding cues for world knowledge (tea ⊂ drink).
-2. **A falsifiable DNA hypothesis** — use complementary "recognition strands" to locate memories and detect mismatches, borrowing the mismatch-repair question of *which strand is authoritative*; compare fairly against exact-key, lexical and embedding matching, and report it as negative if it does not help.
+2. **Two-strand pairing on real data** — first pre-registered test done ([STRANDS.md](experiments/STRANDS.md)); next: validate the post-hoc strict rule on fresh dialogues and real LLM rewrites, and handle legitimate normalisation (dates, numbers, synonyms) without losing detection.
 3. **Fair baselines** — LLM-chosen add/update/delete (Mem0-style) and bitemporal fact invalidation (Graphiti-style), plus the knowledge-update subset of LongMemEval.
 4. **Cross-session evidence accumulation** for selective memory.
 5. **Host-neutral interface** (JSON CLI / MCP) beyond DeepSeek Harness.
@@ -127,7 +130,7 @@ MemoryGene 研究大语言模型 / AI Agent 的自适应长期记忆：如何区
 
 **还没有做到的部分**：选择性记忆仍依赖调用方模型给出的重要性；主题识别是字面线索，不懂“茶属于饮品”这类常识；建议机制还没有做用户研究。
 
-**DNA 部分的负面结果**：现有"互补索引"和"互补备份"与普通索引、普通副本结果完全相同，没有显示出独立优势，我们如实保留这一结论，并在路线图中提出可证伪的新假设。
+**DNA 部分**：现有"互补索引"和"互补备份"与普通索引、普通副本结果完全相同，没有显示出独立优势（负面结果）。新的预注册实验（P2）把"两条链"重新理解为信息独立的两部分：精简的值和用户原话，写入时让两者"配对"检查。字节级保护对走合法写入路径的语义损伤检出 0/381，配对检查能检出大部分；但我们事先登记的宽松配对规则不如最简单的子串匹配（假设 H2c 不成立），现行规则是看过结果后才选的，仍需新数据验证。
 
 详细中文说明见 [docs/USAGE.zh.md](docs/USAGE.zh.md)。
 

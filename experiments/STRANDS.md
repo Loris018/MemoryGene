@@ -39,3 +39,50 @@ H2c can fail. If it does, the honest conclusion is that the useful part is "keep
 - Detection rate per operator, for M0, M1 and M2.
 - False-alarm rate on gold pairs and on held-out LLM pairs, for M1 and M2.
 - All denominators are reported. There are no significance claims; the data is small, fictional and written by the same team.
+
+---
+
+## Results (appended after running; nothing above was changed)
+
+Reproduce: `python experiments/strand_eval.py`. Raw numbers and false-alarm examples: [results/strands.json](results/strands.json). Code: [src/memorygene/strands.py](../src/memorygene/strands.py).
+
+Detected damaged pairs (87 gold pairs; truncation applies to 33):
+
+| Damage | M0 byte protection | M1 containment | M2 pre-registered pairing | M3 post-hoc strict |
+| --- | --- | --- | --- | --- |
+| substitute | 0 / 87 | 87 / 87 | 87 / 87 | 87 / 87 |
+| embellish | 0 / 87 | 87 / 87 | **51 / 87** | 87 / 87 |
+| merge | 0 / 87 | 87 / 87 | **23 / 87** | 87 / 87 |
+| negation loss | 0 / 87 | **0 / 87** | 87 / 87 | 87 / 87 |
+| truncate | 0 / 33 | 0 / 33 | 0 / 33 | 0 / 33 |
+
+False alarms on legitimate pairs:
+
+| Data | M1 containment | M2 pre-registered | M3 post-hoc strict |
+| --- | --- | --- | --- |
+| gold labels (87) | 0 | 1 | 0 |
+| held-out LLM writes (28) | 0 | 0 | 0 |
+
+### Verdict on the pre-registered hypotheses
+
+- **H2a supported.** Byte protection detected 0 of 381 in-path semantic damages. This is by construction: damage written through `ingest` gets a fresh checksum and backup. Any pairing rule detected most of them.
+- **H2b supported** for these data: 1/87 and 0/28 false alarms for M2.
+- **H2c failed.** M2 was worse than plain containment on embellish (51 vs 87) and merge (23 vs 87) and had one more false alarm. Its only gain was negation loss. The tolerance for partial cues was meant to accept paraphrased values, but the legitimate values here were almost always verbatim substrings, so the tolerance only cost detection. The single M2 false alarm is a correction sentence ("不是玫瑰，是百合"), where the negation belongs to the old value.
+
+### Post-hoc rule (exploratory)
+
+M3 = containment plus a negation check limited to the value's own clause. It was **chosen after seeing the results above** and is now the default in `strands.pairing`. On these data it detects four of five damage types with no false alarms. It still needs fresh data, for three reasons:
+
+- the negation-loss operator inserts "不再喜欢", which is itself in the marker list, so that row is partly true by construction;
+- truncation remains invisible to every method, because a truncated value is still contained in its evidence;
+- containment will reject legitimate paraphrased or normalised values (dates, numbers, synonyms) that these datasets happen not to contain.
+
+### Observation on a real store
+
+On the developer's own local store (4 stored versions in 3 slots), 3 versions do not pair. In each, the agent saved a long summary as the value while quoting a much shorter user sentence as the source, so the value contains details absent from the evidence (one includes a technical figure the user never stated). Under the project's rule that memory must not contain unsupported user information, flagging these is correct. In practice it also means `unpaired_value` advice will be frequent unless agents quote the full supporting evidence. This is one store, reported as an observation, not a measurement.
+
+### What this means for the DNA question
+
+- The complement *encoding* (`dna-v1`) contributes nothing measurable, as before.
+- What helps is a second strand carrying **independent information** (verbatim evidence) plus a local pairing check: damage shows up as an unpaired value, legitimate updates bring their own evidence, and repair means re-reading the template with the user, never guessing.
+- Whether to call this "DNA-inspired" is a framing choice. Computationally it is evidence grounding. We keep the analogy only as a description of the structure — two strands, local mismatch detection, the template strand used for repair — not as a claim of biological mechanism.

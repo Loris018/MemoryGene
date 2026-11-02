@@ -101,6 +101,7 @@ whenToUse: 当用户希望记住、读取、修订或遗忘长期事实，或要
 - `confirm_change`：用户新的明确说法与当前值不同，但没说“改成”。在合适时问一句是否改变；用户确认后用 `--intent change --resolves <evidence_id>` 再写一次。
 - `possible_same_slot`：新 topic 可能与已有 topic 是同一属性（主题名可能漂移了）。确认后 `forget` 新 topic，并按旧 topic 重新写入。
 - `repeated_uncertain`：同一个不确定说法已在不同时间出现至少两次。仅在与对话相关时问用户一次是否要定下来。
+- `unpaired_value`：存下的值在原话里找不到，或原话里是否定的（例如值写了用户没说过的细节）。`source` 要引用能支撑整个值的用户原话；值里不要加入用户没说过的信息。拿不准时问用户。
 
 没有 advice 时不要额外打扰用户。用户要求“检查一下我的记忆”时，可运行 `"{{MG_ADAPTER}}" review` 列出未解决证据和疑似重复槽位，逐项请用户决定。
 

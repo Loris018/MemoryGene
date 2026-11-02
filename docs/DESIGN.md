@@ -103,4 +103,5 @@ plain 消融配置直接存规范 JSON。二者都是一一映射、都使用同
 - **未解决证据 `open_evidence`**：pending/conflict 且没有被 `resolves` 指向、之后没有任何 confirmed、不等于当前值、未到期。
 - **建议 `advise`**：`confirm_change`（明确且更新的说法因未声明改变而进入 conflict）、`possible_same_slot`（新主题首次确认且与已有槽位锚定）、`repeated_uncertain`（同一不确定值在不同时间出现至少两次）。只是建议，执行仍需用户确认后的显式写入。
 - **`recall.unresolved`** 与 **`review`**：把悬而未决的证据以 `not_a_fact` 标出，供宿主在相关时询问；不把它们当答案。
+- **双链配对 `strands.pairing`**：值（精简链）必须能和原话（证据链）配对：被原话包含，且同一分句内值前没有否定词。配不上时 `advise` 给出 `unpaired_value`，`review` 列出 `unpaired_current`；只提醒，不自动修复。默认规则是看过预注册实验结果后选的，见 [experiments/STRANDS.md](../experiments/STRANDS.md)。
 - 局限：字面线索，不懂上下位关系（茶⊂饮品）；相同值会被当成强线索（“计划吃火锅”与“最喜欢火锅”可能被误提示）。评估见 [experiments/RECONSOLIDATION.md](../experiments/RECONSOLIDATION.md)。
