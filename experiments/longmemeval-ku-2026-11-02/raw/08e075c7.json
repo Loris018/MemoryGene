@@ -1,0 +1,6 @@
+{
+  "question_id": "08e075c7",
+  "exit": 0,
+  "seconds": 8.8,
+  "final": "[\n  {\n    \"session\": 1,\n    \"source\": \"I've been using my Fitbit Charge 3 for 6 months now\",\n    \"value\": \"6 months\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"I've been using my Fitbit Charge 3 for 9 months now\",\n    \"value\": \"9 months\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"change\"\n  }\n]"
+}

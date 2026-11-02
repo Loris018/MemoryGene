@@ -1,0 +1,6 @@
+{
+  "question_id": "0e4e4c46",
+  "exit": 0,
+  "seconds": 4.5,
+  "final": "[\n  {\n    \"session\": 1,\n    \"source\": \"124 points\",\n    \"value\": \"124 points\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"132 points\",\n    \"value\": \"132 points\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"change\"\n  }\n]"
+}

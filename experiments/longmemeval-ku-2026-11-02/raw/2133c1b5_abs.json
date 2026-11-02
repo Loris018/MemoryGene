@@ -1,0 +1,6 @@
+{
+  "question_id": "2133c1b5_abs",
+  "exit": 0,
+  "seconds": 16.3,
+  "final": "[\n  {\n    \"session\": 1,\n    \"source\": \"it's been a month now\",\n    \"value\": \"one month\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"I've been living in Harajuku for 3 months now\",\n    \"value\": \"3 months\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"change\"\n  }\n]"
+}

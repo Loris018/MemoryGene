@@ -1,0 +1,6 @@
+{
+  "question_id": "18bc8abd",
+  "exit": 0,
+  "seconds": 37.1,
+  "final": "[\n  {\n    \"session\": 1,\n    \"source\": \"my favorite BBQ sauce, Sweet Baby Ray's\",\n    \"value\": \"Sweet Baby Ray's\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 1,\n    \"source\": \"my Sweet Baby Ray's BBQ sauce\",\n    \"value\": \"Sweet Baby Ray's\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"currently obsessed with Kansas City Masterpiece BBQ sauce\",\n    \"value\": \"Kansas City Masterpiece\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"change\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"Currently, my favourite is Kansas City Masterpiece BBQ sauce\",\n    \"value\": \"Kansas City Masterpiece\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  }\n]"
+}

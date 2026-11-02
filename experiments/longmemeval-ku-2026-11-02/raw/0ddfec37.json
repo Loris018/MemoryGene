@@ -1,0 +1,6 @@
+{
+  "question_id": "0ddfec37",
+  "exit": 0,
+  "seconds": 76.4,
+  "final": "[\n  {\n    \"session\": 1,\n    \"source\": \"15 autographed baseballs since I started collecting three months ago\",\n    \"value\": \"15 autographed baseballs in the first three months\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"I've added 20 autographed baseballs to my collection in the past few months\",\n    \"value\": \"20 autographed baseballs in the past few months\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"supplement\"\n  }\n]"
+}

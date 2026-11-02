@@ -1,0 +1,6 @@
+{
+  "question_id": "07741c44",
+  "exit": 0,
+  "seconds": 46.4,
+  "final": "[\n  {\n    \"session\": 1,\n    \"source\": \"I've been keeping them under my bed for storage\",\n    \"value\": \"under my bed\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"storing my old sneakers in a shoe rack\",\n    \"value\": \"in a shoe rack\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"change\"\n  }\n]"
+}

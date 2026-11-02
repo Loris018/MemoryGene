@@ -1,0 +1,1681 @@
+{
+  "sample": 20,
+  "kinds": {
+    "current": 13,
+    "abstention": 3,
+    "history": 4
+  },
+  "correct": {
+    "overwrite": 14,
+    "append_latest": 16,
+    "mem0_style": 16,
+    "graphiti_style": 16,
+    "latest_explicit": 16,
+    "memorygene": 14,
+    "memorygene_ask": 16
+  },
+  "correct_by_kind": {
+    "current": {
+      "overwrite": 11,
+      "append_latest": 11,
+      "mem0_style": 11,
+      "graphiti_style": 11,
+      "latest_explicit": 11,
+      "memorygene": 9,
+      "memorygene_ask": 11
+    },
+    "abstention": {
+      "overwrite": 1,
+      "append_latest": 1,
+      "mem0_style": 1,
+      "graphiti_style": 1,
+      "latest_explicit": 1,
+      "memorygene": 1,
+      "memorygene_ask": 1
+    },
+    "history": {
+      "overwrite": 2,
+      "append_latest": 4,
+      "mem0_style": 4,
+      "graphiti_style": 4,
+      "latest_explicit": 4,
+      "memorygene": 4,
+      "memorygene_ask": 4
+    }
+  },
+  "extraction": {
+    "parsed": 20,
+    "candidates": 44,
+    "dropped": 2,
+    "verbatim_source": 44,
+    "questions": 2
+  },
+  "rows": [
+    {
+      "question_id": "01493427",
+      "kind": "current",
+      "question": "How many new postcards have I added to my collection since I started collecting again?",
+      "answer": "25",
+      "extracted": [
+        {
+          "value": "17 new postcards",
+          "at": "2023-08-11T20:17:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "17 new postcards",
+          "at": "2023-08-11T20:17:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "8 more postcards",
+          "at": "2023-11-30T20:25:00+00:00",
+          "certainty": "explicit",
+          "intent": "supplement"
+        },
+        {
+          "value": "25 new postcards",
+          "at": "2023-11-30T20:25:00+00:00",
+          "certainty": "explicit",
+          "intent": "correct"
+        }
+      ],
+      "overwrite": {
+        "current": "25 new postcards",
+        "history": [
+          "25 new postcards"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "append_latest": {
+        "current": "25 new postcards",
+        "history": [
+          "17 new postcards",
+          "17 new postcards",
+          "8 more postcards",
+          "25 new postcards"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "mem0_style": {
+        "current": "25 new postcards",
+        "history": [
+          "17 new postcards",
+          "8 more postcards",
+          "25 new postcards"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "graphiti_style": {
+        "current": "25 new postcards",
+        "history": [
+          "17 new postcards",
+          "8 more postcards",
+          "25 new postcards"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "latest_explicit": {
+        "current": "25 new postcards",
+        "history": [
+          "17 new postcards",
+          "8 more postcards",
+          "25 new postcards"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene": {
+        "current": "25 new postcards",
+        "history": [
+          "17 new postcards",
+          "25 new postcards"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_ask": {
+        "current": "25 new postcards",
+        "history": [
+          "17 new postcards",
+          "25 new postcards"
+        ],
+        "correct": true,
+        "questions": 0
+      }
+    },
+    {
+      "question_id": "031748ae",
+      "kind": "current",
+      "question": "How many engineers do I lead when I just started my new role as Senior Software Engineer? How many engineers do I lead now?",
+      "answer": "When you just started your new role as Senior Software Engineer, you led 4 engineers. Now, you lead 5 engineers",
+      "extracted": [
+        {
+          "value": "5 engineers",
+          "at": "2023-05-11T03:19:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "4 engineers",
+          "at": "2023-05-11T03:19:00+00:00",
+          "certainty": "explicit",
+          "intent": "correct"
+        },
+        {
+          "value": "5 engineers",
+          "at": "2023-10-24T08:45:00+00:00",
+          "certainty": "explicit",
+          "intent": "change"
+        }
+      ],
+      "overwrite": {
+        "current": "5 engineers",
+        "history": [
+          "5 engineers"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "append_latest": {
+        "current": "5 engineers",
+        "history": [
+          "5 engineers",
+          "4 engineers",
+          "5 engineers"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "mem0_style": {
+        "current": "5 engineers",
+        "history": [
+          "5 engineers",
+          "4 engineers",
+          "5 engineers"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "graphiti_style": {
+        "current": "5 engineers",
+        "history": [
+          "5 engineers",
+          "4 engineers",
+          "5 engineers"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "latest_explicit": {
+        "current": "5 engineers",
+        "history": [
+          "5 engineers",
+          "4 engineers",
+          "5 engineers"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene": {
+        "current": "5 engineers",
+        "history": [
+          "5 engineers",
+          "4 engineers",
+          "5 engineers"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_ask": {
+        "current": "5 engineers",
+        "history": [
+          "5 engineers",
+          "4 engineers",
+          "5 engineers"
+        ],
+        "correct": true,
+        "questions": 0
+      }
+    },
+    {
+      "question_id": "031748ae_abs",
+      "kind": "abstention",
+      "question": "How many engineers do I lead when I just started my new role as Software Engineer Manager?",
+      "answer": "The information provided is not enough. You mentioned starting the role as Senior Software Engineer but not Software Engineer Manager.",
+      "extracted": [
+        {
+          "value": "5 engineers",
+          "at": "2023-05-23T07:35:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "4 engineers",
+          "at": "2023-05-23T07:35:00+00:00",
+          "certainty": "explicit",
+          "intent": "correct"
+        },
+        {
+          "value": "5 engineers",
+          "at": "2023-05-24T00:36:00+00:00",
+          "certainty": "explicit",
+          "intent": "change"
+        }
+      ],
+      "overwrite": {
+        "current": "5 engineers",
+        "history": [
+          "5 engineers"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "append_latest": {
+        "current": "5 engineers",
+        "history": [
+          "5 engineers",
+          "4 engineers",
+          "5 engineers"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "mem0_style": {
+        "current": "5 engineers",
+        "history": [
+          "5 engineers",
+          "4 engineers",
+          "5 engineers"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "graphiti_style": {
+        "current": "5 engineers",
+        "history": [
+          "5 engineers",
+          "4 engineers",
+          "5 engineers"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "latest_explicit": {
+        "current": "5 engineers",
+        "history": [
+          "5 engineers",
+          "4 engineers",
+          "5 engineers"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "memorygene": {
+        "current": "5 engineers",
+        "history": [
+          "5 engineers",
+          "4 engineers",
+          "5 engineers"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "memorygene_ask": {
+        "current": "5 engineers",
+        "history": [
+          "5 engineers",
+          "4 engineers",
+          "5 engineers"
+        ],
+        "correct": false,
+        "questions": 0
+      }
+    },
+    {
+      "question_id": "06db6396",
+      "kind": "current",
+      "question": "How many projects have I completed since starting painting classes?",
+      "answer": "5",
+      "extracted": [
+        {
+          "value": "4 projects",
+          "at": "2023-08-16T03:47:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "4 projects",
+          "at": "2023-08-16T03:47:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "5 projects",
+          "at": "2023-10-09T13:24:00+00:00",
+          "certainty": "explicit",
+          "intent": "change"
+        }
+      ],
+      "overwrite": {
+        "current": "5 projects",
+        "history": [
+          "5 projects"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "append_latest": {
+        "current": "5 projects",
+        "history": [
+          "4 projects",
+          "4 projects",
+          "5 projects"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "mem0_style": {
+        "current": "5 projects",
+        "history": [
+          "4 projects",
+          "5 projects"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "graphiti_style": {
+        "current": "5 projects",
+        "history": [
+          "4 projects",
+          "5 projects"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "latest_explicit": {
+        "current": "5 projects",
+        "history": [
+          "4 projects",
+          "5 projects"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene": {
+        "current": "5 projects",
+        "history": [
+          "4 projects",
+          "5 projects"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_ask": {
+        "current": "5 projects",
+        "history": [
+          "4 projects",
+          "5 projects"
+        ],
+        "correct": true,
+        "questions": 0
+      }
+    },
+    {
+      "question_id": "07741c44",
+      "kind": "history",
+      "question": "Where do I initially keep my old sneakers?",
+      "answer": "under my bed",
+      "extracted": [
+        {
+          "value": "under my bed",
+          "at": "2023-08-11T01:11:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "in a shoe rack",
+          "at": "2023-11-30T12:13:00+00:00",
+          "certainty": "explicit",
+          "intent": "change"
+        }
+      ],
+      "overwrite": {
+        "current": "in a shoe rack",
+        "history": [
+          "in a shoe rack"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "append_latest": {
+        "current": "in a shoe rack",
+        "history": [
+          "under my bed",
+          "in a shoe rack"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "mem0_style": {
+        "current": "in a shoe rack",
+        "history": [
+          "under my bed",
+          "in a shoe rack"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "graphiti_style": {
+        "current": "in a shoe rack",
+        "history": [
+          "under my bed",
+          "in a shoe rack"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "latest_explicit": {
+        "current": "in a shoe rack",
+        "history": [
+          "under my bed",
+          "in a shoe rack"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene": {
+        "current": "in a shoe rack",
+        "history": [
+          "under my bed",
+          "in a shoe rack"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_ask": {
+        "current": "in a shoe rack",
+        "history": [
+          "under my bed",
+          "in a shoe rack"
+        ],
+        "correct": true,
+        "questions": 0
+      }
+    },
+    {
+      "question_id": "07741c45",
+      "kind": "current",
+      "question": "Where do I currently keep my old sneakers?",
+      "answer": "in a shoe rack in my closet",
+      "extracted": [
+        {
+          "value": "under my bed",
+          "at": "2023-05-20T12:36:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        }
+      ],
+      "overwrite": {
+        "current": "under my bed",
+        "history": [
+          "under my bed"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "append_latest": {
+        "current": "under my bed",
+        "history": [
+          "under my bed"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "mem0_style": {
+        "current": "under my bed",
+        "history": [
+          "under my bed"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "graphiti_style": {
+        "current": "under my bed",
+        "history": [
+          "under my bed"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "latest_explicit": {
+        "current": "under my bed",
+        "history": [
+          "under my bed"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "memorygene": {
+        "current": "under my bed",
+        "history": [
+          "under my bed"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "memorygene_ask": {
+        "current": "under my bed",
+        "history": [
+          "under my bed"
+        ],
+        "correct": false,
+        "questions": 0
+      }
+    },
+    {
+      "question_id": "08e075c7",
+      "kind": "current",
+      "question": "How long have I been using my Fitbit Charge 3?",
+      "answer": "9 months",
+      "extracted": [
+        {
+          "value": "6 months",
+          "at": "2023-06-18T00:48:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "9 months",
+          "at": "2023-09-02T15:11:00+00:00",
+          "certainty": "explicit",
+          "intent": "change"
+        }
+      ],
+      "overwrite": {
+        "current": "9 months",
+        "history": [
+          "9 months"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "append_latest": {
+        "current": "9 months",
+        "history": [
+          "6 months",
+          "9 months"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "mem0_style": {
+        "current": "9 months",
+        "history": [
+          "6 months",
+          "9 months"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "graphiti_style": {
+        "current": "9 months",
+        "history": [
+          "6 months",
+          "9 months"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "latest_explicit": {
+        "current": "9 months",
+        "history": [
+          "6 months",
+          "9 months"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene": {
+        "current": "9 months",
+        "history": [
+          "6 months",
+          "9 months"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_ask": {
+        "current": "9 months",
+        "history": [
+          "6 months",
+          "9 months"
+        ],
+        "correct": true,
+        "questions": 0
+      }
+    },
+    {
+      "question_id": "0977f2af",
+      "kind": "history",
+      "question": "What new kitchen gadget did I invest in before getting the Air Fryer?",
+      "answer": "Instant Pot",
+      "extracted": [
+        {
+          "value": "Instant Pot",
+          "at": "2023-05-21T00:05:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        }
+      ],
+      "overwrite": {
+        "current": "Instant Pot",
+        "history": [
+          "Instant Pot"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "append_latest": {
+        "current": "Instant Pot",
+        "history": [
+          "Instant Pot"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "mem0_style": {
+        "current": "Instant Pot",
+        "history": [
+          "Instant Pot"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "graphiti_style": {
+        "current": "Instant Pot",
+        "history": [
+          "Instant Pot"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "latest_explicit": {
+        "current": "Instant Pot",
+        "history": [
+          "Instant Pot"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene": {
+        "current": "Instant Pot",
+        "history": [
+          "Instant Pot"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_ask": {
+        "current": "Instant Pot",
+        "history": [
+          "Instant Pot"
+        ],
+        "correct": true,
+        "questions": 0
+      }
+    },
+    {
+      "question_id": "0ddfec37",
+      "kind": "history",
+      "question": "How many autographed baseballs have I added to my collection in the first three months of collection?",
+      "answer": "15",
+      "extracted": [
+        {
+          "value": "15 autographed baseballs in the first three months",
+          "at": "2023-07-11T18:46:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "20 autographed baseballs in the past few months",
+          "at": "2023-12-30T05:57:00+00:00",
+          "certainty": "explicit",
+          "intent": "supplement"
+        }
+      ],
+      "overwrite": {
+        "current": "20 autographed baseballs in the past few months",
+        "history": [
+          "20 autographed baseballs in the past few months"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "append_latest": {
+        "current": "20 autographed baseballs in the past few months",
+        "history": [
+          "15 autographed baseballs in the first three months",
+          "20 autographed baseballs in the past few months"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "mem0_style": {
+        "current": "20 autographed baseballs in the past few months",
+        "history": [
+          "15 autographed baseballs in the first three months",
+          "20 autographed baseballs in the past few months"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "graphiti_style": {
+        "current": "20 autographed baseballs in the past few months",
+        "history": [
+          "15 autographed baseballs in the first three months",
+          "20 autographed baseballs in the past few months"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "latest_explicit": {
+        "current": "20 autographed baseballs in the past few months",
+        "history": [
+          "15 autographed baseballs in the first three months",
+          "20 autographed baseballs in the past few months"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene": {
+        "current": "15 autographed baseballs in the first three months",
+        "history": [
+          "15 autographed baseballs in the first three months"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_ask": {
+        "current": "15 autographed baseballs in the first three months",
+        "history": [
+          "15 autographed baseballs in the first three months"
+        ],
+        "correct": true,
+        "questions": 0
+      }
+    },
+    {
+      "question_id": "0ddfec37_abs",
+      "kind": "abstention",
+      "question": "How many autographed football have I added to my collection in the first three months of collection?",
+      "answer": "The information provided is not enough. You mentioned collecting autographed baseball but not football.",
+      "extracted": [],
+      "overwrite": {
+        "current": null,
+        "history": [],
+        "correct": true,
+        "questions": 0
+      },
+      "append_latest": {
+        "current": null,
+        "history": [],
+        "correct": true,
+        "questions": 0
+      },
+      "mem0_style": {
+        "current": null,
+        "history": [],
+        "correct": true,
+        "questions": 0
+      },
+      "graphiti_style": {
+        "current": null,
+        "history": [],
+        "correct": true,
+        "questions": 0
+      },
+      "latest_explicit": {
+        "current": null,
+        "history": [],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene": {
+        "current": null,
+        "history": [],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_ask": {
+        "current": null,
+        "history": [],
+        "correct": true,
+        "questions": 0
+      }
+    },
+    {
+      "question_id": "0e4e4c46",
+      "kind": "current",
+      "question": "What is my current highest score in Ticket to Ride?",
+      "answer": "132 points",
+      "extracted": [
+        {
+          "value": "124 points",
+          "at": "2023-05-25T19:52:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "132 points",
+          "at": "2023-05-30T16:19:00+00:00",
+          "certainty": "explicit",
+          "intent": "change"
+        }
+      ],
+      "overwrite": {
+        "current": "132 points",
+        "history": [
+          "132 points"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "append_latest": {
+        "current": "132 points",
+        "history": [
+          "124 points",
+          "132 points"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "mem0_style": {
+        "current": "132 points",
+        "history": [
+          "124 points",
+          "132 points"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "graphiti_style": {
+        "current": "132 points",
+        "history": [
+          "124 points",
+          "132 points"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "latest_explicit": {
+        "current": "132 points",
+        "history": [
+          "124 points",
+          "132 points"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene": {
+        "current": "132 points",
+        "history": [
+          "124 points",
+          "132 points"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_ask": {
+        "current": "132 points",
+        "history": [
+          "124 points",
+          "132 points"
+        ],
+        "correct": true,
+        "questions": 0
+      }
+    },
+    {
+      "question_id": "0f05491a",
+      "kind": "current",
+      "question": "How many stars do I need to reach the gold level on my Starbucks Rewards app?",
+      "answer": 120,
+      "extracted": [
+        {
+          "value": "125 stars",
+          "at": "2023-07-11T18:10:00+00:00",
+          "certainty": "explicit",
+          "intent": "correct"
+        },
+        {
+          "value": "120 stars",
+          "at": "2023-07-30T03:56:00+00:00",
+          "certainty": "explicit",
+          "intent": "correct"
+        }
+      ],
+      "overwrite": {
+        "current": "120 stars",
+        "history": [
+          "120 stars"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "append_latest": {
+        "current": "120 stars",
+        "history": [
+          "125 stars",
+          "120 stars"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "mem0_style": {
+        "current": "120 stars",
+        "history": [
+          "125 stars",
+          "120 stars"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "graphiti_style": {
+        "current": "120 stars",
+        "history": [
+          "125 stars",
+          "120 stars"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "latest_explicit": {
+        "current": "120 stars",
+        "history": [
+          "125 stars",
+          "120 stars"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene": {
+        "current": "120 stars",
+        "history": [
+          "125 stars",
+          "120 stars"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_ask": {
+        "current": "120 stars",
+        "history": [
+          "125 stars",
+          "120 stars"
+        ],
+        "correct": true,
+        "questions": 0
+      }
+    },
+    {
+      "question_id": "10e09553",
+      "kind": "history",
+      "question": "How many largemouth bass did I catch with Alex on the earlier fishing trip to Lake Michigan before the 7/22 trip?",
+      "answer": "7",
+      "extracted": [
+        {
+          "value": "7",
+          "at": "2023-08-11T09:49:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        }
+      ],
+      "overwrite": {
+        "current": "7",
+        "history": [
+          "7"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "append_latest": {
+        "current": "7",
+        "history": [
+          "7"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "mem0_style": {
+        "current": "7",
+        "history": [
+          "7"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "graphiti_style": {
+        "current": "7",
+        "history": [
+          "7"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "latest_explicit": {
+        "current": "7",
+        "history": [
+          "7"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene": {
+        "current": "7",
+        "history": [
+          "7"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_ask": {
+        "current": "7",
+        "history": [
+          "7"
+        ],
+        "correct": true,
+        "questions": 0
+      }
+    },
+    {
+      "question_id": "184da446",
+      "kind": "current",
+      "question": "How many pages of 'A Short History of Nearly Everything' have I read so far?",
+      "answer": "220",
+      "extracted": [
+        {
+          "value": "page 200",
+          "at": "2023-05-20T12:21:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "page 200",
+          "at": "2023-05-20T12:21:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "page 220",
+          "at": "2023-05-29T09:56:00+00:00",
+          "certainty": "explicit",
+          "intent": "change"
+        },
+        {
+          "value": "page 220",
+          "at": "2023-05-29T09:56:00+00:00",
+          "certainty": "explicit",
+          "intent": "change"
+        }
+      ],
+      "overwrite": {
+        "current": "page 220",
+        "history": [
+          "page 220"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "append_latest": {
+        "current": "page 220",
+        "history": [
+          "page 200",
+          "page 200",
+          "page 220",
+          "page 220"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "mem0_style": {
+        "current": "page 220",
+        "history": [
+          "page 200",
+          "page 220"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "graphiti_style": {
+        "current": "page 220",
+        "history": [
+          "page 200",
+          "page 220"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "latest_explicit": {
+        "current": "page 220",
+        "history": [
+          "page 200",
+          "page 220"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene": {
+        "current": "page 220",
+        "history": [
+          "page 200",
+          "page 220"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_ask": {
+        "current": "page 220",
+        "history": [
+          "page 200",
+          "page 220"
+        ],
+        "correct": true,
+        "questions": 0
+      }
+    },
+    {
+      "question_id": "18bc8abd",
+      "kind": "current",
+      "question": "What brand of BBQ sauce am I currently obsessed with?",
+      "answer": "Kansas City Masterpiece",
+      "extracted": [
+        {
+          "value": "Sweet Baby Ray's",
+          "at": "2023-04-16T11:33:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "Sweet Baby Ray's",
+          "at": "2023-04-16T11:33:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "Kansas City Masterpiece",
+          "at": "2023-06-30T12:37:00+00:00",
+          "certainty": "explicit",
+          "intent": "change"
+        },
+        {
+          "value": "Kansas City Masterpiece",
+          "at": "2023-06-30T12:37:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        }
+      ],
+      "overwrite": {
+        "current": "Kansas City Masterpiece",
+        "history": [
+          "Kansas City Masterpiece"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "append_latest": {
+        "current": "Kansas City Masterpiece",
+        "history": [
+          "Sweet Baby Ray's",
+          "Sweet Baby Ray's",
+          "Kansas City Masterpiece",
+          "Kansas City Masterpiece"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "mem0_style": {
+        "current": "Kansas City Masterpiece",
+        "history": [
+          "Sweet Baby Ray's",
+          "Kansas City Masterpiece"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "graphiti_style": {
+        "current": "Kansas City Masterpiece",
+        "history": [
+          "Sweet Baby Ray's",
+          "Kansas City Masterpiece"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "latest_explicit": {
+        "current": "Kansas City Masterpiece",
+        "history": [
+          "Sweet Baby Ray's",
+          "Kansas City Masterpiece"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene": {
+        "current": "Kansas City Masterpiece",
+        "history": [
+          "Sweet Baby Ray's",
+          "Kansas City Masterpiece"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_ask": {
+        "current": "Kansas City Masterpiece",
+        "history": [
+          "Sweet Baby Ray's",
+          "Kansas City Masterpiece"
+        ],
+        "correct": true,
+        "questions": 0
+      }
+    },
+    {
+      "question_id": "1cea1afa",
+      "kind": "current",
+      "question": "How many Instagram followers do I currently have?",
+      "answer": "600",
+      "extracted": [],
+      "overwrite": {
+        "current": null,
+        "history": [],
+        "correct": false,
+        "questions": 0
+      },
+      "append_latest": {
+        "current": null,
+        "history": [],
+        "correct": false,
+        "questions": 0
+      },
+      "mem0_style": {
+        "current": null,
+        "history": [],
+        "correct": false,
+        "questions": 0
+      },
+      "graphiti_style": {
+        "current": null,
+        "history": [],
+        "correct": false,
+        "questions": 0
+      },
+      "latest_explicit": {
+        "current": null,
+        "history": [],
+        "correct": false,
+        "questions": 0
+      },
+      "memorygene": {
+        "current": null,
+        "history": [],
+        "correct": false,
+        "questions": 0
+      },
+      "memorygene_ask": {
+        "current": null,
+        "history": [],
+        "correct": false,
+        "questions": 0
+      }
+    },
+    {
+      "question_id": "2133c1b5",
+      "kind": "current",
+      "question": "How long have I been living in my current apartment in Harajuku?",
+      "answer": "3 months",
+      "extracted": [
+        {
+          "value": "one month",
+          "at": "2023-04-11T04:23:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "3 months",
+          "at": "2023-10-15T17:11:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        }
+      ],
+      "overwrite": {
+        "current": "3 months",
+        "history": [
+          "3 months"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "append_latest": {
+        "current": "3 months",
+        "history": [
+          "one month",
+          "3 months"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "mem0_style": {
+        "current": "3 months",
+        "history": [
+          "one month",
+          "3 months"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "graphiti_style": {
+        "current": "3 months",
+        "history": [
+          "one month",
+          "3 months"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "latest_explicit": {
+        "current": "3 months",
+        "history": [
+          "one month",
+          "3 months"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene": {
+        "current": "one month",
+        "history": [
+          "one month"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "memorygene_ask": {
+        "current": "3 months",
+        "history": [
+          "one month",
+          "3 months"
+        ],
+        "correct": true,
+        "questions": 1
+      }
+    },
+    {
+      "question_id": "2133c1b5_abs",
+      "kind": "abstention",
+      "question": "How long have I been living in my current apartment in Shinjuku?",
+      "answer": "The information provided is not enough. You mentioned living in Harajuku but not Shinjuku.",
+      "extracted": [
+        {
+          "value": "one month",
+          "at": "2023-04-11T03:08:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "3 months",
+          "at": "2023-10-15T07:11:00+00:00",
+          "certainty": "explicit",
+          "intent": "change"
+        }
+      ],
+      "overwrite": {
+        "current": "3 months",
+        "history": [
+          "3 months"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "append_latest": {
+        "current": "3 months",
+        "history": [
+          "one month",
+          "3 months"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "mem0_style": {
+        "current": "3 months",
+        "history": [
+          "one month",
+          "3 months"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "graphiti_style": {
+        "current": "3 months",
+        "history": [
+          "one month",
+          "3 months"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "latest_explicit": {
+        "current": "3 months",
+        "history": [
+          "one month",
+          "3 months"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "memorygene": {
+        "current": "3 months",
+        "history": [
+          "one month",
+          "3 months"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "memorygene_ask": {
+        "current": "3 months",
+        "history": [
+          "one month",
+          "3 months"
+        ],
+        "correct": false,
+        "questions": 0
+      }
+    },
+    {
+      "question_id": "22d2cb42",
+      "kind": "current",
+      "question": "Where did I get my guitar serviced?",
+      "answer": "The music shop on Main St.",
+      "extracted": [
+        {
+          "value": "not yet serviced",
+          "at": "2023-05-23T07:37:00+00:00",
+          "certainty": "inferred",
+          "intent": "assert"
+        },
+        {
+          "value": "Rhythm Central on Main St",
+          "at": "2023-05-23T07:37:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "the music shop on Main St",
+          "at": "2023-05-26T13:13:00+00:00",
+          "certainty": "uncertain",
+          "intent": "assert"
+        },
+        {
+          "value": "the music shop on Main St",
+          "at": "2023-05-26T13:13:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        }
+      ],
+      "overwrite": {
+        "current": "the music shop on Main St",
+        "history": [
+          "the music shop on Main St"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "append_latest": {
+        "current": "the music shop on Main St",
+        "history": [
+          "not yet serviced",
+          "Rhythm Central on Main St",
+          "the music shop on Main St",
+          "the music shop on Main St"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "mem0_style": {
+        "current": "the music shop on Main St",
+        "history": [
+          "not yet serviced",
+          "Rhythm Central on Main St",
+          "the music shop on Main St"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "graphiti_style": {
+        "current": "the music shop on Main St",
+        "history": [
+          "not yet serviced",
+          "Rhythm Central on Main St",
+          "the music shop on Main St"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "latest_explicit": {
+        "current": "the music shop on Main St",
+        "history": [
+          "Rhythm Central on Main St",
+          "the music shop on Main St"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene": {
+        "current": "Rhythm Central on Main St",
+        "history": [
+          "Rhythm Central on Main St"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "memorygene_ask": {
+        "current": "the music shop on Main St",
+        "history": [
+          "Rhythm Central on Main St",
+          "the music shop on Main St"
+        ],
+        "correct": true,
+        "questions": 1
+      }
+    },
+    {
+      "question_id": "2698e78f",
+      "kind": "current",
+      "question": "How often do I see my therapist, Dr. Smith?",
+      "answer": "every week",
+      "extracted": [
+        {
+          "value": "every two weeks",
+          "at": "2023-04-03T02:03:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "every week",
+          "at": "2023-11-03T08:08:00+00:00",
+          "certainty": "explicit",
+          "intent": "change"
+        }
+      ],
+      "overwrite": {
+        "current": "every week",
+        "history": [
+          "every week"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "append_latest": {
+        "current": "every week",
+        "history": [
+          "every two weeks",
+          "every week"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "mem0_style": {
+        "current": "every week",
+        "history": [
+          "every two weeks",
+          "every week"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "graphiti_style": {
+        "current": "every week",
+        "history": [
+          "every two weeks",
+          "every week"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "latest_explicit": {
+        "current": "every week",
+        "history": [
+          "every two weeks",
+          "every week"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene": {
+        "current": "every week",
+        "history": [
+          "every two weeks",
+          "every week"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_ask": {
+        "current": "every week",
+        "history": [
+          "every two weeks",
+          "every week"
+        ],
+        "correct": true,
+        "questions": 0
+      }
+    }
+  ]
+}

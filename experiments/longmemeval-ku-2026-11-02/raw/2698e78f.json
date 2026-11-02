@@ -1,0 +1,6 @@
+{
+  "question_id": "2698e78f",
+  "exit": 0,
+  "seconds": 16.4,
+  "final": "[\n  {\n    \"session\": 1,\n    \"source\": \"every two weeks\",\n    \"value\": \"every two weeks\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"every week\",\n    \"value\": \"every week\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"change\"\n  }\n]"
+}

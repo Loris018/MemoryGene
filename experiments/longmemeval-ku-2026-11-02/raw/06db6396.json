@@ -1,0 +1,6 @@
+{
+  "question_id": "06db6396",
+  "exit": 0,
+  "seconds": 5.4,
+  "final": "[\n  {\n    \"session\": 1,\n    \"source\": \"I've completed 4 projects since starting painting classes\",\n    \"value\": \"4 projects\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 1,\n    \"source\": \"I've completed 4 projects since starting painting classes\",\n    \"value\": \"4 projects\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"I just finished my 5th project since starting painting classes\",\n    \"value\": \"5 projects\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"change\"\n  }\n]"
+}

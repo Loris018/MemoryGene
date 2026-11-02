@@ -1,0 +1,6 @@
+{
+  "question_id": "22d2cb42",
+  "exit": 0,
+  "seconds": 109.7,
+  "final": "[\n  {\n    \"session\": 1,\n    \"source\": \"I've been meaning to get my acoustic guitar serviced, but I haven't gotten around to it yet\",\n    \"value\": \"not yet serviced\",\n    \"certainty\": \"inferred\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 1,\n    \"source\": \"a music shop on Main St called \\\"Rhythm Central\\\"\",\n    \"value\": \"Rhythm Central on Main St\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"I was thinking of having got my guitar services from that music shop on Main St\",\n    \"value\": \"the music shop on Main St\",\n    \"certainty\": \"uncertain\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"the music shop on Main St where I got my guitar serviced\",\n    \"value\": \"the music shop on Main St\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  }\n]"
+}

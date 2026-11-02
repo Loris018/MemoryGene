@@ -55,6 +55,7 @@ All data used here is fictional. Each experiment can be reproduced from this rep
 | Suggestions in 14 test scenarios | all 5 needed suggestions given; 1 unneeded interruption in 9 | same |
 | Meaning-level damage written through the normal path (381 cases, 5 types) | checksum and backup detect 0; value-source pairing detects 4 of 5 types | [STRANDS](experiments/STRANDS.md) |
 | Same inputs under re-implemented Mem0-style, Graphiti-style and latest-explicit policies (100 cases) | the certainty filter explains most differences; against the strongest baseline MemoryGene differs in 7 cases: 4 supplements kept from replacing a favourite, 3 unmarked changes held for one confirmation question | [BASELINES](experiments/BASELINES.md) |
+| LongMemEval knowledge-update, first 20 questions (external benchmark, small sample) | MemoryGene 14/20 without confirmation vs 16/20 for the best baselines; 16/20 with one confirmation question per detected change (2 questions in total) | [LongMemEval](experiments/longmemeval-ku-2026-11-02/REPORT.md) |
 | Cross-session use inside a real agent host | write, read in a new session, revise and forget all work | [integration](docs/DSH-INTEGRATION.md) |
 | Unit and integration tests | 166 pass on Python 3.10 to 3.14 | CI |
 
@@ -65,8 +66,9 @@ Several of the findings below are negative. They are documented here because the
 - **Complementary encoding gave no benefit.** The initial DNA-inspired design stored lookup keys as complementary base sequences and kept a complementary backup copy. Both turned out to be equivalent to ordinary storage: identical results, four times larger keys, slower lookups, and recovery exactly the same as a plain copy. Both are retained only as baselines.
 - **The pre-registered pairing rule underperformed the simplest baseline.** The hypothesis and thresholds were fixed before the two-strand experiment was run. A tolerant rule that accepted partial matches did worse than plain substring matching on two damage types. The stricter rule now in use was chosen after seeing those results and still needs fresh data.
 - **Selective memory is not yet learned.** Importance is still supplied by the calling model. Repeated low-importance remarks are dropped and leave no trace.
+- **The conservative update rule has a cost when no one confirms.** On a 20-question LongMemEval sample, MemoryGene scored 14/20 without confirmation and 16/20 with it, the same as the best baseline. Extractors often label real updates as plain statements, and they do so inconsistently.
 - **Matching is lexical.** It cannot know that tea is a kind of drink. Equal values can be mistaken for the same attribute.
-- **The data is small and fictional.** Labels were written by the project authors, and no user study has been conducted yet. These results show that the prototype behaves as designed. The comparison with other designs is at the policy level only (no real Mem0 or Graphiti runs), and no external benchmark such as LongMemEval has been run yet.
+- **The data is small and fictional.** Labels were written by the project authors, and no user study has been conducted yet. These results show that the prototype behaves as designed. The comparison with other designs is at the policy level only (no real Mem0 or Graphiti runs), and the external benchmark run so far is a 20-question sample.
 
 ## Getting started
 
@@ -132,7 +134,7 @@ MemoryGene 是面向大语言模型助手的长期记忆研究项目，研究以
 - 再巩固支持：写入前定位相关的已有记忆，必要时提示助手向用户确认，其余情况下不打扰用户。
 - 值与原话的"双链配对"检查：识别经由正常写入流程产生、校验和无法发现的语义错误。
 
-项目同时记录了负面结果：最初的"互补编码"与"互补备份"与普通存储完全等价，未带来额外收益；预先登记的宽松配对规则不及最简单的子串匹配。与 Mem0 式、Graphiti 式更新策略的对比显示，差异主要来自确定性过滤；与最强基线相比，MemoryGene 仅在 100 个用例中的 7 个上结论不同。目前数据规模较小且均为虚构，尚未在 LongMemEval 等外部基准上测试。
+项目同时记录了负面结果：最初的"互补编码"与"互补备份"与普通存储完全等价，未带来额外收益；预先登记的宽松配对规则不及最简单的子串匹配。与 Mem0 式、Graphiti 式更新策略的对比显示，差异主要来自确定性过滤；与最强基线相比，MemoryGene 仅在 100 个用例中的 7 个上结论不同。在 LongMemEval 知识更新题的 20 题小样本上，不向用户确认时 MemoryGene 得分 14/20，低于最佳基线的 16/20；每次检测到变化时确认一次（共 2 次）可达到 16/20。数据规模仍然较小。
 
 ## License
 

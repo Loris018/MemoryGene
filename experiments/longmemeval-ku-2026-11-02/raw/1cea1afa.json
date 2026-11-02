@@ -1,0 +1,6 @@
+{
+  "question_id": "1cea1afa",
+  "exit": 0,
+  "seconds": 8.5,
+  "final": "[\n  {\n    \"session\": \"Session 1\",\n    \"source\": \"500 followers\",\n    \"value\": \"500 followers\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": \"Session 2\",\n    \"source\": \"600 followers\",\n    \"value\": \"600 followers\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"change\"\n  }\n]"
+}

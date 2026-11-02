@@ -1,0 +1,6 @@
+{
+  "question_id": "0f05491a",
+  "exit": 0,
+  "seconds": 14.5,
+  "final": "[\n  {\n    \"session\": 1,\n    \"source\": \"125 stars\",\n    \"value\": \"125 stars\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"correct\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"120 stars\",\n    \"value\": \"120 stars\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"correct\"\n  }\n]"
+}

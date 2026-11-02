@@ -1,0 +1,6 @@
+{
+  "question_id": "184da446",
+  "exit": 0,
+  "seconds": 9.7,
+  "final": "[\n  {\n    \"session\": 1,\n    \"source\": \"I'm currently on page 200\",\n    \"value\": \"page 200\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 1,\n    \"source\": \"I'm currently on page 200\",\n    \"value\": \"page 200\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"I'm now on page 220\",\n    \"value\": \"page 220\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"change\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"I'm on page 220 now\",\n    \"value\": \"page 220\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"change\"\n  }\n]"
+}

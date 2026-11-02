@@ -1,0 +1,6 @@
+{
+  "question_id": "10e09553",
+  "exit": 0,
+  "seconds": 15.6,
+  "final": "[\n  {\n    \"session\": 1,\n    \"source\": \"7 largemouth bass\",\n    \"value\": \"7\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  }\n]"
+}

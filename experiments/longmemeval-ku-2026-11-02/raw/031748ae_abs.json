@@ -1,0 +1,6 @@
+{
+  "question_id": "031748ae_abs",
+  "exit": 0,
+  "seconds": 30.4,
+  "final": "[\n  {\n    \"session\": 1,\n    \"source\": \"a group of 5 engineers and a manager\",\n    \"value\": \"5 engineers\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 1,\n    \"source\": \"a team of 4 engineers\",\n    \"value\": \"4 engineers\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"correct\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"I now lead a team of five engineers\",\n    \"value\": \"5 engineers\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"change\"\n  }\n]"
+}

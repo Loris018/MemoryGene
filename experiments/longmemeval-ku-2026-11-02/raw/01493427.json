@@ -1,0 +1,6 @@
+{
+  "question_id": "01493427",
+  "exit": 0,
+  "seconds": 18.3,
+  "final": "[\n  {\n    \"session\": 1,\n    \"source\": \"17 new ones\",\n    \"value\": \"17 new postcards\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 1,\n    \"source\": \"17 new postcards\",\n    \"value\": \"17 new postcards\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"8 more postcards\",\n    \"value\": \"8 more postcards\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"supplement\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"25 new postcards\",\n    \"value\": \"25 new postcards\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"correct\"\n  }\n]"
+}

@@ -1,0 +1,6 @@
+{
+  "question_id": "07741c45",
+  "exit": 0,
+  "seconds": 22.9,
+  "final": "[{\"session\":1,\"source\":\"under my bed\",\"value\":\"under my bed\",\"certainty\":\"explicit\",\"intent\":\"assert\"}]"
+}
