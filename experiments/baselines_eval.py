@@ -17,6 +17,7 @@ Policies
   memorygene         the MemoryGene state machine
   memorygene_ask     MemoryGene, and whenever it returns confirm_change the
                      simulated user confirms once (counted as a question)
+  memorygene_latest  MemoryGene with update="latest", for unattended use
 
 There is no policy-neutral ground truth. The datasets' own labels encode
 MemoryGene's conservative stance on unmarked updates, while the
@@ -41,7 +42,7 @@ from memorygene.reconsolidate import advise  # noqa: E402
 
 IMPORTANCE = {"low": 0.3, "mid": 0.7, "high": 0.95}
 POLICIES = ("overwrite", "append_latest", "mem0_style", "graphiti_style",
-            "latest_explicit", "memorygene", "memorygene_ask")
+            "latest_explicit", "memorygene", "memorygene_ask", "memorygene_latest")
 
 
 def structured_streams():
@@ -162,12 +163,12 @@ def _current(policy, accepted, now):
     return max(live, key=lambda a: (a[0], a[1]))[2]
 
 
-def run_memorygene(stream, ask=False):
+def run_memorygene(stream, ask=False, update="confirm"):
     now, topic = stream["now"], stream["topic"]
     steps, questions = [], 0
     with MemoryStore() as store:
         for i, c in enumerate(stream["candidates"]):
-            result = store.ingest(c, f"e{i}", now=now)
+            result = store.ingest(c, f"e{i}", now=now, update=update)
             if ask and any(a["kind"] == "confirm_change"
                            for a in advise(store, c, result, now=now)):
                 questions += 1
@@ -192,6 +193,8 @@ def run(policy, stream):
         return run_memorygene(stream)
     if policy == "memorygene_ask":
         return run_memorygene(stream, ask=True)
+    if policy == "memorygene_latest":
+        return run_memorygene(stream, update="latest")
     return run_simple(policy, stream)
 
 

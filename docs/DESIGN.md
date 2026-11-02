@@ -38,6 +38,10 @@ intent=supplement 在空槽位且 explicit 时可建立初值；如果适配器�
 
 scope=persistent 禁止 session 值；scope=session 必须携带 session ID。namespace、subject 由可信宿主提供；它们是逻辑分区，不是登录鉴权。API 调用者能读取整个文件，不应直接暴露成不受信任的网络服务。
 
+## 更新模式
+
+`ingest(..., update="confirm")` 为默认值：当前值不同且未声明改变（intent=assert）时进入 conflict。`update="latest"` 用于无人确认的场景：证据时间不早于当前值的明确陈述直接成为当前值，事件记录 `policy: "latest"`，`advise` 返回 `auto_updated`。补充（supplement）、不确定或推断的陈述、证据时间更早的不同值，在两种模式下处理方式相同。该模式不写入数据库配置，按次调用指定；适配器支持 `--update latest` 或配置项 `"update_policy": "latest"`。
+
 ## 互补如何参与生命周期
 
 `canonical([namespace,subject,topic,scope,session])` 的 UTF-8 字节按 `00=A,01=C,10=G,11=T` 编码，存储互补链为 route。检索生成原链再补成互补链，等值查询 SQLite B-tree。写入先通过同一键定位旧记忆，再判断状态；查询、版本更新和遗忘也按同一键定位。因此互补形式参与全流程，但不增加语义信息。

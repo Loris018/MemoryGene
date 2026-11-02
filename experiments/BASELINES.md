@@ -65,3 +65,15 @@ At the **final state**, `latest_explicit` and MemoryGene differ in 7 of 100 case
 - Policy re-implementations only; no real Mem0 or Graphiti runs and no LLM in the loop.
 - Small, fictional datasets labelled by the project authors; labels favour MemoryGene's stance on unmarked updates, which is why both conventions are reported.
 - No external benchmark yet. The knowledge-update subset of LongMemEval is publicly available and is the natural next test; it requires an LLM to extract candidates from English chat sessions.
+
+## Follow-up: unattended mode (added after these results)
+
+Prompted by these results and the LongMemEval sample, MemoryGene gained an optional `update="latest"` mode (`memorygene-dsh remember --update latest`, or `"update_policy": "latest"` in the adapter configuration). In this mode a newer explicit assertion of a different value becomes current even without a stated change. The event is marked `policy: latest`, and the agent receives an `auto_updated` notice. Supplements, uncertain statements and older evidence are handled as in the default mode.
+
+| Policy | Structured labels / latest | NL dev labels / latest | Held-out labels / latest |
+| --- | --- | --- | --- |
+| latest_explicit | 22 / 24 | 42 / 46 | 29 / 30 |
+| memorygene (default, `confirm`) | 24 / 22 | 46 / 42 | 30 / 29 |
+| memorygene_latest | 23 / 23 | 45 / 43 | 29 / 30 |
+
+The new mode differs from the default only in the 5 unmarked-assertion cases. Unlike `latest_explicit`, it still keeps "X is also nice" from replacing a favourite. The earlier rows of this report were recomputed and are unchanged.

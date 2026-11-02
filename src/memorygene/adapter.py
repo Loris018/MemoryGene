@@ -99,12 +99,16 @@ def resolve_settings(args):
     for label, value in (("namespace", namespace), ("subject", subject)):
         if not isinstance(value, str) or not value.strip():
             raise ValueError(f"{label} must be nonempty text")
+    update_policy = config.get("update_policy", "confirm")
+    if update_policy not in {"confirm", "latest"}:
+        raise ValueError("update_policy in the configuration must be confirm or latest")
     return {
         "db": str(Path(db).expanduser()),
         "namespace": namespace,
         "subject": subject,
         "config": str(config_path) if config_path else None,
         "env_session": os.environ.get("DSH_SESSION_ID", ""),
+        "update_policy": update_policy,
     }
 
 
@@ -168,6 +172,7 @@ def cmd_doctor(args, settings):
         "namespace": settings["namespace"],
         "subject": settings["subject"],
         "session_env": settings["env_session"] or None,
+        "update_policy": settings["update_policy"],
         "cwd": str(Path.cwd()),
         "environment_overrides": {
             "MEMORYGENE_DB": os.environ.get("MEMORYGENE_DB"),
@@ -250,7 +255,8 @@ def cmd_remember(args, settings):
         raise ValueError(f"event_id exceeds {MAX_EVENT_ID_CHARS} characters")
     with open_store(settings, args.allow_create) as store:
         result = store.ingest(
-            candidate, event_id, now=now, resolves=args.resolves
+            candidate, event_id, now=now, resolves=args.resolves,
+            update=args.update or settings["update_policy"],
         )
         advice = advise(store, candidate, result, now=now, visible_session=session)
     return payload(
@@ -490,6 +496,10 @@ def build_parser():
     remember.add_argument("--consent-evidence", default=None)
     remember.add_argument("--resolves", default=None)
     remember.add_argument("--event-id", default=None)
+    remember.add_argument(
+        "--update", choices=["confirm", "latest"], default=None,
+        help="how a newer unmarked assertion is handled (default from config, else confirm)",
+    )
     for name in ("current", "history", "forget"):
         query = sub.add_parser(name)
         query.add_argument("--topic", required=True)

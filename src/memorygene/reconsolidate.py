@@ -202,6 +202,8 @@ def advise(store, candidate: Candidate, result, *, now=None, visible_session="")
       word or shared value cues), i.e. the topic name may have drifted.
     * ``repeated_uncertain``: the same uncertain value has now been heard at
       least twice, at different times; the user may be asked once.
+    * ``auto_updated``: in ``update="latest"`` mode an unmarked assertion
+      replaced the previous value; the agent may mention the change.
     * ``unpaired_value``: the value does not pair with its own verbatim source
       (content not found in the evidence, or negated there); see strands.py.
     """
@@ -236,6 +238,13 @@ def advise(store, candidate: Candidate, result, *, now=None, visible_session="")
                 "next": "ask whether this is a change; if the user confirms, "
                         "remember again with --intent change --resolves <evidence_id>",
             })
+    if status == "confirmed" and result.get("policy") == "latest":
+        advice.append({
+            "kind": "auto_updated", "topic": candidate.topic,
+            "previous_id": result.get("previous_id"), "current": candidate.value,
+            "next": "the value was replaced without an explicit change; if it comes up, "
+                    "mention the update so the user can correct it",
+        })
     if status == "confirmed" and result.get("previous_id") is None:
         for other in related:
             if other["same_topic"] or other["current"] is None:

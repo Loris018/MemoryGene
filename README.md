@@ -34,6 +34,8 @@ A small state machine decides what happens to the candidate:
 | different value, supplement | pending | yes | no |
 | empty slot, or an explicit change or correction | confirmed | yes | yes |
 
+This conservative rule suits agents that can ask the user. For unattended use, an optional `latest` update mode accepts a newer explicit statement as the current value without asking, marks it in the history and notifies the agent. Supplements, uncertain statements and older evidence are still held back in this mode.
+
 Every event is kept, so the full history of a memory can be read back. A newer version never erases an older one, expiry never brings an old value back, and forgetting a topic removes all of its versions together with any task notes that depend on it.
 
 On top of this state machine there are two newer components.
@@ -55,9 +57,9 @@ All data used here is fictional. Each experiment can be reproduced from this rep
 | Suggestions in 14 test scenarios | all 5 needed suggestions given; 1 unneeded interruption in 9 | same |
 | Meaning-level damage written through the normal path (381 cases, 5 types) | checksum and backup detect 0; value-source pairing detects 4 of 5 types | [STRANDS](experiments/STRANDS.md) |
 | Same inputs under re-implemented Mem0-style, Graphiti-style and latest-explicit policies (100 cases) | the certainty filter explains most differences; against the strongest baseline MemoryGene differs in 7 cases: 4 supplements kept from replacing a favourite, 3 unmarked changes held for one confirmation question | [BASELINES](experiments/BASELINES.md) |
-| LongMemEval knowledge-update, first 20 questions (external benchmark, small sample) | MemoryGene 14/20 without confirmation vs 16/20 for the best baselines; 16/20 with one confirmation question per detected change (2 questions in total) | [LongMemEval](experiments/longmemeval-ku-2026-11-02/REPORT.md) |
+| LongMemEval knowledge-update, first 20 questions (external benchmark, small sample) | MemoryGene 14/20 without confirmation vs 16/20 for the best baselines; 16/20 with one confirmation question per detected change (2 questions in total), and 16/20 with no questions in the optional `latest` mode (designed after seeing this sample) | [LongMemEval](experiments/longmemeval-ku-2026-11-02/REPORT.md) |
 | Cross-session use inside a real agent host | write, read in a new session, revise and forget all work | [integration](docs/DSH-INTEGRATION.md) |
-| Unit and integration tests | 166 pass on Python 3.10 to 3.14 | CI |
+| Unit and integration tests | 172 pass on Python 3.10 to 3.14 | CI |
 
 ## Limitations and negative results
 
@@ -129,7 +131,7 @@ MemoryGene 是面向大语言模型助手的长期记忆研究项目，研究以
 
 当前原型包括：
 
-- 证据状态机：不确定的陈述不会被确认为事实，出现冲突时保留证据并等待确认。
+- 证据状态机：不确定的陈述不会被确认为事实，出现冲突时保留证据并等待确认；无人确认的场景可启用可选的 `latest` 模式，自动接受更新的明确陈述并在历史中标记。
 - 完整的版本历史；按主题遗忘时同时删除相关依赖。
 - 再巩固支持：写入前定位相关的已有记忆，必要时提示助手向用户确认，其余情况下不打扰用户。
 - 值与原话的"双链配对"检查：识别经由正常写入流程产生、校验和无法发现的语义错误。

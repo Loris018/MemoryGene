@@ -58,3 +58,13 @@ Extraction: all 20 outputs parsed; 44 candidates were kept and 2 were dropped as
 python experiments/longmemeval-ku-2026-11-02/run.py extract --data /path/to/longmemeval_oracle.json   # calls the model; cached in raw/
 python experiments/longmemeval-ku-2026-11-02/run.py score --data /path/to/longmemeval_oracle.json
 ```
+
+## Follow-up: unattended mode (added after these results)
+
+Following conclusion 3, MemoryGene gained an optional `update="latest"` mode for settings where nobody can confirm a change; see [../BASELINES.md](../BASELINES.md). Re-scoring the same cached extractions (no new model calls; the other columns are unchanged):
+
+| Policy | Current (13) | History (4) | Abstention (3) | Total (20) | Questions asked |
+| --- | --- | --- | --- | --- | --- |
+| memorygene_latest | 11 | 4 | 1 | 16 | 0 |
+
+The mode was designed after seeing these 20 items, so this row is not an independent test of it.

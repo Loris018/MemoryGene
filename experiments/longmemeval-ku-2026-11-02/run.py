@@ -48,7 +48,7 @@ DSH = Path("/Applications/DeepSeek Harness.app/Contents/Resources/runtime/cli/bi
 PATCH = PROJECT / "tools" / "dsh" / "headless-account.patch.yml"
 SAMPLE = 20
 POLICIES = ("overwrite", "append_latest", "mem0_style", "graphiti_style",
-            "latest_explicit", "memorygene", "memorygene_ask")
+            "latest_explicit", "memorygene", "memorygene_ask", "memorygene_latest")
 HISTORY_WORDS = re.compile(
     r"\b(initially|before|earlier|previous|previously|first|used to|originally)\b", re.I)
 NUMBER_WORDS = {w: str(i) for i, w in enumerate(

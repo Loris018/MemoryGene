@@ -12,7 +12,8 @@
     "graphiti_style": 16,
     "latest_explicit": 16,
     "memorygene": 14,
-    "memorygene_ask": 16
+    "memorygene_ask": 16,
+    "memorygene_latest": 16
   },
   "correct_by_kind": {
     "current": {
@@ -22,7 +23,8 @@
       "graphiti_style": 11,
       "latest_explicit": 11,
       "memorygene": 9,
-      "memorygene_ask": 11
+      "memorygene_ask": 11,
+      "memorygene_latest": 11
     },
     "abstention": {
       "overwrite": 1,
@@ -31,7 +33,8 @@
       "graphiti_style": 1,
       "latest_explicit": 1,
       "memorygene": 1,
-      "memorygene_ask": 1
+      "memorygene_ask": 1,
+      "memorygene_latest": 1
     },
     "history": {
       "overwrite": 2,
@@ -40,7 +43,8 @@
       "graphiti_style": 4,
       "latest_explicit": 4,
       "memorygene": 4,
-      "memorygene_ask": 4
+      "memorygene_ask": 4,
+      "memorygene_latest": 4
     }
   },
   "extraction": {
@@ -148,6 +152,15 @@
         ],
         "correct": true,
         "questions": 0
+      },
+      "memorygene_latest": {
+        "current": "25 new postcards",
+        "history": [
+          "17 new postcards",
+          "25 new postcards"
+        ],
+        "correct": true,
+        "questions": 0
       }
     },
     {
@@ -234,6 +247,16 @@
         "questions": 0
       },
       "memorygene_ask": {
+        "current": "5 engineers",
+        "history": [
+          "5 engineers",
+          "4 engineers",
+          "5 engineers"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_latest": {
         "current": "5 engineers",
         "history": [
           "5 engineers",
@@ -336,6 +359,16 @@
         ],
         "correct": false,
         "questions": 0
+      },
+      "memorygene_latest": {
+        "current": "5 engineers",
+        "history": [
+          "5 engineers",
+          "4 engineers",
+          "5 engineers"
+        ],
+        "correct": false,
+        "questions": 0
       }
     },
     {
@@ -425,6 +458,15 @@
         ],
         "correct": true,
         "questions": 0
+      },
+      "memorygene_latest": {
+        "current": "5 projects",
+        "history": [
+          "4 projects",
+          "5 projects"
+        ],
+        "correct": true,
+        "questions": 0
       }
     },
     {
@@ -507,6 +549,15 @@
         ],
         "correct": true,
         "questions": 0
+      },
+      "memorygene_latest": {
+        "current": "in a shoe rack",
+        "history": [
+          "under my bed",
+          "in a shoe rack"
+        ],
+        "correct": true,
+        "questions": 0
       }
     },
     {
@@ -571,6 +622,14 @@
         "questions": 0
       },
       "memorygene_ask": {
+        "current": "under my bed",
+        "history": [
+          "under my bed"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "memorygene_latest": {
         "current": "under my bed",
         "history": [
           "under my bed"
@@ -659,6 +718,15 @@
         ],
         "correct": true,
         "questions": 0
+      },
+      "memorygene_latest": {
+        "current": "9 months",
+        "history": [
+          "6 months",
+          "9 months"
+        ],
+        "correct": true,
+        "questions": 0
       }
     },
     {
@@ -723,6 +791,14 @@
         "questions": 0
       },
       "memorygene_ask": {
+        "current": "Instant Pot",
+        "history": [
+          "Instant Pot"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_latest": {
         "current": "Instant Pot",
         "history": [
           "Instant Pot"
@@ -809,6 +885,14 @@
         ],
         "correct": true,
         "questions": 0
+      },
+      "memorygene_latest": {
+        "current": "15 autographed baseballs in the first three months",
+        "history": [
+          "15 autographed baseballs in the first three months"
+        ],
+        "correct": true,
+        "questions": 0
       }
     },
     {
@@ -854,6 +938,12 @@
         "questions": 0
       },
       "memorygene_ask": {
+        "current": null,
+        "history": [],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_latest": {
         "current": null,
         "history": [],
         "correct": true,
@@ -933,6 +1023,15 @@
         "questions": 0
       },
       "memorygene_ask": {
+        "current": "132 points",
+        "history": [
+          "124 points",
+          "132 points"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_latest": {
         "current": "132 points",
         "history": [
           "124 points",
@@ -1022,6 +1121,15 @@
         ],
         "correct": true,
         "questions": 0
+      },
+      "memorygene_latest": {
+        "current": "120 stars",
+        "history": [
+          "125 stars",
+          "120 stars"
+        ],
+        "correct": true,
+        "questions": 0
       }
     },
     {
@@ -1086,6 +1194,14 @@
         "questions": 0
       },
       "memorygene_ask": {
+        "current": "7",
+        "history": [
+          "7"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_latest": {
         "current": "7",
         "history": [
           "7"
@@ -1181,6 +1297,15 @@
         "questions": 0
       },
       "memorygene_ask": {
+        "current": "page 220",
+        "history": [
+          "page 200",
+          "page 220"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_latest": {
         "current": "page 220",
         "history": [
           "page 200",
@@ -1284,6 +1409,15 @@
         ],
         "correct": true,
         "questions": 0
+      },
+      "memorygene_latest": {
+        "current": "Kansas City Masterpiece",
+        "history": [
+          "Sweet Baby Ray's",
+          "Kansas City Masterpiece"
+        ],
+        "correct": true,
+        "questions": 0
       }
     },
     {
@@ -1329,6 +1463,12 @@
         "questions": 0
       },
       "memorygene_ask": {
+        "current": null,
+        "history": [],
+        "correct": false,
+        "questions": 0
+      },
+      "memorygene_latest": {
         "current": null,
         "history": [],
         "correct": false,
@@ -1414,6 +1554,15 @@
         ],
         "correct": true,
         "questions": 1
+      },
+      "memorygene_latest": {
+        "current": "3 months",
+        "history": [
+          "one month",
+          "3 months"
+        ],
+        "correct": true,
+        "questions": 0
       }
     },
     {
@@ -1489,6 +1638,15 @@
         "questions": 0
       },
       "memorygene_ask": {
+        "current": "3 months",
+        "history": [
+          "one month",
+          "3 months"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "memorygene_latest": {
         "current": "3 months",
         "history": [
           "one month",
@@ -1593,6 +1751,15 @@
         ],
         "correct": true,
         "questions": 1
+      },
+      "memorygene_latest": {
+        "current": "the music shop on Main St",
+        "history": [
+          "Rhythm Central on Main St",
+          "the music shop on Main St"
+        ],
+        "correct": true,
+        "questions": 0
       }
     },
     {
@@ -1668,6 +1835,15 @@
         "questions": 0
       },
       "memorygene_ask": {
+        "current": "every week",
+        "history": [
+          "every two weeks",
+          "every week"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_latest": {
         "current": "every week",
         "history": [
           "every two weeks",

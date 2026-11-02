@@ -250,7 +250,20 @@ class MemoryStore:
         *,
         now: str | None = None,
         resolves: str | None = None,
+        update: str = "confirm",
     ):
+        """Apply the state machine to one candidate.
+
+        ``update`` chooses how a newer explicit assertion of a different value
+        is handled when the user did not say it is a change. ``confirm`` (the
+        default) holds it as ``conflict`` until the user confirms. ``latest``
+        accepts it as the new current value and marks the event with
+        ``policy: latest``; it is meant for unattended use where nobody can be
+        asked. Supplements, uncertain statements and older evidence behave the
+        same in both modes.
+        """
+        if update not in {"confirm", "latest"}:
+            raise ValueError("update must be confirm or latest")
         c.validate()
         if not isinstance(event_id, str) or not event_id.strip():
             raise ValueError("Nonempty event_id required")
@@ -307,6 +320,7 @@ class MemoryStore:
                 return {"id": event_id, "status": status, "previous_id": None}
             head = self._head(route)
             live = head if head and self._live(head, clock) else None
+            accepted_by_policy = False
             if c.certainty != "explicit":
                 status = "pending"
             elif live and live["candidate"]["value"] == c.value:
@@ -318,7 +332,12 @@ class MemoryStore:
             ):
                 status = "conflict"
             elif live and c.intent not in {"change", "correct"}:
-                status = "pending" if c.intent == "supplement" else "conflict"
+                if c.intent == "supplement":
+                    status = "pending"
+                elif update == "latest":
+                    status, accepted_by_policy = "confirmed", True
+                else:
+                    status = "conflict"
             else:
                 status = "confirmed"
             if resolves is not None and status not in {"confirmed", "duplicate"}:
@@ -332,6 +351,9 @@ class MemoryStore:
                 "recorded_at": clock.isoformat(),
                 "resolves": resolves,
             }
+            if accepted_by_policy:
+                # Recorded so history shows the change was not stated as one.
+                event["policy"] = "latest"
             payload = canonical(event).encode()
             backup = (
                 None

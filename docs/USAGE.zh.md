@@ -68,11 +68,14 @@ python3 -m venv .venv
 | `duplicate` | 与当前值相同，状态不变 |
 | `discarded` / `rejected_sensitive` / `expired` | 未写入 |
 
+默认情况下，与当前值不同、但未声明改变的陈述会进入 `conflict`，等待用户确认。若部署场景中无人可确认，可在写入时加 `--update latest`，或在适配器配置中设置 `"update_policy": "latest"`：此时较新的明确陈述会直接成为当前值，并在历史中标记。
+
 返回结果还可能包含 `advice`（多数情况下为空）：
 
 - `confirm_change`：用户给出了新值但未声明改变。可向用户确认，确认后使用 `--intent change --resolves <evidence_id>` 重新写入。
 - `possible_same_slot`：新主题可能与已有主题指向同一属性，确认后应统一使用已有主题。
 - `repeated_uncertain`：同一不确定陈述已在不同时间出现两次以上，可在合适时机向用户确认。
+- `auto_updated`：`latest` 模式下，未声明改变的陈述已替换旧值。相关时可向用户说明这一变化，以便其更正。
 - `unpaired_value`：值在原话中找不到，或原话为否定表述。
 
 ### 修改、到期与遗忘
