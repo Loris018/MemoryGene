@@ -23,7 +23,7 @@ forget 是应用层删除，无法保证 SQLite 空闲页、文件系统快照�
 - 适配器限制 topic/value/source/event_id 长度；value 做 NFC 归一，source 保留原话。
 - `verify` 是只读全库扫描：payload/digest/身份/路由不一致、head 指向缺失/未确认/路由不符事件、head 回滚或缺失都会报告；它不修复、不改 heads。单主题读取只校验它触达的行，route/heads 元数据损坏可能表现为“为空/缺事件”或“旧值像当前值”，发现此类问题应运行 `verify`。`verify` 不检测被删除的非 head 历史事件（seq 空洞也可能来自合法回滚事务）。
 - 用户级 Skill 安装（`~/.dsh/skills/memorygene/`）与用户级配置（`~/.memorygene/dsh.json`）属于用户范围改动，已记录安装清单，可用 `scripts/install_dsh_skill.py --target user --uninstall` 移除；项目级安装同理。安装脚本不改 DSH profile、插件、凭据或全局记忆设置。
-- 本轮验证 headless 会话使用的 `tools/dsh/headless-account.patch.yml` 只启用账号/凭据插件并复用现有登录，不含密钥；不修改计费设置，也不影响桌面 GUI。
+- 验证 headless 会话时用的 `tools/dsh/headless-account.patch.yml` 只启用账号/凭据插件并复用现有登录，不含密钥；不修改计费设置，也不影响桌面 GUI。
 
 ## 跨项目自动（用户级全局指令）披露
 

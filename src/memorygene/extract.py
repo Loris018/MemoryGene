@@ -7,7 +7,7 @@ topic-normalisation map and a few regular expressions produce candidate fields.
 It does **not** claim semantic understanding, generalisation, or
 natural-language-understanding accuracy, and it is not a production parser.
 
-Honesty notes:
+Notes:
 
 * Everything is deterministic: no clock reads, no randomness, no network, and
   no third-party dependencies.

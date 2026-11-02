@@ -1,7 +1,7 @@
 # 独立留出 NL 抽取提示（冻结）
 
 固定条件：DeepSeek Harness headless profile，模型 `deepseek-flash`（现有登录，provider deepseek-account），
-不为本轮修改 temperature/提示以外的参数；本文件与生成的每条 batch prompt 原样保存。
+不修改 temperature/提示以外的参数；本文件与生成的每条 batch prompt 原样保存。
 
 角色：你是 MemoryGene 的**独立自然语言抽取器**。只看下面给出的虚构对话，为每个 case 的每个 turn
 输出一个结构化候选判断。不要调用工具，不要使用对话之外的信息，不要编造来源、时间、同意或确认。

@@ -1,4 +1,0 @@
-expected: refuse or at least warn; observed:
-  forget on missing/typo db -> exit=0 stdout='0' stderr=''
-  new db file created: True size=36864
-  current on it -> exit=0 stdout='null' stderr=''

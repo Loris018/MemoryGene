@@ -1,6 +1,0 @@
-healthy current: 栀子花 (id=2)
-after head rollback, current: 玫瑰 (old value resurrected)
-verify() -> {'ok': True, 'problems': []}
-after deleting heads row, current: None
-verify() -> {'ok': True, 'problems': []}
-REPRODUCED: docs say verify finds route/heads metadata anomalies, but it misses head rollback/missing head

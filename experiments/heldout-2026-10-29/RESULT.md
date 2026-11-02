@@ -12,7 +12,7 @@
 - 独立抽取器：DeepSeek Harness headless，模型 **deepseek-flash**（现有账号登录，provider `deepseek-account`）。
   没有给模型看标签、旧案例或 MemoryGene 规则；固定 now 与提示模板。
 - 提示模板与哈希：`prompt.md`，sha256 `703acbec…ff6`。每 5 组一批，共 6 批；原始输出与 session id 在 `raw/`。
-- 标签由本轮维护者编写；标签驱动的 oracle 候选通过**同一套** MemoryGene 策略，oracle 最终结果与人工预期
+- 标签是我自己写的；标签驱动的 oracle 候选通过**同一套** MemoryGene 策略，oracle 最终结果与人工预期
   **30/30 一致**（只说明标签与现有策略自洽，不是外部金标准）。
 
 ## L1 抽取结果（分母公开）
@@ -33,7 +33,7 @@
 **最突出的问题：topic 精确一致只有 11/27。** 模型倾向对同一主题使用细粒度/同义命名，例如
 `preference.liked_flower` vs `preference.favorite_flower`、`personal.residence.city` vs `profile.city`、
 `shopping.coupon_code` vs `promotion.code`、`health.allergy.penicillin` vs `health.allergy`。
-当前 MemoryGene 没有语义主题归一化，所以这会直接造成存储层主题分裂或丢失。这是本轮基准最有价值的发现。
+当前 MemoryGene 没有语义主题归一化，所以这会直接造成存储层主题分裂或丢失。这是这次测试最有价值的发现。
 
 其他失败：模型把“也喜欢/更喜欢”判成 `change`/`explicit`（h20）；把未来计划写成事实（h25）；
 对“敏感无同意”直接弃权而不是生成待拒绝候选（h09/h27，端到端结果相同但 L1 决策不同）；
@@ -72,7 +72,7 @@ value 出现“对青霉素过敏” vs “青霉素过敏”的细微括写；i
 ## 失败与未验证
 
 - 单一模型、单次运行，未控制 temperature/seed；没有多标注者一致性；提示与标签作者同期工作。
-- 精确 topic 字符串评分对同义命名非常严格；本轮**没有**修改适配层做别名归一，也没有把模型输出反哺到提示/规则。
+- 精确 topic 字符串评分对同义命名非常严格；这次**没有**修改适配层做别名归一，也没有把模型输出反哺到提示/规则。
 - 只有 30 组，比例区间较宽；没有统计显著性结论。
 - 仍未做 GUI 人工验收；没有远端 CI/跨平台运行。
 

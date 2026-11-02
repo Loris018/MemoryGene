@@ -3,20 +3,10 @@ recursive-include docs *.md *.json
 recursive-include skills *.md
 recursive-include examples *.py *.json
 recursive-include tests *.py
-recursive-include experiments *.py *.json *.md *.png
+recursive-include experiments *.py *.json *.md *.png *.txt *.jsonl
 recursive-include scripts *.py
 recursive-include tools *.py *.yml *.md
+recursive-include evidence/01-e2e *.json *.jsonl *.txt *.md
+recursive-include evidence/08-tasks *.json *.log *.md
 include .github/workflows/*.yml
 include .gitignore
-recursive-include evidence/06-maintenance *.json *.md *.log
-include evidence/08-tasks/validation.json
-include evidence/08-tasks/harness-summary.json
-include evidence/08-tasks/acceptance-results.json
-include evidence/08-tasks/tests.log
-include evidence/08-tasks/ruff.log
-
-recursive-include evidence/09-maintenance-2026-10-29 *.md *.json *.log *.txt
-
-recursive-include experiments/heldout-2026-10-29 *.md *.json *.py *.txt
-recursive-include evidence/10-gui-acceptance *.json *.log
-recursive-include experiments/heldout-2026-10-29 *.jsonl

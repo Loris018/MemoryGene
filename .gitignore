@@ -25,3 +25,26 @@ evidence/dsh/*.session.jsonl
 
 # macOS Finder duplicates
 * 2.*
+
+# Development process logs (kept locally, not published)
+/evidence/00-install
+/evidence/02-e2e
+/evidence/05-global-auto
+/evidence/06-maintenance
+/evidence/07-recall
+/evidence/09-maintenance-2026-10-29
+/evidence/10-gui-acceptance
+/evidence/dsh
+/evidence/nl
+/evidence/release
+/evidence/review
+/docs/AUDIT.md
+/docs/MAINTENANCE-2026-10-27.md
+/docs/RELEASE.md
+/docs/VALIDATION.json
+/docs/PROVENANCE.md
+/docs/ACCEPTANCE.md
+/docs/GUI-ACCEPTANCE.md
+/evidence/08-tasks/codex-skill-validator.log
+/evidence/08-tasks/previous-validation.json
+/evidence/08-tasks/validation.json

@@ -1,9 +1,0 @@
-cwd:            /private/tmp/mg-probe-control
-project root:   /private/tmp/mg-probe-control
-scanned roots (rank order):
-  100  project-dsh     /private/tmp/mg-probe-control/.dsh/skills  [missing]
-  200  project-agents  /private/tmp/mg-probe-control/.agents/skills  [missing]
-  400  user-dsh        ~/.dsh/skills  [missing]
-  500  user-agents     ~/.agents/skills  [missing]
-discovered skills: 0
-evidence level: L2 (rule reimplementation of the installed provider)

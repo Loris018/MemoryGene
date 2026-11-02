@@ -15,9 +15,8 @@ This script reimplements the algorithm of the *installed* packages as read from
 the Electron app's `app.asar` (same version string, `dsh --version` =
 0.2.1-rc.2). It does not import the real provider: those packages live inside
 `app.asar`, which plain Node/Python cannot load without extracting the whole
-runtime tree. The L1 proof for this deployment lives beside this script at
-`evidence/dsh/` - real `dsh --profile headless` sessions whose persisted JSONL
-logs contain the `skill-catalog` message and the loaded `<skill_content>` body.
+runtime tree. Real `dsh --profile headless` sessions were used separately to
+confirm that the `skill-catalog` message and the loaded skill body appear.
 
 Source of the rules (package/lib/index.js of the installed app)
 ---------------------------------------------------------------
@@ -511,7 +510,7 @@ def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(
         description=(
             "Deterministic DSH 0.2.1-rc.2 filesystem-skill discovery probe "
-            "(L2: rule reimplementation; see evidence/dsh for the L1 live proof)."
+            "(L2: rule reimplementation; live sessions were checked separately)."
         ),
         formatter_class=argparse.RawDescriptionHelpFormatter,
     )

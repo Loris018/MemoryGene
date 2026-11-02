@@ -1,9 +1,0 @@
-{"type":"session","sessionId":"session-e4995f1e-ffb8-4572-bb06-ed6fd294abc1","cwd":"/private/tmp/mg-probe-project"}
-{"type":"status","phase":"turn_start","turn":1}
-{"type":"status","phase":"step_start","turn":1,"step":1}
-[llm-deepseek-account] model listing from https://api.deepseek.com/models loaded 2 model(s), skipped 0 row(s)
-{"type":"thinking","text":""}
-{"type":"text","text":"AGENTS-MARKER-9B2E"}
-{"type":"status","phase":"step_end","turn":1,"step":1,"usage":{"inputTokens":622,"outputTokens":11,"cacheReadTokens":5376,"cacheWriteTokens":0,"totalTokens":6009}}
-{"type":"status","phase":"turn_end","turn":1,"reason":{"kind":"completed"}}
-{"type":"final","text":"AGENTS-MARKER-9B2E"}

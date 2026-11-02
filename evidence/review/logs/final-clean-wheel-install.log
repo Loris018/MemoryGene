@@ -1,8 +1,0 @@
-=== clean 3.12 wheel venv (corrected: create db explicitly with --allow-create) ===
-create+verify ok= True integrity= True events= 0
--rw-------@ 1 user  wheel  36864 Oct 24 15:45 /tmp/mg-audit-db/m.db
-remember= confirmed
-current= 玫瑰
-verify= True
-forgot= 1
-exit codes above; clean-wheel claims reproduced

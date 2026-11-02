@@ -1,4 +1,4 @@
-# 本轮实测结果
+# 实验结果
 
 版本：0.2.0.dev1；运行时间（UTC）：2026-10-24T07:48:39.281875+00:00；Python：3.11.7；固定种子：20261024。
 
@@ -43,6 +43,6 @@
 
 ## 复现与原始记录
 
-运行 `PYTHONPATH=src python experiments/run.py`。两张图需要安装 matplotlib 后加 `--plots`（本轮验证环境未安装，图中的历史数字来自基线运行，语义计数与本次一致）。完整结果见 [results.json](results/results.json)，逐输入状态见 [trace.json](results/trace.json)，所有人工预期见 [scenarios.json](scenarios.json)。重新运行会产生新的时间记录与本机性能数字；语义计数应保持一致。
+运行 `PYTHONPATH=src python experiments/run.py`。两张图需要安装 matplotlib 后加 `--plots`（跑这次实验的环境没装 matplotlib，图中的历史数字来自基线运行，语义计数与本次一致）。完整结果见 [results.json](results/results.json)，逐输入状态见 [trace.json](results/trace.json)，所有人工预期见 [scenarios.json](scenarios.json)。重新运行会产生新的时间记录与本机性能数字；语义计数应保持一致。
 
 后续独立评估见 [实验方案](../docs/EXPERIMENTS.md)。目前支持的结论是：本版规则实现通过已知开发场景；互补表示尚未显示独立优势。

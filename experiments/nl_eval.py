@@ -21,7 +21,7 @@ Fairness
     semantic outcomes must be identical in every configuration. Routing-key
     bytes and database size are measured, not assumed.
 
-Honesty boundary: the rule table and these cases were developed together by the
+Caveat: the rule table and these cases were developed together by the
 same author. This is a regression/quality check of a rule-based prototype, NOT a
 held-out benchmark and NOT an NLU capability claim. All cases are fictional.
 """
