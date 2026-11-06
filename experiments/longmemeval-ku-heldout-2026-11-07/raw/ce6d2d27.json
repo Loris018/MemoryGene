@@ -1,0 +1,6 @@
+{
+  "question_id": "ce6d2d27",
+  "exit": 0,
+  "seconds": 12.4,
+  "final": "[\n  {\n    \"session\": 1,\n    \"source\": \"cocktail-making class on Thursday\",\n    \"value\": \"Thursday\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"cocktail-making class on Fridays\",\n    \"value\": \"Friday\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"cocktail-making class on Friday\",\n    \"value\": \"Friday\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"class on Friday\",\n    \"value\": \"Friday\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  }\n]"
+}

@@ -1,0 +1,6 @@
+{
+  "question_id": "cf22b7bf",
+  "exit": 0,
+  "seconds": 15.7,
+  "final": "[\n  {\n    \"session\": 1,\n    \"source\": \"lost about 5 pounds in the past month\",\n    \"value\": \"about 5 pounds\",\n    \"certainty\": \"uncertain\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 1,\n    \"source\": \"lost 5 pounds in the past month\",\n    \"value\": \"5 pounds\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"lost 10 pounds since I started going consistently to the gym 3 months ago\",\n    \"value\": \"10 pounds\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  }\n]"
+}

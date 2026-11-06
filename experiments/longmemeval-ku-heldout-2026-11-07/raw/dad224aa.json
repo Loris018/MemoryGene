@@ -1,0 +1,6 @@
+{
+  "question_id": "dad224aa",
+  "exit": 0,
+  "seconds": 22.3,
+  "final": "[\n  {\n    \"session\": 1,\n    \"source\": \"waking up around 8:30 am on Saturdays\",\n    \"value\": \"8:30 am\",\n    \"certainty\": \"uncertain\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 1,\n    \"source\": \"waking up at 8:30 am on Saturdays\",\n    \"value\": \"8:30 am\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"wake up at 7:30 am on Saturdays\",\n    \"value\": \"7:30 am\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  }\n]"
+}

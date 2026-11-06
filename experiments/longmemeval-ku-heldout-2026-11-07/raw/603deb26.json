@@ -1,0 +1,6 @@
+{
+  "question_id": "603deb26",
+  "exit": 0,
+  "seconds": 17.8,
+  "final": "[\n  {\n    \"session\": 1,\n    \"source\": \"I've tried making it at home for 5 times now since Emma teached me how to make it\",\n    \"value\": \"5 times\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"I've tried making it at home 10 times now since my friend Emma showed me how to make it\",\n    \"value\": \"10 times\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"change\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"I've tried making it at home 10 times now since my friend Emma showed me how to make it\",\n    \"value\": \"10 times\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"I've tried making a Negroni at home 10 times now since my friend Emma showed me how to make it\",\n    \"value\": \"10 times\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  }\n]"
+}

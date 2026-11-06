@@ -1,0 +1,6 @@
+{
+  "question_id": "6a1eabeb",
+  "exit": 0,
+  "seconds": 19.7,
+  "final": "[\n  {\n    \"session\": 1,\n    \"source\": \"with a time of 27:12\",\n    \"value\": \"27:12\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"personal best time of 25:50\",\n    \"value\": \"25:50\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"change\"\n  }\n]"
+}

@@ -1,0 +1,6 @@
+{
+  "question_id": "69fee5aa",
+  "exit": 0,
+  "seconds": 19.1,
+  "final": "[\n  {\n    \"session\": 1,\n    \"source\": \"I have a total of 37 coins in that collection\",\n    \"value\": \"37\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"I just added a new coin to my collection of pre-1920 American coins - a 1915-S Barber quarter\",\n    \"value\": \"38\",\n    \"certainty\": \"inferred\",\n    \"intent\": \"change\"\n  }\n]"
+}

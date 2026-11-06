@@ -1,0 +1,6 @@
+{
+  "question_id": "6071bd76",
+  "exit": 0,
+  "seconds": 15.8,
+  "final": "[\n  {\n    \"session\": 1,\n    \"source\": \"1 tablespoon of coffee for every 6 ounces of water\",\n    \"value\": \"6 ounces of water per tablespoon of coffee\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"1 tablespoon of coffee for every 5 ounces of water\",\n    \"value\": \"5 ounces of water per tablespoon of coffee\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  }\n]"
+}

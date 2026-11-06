@@ -1,0 +1,6 @@
+{
+  "question_id": "e493bb7c",
+  "exit": 0,
+  "seconds": 54.6,
+  "final": "[\n  {\n    \"session\": 1,\n    \"source\": \"the \\\"Ethereal Dreams\\\" painting above my living room sofa\",\n    \"value\": \"above my living room sofa\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"I just moved the \\\"Ethereal Dreams\\\" painting to my bedroom\",\n    \"value\": \"my bedroom\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"change\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"I recently moved the \\\"Ethereal Dreams\\\" painting by Emma Taylor above my bed\",\n    \"value\": \"above my bed\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"change\"\n  }\n]"
+}

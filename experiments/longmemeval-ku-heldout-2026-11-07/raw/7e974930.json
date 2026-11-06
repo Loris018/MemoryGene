@@ -1,0 +1,6 @@
+{
+  "question_id": "7e974930",
+  "exit": 0,
+  "seconds": 35.3,
+  "final": "[{\"session\":2,\"source\":\"I earned $420 at the Downtown Farmers Market on my most recent visit\",\"value\":\"$420\",\"certainty\":\"explicit\",\"intent\":\"assert\"}]"
+}

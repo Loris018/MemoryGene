@@ -1,0 +1,6 @@
+{
+  "question_id": "852ce960",
+  "exit": 0,
+  "seconds": 7.7,
+  "final": "[\n  {\n    \"session\": 1,\n    \"source\": \"I got pre-approved for $350,000 from Wells Fargo\",\n    \"value\": \"$350,000\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"when I got pre-approved for $400,000 from Wells Fargo\",\n    \"value\": \"$400,000\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"correct\"\n  }\n]"
+}

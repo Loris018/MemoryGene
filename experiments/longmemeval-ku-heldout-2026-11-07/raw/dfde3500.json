@@ -1,0 +1,6 @@
+{
+  "question_id": "dfde3500",
+  "exit": 0,
+  "seconds": 73.7,
+  "final": "[\n  {\n    \"session\": 1,\n    \"source\": \"every Wednesday evening\",\n    \"value\": \"Wednesday\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  }\n]"
+}

@@ -1,0 +1,6 @@
+{
+  "question_id": "9bbe84a2",
+  "exit": 0,
+  "seconds": 90.3,
+  "final": "[\n  {\n    \"session\": 1,\n    \"source\": \"reach level 100\",\n    \"value\": \"level 100\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"I'm still aiming to hit level 150\",\n    \"value\": \"level 150\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"my current goal is to reach level 150\",\n    \"value\": \"level 150\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"change\"\n  }\n]"
+}

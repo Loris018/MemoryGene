@@ -1,0 +1,6 @@
+{
+  "question_id": "c4ea545c",
+  "exit": 0,
+  "seconds": 47.5,
+  "final": "[\n  {\n    \"session\": 1,\n    \"source\": \"I don't actually work out on Mondays, Wednesdays, and Fridays.\",\n    \"value\": \"No workouts on Mondays, Wednesdays, and Fridays\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 1,\n    \"source\": \"I go to the gym on Tuesdays, Thursdays, and Saturdays.\",\n    \"value\": \"Three times a week\",\n    \"certainty\": \"inferred\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"four times a week, actually\",\n    \"value\": \"Four times a week\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"change\"\n  }\n]"
+}

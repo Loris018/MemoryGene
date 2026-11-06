@@ -1,0 +1,6 @@
+{
+  "question_id": "41698283",
+  "exit": 0,
+  "seconds": 67.6,
+  "final": "[\n  {\n    \"session\": 1,\n    \"source\": \"I recently got a new 50mm prime lens\",\n    \"value\": \"50mm prime lens\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"my new 70-200mm zoom lens\",\n    \"value\": \"70-200mm zoom lens\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  }\n]"
+}

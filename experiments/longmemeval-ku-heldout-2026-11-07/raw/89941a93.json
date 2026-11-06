@@ -1,0 +1,6 @@
+{
+  "question_id": "89941a93",
+  "exit": 0,
+  "seconds": 49.5,
+  "final": "[\n  {\n    \"session\": 1,\n    \"source\": \"my other two bikes\",\n    \"value\": \"three bikes\",\n    \"certainty\": \"inferred\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 1,\n    \"source\": \"I currently have three bikes\",\n    \"value\": \"three bikes\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"I just got a new one recently\",\n    \"value\": \"one new bike\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"change\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"I'll actually have four bikes\",\n    \"value\": \"four bikes\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"change\"\n  }\n]"
+}

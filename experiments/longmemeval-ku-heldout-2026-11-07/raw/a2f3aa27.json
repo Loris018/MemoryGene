@@ -1,0 +1,6 @@
+{
+  "question_id": "a2f3aa27",
+  "exit": 0,
+  "seconds": 9.4,
+  "final": "[\n  {\n    \"session\": 1,\n    \"source\": \"I've got 1250 followers on Instagram now\",\n    \"value\": \"1250 followers\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"change\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"I think I'm close to 1300 now\",\n    \"value\": \"close to 1300 followers\",\n    \"certainty\": \"uncertain\",\n    \"intent\": \"change\"\n  }\n]"
+}

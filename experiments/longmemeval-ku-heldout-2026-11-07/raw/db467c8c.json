@@ -1,0 +1,6 @@
+{
+  "question_id": "db467c8c",
+  "exit": 0,
+  "seconds": 31.0,
+  "final": "[\n  {\n    \"session\": 1,\n    \"source\": \"the past six months\",\n    \"value\": \"six months\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"nine months now\",\n    \"value\": \"nine months\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"change\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"nine months now\",\n    \"value\": \"nine months\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"nine-month overstay\",\n    \"value\": \"nine months\",\n    \"certainty\": \"inferred\",\n    \"intent\": \"supplement\"\n  }\n]"
+}

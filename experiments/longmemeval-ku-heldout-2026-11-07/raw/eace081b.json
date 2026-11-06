@@ -1,0 +1,6 @@
+{
+  "question_id": "eace081b",
+  "exit": 0,
+  "seconds": 5.8,
+  "final": "[\n  {\n    \"session\": 1,\n    \"source\": \"good hiking trails on Kauai\",\n    \"value\": \"Kauai\",\n    \"certainty\": \"inferred\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"I'm actually planning to stay on Oahu\",\n    \"value\": \"Oahu\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"change\"\n  }\n]"
+}

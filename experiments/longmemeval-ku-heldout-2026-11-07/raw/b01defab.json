@@ -1,0 +1,6 @@
+{
+  "question_id": "b01defab",
+  "exit": 0,
+  "seconds": 63.8,
+  "final": "[\n  {\n    \"session\": 1,\n    \"source\": \"put down temporarily\",\n    \"value\": \"not finished; put down temporarily\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 1,\n    \"source\": \"fit in \\\"The Nightingale\\\" later\",\n    \"value\": \"not finished; planned to read later\",\n    \"certainty\": \"inferred\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 1,\n    \"source\": \"get back into \\\"The Nightingale\\\"\",\n    \"value\": \"not finished; wants to get back into it\",\n    \"certainty\": \"inferred\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"recently finished \\\"The Nightingale\\\"\",\n    \"value\": \"finished recently\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"change\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"finished reading recently\",\n    \"value\": \"finished recently\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"supplement\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"the ending was emotional\",\n    \"value\": \"finished (read the ending)\",\n    \"certainty\": \"inferred\",\n    \"intent\": \"supplement\"\n  }\n]"
+}

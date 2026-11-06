@@ -1,0 +1,6 @@
+{
+  "question_id": "7401057b",
+  "exit": 0,
+  "seconds": 5.5,
+  "final": "[\n  {\n    \"session\": 1,\n    \"source\": \"a single free night's stay at any Hilton property\",\n    \"value\": \"one free night's stay\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"two free night's stays at any Hilton property\",\n    \"value\": \"two free night's stays\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  }\n]"
+}

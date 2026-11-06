@@ -1,0 +1,6 @@
+{
+  "question_id": "6a27ffc2",
+  "exit": 0,
+  "seconds": 9.5,
+  "final": "[\n  {\n    \"session\": 1,\n    \"source\": \"I've completed 20 videos so far\",\n    \"value\": \"20 videos\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"I've completed 30 videos so far for Corey's series\",\n    \"value\": \"30 videos\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"I've completed 30 videos of Corey Schafer's Python series\",\n    \"value\": \"30 videos\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  }\n]"
+}

@@ -1,0 +1,6 @@
+{
+  "question_id": "26bdc477",
+  "exit": 0,
+  "seconds": 10.4,
+  "final": "[\n  {\n    \"session\": 1,\n    \"source\": \"including three trips to Yellowstone, Yosemite, and the Grand Canyon\",\n    \"value\": \"three trips\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"I've had my Canon EOS 80D with me on five trips now\",\n    \"value\": \"five trips\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"change\"\n  }\n]"
+}

@@ -1,0 +1,6 @@
+{
+  "question_id": "b6019101",
+  "exit": 0,
+  "seconds": 10.6,
+  "final": "[\n  {\n    \"session\": 1,\n    \"source\": \"4 MCU films in the last 3 months\",\n    \"value\": \"4 MCU films\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"including 5 MCU films\",\n    \"value\": \"5 MCU films\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  }\n]"
+}

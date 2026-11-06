@@ -1,0 +1,6 @@
+{
+  "question_id": "45dc21b6",
+  "exit": 0,
+  "seconds": 16.6,
+  "final": "[\n  {\n    \"session\": 1,\n    \"source\": \"I've already tried out two of them\",\n    \"value\": \"two\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"I've tried out 3 of Emma's recipes so far\",\n    \"value\": \"3\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"change\"\n  }\n]"
+}

@@ -1,0 +1,6 @@
+{
+  "question_id": "830ce83f",
+  "exit": 0,
+  "seconds": 62.8,
+  "final": "[\n  {\n    \"session\": 1,\n    \"source\": \"moved to Chicago\",\n    \"value\": \"Chicago\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"moved back to the suburbs again\",\n    \"value\": \"the suburbs\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"change\"\n  }\n]"
+}

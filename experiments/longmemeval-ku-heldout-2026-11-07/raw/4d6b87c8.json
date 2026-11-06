@@ -1,0 +1,6 @@
+{
+  "question_id": "4d6b87c8",
+  "exit": 0,
+  "seconds": 15.0,
+  "final": "[\n  {\n    \"session\": 1,\n    \"source\": \"20 titles waiting to be checked off\",\n    \"value\": \"20\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"currently 25\",\n    \"value\": \"25\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"change\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"25 titles on it right now\",\n    \"value\": \"25\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  }\n]"
+}

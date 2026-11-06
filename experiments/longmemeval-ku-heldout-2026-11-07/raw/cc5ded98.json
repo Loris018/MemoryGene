@@ -1,0 +1,6 @@
+{
+  "question_id": "cc5ded98",
+  "exit": 0,
+  "seconds": 6.3,
+  "final": "[{\"session\":1,\"source\":\"about an hour each day\",\"value\":\"about an hour each day\",\"certainty\":\"explicit\",\"intent\":\"assert\"},{\"session\":2,\"source\":\"about two hours each day\",\"value\":\"about two hours each day\",\"certainty\":\"explicit\",\"intent\":\"assert\"},{\"session\":2,\"source\":\"about two hours each day\",\"value\":\"about two hours each day\",\"certainty\":\"explicit\",\"intent\":\"assert\"}]"
+}

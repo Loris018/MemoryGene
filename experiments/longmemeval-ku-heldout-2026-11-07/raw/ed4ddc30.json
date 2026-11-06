@@ -1,0 +1,6 @@
+{
+  "question_id": "ed4ddc30",
+  "exit": 0,
+  "seconds": 5.1,
+  "final": "[\n  {\n    \"session\": 1,\n    \"source\": \"30 dozen at the moment\",\n    \"value\": \"30 dozen\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"20 dozen stocked up in the fridge right now\",\n    \"value\": \"20 dozen\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"change\"\n  }\n]"
+}

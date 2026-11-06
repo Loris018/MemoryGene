@@ -1,0 +1,6 @@
+{
+  "question_id": "618f13b2",
+  "exit": 0,
+  "seconds": 6.5,
+  "final": "[\n  {\n    \"session\": 1,\n    \"source\": \"four times\",\n    \"value\": \"four times\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 1,\n    \"source\": \"four times\",\n    \"value\": \"four times\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"six times now\",\n    \"value\": \"six times\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"change\"\n  }\n]"
+}

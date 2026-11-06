@@ -1,0 +1,6 @@
+{
+  "question_id": "59524333",
+  "exit": 0,
+  "seconds": 7.3,
+  "final": "[\n  {\n    \"session\": 1,\n    \"source\": \"at 7:00 pm\",\n    \"value\": \"7:00 pm\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"usually at 6:00 pm\",\n    \"value\": \"6:00 pm\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  }\n]"
+}

@@ -1,0 +1,6 @@
+{
+  "question_id": "6aeb4375",
+  "exit": 0,
+  "seconds": 11.6,
+  "final": "[\n  {\n    \"session\": 1,\n    \"source\": \"I've tried three different ones recently\",\n    \"value\": \"three\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 1,\n    \"source\": \"this third place\",\n    \"value\": \"three\",\n    \"certainty\": \"inferred\",\n    \"intent\": \"supplement\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"I've tried four different ones so far\",\n    \"value\": \"four\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"change\"\n  }\n]"
+}

@@ -1,0 +1,6 @@
+{
+  "question_id": "a1eacc2a",
+  "exit": 0,
+  "seconds": 7.4,
+  "final": "[\n  {\n    \"session\": 1,\n    \"source\": \"I've written four so far since I started writing regularly\",\n    \"value\": \"4\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"complete 7 short stories since I started\",\n    \"value\": \"7\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  }\n]"
+}

@@ -1,0 +1,6 @@
+{
+  "question_id": "4b24c848",
+  "exit": 0,
+  "seconds": 10.8,
+  "final": "[\n  {\n    \"session\": 1,\n    \"source\": \"three tops from H&M\",\n    \"value\": \"three\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"five tops from H&M so far\",\n    \"value\": \"five\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"change\"\n  }\n]"
+}

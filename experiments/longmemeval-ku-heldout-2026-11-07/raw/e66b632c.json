@@ -1,0 +1,6 @@
+{
+  "question_id": "e66b632c",
+  "exit": 0,
+  "seconds": 25.1,
+  "final": "[\n  {\n    \"session\": 1,\n    \"source\": \"27 minutes and 45 seconds\",\n    \"value\": \"27 minutes and 45 seconds\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"shaved off about a minute and a half from my previous record\",\n    \"value\": \"about 1 minute and 30 seconds faster than the previous record\",\n    \"certainty\": \"uncertain\",\n    \"intent\": \"change\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"26 minutes and 30 seconds\",\n    \"value\": \"26 minutes and 30 seconds\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  }\n]"
+}

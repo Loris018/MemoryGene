@@ -1,0 +1,6 @@
+{
+  "question_id": "c7dc5443",
+  "exit": 0,
+  "seconds": 3.9,
+  "final": "```json\n[\n  {\n    \"session\": 1,\n    \"source\": \"we're 3-2 so far!\",\n    \"value\": \"3-2\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"our volleyball team, the Net Ninjas, is doing well with a 5-2 record\",\n    \"value\": \"5-2\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  }\n]\n```"
+}

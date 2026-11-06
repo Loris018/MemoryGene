@@ -1,0 +1,6 @@
+{
+  "question_id": "89941a94",
+  "exit": 0,
+  "seconds": 97.5,
+  "final": "[\n  {\n    \"session\": 1,\n    \"source\": \"my road bike\",\n    \"value\": \"road bike\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 1,\n    \"source\": \"my other two bikes, a mountain bike and a commuter bike\",\n    \"value\": \"two other bikes: a mountain bike and a commuter bike\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"supplement\"\n  },\n  {\n    \"session\": 1,\n    \"source\": \"I currently have three bikes\",\n    \"value\": \"three bikes\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"I just got a new one recently, so I'll actually have four bikes with me on this trip - my road bike, mountain bike, commuter bike, and a new hybrid bike I just purchased.\",\n    \"value\": \"four bikes: road, mountain, commuter, and hybrid\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"change\"\n  }\n]"
+}

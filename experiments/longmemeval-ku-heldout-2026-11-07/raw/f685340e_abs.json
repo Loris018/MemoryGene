@@ -1,0 +1,6 @@
+{
+  "question_id": "f685340e_abs",
+  "exit": 0,
+  "seconds": 36.7,
+  "final": "[\n  {\n    \"session\": 1,\n    \"source\": \"weekly tennis sessions with friends\",\n    \"value\": \"weekly\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"every other week\",\n    \"value\": \"every other week\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"change\"\n  }\n]"
+}

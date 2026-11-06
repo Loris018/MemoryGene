@@ -1,0 +1,6 @@
+{
+  "question_id": "5831f84d",
+  "exit": 0,
+  "seconds": 23.9,
+  "final": "[\n  {\n    \"session\": 1,\n    \"source\": \"I've already finished 10 videos in the past few weeks!\",\n    \"value\": \"10 videos\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 1,\n    \"source\": \"I just finished my 12th video on computer science!\",\n    \"value\": \"12 videos\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"change\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"having watched 15 Crash Course videos in the past few weeks\",\n    \"value\": \"15 videos\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"change\"\n  }\n]"
+}

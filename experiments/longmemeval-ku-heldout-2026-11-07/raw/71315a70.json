@@ -1,0 +1,6 @@
+{
+  "question_id": "71315a70",
+  "exit": 0,
+  "seconds": 5.8,
+  "final": "[\n  {\n    \"session\": 1,\n    \"source\": \"I've spent around 5-6 hours on it so far\",\n    \"value\": \"5-6 hours\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"I've already put in 10-12 hours\",\n    \"value\": \"10-12 hours\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"change\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"I've already spent 10-12 hours on my abstract ocean sculpture\",\n    \"value\": \"10-12 hours\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  }\n]"
+}

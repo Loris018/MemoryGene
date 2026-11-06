@@ -1,0 +1,6 @@
+{
+  "question_id": "5a4f22c0",
+  "exit": 0,
+  "seconds": 8.6,
+  "final": "[\n  {\n    \"session\": 2,\n    \"source\": \"currently at TechCorp\",\n    \"value\": \"TechCorp\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  }\n]"
+}

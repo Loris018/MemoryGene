@@ -1,0 +1,6 @@
+{
+  "question_id": "e61a7584",
+  "exit": 0,
+  "seconds": 4.9,
+  "final": "[\n  {\n    \"session\": 1,\n    \"source\": \"I've had Luna for about 6 months now\",\n    \"value\": \"about 6 months\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"I've had my cat, Luna, for about 9 months now\",\n    \"value\": \"about 9 months\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"change\"\n  }\n]"
+}

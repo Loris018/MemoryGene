@@ -1,0 +1,6 @@
+{
+  "question_id": "50635ada",
+  "exit": 0,
+  "seconds": 31.6,
+  "final": "[\n  {\n    \"session\": 1,\n    \"source\": \"finally eligible for Premier Silver status\",\n    \"value\": \"Premier Silver\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"change\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"just reached Premier Gold status\",\n    \"value\": \"Premier Gold\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"change\"\n  }\n]"
+}

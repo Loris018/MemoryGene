@@ -1,0 +1,5531 @@
+{
+  "sample": 58,
+  "kinds": {
+    "abstention": 3,
+    "current": 47,
+    "history": 8
+  },
+  "correct": {
+    "overwrite": 49,
+    "append_latest": 53,
+    "mem0_style": 53,
+    "graphiti_style": 53,
+    "latest_explicit": 51,
+    "memorygene": 36,
+    "memorygene_ask": 51,
+    "memorygene_latest": 51
+  },
+  "correct_by_kind": {
+    "abstention": {
+      "overwrite": 2,
+      "append_latest": 2,
+      "mem0_style": 2,
+      "graphiti_style": 2,
+      "latest_explicit": 2,
+      "memorygene": 2,
+      "memorygene_ask": 2,
+      "memorygene_latest": 2
+    },
+    "current": {
+      "overwrite": 44,
+      "append_latest": 44,
+      "mem0_style": 44,
+      "graphiti_style": 44,
+      "latest_explicit": 42,
+      "memorygene": 27,
+      "memorygene_ask": 42,
+      "memorygene_latest": 42
+    },
+    "history": {
+      "overwrite": 3,
+      "append_latest": 7,
+      "mem0_style": 7,
+      "graphiti_style": 7,
+      "latest_explicit": 7,
+      "memorygene": 7,
+      "memorygene_ask": 7,
+      "memorygene_latest": 7
+    }
+  },
+  "extraction": {
+    "parsed": 58,
+    "candidates": 151,
+    "dropped": 0,
+    "verbatim_source": 151,
+    "questions": 19
+  },
+  "rows": [
+    {
+      "question_id": "2698e78f_abs",
+      "kind": "abstention",
+      "question": "How often do I see Dr. Johnson?",
+      "answer": "The information provided is not enough. You mentioned seeing Dr. Smith but not Dr. Johnson.",
+      "extracted": [],
+      "overwrite": {
+        "current": null,
+        "history": [],
+        "correct": true,
+        "questions": 0
+      },
+      "append_latest": {
+        "current": null,
+        "history": [],
+        "correct": true,
+        "questions": 0
+      },
+      "mem0_style": {
+        "current": null,
+        "history": [],
+        "correct": true,
+        "questions": 0
+      },
+      "graphiti_style": {
+        "current": null,
+        "history": [],
+        "correct": true,
+        "questions": 0
+      },
+      "latest_explicit": {
+        "current": null,
+        "history": [],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene": {
+        "current": null,
+        "history": [],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_ask": {
+        "current": null,
+        "history": [],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_latest": {
+        "current": null,
+        "history": [],
+        "correct": true,
+        "questions": 0
+      }
+    },
+    {
+      "question_id": "26bdc477",
+      "kind": "current",
+      "question": "How many trips have I taken my Canon EOS 80D camera on?",
+      "answer": "five",
+      "extracted": [
+        {
+          "value": "three trips",
+          "at": "2023-03-16T10:03:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "five trips",
+          "at": "2023-05-30T02:46:00+00:00",
+          "certainty": "explicit",
+          "intent": "change"
+        }
+      ],
+      "overwrite": {
+        "current": "five trips",
+        "history": [
+          "five trips"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "append_latest": {
+        "current": "five trips",
+        "history": [
+          "three trips",
+          "five trips"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "mem0_style": {
+        "current": "five trips",
+        "history": [
+          "three trips",
+          "five trips"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "graphiti_style": {
+        "current": "five trips",
+        "history": [
+          "three trips",
+          "five trips"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "latest_explicit": {
+        "current": "five trips",
+        "history": [
+          "three trips",
+          "five trips"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene": {
+        "current": "five trips",
+        "history": [
+          "three trips",
+          "five trips"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_ask": {
+        "current": "five trips",
+        "history": [
+          "three trips",
+          "five trips"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_latest": {
+        "current": "five trips",
+        "history": [
+          "three trips",
+          "five trips"
+        ],
+        "correct": true,
+        "questions": 0
+      }
+    },
+    {
+      "question_id": "3ba21379",
+      "kind": "current",
+      "question": "What type of vehicle model am I currently working on?",
+      "answer": "Ford F-150 pickup truck",
+      "extracted": [
+        {
+          "value": "Ford Mustang Shelby GT350R",
+          "at": "2023-05-27T02:41:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "Ford Mustang Shelby GT350R",
+          "at": "2023-05-27T02:41:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "Ford Mustang Shelby GT350R",
+          "at": "2023-05-27T02:41:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "Ford Mustang Shelby GT350R",
+          "at": "2023-05-27T02:41:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "Ford F-150 pickup truck",
+          "at": "2023-05-30T17:18:00+00:00",
+          "certainty": "explicit",
+          "intent": "change"
+        },
+        {
+          "value": "Ford F-150 pickup truck",
+          "at": "2023-05-30T17:18:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "Ford F-150 pickup truck",
+          "at": "2023-05-30T17:18:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "Ford F-150 pickup truck",
+          "at": "2023-05-30T17:18:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        }
+      ],
+      "overwrite": {
+        "current": "Ford F-150 pickup truck",
+        "history": [
+          "Ford F-150 pickup truck"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "append_latest": {
+        "current": "Ford F-150 pickup truck",
+        "history": [
+          "Ford Mustang Shelby GT350R",
+          "Ford Mustang Shelby GT350R",
+          "Ford Mustang Shelby GT350R",
+          "Ford Mustang Shelby GT350R",
+          "Ford F-150 pickup truck",
+          "Ford F-150 pickup truck",
+          "Ford F-150 pickup truck",
+          "Ford F-150 pickup truck"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "mem0_style": {
+        "current": "Ford F-150 pickup truck",
+        "history": [
+          "Ford Mustang Shelby GT350R",
+          "Ford F-150 pickup truck"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "graphiti_style": {
+        "current": "Ford F-150 pickup truck",
+        "history": [
+          "Ford Mustang Shelby GT350R",
+          "Ford F-150 pickup truck"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "latest_explicit": {
+        "current": "Ford F-150 pickup truck",
+        "history": [
+          "Ford Mustang Shelby GT350R",
+          "Ford F-150 pickup truck"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene": {
+        "current": "Ford F-150 pickup truck",
+        "history": [
+          "Ford Mustang Shelby GT350R",
+          "Ford F-150 pickup truck"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_ask": {
+        "current": "Ford F-150 pickup truck",
+        "history": [
+          "Ford Mustang Shelby GT350R",
+          "Ford F-150 pickup truck"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_latest": {
+        "current": "Ford F-150 pickup truck",
+        "history": [
+          "Ford Mustang Shelby GT350R",
+          "Ford F-150 pickup truck"
+        ],
+        "correct": true,
+        "questions": 0
+      }
+    },
+    {
+      "question_id": "41698283",
+      "kind": "current",
+      "question": "What type of camera lens did I purchase most recently?",
+      "answer": "a 70-200mm zoom lens",
+      "extracted": [
+        {
+          "value": "50mm prime lens",
+          "at": "2023-03-11T22:01:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "70-200mm zoom lens",
+          "at": "2023-08-30T04:01:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        }
+      ],
+      "overwrite": {
+        "current": "70-200mm zoom lens",
+        "history": [
+          "70-200mm zoom lens"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "append_latest": {
+        "current": "70-200mm zoom lens",
+        "history": [
+          "50mm prime lens",
+          "70-200mm zoom lens"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "mem0_style": {
+        "current": "70-200mm zoom lens",
+        "history": [
+          "50mm prime lens",
+          "70-200mm zoom lens"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "graphiti_style": {
+        "current": "70-200mm zoom lens",
+        "history": [
+          "50mm prime lens",
+          "70-200mm zoom lens"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "latest_explicit": {
+        "current": "70-200mm zoom lens",
+        "history": [
+          "50mm prime lens",
+          "70-200mm zoom lens"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene": {
+        "current": "50mm prime lens",
+        "history": [
+          "50mm prime lens"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "memorygene_ask": {
+        "current": "70-200mm zoom lens",
+        "history": [
+          "50mm prime lens",
+          "70-200mm zoom lens"
+        ],
+        "correct": true,
+        "questions": 1
+      },
+      "memorygene_latest": {
+        "current": "70-200mm zoom lens",
+        "history": [
+          "50mm prime lens",
+          "70-200mm zoom lens"
+        ],
+        "correct": true,
+        "questions": 0
+      }
+    },
+    {
+      "question_id": "42ec0761",
+      "kind": "current",
+      "question": "Do I have a spare screwdriver for opening up my laptop?",
+      "answer": "Yes",
+      "extracted": [
+        {
+          "value": "no — misplaced the small screwdriver",
+          "at": "2023-08-11T19:15:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "yes — has a spare screwdriver",
+          "at": "2023-08-15T13:26:00+00:00",
+          "certainty": "explicit",
+          "intent": "correct"
+        }
+      ],
+      "overwrite": {
+        "current": "yes — has a spare screwdriver",
+        "history": [
+          "yes — has a spare screwdriver"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "append_latest": {
+        "current": "yes — has a spare screwdriver",
+        "history": [
+          "no — misplaced the small screwdriver",
+          "yes — has a spare screwdriver"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "mem0_style": {
+        "current": "yes — has a spare screwdriver",
+        "history": [
+          "no — misplaced the small screwdriver",
+          "yes — has a spare screwdriver"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "graphiti_style": {
+        "current": "yes — has a spare screwdriver",
+        "history": [
+          "no — misplaced the small screwdriver",
+          "yes — has a spare screwdriver"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "latest_explicit": {
+        "current": "yes — has a spare screwdriver",
+        "history": [
+          "no — misplaced the small screwdriver",
+          "yes — has a spare screwdriver"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene": {
+        "current": "yes — has a spare screwdriver",
+        "history": [
+          "no — misplaced the small screwdriver",
+          "yes — has a spare screwdriver"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_ask": {
+        "current": "yes — has a spare screwdriver",
+        "history": [
+          "no — misplaced the small screwdriver",
+          "yes — has a spare screwdriver"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_latest": {
+        "current": "yes — has a spare screwdriver",
+        "history": [
+          "no — misplaced the small screwdriver",
+          "yes — has a spare screwdriver"
+        ],
+        "correct": true,
+        "questions": 0
+      }
+    },
+    {
+      "question_id": "45dc21b6",
+      "kind": "current",
+      "question": "How many of Emma's recipes have I tried out?",
+      "answer": "3",
+      "extracted": [
+        {
+          "value": "two",
+          "at": "2023-05-24T00:43:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "3",
+          "at": "2023-05-28T20:08:00+00:00",
+          "certainty": "explicit",
+          "intent": "change"
+        }
+      ],
+      "overwrite": {
+        "current": "3",
+        "history": [
+          "3"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "append_latest": {
+        "current": "3",
+        "history": [
+          "two",
+          "3"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "mem0_style": {
+        "current": "3",
+        "history": [
+          "two",
+          "3"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "graphiti_style": {
+        "current": "3",
+        "history": [
+          "two",
+          "3"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "latest_explicit": {
+        "current": "3",
+        "history": [
+          "two",
+          "3"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene": {
+        "current": "3",
+        "history": [
+          "two",
+          "3"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_ask": {
+        "current": "3",
+        "history": [
+          "two",
+          "3"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_latest": {
+        "current": "3",
+        "history": [
+          "two",
+          "3"
+        ],
+        "correct": true,
+        "questions": 0
+      }
+    },
+    {
+      "question_id": "4b24c848",
+      "kind": "current",
+      "question": "How many tops have I bought from H&M so far?",
+      "answer": "five",
+      "extracted": [
+        {
+          "value": "three",
+          "at": "2023-08-11T16:44:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "five",
+          "at": "2023-09-30T22:38:00+00:00",
+          "certainty": "explicit",
+          "intent": "change"
+        }
+      ],
+      "overwrite": {
+        "current": "five",
+        "history": [
+          "five"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "append_latest": {
+        "current": "five",
+        "history": [
+          "three",
+          "five"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "mem0_style": {
+        "current": "five",
+        "history": [
+          "three",
+          "five"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "graphiti_style": {
+        "current": "five",
+        "history": [
+          "three",
+          "five"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "latest_explicit": {
+        "current": "five",
+        "history": [
+          "three",
+          "five"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene": {
+        "current": "five",
+        "history": [
+          "three",
+          "five"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_ask": {
+        "current": "five",
+        "history": [
+          "three",
+          "five"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_latest": {
+        "current": "five",
+        "history": [
+          "three",
+          "five"
+        ],
+        "correct": true,
+        "questions": 0
+      }
+    },
+    {
+      "question_id": "4d6b87c8",
+      "kind": "current",
+      "question": "How many titles are currently on my to-watch list?",
+      "answer": "25",
+      "extracted": [
+        {
+          "value": "20",
+          "at": "2023-05-22T04:21:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "25",
+          "at": "2023-05-28T03:00:00+00:00",
+          "certainty": "explicit",
+          "intent": "change"
+        },
+        {
+          "value": "25",
+          "at": "2023-05-28T03:00:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        }
+      ],
+      "overwrite": {
+        "current": "25",
+        "history": [
+          "25"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "append_latest": {
+        "current": "25",
+        "history": [
+          "20",
+          "25",
+          "25"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "mem0_style": {
+        "current": "25",
+        "history": [
+          "20",
+          "25"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "graphiti_style": {
+        "current": "25",
+        "history": [
+          "20",
+          "25"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "latest_explicit": {
+        "current": "25",
+        "history": [
+          "20",
+          "25"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene": {
+        "current": "25",
+        "history": [
+          "20",
+          "25"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_ask": {
+        "current": "25",
+        "history": [
+          "20",
+          "25"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_latest": {
+        "current": "25",
+        "history": [
+          "20",
+          "25"
+        ],
+        "correct": true,
+        "questions": 0
+      }
+    },
+    {
+      "question_id": "50635ada",
+      "kind": "history",
+      "question": "What was my previous frequent flyer status on United Airlines before I got the current status?",
+      "answer": "Premier Silver",
+      "extracted": [
+        {
+          "value": "Premier Silver",
+          "at": "2022-09-16T13:18:00+00:00",
+          "certainty": "explicit",
+          "intent": "change"
+        },
+        {
+          "value": "Premier Gold",
+          "at": "2023-05-30T03:31:00+00:00",
+          "certainty": "explicit",
+          "intent": "change"
+        }
+      ],
+      "overwrite": {
+        "current": "Premier Gold",
+        "history": [
+          "Premier Gold"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "append_latest": {
+        "current": "Premier Gold",
+        "history": [
+          "Premier Silver",
+          "Premier Gold"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "mem0_style": {
+        "current": "Premier Gold",
+        "history": [
+          "Premier Silver",
+          "Premier Gold"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "graphiti_style": {
+        "current": "Premier Gold",
+        "history": [
+          "Premier Silver",
+          "Premier Gold"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "latest_explicit": {
+        "current": "Premier Gold",
+        "history": [
+          "Premier Silver",
+          "Premier Gold"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene": {
+        "current": "Premier Gold",
+        "history": [
+          "Premier Silver",
+          "Premier Gold"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_ask": {
+        "current": "Premier Gold",
+        "history": [
+          "Premier Silver",
+          "Premier Gold"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_latest": {
+        "current": "Premier Gold",
+        "history": [
+          "Premier Silver",
+          "Premier Gold"
+        ],
+        "correct": true,
+        "questions": 0
+      }
+    },
+    {
+      "question_id": "5831f84d",
+      "kind": "current",
+      "question": "How many Crash Course videos have I watched in the past few weeks?",
+      "answer": "15",
+      "extracted": [
+        {
+          "value": "10 videos",
+          "at": "2023-08-11T20:45:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "12 videos",
+          "at": "2023-08-11T20:45:00+00:00",
+          "certainty": "explicit",
+          "intent": "change"
+        },
+        {
+          "value": "15 videos",
+          "at": "2023-09-30T19:53:00+00:00",
+          "certainty": "explicit",
+          "intent": "change"
+        }
+      ],
+      "overwrite": {
+        "current": "15 videos",
+        "history": [
+          "15 videos"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "append_latest": {
+        "current": "15 videos",
+        "history": [
+          "10 videos",
+          "12 videos",
+          "15 videos"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "mem0_style": {
+        "current": "15 videos",
+        "history": [
+          "10 videos",
+          "12 videos",
+          "15 videos"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "graphiti_style": {
+        "current": "15 videos",
+        "history": [
+          "10 videos",
+          "12 videos",
+          "15 videos"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "latest_explicit": {
+        "current": "15 videos",
+        "history": [
+          "10 videos",
+          "12 videos",
+          "15 videos"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene": {
+        "current": "15 videos",
+        "history": [
+          "10 videos",
+          "12 videos",
+          "15 videos"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_ask": {
+        "current": "15 videos",
+        "history": [
+          "10 videos",
+          "12 videos",
+          "15 videos"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_latest": {
+        "current": "15 videos",
+        "history": [
+          "10 videos",
+          "12 videos",
+          "15 videos"
+        ],
+        "correct": true,
+        "questions": 0
+      }
+    },
+    {
+      "question_id": "59524333",
+      "kind": "current",
+      "question": "What time do I usually go to the gym?",
+      "answer": "6:00 pm",
+      "extracted": [
+        {
+          "value": "7:00 pm",
+          "at": "2023-02-11T15:33:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "6:00 pm",
+          "at": "2023-05-30T20:57:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        }
+      ],
+      "overwrite": {
+        "current": "6:00 pm",
+        "history": [
+          "6:00 pm"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "append_latest": {
+        "current": "6:00 pm",
+        "history": [
+          "7:00 pm",
+          "6:00 pm"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "mem0_style": {
+        "current": "6:00 pm",
+        "history": [
+          "7:00 pm",
+          "6:00 pm"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "graphiti_style": {
+        "current": "6:00 pm",
+        "history": [
+          "7:00 pm",
+          "6:00 pm"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "latest_explicit": {
+        "current": "6:00 pm",
+        "history": [
+          "7:00 pm",
+          "6:00 pm"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene": {
+        "current": "7:00 pm",
+        "history": [
+          "7:00 pm"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "memorygene_ask": {
+        "current": "6:00 pm",
+        "history": [
+          "7:00 pm",
+          "6:00 pm"
+        ],
+        "correct": true,
+        "questions": 1
+      },
+      "memorygene_latest": {
+        "current": "6:00 pm",
+        "history": [
+          "7:00 pm",
+          "6:00 pm"
+        ],
+        "correct": true,
+        "questions": 0
+      }
+    },
+    {
+      "question_id": "5a4f22c0",
+      "kind": "history",
+      "question": "What company is Rachel, an old colleague from my previous company, currently working at?",
+      "answer": "TechCorp",
+      "extracted": [
+        {
+          "value": "TechCorp",
+          "at": "2023-05-22T16:06:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        }
+      ],
+      "overwrite": {
+        "current": "TechCorp",
+        "history": [
+          "TechCorp"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "append_latest": {
+        "current": "TechCorp",
+        "history": [
+          "TechCorp"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "mem0_style": {
+        "current": "TechCorp",
+        "history": [
+          "TechCorp"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "graphiti_style": {
+        "current": "TechCorp",
+        "history": [
+          "TechCorp"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "latest_explicit": {
+        "current": "TechCorp",
+        "history": [
+          "TechCorp"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene": {
+        "current": "TechCorp",
+        "history": [
+          "TechCorp"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_ask": {
+        "current": "TechCorp",
+        "history": [
+          "TechCorp"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_latest": {
+        "current": "TechCorp",
+        "history": [
+          "TechCorp"
+        ],
+        "correct": true,
+        "questions": 0
+      }
+    },
+    {
+      "question_id": "5c40ec5b",
+      "kind": "current",
+      "question": "How many times have I met up with Alex from Germany?",
+      "answer": "We've met up twice.",
+      "extracted": [
+        {
+          "value": "once",
+          "at": "2023-08-11T08:57:00+00:00",
+          "certainty": "inferred",
+          "intent": "assert"
+        },
+        {
+          "value": "twice",
+          "at": "2023-09-30T09:14:00+00:00",
+          "certainty": "explicit",
+          "intent": "change"
+        },
+        {
+          "value": "twice",
+          "at": "2023-09-30T09:14:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        }
+      ],
+      "overwrite": {
+        "current": "twice",
+        "history": [
+          "twice"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "append_latest": {
+        "current": "twice",
+        "history": [
+          "once",
+          "twice",
+          "twice"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "mem0_style": {
+        "current": "twice",
+        "history": [
+          "once",
+          "twice"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "graphiti_style": {
+        "current": "twice",
+        "history": [
+          "once",
+          "twice"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "latest_explicit": {
+        "current": "twice",
+        "history": [
+          "twice"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene": {
+        "current": "twice",
+        "history": [
+          "twice"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_ask": {
+        "current": "twice",
+        "history": [
+          "twice"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_latest": {
+        "current": "twice",
+        "history": [
+          "twice"
+        ],
+        "correct": true,
+        "questions": 0
+      }
+    },
+    {
+      "question_id": "603deb26",
+      "kind": "current",
+      "question": "How many times have I tried making a Negroni at home since my friend Emma showed me how to make it?",
+      "answer": "10",
+      "extracted": [
+        {
+          "value": "5 times",
+          "at": "2023-08-11T11:16:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "10 times",
+          "at": "2023-11-30T19:55:00+00:00",
+          "certainty": "explicit",
+          "intent": "change"
+        },
+        {
+          "value": "10 times",
+          "at": "2023-11-30T19:55:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "10 times",
+          "at": "2023-11-30T19:55:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        }
+      ],
+      "overwrite": {
+        "current": "10 times",
+        "history": [
+          "10 times"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "append_latest": {
+        "current": "10 times",
+        "history": [
+          "5 times",
+          "10 times",
+          "10 times",
+          "10 times"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "mem0_style": {
+        "current": "10 times",
+        "history": [
+          "5 times",
+          "10 times"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "graphiti_style": {
+        "current": "10 times",
+        "history": [
+          "5 times",
+          "10 times"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "latest_explicit": {
+        "current": "10 times",
+        "history": [
+          "5 times",
+          "10 times"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene": {
+        "current": "10 times",
+        "history": [
+          "5 times",
+          "10 times"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_ask": {
+        "current": "10 times",
+        "history": [
+          "5 times",
+          "10 times"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_latest": {
+        "current": "10 times",
+        "history": [
+          "5 times",
+          "10 times"
+        ],
+        "correct": true,
+        "questions": 0
+      }
+    },
+    {
+      "question_id": "6071bd76",
+      "kind": "current",
+      "question": "For the coffee-to-water ratio in my French press, did I switch to more water per tablespoon of coffee, or less?",
+      "answer": "You switched to less water (5 ounces) per tablespoon of coffee.",
+      "extracted": [
+        {
+          "value": "6 ounces of water per tablespoon of coffee",
+          "at": "2023-02-11T17:37:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "5 ounces of water per tablespoon of coffee",
+          "at": "2023-06-30T11:33:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        }
+      ],
+      "overwrite": {
+        "current": "5 ounces of water per tablespoon of coffee",
+        "history": [
+          "5 ounces of water per tablespoon of coffee"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "append_latest": {
+        "current": "5 ounces of water per tablespoon of coffee",
+        "history": [
+          "6 ounces of water per tablespoon of coffee",
+          "5 ounces of water per tablespoon of coffee"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "mem0_style": {
+        "current": "5 ounces of water per tablespoon of coffee",
+        "history": [
+          "6 ounces of water per tablespoon of coffee",
+          "5 ounces of water per tablespoon of coffee"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "graphiti_style": {
+        "current": "5 ounces of water per tablespoon of coffee",
+        "history": [
+          "6 ounces of water per tablespoon of coffee",
+          "5 ounces of water per tablespoon of coffee"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "latest_explicit": {
+        "current": "5 ounces of water per tablespoon of coffee",
+        "history": [
+          "6 ounces of water per tablespoon of coffee",
+          "5 ounces of water per tablespoon of coffee"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene": {
+        "current": "6 ounces of water per tablespoon of coffee",
+        "history": [
+          "6 ounces of water per tablespoon of coffee"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "memorygene_ask": {
+        "current": "5 ounces of water per tablespoon of coffee",
+        "history": [
+          "6 ounces of water per tablespoon of coffee",
+          "5 ounces of water per tablespoon of coffee"
+        ],
+        "correct": true,
+        "questions": 1
+      },
+      "memorygene_latest": {
+        "current": "5 ounces of water per tablespoon of coffee",
+        "history": [
+          "6 ounces of water per tablespoon of coffee",
+          "5 ounces of water per tablespoon of coffee"
+        ],
+        "correct": true,
+        "questions": 0
+      }
+    },
+    {
+      "question_id": "618f13b2",
+      "kind": "current",
+      "question": "How many times have I worn my new black Converse Chuck Taylor All Star sneakers?",
+      "answer": "six",
+      "extracted": [
+        {
+          "value": "four times",
+          "at": "2023-05-24T12:16:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "four times",
+          "at": "2023-05-24T12:16:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "six times",
+          "at": "2023-05-24T21:51:00+00:00",
+          "certainty": "explicit",
+          "intent": "change"
+        }
+      ],
+      "overwrite": {
+        "current": "six times",
+        "history": [
+          "six times"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "append_latest": {
+        "current": "six times",
+        "history": [
+          "four times",
+          "four times",
+          "six times"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "mem0_style": {
+        "current": "six times",
+        "history": [
+          "four times",
+          "six times"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "graphiti_style": {
+        "current": "six times",
+        "history": [
+          "four times",
+          "six times"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "latest_explicit": {
+        "current": "six times",
+        "history": [
+          "four times",
+          "six times"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene": {
+        "current": "six times",
+        "history": [
+          "four times",
+          "six times"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_ask": {
+        "current": "six times",
+        "history": [
+          "four times",
+          "six times"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_latest": {
+        "current": "six times",
+        "history": [
+          "four times",
+          "six times"
+        ],
+        "correct": true,
+        "questions": 0
+      }
+    },
+    {
+      "question_id": "69fee5aa",
+      "kind": "current",
+      "question": "How many pre-1920 American coins do I have in my collection?",
+      "answer": "38",
+      "extracted": [
+        {
+          "value": "37",
+          "at": "2023-05-20T16:05:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "38",
+          "at": "2023-05-24T21:49:00+00:00",
+          "certainty": "inferred",
+          "intent": "change"
+        }
+      ],
+      "overwrite": {
+        "current": "38",
+        "history": [
+          "38"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "append_latest": {
+        "current": "38",
+        "history": [
+          "37",
+          "38"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "mem0_style": {
+        "current": "38",
+        "history": [
+          "37",
+          "38"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "graphiti_style": {
+        "current": "38",
+        "history": [
+          "37",
+          "38"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "latest_explicit": {
+        "current": "37",
+        "history": [
+          "37"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "memorygene": {
+        "current": "37",
+        "history": [
+          "37"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "memorygene_ask": {
+        "current": "37",
+        "history": [
+          "37"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "memorygene_latest": {
+        "current": "37",
+        "history": [
+          "37"
+        ],
+        "correct": false,
+        "questions": 0
+      }
+    },
+    {
+      "question_id": "6a1eabeb",
+      "kind": "current",
+      "question": "What was my personal best time in the charity 5K run?",
+      "answer": "25 minutes and 50 seconds (or 25:50)",
+      "extracted": [
+        {
+          "value": "27:12",
+          "at": "2023-05-25T20:21:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "25:50",
+          "at": "2023-05-27T10:20:00+00:00",
+          "certainty": "explicit",
+          "intent": "change"
+        }
+      ],
+      "overwrite": {
+        "current": "25:50",
+        "history": [
+          "25:50"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "append_latest": {
+        "current": "25:50",
+        "history": [
+          "27:12",
+          "25:50"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "mem0_style": {
+        "current": "25:50",
+        "history": [
+          "27:12",
+          "25:50"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "graphiti_style": {
+        "current": "25:50",
+        "history": [
+          "27:12",
+          "25:50"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "latest_explicit": {
+        "current": "25:50",
+        "history": [
+          "27:12",
+          "25:50"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene": {
+        "current": "25:50",
+        "history": [
+          "27:12",
+          "25:50"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_ask": {
+        "current": "25:50",
+        "history": [
+          "27:12",
+          "25:50"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_latest": {
+        "current": "25:50",
+        "history": [
+          "27:12",
+          "25:50"
+        ],
+        "correct": true,
+        "questions": 0
+      }
+    },
+    {
+      "question_id": "6a27ffc2",
+      "kind": "current",
+      "question": "How many videos of Corey Schafer's Python programming series have I completed so far?",
+      "answer": "30",
+      "extracted": [
+        {
+          "value": "20 videos",
+          "at": "2023-05-21T15:59:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "30 videos",
+          "at": "2023-05-24T01:01:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "30 videos",
+          "at": "2023-05-24T01:01:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        }
+      ],
+      "overwrite": {
+        "current": "30 videos",
+        "history": [
+          "30 videos"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "append_latest": {
+        "current": "30 videos",
+        "history": [
+          "20 videos",
+          "30 videos",
+          "30 videos"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "mem0_style": {
+        "current": "30 videos",
+        "history": [
+          "20 videos",
+          "30 videos"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "graphiti_style": {
+        "current": "30 videos",
+        "history": [
+          "20 videos",
+          "30 videos"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "latest_explicit": {
+        "current": "30 videos",
+        "history": [
+          "20 videos",
+          "30 videos"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene": {
+        "current": "20 videos",
+        "history": [
+          "20 videos"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "memorygene_ask": {
+        "current": "30 videos",
+        "history": [
+          "20 videos",
+          "30 videos"
+        ],
+        "correct": true,
+        "questions": 1
+      },
+      "memorygene_latest": {
+        "current": "30 videos",
+        "history": [
+          "20 videos",
+          "30 videos"
+        ],
+        "correct": true,
+        "questions": 0
+      }
+    },
+    {
+      "question_id": "6aeb4375",
+      "kind": "current",
+      "question": "How many Korean restaurants have I tried in my city?",
+      "answer": "four",
+      "extracted": [
+        {
+          "value": "three",
+          "at": "2023-08-11T09:00:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "three",
+          "at": "2023-08-11T09:00:00+00:00",
+          "certainty": "inferred",
+          "intent": "supplement"
+        },
+        {
+          "value": "four",
+          "at": "2023-09-30T18:01:00+00:00",
+          "certainty": "explicit",
+          "intent": "change"
+        }
+      ],
+      "overwrite": {
+        "current": "four",
+        "history": [
+          "four"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "append_latest": {
+        "current": "four",
+        "history": [
+          "three",
+          "three",
+          "four"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "mem0_style": {
+        "current": "four",
+        "history": [
+          "three",
+          "four"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "graphiti_style": {
+        "current": "four",
+        "history": [
+          "three",
+          "four"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "latest_explicit": {
+        "current": "four",
+        "history": [
+          "three",
+          "four"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene": {
+        "current": "four",
+        "history": [
+          "three",
+          "four"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_ask": {
+        "current": "four",
+        "history": [
+          "three",
+          "four"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_latest": {
+        "current": "four",
+        "history": [
+          "three",
+          "four"
+        ],
+        "correct": true,
+        "questions": 0
+      }
+    },
+    {
+      "question_id": "6aeb4375_abs",
+      "kind": "abstention",
+      "question": "How many Italian restaurants have I tried in my city?",
+      "answer": "The information provided is not enough. You mentioned trying Korean restaurants but not Italian restaurants.",
+      "extracted": [],
+      "overwrite": {
+        "current": null,
+        "history": [],
+        "correct": true,
+        "questions": 0
+      },
+      "append_latest": {
+        "current": null,
+        "history": [],
+        "correct": true,
+        "questions": 0
+      },
+      "mem0_style": {
+        "current": null,
+        "history": [],
+        "correct": true,
+        "questions": 0
+      },
+      "graphiti_style": {
+        "current": null,
+        "history": [],
+        "correct": true,
+        "questions": 0
+      },
+      "latest_explicit": {
+        "current": null,
+        "history": [],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene": {
+        "current": null,
+        "history": [],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_ask": {
+        "current": null,
+        "history": [],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_latest": {
+        "current": null,
+        "history": [],
+        "correct": true,
+        "questions": 0
+      }
+    },
+    {
+      "question_id": "71315a70",
+      "kind": "current",
+      "question": "How many hours have I spent on my abstract ocean sculpture?",
+      "answer": "10-12 hours",
+      "extracted": [
+        {
+          "value": "5-6 hours",
+          "at": "2023-06-11T05:12:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "10-12 hours",
+          "at": "2023-06-17T00:29:00+00:00",
+          "certainty": "explicit",
+          "intent": "change"
+        },
+        {
+          "value": "10-12 hours",
+          "at": "2023-06-17T00:29:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        }
+      ],
+      "overwrite": {
+        "current": "10-12 hours",
+        "history": [
+          "10-12 hours"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "append_latest": {
+        "current": "10-12 hours",
+        "history": [
+          "5-6 hours",
+          "10-12 hours",
+          "10-12 hours"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "mem0_style": {
+        "current": "10-12 hours",
+        "history": [
+          "5-6 hours",
+          "10-12 hours"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "graphiti_style": {
+        "current": "10-12 hours",
+        "history": [
+          "5-6 hours",
+          "10-12 hours"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "latest_explicit": {
+        "current": "10-12 hours",
+        "history": [
+          "5-6 hours",
+          "10-12 hours"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene": {
+        "current": "10-12 hours",
+        "history": [
+          "5-6 hours",
+          "10-12 hours"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_ask": {
+        "current": "10-12 hours",
+        "history": [
+          "5-6 hours",
+          "10-12 hours"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_latest": {
+        "current": "10-12 hours",
+        "history": [
+          "5-6 hours",
+          "10-12 hours"
+        ],
+        "correct": true,
+        "questions": 0
+      }
+    },
+    {
+      "question_id": "72e3ee87",
+      "kind": "current",
+      "question": "How many episodes of the Science series have I completed on Crash Course?",
+      "answer": "50",
+      "extracted": [
+        {
+          "value": "episode 10",
+          "at": "2023-05-20T08:00:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "50 episodes",
+          "at": "2023-05-24T17:11:00+00:00",
+          "certainty": "explicit",
+          "intent": "change"
+        }
+      ],
+      "overwrite": {
+        "current": "50 episodes",
+        "history": [
+          "50 episodes"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "append_latest": {
+        "current": "50 episodes",
+        "history": [
+          "episode 10",
+          "50 episodes"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "mem0_style": {
+        "current": "50 episodes",
+        "history": [
+          "episode 10",
+          "50 episodes"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "graphiti_style": {
+        "current": "50 episodes",
+        "history": [
+          "episode 10",
+          "50 episodes"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "latest_explicit": {
+        "current": "50 episodes",
+        "history": [
+          "episode 10",
+          "50 episodes"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene": {
+        "current": "50 episodes",
+        "history": [
+          "episode 10",
+          "50 episodes"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_ask": {
+        "current": "50 episodes",
+        "history": [
+          "episode 10",
+          "50 episodes"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_latest": {
+        "current": "50 episodes",
+        "history": [
+          "episode 10",
+          "50 episodes"
+        ],
+        "correct": true,
+        "questions": 0
+      }
+    },
+    {
+      "question_id": "7401057b",
+      "kind": "current",
+      "question": "How many free night's stays can I redeem at any Hilton property with my accumulated points?",
+      "answer": "Two",
+      "extracted": [
+        {
+          "value": "one free night's stay",
+          "at": "2023-05-20T20:24:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "two free night's stays",
+          "at": "2023-05-28T09:25:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        }
+      ],
+      "overwrite": {
+        "current": "two free night's stays",
+        "history": [
+          "two free night's stays"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "append_latest": {
+        "current": "two free night's stays",
+        "history": [
+          "one free night's stay",
+          "two free night's stays"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "mem0_style": {
+        "current": "two free night's stays",
+        "history": [
+          "one free night's stay",
+          "two free night's stays"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "graphiti_style": {
+        "current": "two free night's stays",
+        "history": [
+          "one free night's stay",
+          "two free night's stays"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "latest_explicit": {
+        "current": "two free night's stays",
+        "history": [
+          "one free night's stay",
+          "two free night's stays"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene": {
+        "current": "one free night's stay",
+        "history": [
+          "one free night's stay"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "memorygene_ask": {
+        "current": "two free night's stays",
+        "history": [
+          "one free night's stay",
+          "two free night's stays"
+        ],
+        "correct": true,
+        "questions": 1
+      },
+      "memorygene_latest": {
+        "current": "two free night's stays",
+        "history": [
+          "one free night's stay",
+          "two free night's stays"
+        ],
+        "correct": true,
+        "questions": 0
+      }
+    },
+    {
+      "question_id": "7a87bd0c",
+      "kind": "current",
+      "question": "How long have I been sticking to my daily tidying routine?",
+      "answer": "4 weeks",
+      "extracted": [
+        {
+          "value": "3 weeks",
+          "at": "2023-06-11T06:33:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "3 weeks",
+          "at": "2023-06-11T06:33:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "4 weeks",
+          "at": "2023-09-30T21:43:00+00:00",
+          "certainty": "explicit",
+          "intent": "change"
+        }
+      ],
+      "overwrite": {
+        "current": "4 weeks",
+        "history": [
+          "4 weeks"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "append_latest": {
+        "current": "4 weeks",
+        "history": [
+          "3 weeks",
+          "3 weeks",
+          "4 weeks"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "mem0_style": {
+        "current": "4 weeks",
+        "history": [
+          "3 weeks",
+          "4 weeks"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "graphiti_style": {
+        "current": "4 weeks",
+        "history": [
+          "3 weeks",
+          "4 weeks"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "latest_explicit": {
+        "current": "4 weeks",
+        "history": [
+          "3 weeks",
+          "4 weeks"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene": {
+        "current": "4 weeks",
+        "history": [
+          "3 weeks",
+          "4 weeks"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_ask": {
+        "current": "4 weeks",
+        "history": [
+          "3 weeks",
+          "4 weeks"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_latest": {
+        "current": "4 weeks",
+        "history": [
+          "3 weeks",
+          "4 weeks"
+        ],
+        "correct": true,
+        "questions": 0
+      }
+    },
+    {
+      "question_id": "7e974930",
+      "kind": "current",
+      "question": "How much did I earn at the Downtown Farmers Market on my most recent visit?",
+      "answer": "$420",
+      "extracted": [
+        {
+          "value": "$420",
+          "at": "2023-09-30T08:34:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        }
+      ],
+      "overwrite": {
+        "current": "$420",
+        "history": [
+          "$420"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "append_latest": {
+        "current": "$420",
+        "history": [
+          "$420"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "mem0_style": {
+        "current": "$420",
+        "history": [
+          "$420"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "graphiti_style": {
+        "current": "$420",
+        "history": [
+          "$420"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "latest_explicit": {
+        "current": "$420",
+        "history": [
+          "$420"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene": {
+        "current": "$420",
+        "history": [
+          "$420"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_ask": {
+        "current": "$420",
+        "history": [
+          "$420"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_latest": {
+        "current": "$420",
+        "history": [
+          "$420"
+        ],
+        "correct": true,
+        "questions": 0
+      }
+    },
+    {
+      "question_id": "830ce83f",
+      "kind": "current",
+      "question": "Where did Rachel move to after her recent relocation?",
+      "answer": "the suburbs",
+      "extracted": [
+        {
+          "value": "Chicago",
+          "at": "2023-05-21T09:14:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "the suburbs",
+          "at": "2023-05-26T03:55:00+00:00",
+          "certainty": "explicit",
+          "intent": "change"
+        }
+      ],
+      "overwrite": {
+        "current": "the suburbs",
+        "history": [
+          "the suburbs"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "append_latest": {
+        "current": "the suburbs",
+        "history": [
+          "Chicago",
+          "the suburbs"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "mem0_style": {
+        "current": "the suburbs",
+        "history": [
+          "Chicago",
+          "the suburbs"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "graphiti_style": {
+        "current": "the suburbs",
+        "history": [
+          "Chicago",
+          "the suburbs"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "latest_explicit": {
+        "current": "the suburbs",
+        "history": [
+          "Chicago",
+          "the suburbs"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene": {
+        "current": "the suburbs",
+        "history": [
+          "Chicago",
+          "the suburbs"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_ask": {
+        "current": "the suburbs",
+        "history": [
+          "Chicago",
+          "the suburbs"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_latest": {
+        "current": "the suburbs",
+        "history": [
+          "Chicago",
+          "the suburbs"
+        ],
+        "correct": true,
+        "questions": 0
+      }
+    },
+    {
+      "question_id": "852ce960",
+      "kind": "current",
+      "question": "What was the amount I was pre-approved for when I got my mortgage from Wells Fargo?",
+      "answer": "$400,000",
+      "extracted": [
+        {
+          "value": "$350,000",
+          "at": "2023-08-11T05:59:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "$400,000",
+          "at": "2023-11-30T12:13:00+00:00",
+          "certainty": "explicit",
+          "intent": "correct"
+        }
+      ],
+      "overwrite": {
+        "current": "$400,000",
+        "history": [
+          "$400,000"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "append_latest": {
+        "current": "$400,000",
+        "history": [
+          "$350,000",
+          "$400,000"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "mem0_style": {
+        "current": "$400,000",
+        "history": [
+          "$350,000",
+          "$400,000"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "graphiti_style": {
+        "current": "$400,000",
+        "history": [
+          "$350,000",
+          "$400,000"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "latest_explicit": {
+        "current": "$400,000",
+        "history": [
+          "$350,000",
+          "$400,000"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene": {
+        "current": "$400,000",
+        "history": [
+          "$350,000",
+          "$400,000"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_ask": {
+        "current": "$400,000",
+        "history": [
+          "$350,000",
+          "$400,000"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_latest": {
+        "current": "$400,000",
+        "history": [
+          "$350,000",
+          "$400,000"
+        ],
+        "correct": true,
+        "questions": 0
+      }
+    },
+    {
+      "question_id": "89941a93",
+      "kind": "current",
+      "question": "How many bikes do I currently own?",
+      "answer": "4",
+      "extracted": [
+        {
+          "value": "three bikes",
+          "at": "2023-02-22T08:13:00+00:00",
+          "certainty": "inferred",
+          "intent": "assert"
+        },
+        {
+          "value": "three bikes",
+          "at": "2023-02-22T08:13:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "one new bike",
+          "at": "2023-10-10T23:08:00+00:00",
+          "certainty": "explicit",
+          "intent": "change"
+        },
+        {
+          "value": "four bikes",
+          "at": "2023-10-10T23:08:00+00:00",
+          "certainty": "explicit",
+          "intent": "change"
+        }
+      ],
+      "overwrite": {
+        "current": "four bikes",
+        "history": [
+          "four bikes"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "append_latest": {
+        "current": "four bikes",
+        "history": [
+          "three bikes",
+          "three bikes",
+          "one new bike",
+          "four bikes"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "mem0_style": {
+        "current": "four bikes",
+        "history": [
+          "three bikes",
+          "one new bike",
+          "four bikes"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "graphiti_style": {
+        "current": "four bikes",
+        "history": [
+          "three bikes",
+          "one new bike",
+          "four bikes"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "latest_explicit": {
+        "current": "four bikes",
+        "history": [
+          "three bikes",
+          "one new bike",
+          "four bikes"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene": {
+        "current": "four bikes",
+        "history": [
+          "three bikes",
+          "one new bike",
+          "four bikes"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_ask": {
+        "current": "four bikes",
+        "history": [
+          "three bikes",
+          "one new bike",
+          "four bikes"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_latest": {
+        "current": "four bikes",
+        "history": [
+          "three bikes",
+          "one new bike",
+          "four bikes"
+        ],
+        "correct": true,
+        "questions": 0
+      }
+    },
+    {
+      "question_id": "89941a94",
+      "kind": "history",
+      "question": "Before I purchased the gravel bike, do I have other bikes in addition to my mountain bike and my commuter bike?",
+      "answer": "Yes. (You have a road bike too.)",
+      "extracted": [
+        {
+          "value": "road bike",
+          "at": "2023-05-26T09:04:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "two other bikes: a mountain bike and a commuter bike",
+          "at": "2023-05-26T09:04:00+00:00",
+          "certainty": "explicit",
+          "intent": "supplement"
+        },
+        {
+          "value": "three bikes",
+          "at": "2023-05-26T09:04:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "four bikes: road, mountain, commuter, and hybrid",
+          "at": "2023-05-29T13:20:00+00:00",
+          "certainty": "explicit",
+          "intent": "change"
+        }
+      ],
+      "overwrite": {
+        "current": "four bikes: road, mountain, commuter, and hybrid",
+        "history": [
+          "four bikes: road, mountain, commuter, and hybrid"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "append_latest": {
+        "current": "four bikes: road, mountain, commuter, and hybrid",
+        "history": [
+          "road bike",
+          "two other bikes: a mountain bike and a commuter bike",
+          "three bikes",
+          "four bikes: road, mountain, commuter, and hybrid"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "mem0_style": {
+        "current": "four bikes: road, mountain, commuter, and hybrid",
+        "history": [
+          "road bike",
+          "two other bikes: a mountain bike and a commuter bike",
+          "three bikes",
+          "four bikes: road, mountain, commuter, and hybrid"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "graphiti_style": {
+        "current": "four bikes: road, mountain, commuter, and hybrid",
+        "history": [
+          "road bike",
+          "two other bikes: a mountain bike and a commuter bike",
+          "three bikes",
+          "four bikes: road, mountain, commuter, and hybrid"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "latest_explicit": {
+        "current": "four bikes: road, mountain, commuter, and hybrid",
+        "history": [
+          "road bike",
+          "two other bikes: a mountain bike and a commuter bike",
+          "three bikes",
+          "four bikes: road, mountain, commuter, and hybrid"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene": {
+        "current": "four bikes: road, mountain, commuter, and hybrid",
+        "history": [
+          "road bike",
+          "four bikes: road, mountain, commuter, and hybrid"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_ask": {
+        "current": "four bikes: road, mountain, commuter, and hybrid",
+        "history": [
+          "road bike",
+          "three bikes",
+          "four bikes: road, mountain, commuter, and hybrid"
+        ],
+        "correct": true,
+        "questions": 1
+      },
+      "memorygene_latest": {
+        "current": "four bikes: road, mountain, commuter, and hybrid",
+        "history": [
+          "road bike",
+          "three bikes",
+          "four bikes: road, mountain, commuter, and hybrid"
+        ],
+        "correct": true,
+        "questions": 0
+      }
+    },
+    {
+      "question_id": "8fb83627",
+      "kind": "current",
+      "question": "How many issues of National Geographic have I finished reading?",
+      "answer": "Five",
+      "extracted": [
+        {
+          "value": "3",
+          "at": "2023-04-20T01:29:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "3",
+          "at": "2023-04-20T01:29:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "5",
+          "at": "2023-07-15T23:48:00+00:00",
+          "certainty": "explicit",
+          "intent": "change"
+        },
+        {
+          "value": "5",
+          "at": "2023-07-15T23:48:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        }
+      ],
+      "overwrite": {
+        "current": "5",
+        "history": [
+          "5"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "append_latest": {
+        "current": "5",
+        "history": [
+          "3",
+          "3",
+          "5",
+          "5"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "mem0_style": {
+        "current": "5",
+        "history": [
+          "3",
+          "5"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "graphiti_style": {
+        "current": "5",
+        "history": [
+          "3",
+          "5"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "latest_explicit": {
+        "current": "5",
+        "history": [
+          "3",
+          "5"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene": {
+        "current": "5",
+        "history": [
+          "3",
+          "5"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_ask": {
+        "current": "5",
+        "history": [
+          "3",
+          "5"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_latest": {
+        "current": "5",
+        "history": [
+          "3",
+          "5"
+        ],
+        "correct": true,
+        "questions": 0
+      }
+    },
+    {
+      "question_id": "945e3d21",
+      "kind": "current",
+      "question": "How often do I attend yoga classes to help with my anxiety?",
+      "answer": "Three times a week.",
+      "extracted": [
+        {
+          "value": "twice a week",
+          "at": "2023-08-11T00:31:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "three times a week",
+          "at": "2023-11-30T01:57:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        }
+      ],
+      "overwrite": {
+        "current": "three times a week",
+        "history": [
+          "three times a week"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "append_latest": {
+        "current": "three times a week",
+        "history": [
+          "twice a week",
+          "three times a week"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "mem0_style": {
+        "current": "three times a week",
+        "history": [
+          "twice a week",
+          "three times a week"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "graphiti_style": {
+        "current": "three times a week",
+        "history": [
+          "twice a week",
+          "three times a week"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "latest_explicit": {
+        "current": "three times a week",
+        "history": [
+          "twice a week",
+          "three times a week"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene": {
+        "current": "twice a week",
+        "history": [
+          "twice a week"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "memorygene_ask": {
+        "current": "three times a week",
+        "history": [
+          "twice a week",
+          "three times a week"
+        ],
+        "correct": true,
+        "questions": 1
+      },
+      "memorygene_latest": {
+        "current": "three times a week",
+        "history": [
+          "twice a week",
+          "three times a week"
+        ],
+        "correct": true,
+        "questions": 0
+      }
+    },
+    {
+      "question_id": "9bbe84a2",
+      "kind": "history",
+      "question": "What was my previous goal for my Apex Legends level before I updated my goal?",
+      "answer": "level 100",
+      "extracted": [
+        {
+          "value": "level 100",
+          "at": "2023-06-16T20:24:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "level 150",
+          "at": "2023-09-30T13:20:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "level 150",
+          "at": "2023-09-30T13:20:00+00:00",
+          "certainty": "explicit",
+          "intent": "change"
+        }
+      ],
+      "overwrite": {
+        "current": "level 150",
+        "history": [
+          "level 150"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "append_latest": {
+        "current": "level 150",
+        "history": [
+          "level 100",
+          "level 150",
+          "level 150"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "mem0_style": {
+        "current": "level 150",
+        "history": [
+          "level 100",
+          "level 150"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "graphiti_style": {
+        "current": "level 150",
+        "history": [
+          "level 100",
+          "level 150"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "latest_explicit": {
+        "current": "level 150",
+        "history": [
+          "level 100",
+          "level 150"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene": {
+        "current": "level 150",
+        "history": [
+          "level 100",
+          "level 150"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_ask": {
+        "current": "level 150",
+        "history": [
+          "level 100",
+          "level 150"
+        ],
+        "correct": true,
+        "questions": 1
+      },
+      "memorygene_latest": {
+        "current": "level 150",
+        "history": [
+          "level 100",
+          "level 150"
+        ],
+        "correct": true,
+        "questions": 0
+      }
+    },
+    {
+      "question_id": "9ea5eabc",
+      "kind": "current",
+      "question": "Where did I go on my most recent family trip?",
+      "answer": "Paris",
+      "extracted": [
+        {
+          "value": "Hawaii",
+          "at": "2023-05-29T07:23:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "Paris",
+          "at": "2023-05-30T16:34:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "Paris",
+          "at": "2023-05-30T16:34:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "Paris",
+          "at": "2023-05-30T16:34:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        }
+      ],
+      "overwrite": {
+        "current": "Paris",
+        "history": [
+          "Paris"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "append_latest": {
+        "current": "Paris",
+        "history": [
+          "Hawaii",
+          "Paris",
+          "Paris",
+          "Paris"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "mem0_style": {
+        "current": "Paris",
+        "history": [
+          "Hawaii",
+          "Paris"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "graphiti_style": {
+        "current": "Paris",
+        "history": [
+          "Hawaii",
+          "Paris"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "latest_explicit": {
+        "current": "Paris",
+        "history": [
+          "Hawaii",
+          "Paris"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene": {
+        "current": "Hawaii",
+        "history": [
+          "Hawaii"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "memorygene_ask": {
+        "current": "Paris",
+        "history": [
+          "Hawaii",
+          "Paris"
+        ],
+        "correct": true,
+        "questions": 1
+      },
+      "memorygene_latest": {
+        "current": "Paris",
+        "history": [
+          "Hawaii",
+          "Paris"
+        ],
+        "correct": true,
+        "questions": 0
+      }
+    },
+    {
+      "question_id": "a1eacc2a",
+      "kind": "current",
+      "question": "How many short stories have I written since I started writing regularly?",
+      "answer": "seven",
+      "extracted": [
+        {
+          "value": "4",
+          "at": "2023-05-21T00:53:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "7",
+          "at": "2023-05-30T06:33:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        }
+      ],
+      "overwrite": {
+        "current": "7",
+        "history": [
+          "7"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "append_latest": {
+        "current": "7",
+        "history": [
+          "4",
+          "7"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "mem0_style": {
+        "current": "7",
+        "history": [
+          "4",
+          "7"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "graphiti_style": {
+        "current": "7",
+        "history": [
+          "4",
+          "7"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "latest_explicit": {
+        "current": "7",
+        "history": [
+          "4",
+          "7"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene": {
+        "current": "4",
+        "history": [
+          "4"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "memorygene_ask": {
+        "current": "7",
+        "history": [
+          "4",
+          "7"
+        ],
+        "correct": true,
+        "questions": 1
+      },
+      "memorygene_latest": {
+        "current": "7",
+        "history": [
+          "4",
+          "7"
+        ],
+        "correct": true,
+        "questions": 0
+      }
+    },
+    {
+      "question_id": "a2f3aa27",
+      "kind": "current",
+      "question": "How many followers do I have on Instagram now?",
+      "answer": 1300,
+      "extracted": [
+        {
+          "value": "1250 followers",
+          "at": "2023-05-28T06:23:00+00:00",
+          "certainty": "explicit",
+          "intent": "change"
+        },
+        {
+          "value": "close to 1300 followers",
+          "at": "2023-05-28T14:10:00+00:00",
+          "certainty": "uncertain",
+          "intent": "change"
+        }
+      ],
+      "overwrite": {
+        "current": "close to 1300 followers",
+        "history": [
+          "close to 1300 followers"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "append_latest": {
+        "current": "close to 1300 followers",
+        "history": [
+          "1250 followers",
+          "close to 1300 followers"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "mem0_style": {
+        "current": "close to 1300 followers",
+        "history": [
+          "1250 followers",
+          "close to 1300 followers"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "graphiti_style": {
+        "current": "close to 1300 followers",
+        "history": [
+          "1250 followers",
+          "close to 1300 followers"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "latest_explicit": {
+        "current": "1250 followers",
+        "history": [
+          "1250 followers"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "memorygene": {
+        "current": "1250 followers",
+        "history": [
+          "1250 followers"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "memorygene_ask": {
+        "current": "1250 followers",
+        "history": [
+          "1250 followers"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "memorygene_latest": {
+        "current": "1250 followers",
+        "history": [
+          "1250 followers"
+        ],
+        "correct": false,
+        "questions": 0
+      }
+    },
+    {
+      "question_id": "affe2881",
+      "kind": "current",
+      "question": "How many different species of birds have I seen in my local park?",
+      "answer": "32",
+      "extracted": [
+        {
+          "value": "27",
+          "at": "2023-05-25T14:48:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "32",
+          "at": "2023-05-29T16:16:00+00:00",
+          "certainty": "explicit",
+          "intent": "change"
+        }
+      ],
+      "overwrite": {
+        "current": "32",
+        "history": [
+          "32"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "append_latest": {
+        "current": "32",
+        "history": [
+          "27",
+          "32"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "mem0_style": {
+        "current": "32",
+        "history": [
+          "27",
+          "32"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "graphiti_style": {
+        "current": "32",
+        "history": [
+          "27",
+          "32"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "latest_explicit": {
+        "current": "32",
+        "history": [
+          "27",
+          "32"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene": {
+        "current": "32",
+        "history": [
+          "27",
+          "32"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_ask": {
+        "current": "32",
+        "history": [
+          "27",
+          "32"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_latest": {
+        "current": "32",
+        "history": [
+          "27",
+          "32"
+        ],
+        "correct": true,
+        "questions": 0
+      }
+    },
+    {
+      "question_id": "b01defab",
+      "kind": "current",
+      "question": "Did I finish reading 'The Nightingale' by Kristin Hannah?",
+      "answer": "Yes",
+      "extracted": [
+        {
+          "value": "not finished; put down temporarily",
+          "at": "2023-01-21T18:13:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "not finished; planned to read later",
+          "at": "2023-01-21T18:13:00+00:00",
+          "certainty": "inferred",
+          "intent": "assert"
+        },
+        {
+          "value": "not finished; wants to get back into it",
+          "at": "2023-01-21T18:13:00+00:00",
+          "certainty": "inferred",
+          "intent": "assert"
+        },
+        {
+          "value": "finished recently",
+          "at": "2023-03-30T16:23:00+00:00",
+          "certainty": "explicit",
+          "intent": "change"
+        },
+        {
+          "value": "finished recently",
+          "at": "2023-03-30T16:23:00+00:00",
+          "certainty": "explicit",
+          "intent": "supplement"
+        },
+        {
+          "value": "finished (read the ending)",
+          "at": "2023-03-30T16:23:00+00:00",
+          "certainty": "inferred",
+          "intent": "supplement"
+        }
+      ],
+      "overwrite": {
+        "current": "finished (read the ending)",
+        "history": [
+          "finished (read the ending)"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "append_latest": {
+        "current": "finished (read the ending)",
+        "history": [
+          "not finished; put down temporarily",
+          "not finished; planned to read later",
+          "not finished; wants to get back into it",
+          "finished recently",
+          "finished recently",
+          "finished (read the ending)"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "mem0_style": {
+        "current": "finished (read the ending)",
+        "history": [
+          "not finished; put down temporarily",
+          "not finished; planned to read later",
+          "not finished; wants to get back into it",
+          "finished recently",
+          "finished (read the ending)"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "graphiti_style": {
+        "current": "finished (read the ending)",
+        "history": [
+          "not finished; put down temporarily",
+          "not finished; planned to read later",
+          "not finished; wants to get back into it",
+          "finished recently",
+          "finished (read the ending)"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "latest_explicit": {
+        "current": "finished recently",
+        "history": [
+          "not finished; put down temporarily",
+          "finished recently"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "memorygene": {
+        "current": "finished recently",
+        "history": [
+          "not finished; put down temporarily",
+          "finished recently"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "memorygene_ask": {
+        "current": "finished recently",
+        "history": [
+          "not finished; put down temporarily",
+          "finished recently"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "memorygene_latest": {
+        "current": "finished recently",
+        "history": [
+          "not finished; put down temporarily",
+          "finished recently"
+        ],
+        "correct": false,
+        "questions": 0
+      }
+    },
+    {
+      "question_id": "b6019101",
+      "kind": "current",
+      "question": "How many MCU films did I watch in the last 3 months?",
+      "answer": "5",
+      "extracted": [
+        {
+          "value": "4 MCU films",
+          "at": "2023-05-20T09:06:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "5 MCU films",
+          "at": "2023-05-25T17:09:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        }
+      ],
+      "overwrite": {
+        "current": "5 MCU films",
+        "history": [
+          "5 MCU films"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "append_latest": {
+        "current": "5 MCU films",
+        "history": [
+          "4 MCU films",
+          "5 MCU films"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "mem0_style": {
+        "current": "5 MCU films",
+        "history": [
+          "4 MCU films",
+          "5 MCU films"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "graphiti_style": {
+        "current": "5 MCU films",
+        "history": [
+          "4 MCU films",
+          "5 MCU films"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "latest_explicit": {
+        "current": "5 MCU films",
+        "history": [
+          "4 MCU films",
+          "5 MCU films"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene": {
+        "current": "4 MCU films",
+        "history": [
+          "4 MCU films"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "memorygene_ask": {
+        "current": "5 MCU films",
+        "history": [
+          "4 MCU films",
+          "5 MCU films"
+        ],
+        "correct": true,
+        "questions": 1
+      },
+      "memorygene_latest": {
+        "current": "5 MCU films",
+        "history": [
+          "4 MCU films",
+          "5 MCU films"
+        ],
+        "correct": true,
+        "questions": 0
+      }
+    },
+    {
+      "question_id": "ba61f0b9",
+      "kind": "current",
+      "question": "How many women are on the team led by my former manager Rachel?",
+      "answer": "6",
+      "extracted": [
+        {
+          "value": "5 women",
+          "at": "2023-01-18T04:42:00+00:00",
+          "certainty": "inferred",
+          "intent": "assert"
+        },
+        {
+          "value": "5 women",
+          "at": "2023-01-18T04:42:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "6 women",
+          "at": "2023-07-20T15:27:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        }
+      ],
+      "overwrite": {
+        "current": "6 women",
+        "history": [
+          "6 women"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "append_latest": {
+        "current": "6 women",
+        "history": [
+          "5 women",
+          "5 women",
+          "6 women"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "mem0_style": {
+        "current": "6 women",
+        "history": [
+          "5 women",
+          "6 women"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "graphiti_style": {
+        "current": "6 women",
+        "history": [
+          "5 women",
+          "6 women"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "latest_explicit": {
+        "current": "6 women",
+        "history": [
+          "5 women",
+          "6 women"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene": {
+        "current": "5 women",
+        "history": [
+          "5 women"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "memorygene_ask": {
+        "current": "6 women",
+        "history": [
+          "5 women",
+          "6 women"
+        ],
+        "correct": true,
+        "questions": 1
+      },
+      "memorygene_latest": {
+        "current": "6 women",
+        "history": [
+          "5 women",
+          "6 women"
+        ],
+        "correct": true,
+        "questions": 0
+      }
+    },
+    {
+      "question_id": "c4ea545c",
+      "kind": "history",
+      "question": "Do I go to the gym more frequently than I did previously?",
+      "answer": "Yes",
+      "extracted": [
+        {
+          "value": "No workouts on Mondays, Wednesdays, and Fridays",
+          "at": "2023-06-01T00:10:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "Three times a week",
+          "at": "2023-06-01T00:10:00+00:00",
+          "certainty": "inferred",
+          "intent": "assert"
+        },
+        {
+          "value": "Four times a week",
+          "at": "2023-08-15T10:57:00+00:00",
+          "certainty": "explicit",
+          "intent": "change"
+        }
+      ],
+      "overwrite": {
+        "current": "Four times a week",
+        "history": [
+          "Four times a week"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "append_latest": {
+        "current": "Four times a week",
+        "history": [
+          "No workouts on Mondays, Wednesdays, and Fridays",
+          "Three times a week",
+          "Four times a week"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "mem0_style": {
+        "current": "Four times a week",
+        "history": [
+          "No workouts on Mondays, Wednesdays, and Fridays",
+          "Three times a week",
+          "Four times a week"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "graphiti_style": {
+        "current": "Four times a week",
+        "history": [
+          "No workouts on Mondays, Wednesdays, and Fridays",
+          "Three times a week",
+          "Four times a week"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "latest_explicit": {
+        "current": "Four times a week",
+        "history": [
+          "No workouts on Mondays, Wednesdays, and Fridays",
+          "Four times a week"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "memorygene": {
+        "current": "Four times a week",
+        "history": [
+          "No workouts on Mondays, Wednesdays, and Fridays",
+          "Four times a week"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "memorygene_ask": {
+        "current": "Four times a week",
+        "history": [
+          "No workouts on Mondays, Wednesdays, and Fridays",
+          "Four times a week"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "memorygene_latest": {
+        "current": "Four times a week",
+        "history": [
+          "No workouts on Mondays, Wednesdays, and Fridays",
+          "Four times a week"
+        ],
+        "correct": false,
+        "questions": 0
+      }
+    },
+    {
+      "question_id": "c6853660",
+      "kind": "current",
+      "question": "Did I mostly recently increase or decrease the limit on the number of cups of coffee in the morning?",
+      "answer": "You increased the limit (from one cup to two cups)",
+      "extracted": [
+        {
+          "value": "one cup",
+          "at": "2023-05-28T16:24:00+00:00",
+          "certainty": "explicit",
+          "intent": "change"
+        },
+        {
+          "value": "two cups",
+          "at": "2023-05-29T10:35:00+00:00",
+          "certainty": "uncertain",
+          "intent": "assert"
+        },
+        {
+          "value": "two cups",
+          "at": "2023-05-29T10:35:00+00:00",
+          "certainty": "explicit",
+          "intent": "change"
+        }
+      ],
+      "overwrite": {
+        "current": "two cups",
+        "history": [
+          "two cups"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "append_latest": {
+        "current": "two cups",
+        "history": [
+          "one cup",
+          "two cups",
+          "two cups"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "mem0_style": {
+        "current": "two cups",
+        "history": [
+          "one cup",
+          "two cups"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "graphiti_style": {
+        "current": "two cups",
+        "history": [
+          "one cup",
+          "two cups"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "latest_explicit": {
+        "current": "two cups",
+        "history": [
+          "one cup",
+          "two cups"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene": {
+        "current": "two cups",
+        "history": [
+          "one cup",
+          "two cups"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_ask": {
+        "current": "two cups",
+        "history": [
+          "one cup",
+          "two cups"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_latest": {
+        "current": "two cups",
+        "history": [
+          "one cup",
+          "two cups"
+        ],
+        "correct": true,
+        "questions": 0
+      }
+    },
+    {
+      "question_id": "c7dc5443",
+      "kind": "current",
+      "question": "What is my current record in the recreational volleyball league?",
+      "answer": "5-2",
+      "extracted": [
+        {
+          "value": "3-2",
+          "at": "2023-06-16T23:16:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "5-2",
+          "at": "2023-06-30T08:14:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        }
+      ],
+      "overwrite": {
+        "current": "5-2",
+        "history": [
+          "5-2"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "append_latest": {
+        "current": "5-2",
+        "history": [
+          "3-2",
+          "5-2"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "mem0_style": {
+        "current": "5-2",
+        "history": [
+          "3-2",
+          "5-2"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "graphiti_style": {
+        "current": "5-2",
+        "history": [
+          "3-2",
+          "5-2"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "latest_explicit": {
+        "current": "5-2",
+        "history": [
+          "3-2",
+          "5-2"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene": {
+        "current": "3-2",
+        "history": [
+          "3-2"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "memorygene_ask": {
+        "current": "5-2",
+        "history": [
+          "3-2",
+          "5-2"
+        ],
+        "correct": true,
+        "questions": 1
+      },
+      "memorygene_latest": {
+        "current": "5-2",
+        "history": [
+          "3-2",
+          "5-2"
+        ],
+        "correct": true,
+        "questions": 0
+      }
+    },
+    {
+      "question_id": "cc5ded98",
+      "kind": "current",
+      "question": "How much time do I dedicate to coding exercises each day?",
+      "answer": "about two hours",
+      "extracted": [
+        {
+          "value": "about an hour each day",
+          "at": "2023-05-25T04:18:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "about two hours each day",
+          "at": "2023-05-27T12:58:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "about two hours each day",
+          "at": "2023-05-27T12:58:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        }
+      ],
+      "overwrite": {
+        "current": "about two hours each day",
+        "history": [
+          "about two hours each day"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "append_latest": {
+        "current": "about two hours each day",
+        "history": [
+          "about an hour each day",
+          "about two hours each day",
+          "about two hours each day"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "mem0_style": {
+        "current": "about two hours each day",
+        "history": [
+          "about an hour each day",
+          "about two hours each day"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "graphiti_style": {
+        "current": "about two hours each day",
+        "history": [
+          "about an hour each day",
+          "about two hours each day"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "latest_explicit": {
+        "current": "about two hours each day",
+        "history": [
+          "about an hour each day",
+          "about two hours each day"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene": {
+        "current": "about an hour each day",
+        "history": [
+          "about an hour each day"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "memorygene_ask": {
+        "current": "about two hours each day",
+        "history": [
+          "about an hour each day",
+          "about two hours each day"
+        ],
+        "correct": true,
+        "questions": 1
+      },
+      "memorygene_latest": {
+        "current": "about two hours each day",
+        "history": [
+          "about an hour each day",
+          "about two hours each day"
+        ],
+        "correct": true,
+        "questions": 0
+      }
+    },
+    {
+      "question_id": "ce6d2d27",
+      "kind": "current",
+      "question": "What day of the week do I take a cocktail-making class?",
+      "answer": "Friday",
+      "extracted": [
+        {
+          "value": "Thursday",
+          "at": "2023-06-16T18:41:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "Friday",
+          "at": "2023-06-30T12:19:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "Friday",
+          "at": "2023-06-30T12:19:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "Friday",
+          "at": "2023-06-30T12:19:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        }
+      ],
+      "overwrite": {
+        "current": "Friday",
+        "history": [
+          "Friday"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "append_latest": {
+        "current": "Friday",
+        "history": [
+          "Thursday",
+          "Friday",
+          "Friday",
+          "Friday"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "mem0_style": {
+        "current": "Friday",
+        "history": [
+          "Thursday",
+          "Friday"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "graphiti_style": {
+        "current": "Friday",
+        "history": [
+          "Thursday",
+          "Friday"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "latest_explicit": {
+        "current": "Friday",
+        "history": [
+          "Thursday",
+          "Friday"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene": {
+        "current": "Thursday",
+        "history": [
+          "Thursday"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "memorygene_ask": {
+        "current": "Friday",
+        "history": [
+          "Thursday",
+          "Friday"
+        ],
+        "correct": true,
+        "questions": 1
+      },
+      "memorygene_latest": {
+        "current": "Friday",
+        "history": [
+          "Thursday",
+          "Friday"
+        ],
+        "correct": true,
+        "questions": 0
+      }
+    },
+    {
+      "question_id": "cf22b7bf",
+      "kind": "current",
+      "question": "How much weight have I lost since I started going to the gym consistently?",
+      "answer": "10 pounds",
+      "extracted": [
+        {
+          "value": "about 5 pounds",
+          "at": "2023-05-21T02:05:00+00:00",
+          "certainty": "uncertain",
+          "intent": "assert"
+        },
+        {
+          "value": "5 pounds",
+          "at": "2023-05-21T02:05:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "10 pounds",
+          "at": "2023-06-21T01:24:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        }
+      ],
+      "overwrite": {
+        "current": "10 pounds",
+        "history": [
+          "10 pounds"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "append_latest": {
+        "current": "10 pounds",
+        "history": [
+          "about 5 pounds",
+          "5 pounds",
+          "10 pounds"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "mem0_style": {
+        "current": "10 pounds",
+        "history": [
+          "about 5 pounds",
+          "5 pounds",
+          "10 pounds"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "graphiti_style": {
+        "current": "10 pounds",
+        "history": [
+          "about 5 pounds",
+          "5 pounds",
+          "10 pounds"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "latest_explicit": {
+        "current": "10 pounds",
+        "history": [
+          "5 pounds",
+          "10 pounds"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene": {
+        "current": "5 pounds",
+        "history": [
+          "5 pounds"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "memorygene_ask": {
+        "current": "10 pounds",
+        "history": [
+          "5 pounds",
+          "10 pounds"
+        ],
+        "correct": true,
+        "questions": 1
+      },
+      "memorygene_latest": {
+        "current": "10 pounds",
+        "history": [
+          "5 pounds",
+          "10 pounds"
+        ],
+        "correct": true,
+        "questions": 0
+      }
+    },
+    {
+      "question_id": "d7c942c3",
+      "kind": "current",
+      "question": "Is my mom using the same grocery list method as me?",
+      "answer": "Yes.",
+      "extracted": [
+        {
+          "value": "new grocery list app",
+          "at": "2023-03-11T09:37:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "old paper list",
+          "at": "2023-03-11T09:37:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "same grocery list app as me",
+          "at": "2023-04-30T16:28:00+00:00",
+          "certainty": "explicit",
+          "intent": "change"
+        }
+      ],
+      "overwrite": {
+        "current": "same grocery list app as me",
+        "history": [
+          "same grocery list app as me"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "append_latest": {
+        "current": "same grocery list app as me",
+        "history": [
+          "new grocery list app",
+          "old paper list",
+          "same grocery list app as me"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "mem0_style": {
+        "current": "same grocery list app as me",
+        "history": [
+          "new grocery list app",
+          "old paper list",
+          "same grocery list app as me"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "graphiti_style": {
+        "current": "same grocery list app as me",
+        "history": [
+          "new grocery list app",
+          "old paper list",
+          "same grocery list app as me"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "latest_explicit": {
+        "current": "same grocery list app as me",
+        "history": [
+          "new grocery list app",
+          "old paper list",
+          "same grocery list app as me"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "memorygene": {
+        "current": "same grocery list app as me",
+        "history": [
+          "new grocery list app",
+          "same grocery list app as me"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "memorygene_ask": {
+        "current": "same grocery list app as me",
+        "history": [
+          "new grocery list app",
+          "old paper list",
+          "same grocery list app as me"
+        ],
+        "correct": false,
+        "questions": 1
+      },
+      "memorygene_latest": {
+        "current": "same grocery list app as me",
+        "history": [
+          "new grocery list app",
+          "old paper list",
+          "same grocery list app as me"
+        ],
+        "correct": false,
+        "questions": 0
+      }
+    },
+    {
+      "question_id": "dad224aa",
+      "kind": "current",
+      "question": "What time do I wake up on Saturday mornings?",
+      "answer": "7:30 am",
+      "extracted": [
+        {
+          "value": "8:30 am",
+          "at": "2023-05-24T15:08:00+00:00",
+          "certainty": "uncertain",
+          "intent": "assert"
+        },
+        {
+          "value": "8:30 am",
+          "at": "2023-05-24T15:08:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "7:30 am",
+          "at": "2023-05-28T15:08:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        }
+      ],
+      "overwrite": {
+        "current": "7:30 am",
+        "history": [
+          "7:30 am"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "append_latest": {
+        "current": "7:30 am",
+        "history": [
+          "8:30 am",
+          "8:30 am",
+          "7:30 am"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "mem0_style": {
+        "current": "7:30 am",
+        "history": [
+          "8:30 am",
+          "7:30 am"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "graphiti_style": {
+        "current": "7:30 am",
+        "history": [
+          "8:30 am",
+          "7:30 am"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "latest_explicit": {
+        "current": "7:30 am",
+        "history": [
+          "8:30 am",
+          "7:30 am"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene": {
+        "current": "8:30 am",
+        "history": [
+          "8:30 am"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "memorygene_ask": {
+        "current": "7:30 am",
+        "history": [
+          "8:30 am",
+          "7:30 am"
+        ],
+        "correct": true,
+        "questions": 1
+      },
+      "memorygene_latest": {
+        "current": "7:30 am",
+        "history": [
+          "8:30 am",
+          "7:30 am"
+        ],
+        "correct": true,
+        "questions": 0
+      }
+    },
+    {
+      "question_id": "db467c8c",
+      "kind": "current",
+      "question": "How long have my parents been staying with me in the US?",
+      "answer": "nine months",
+      "extracted": [
+        {
+          "value": "six months",
+          "at": "2023-07-16T05:22:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "nine months",
+          "at": "2023-10-20T00:37:00+00:00",
+          "certainty": "explicit",
+          "intent": "change"
+        },
+        {
+          "value": "nine months",
+          "at": "2023-10-20T00:37:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "nine months",
+          "at": "2023-10-20T00:37:00+00:00",
+          "certainty": "inferred",
+          "intent": "supplement"
+        }
+      ],
+      "overwrite": {
+        "current": "nine months",
+        "history": [
+          "nine months"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "append_latest": {
+        "current": "nine months",
+        "history": [
+          "six months",
+          "nine months",
+          "nine months",
+          "nine months"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "mem0_style": {
+        "current": "nine months",
+        "history": [
+          "six months",
+          "nine months"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "graphiti_style": {
+        "current": "nine months",
+        "history": [
+          "six months",
+          "nine months"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "latest_explicit": {
+        "current": "nine months",
+        "history": [
+          "six months",
+          "nine months"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene": {
+        "current": "nine months",
+        "history": [
+          "six months",
+          "nine months"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_ask": {
+        "current": "nine months",
+        "history": [
+          "six months",
+          "nine months"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_latest": {
+        "current": "nine months",
+        "history": [
+          "six months",
+          "nine months"
+        ],
+        "correct": true,
+        "questions": 0
+      }
+    },
+    {
+      "question_id": "dfde3500",
+      "kind": "history",
+      "question": "What day of the week did I meet with my previous language exchange tutor Juan?",
+      "answer": "Wednesday",
+      "extracted": [
+        {
+          "value": "Wednesday",
+          "at": "2023-05-26T01:49:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        }
+      ],
+      "overwrite": {
+        "current": "Wednesday",
+        "history": [
+          "Wednesday"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "append_latest": {
+        "current": "Wednesday",
+        "history": [
+          "Wednesday"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "mem0_style": {
+        "current": "Wednesday",
+        "history": [
+          "Wednesday"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "graphiti_style": {
+        "current": "Wednesday",
+        "history": [
+          "Wednesday"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "latest_explicit": {
+        "current": "Wednesday",
+        "history": [
+          "Wednesday"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene": {
+        "current": "Wednesday",
+        "history": [
+          "Wednesday"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_ask": {
+        "current": "Wednesday",
+        "history": [
+          "Wednesday"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_latest": {
+        "current": "Wednesday",
+        "history": [
+          "Wednesday"
+        ],
+        "correct": true,
+        "questions": 0
+      }
+    },
+    {
+      "question_id": "e493bb7c",
+      "kind": "current",
+      "question": "Where is the painting 'Ethereal Dreams' by Emma Taylor currently hanging?",
+      "answer": "in my bedroom",
+      "extracted": [
+        {
+          "value": "above my living room sofa",
+          "at": "2023-07-11T05:35:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "my bedroom",
+          "at": "2023-10-30T00:58:00+00:00",
+          "certainty": "explicit",
+          "intent": "change"
+        },
+        {
+          "value": "above my bed",
+          "at": "2023-10-30T00:58:00+00:00",
+          "certainty": "explicit",
+          "intent": "change"
+        }
+      ],
+      "overwrite": {
+        "current": "above my bed",
+        "history": [
+          "above my bed"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "append_latest": {
+        "current": "above my bed",
+        "history": [
+          "above my living room sofa",
+          "my bedroom",
+          "above my bed"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "mem0_style": {
+        "current": "above my bed",
+        "history": [
+          "above my living room sofa",
+          "my bedroom",
+          "above my bed"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "graphiti_style": {
+        "current": "above my bed",
+        "history": [
+          "above my living room sofa",
+          "my bedroom",
+          "above my bed"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "latest_explicit": {
+        "current": "above my bed",
+        "history": [
+          "above my living room sofa",
+          "my bedroom",
+          "above my bed"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "memorygene": {
+        "current": "above my bed",
+        "history": [
+          "above my living room sofa",
+          "my bedroom",
+          "above my bed"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "memorygene_ask": {
+        "current": "above my bed",
+        "history": [
+          "above my living room sofa",
+          "my bedroom",
+          "above my bed"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "memorygene_latest": {
+        "current": "above my bed",
+        "history": [
+          "above my living room sofa",
+          "my bedroom",
+          "above my bed"
+        ],
+        "correct": false,
+        "questions": 0
+      }
+    },
+    {
+      "question_id": "e61a7584",
+      "kind": "current",
+      "question": "How long have I had my cat, Luna?",
+      "answer": "9 months",
+      "extracted": [
+        {
+          "value": "about 6 months",
+          "at": "2023-08-11T21:17:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "about 9 months",
+          "at": "2023-11-30T11:13:00+00:00",
+          "certainty": "explicit",
+          "intent": "change"
+        }
+      ],
+      "overwrite": {
+        "current": "about 9 months",
+        "history": [
+          "about 9 months"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "append_latest": {
+        "current": "about 9 months",
+        "history": [
+          "about 6 months",
+          "about 9 months"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "mem0_style": {
+        "current": "about 9 months",
+        "history": [
+          "about 6 months",
+          "about 9 months"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "graphiti_style": {
+        "current": "about 9 months",
+        "history": [
+          "about 6 months",
+          "about 9 months"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "latest_explicit": {
+        "current": "about 9 months",
+        "history": [
+          "about 6 months",
+          "about 9 months"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene": {
+        "current": "about 9 months",
+        "history": [
+          "about 6 months",
+          "about 9 months"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_ask": {
+        "current": "about 9 months",
+        "history": [
+          "about 6 months",
+          "about 9 months"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_latest": {
+        "current": "about 9 months",
+        "history": [
+          "about 6 months",
+          "about 9 months"
+        ],
+        "correct": true,
+        "questions": 0
+      }
+    },
+    {
+      "question_id": "e66b632c",
+      "kind": "history",
+      "question": "What was my previous personal best time for the charity 5K run?",
+      "answer": "27 minutes and 45 seconds",
+      "extracted": [
+        {
+          "value": "27 minutes and 45 seconds",
+          "at": "2023-04-11T23:44:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "about 1 minute and 30 seconds faster than the previous record",
+          "at": "2023-07-30T22:59:00+00:00",
+          "certainty": "uncertain",
+          "intent": "change"
+        },
+        {
+          "value": "26 minutes and 30 seconds",
+          "at": "2023-07-30T22:59:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        }
+      ],
+      "overwrite": {
+        "current": "26 minutes and 30 seconds",
+        "history": [
+          "26 minutes and 30 seconds"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "append_latest": {
+        "current": "26 minutes and 30 seconds",
+        "history": [
+          "27 minutes and 45 seconds",
+          "about 1 minute and 30 seconds faster than the previous record",
+          "26 minutes and 30 seconds"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "mem0_style": {
+        "current": "26 minutes and 30 seconds",
+        "history": [
+          "27 minutes and 45 seconds",
+          "about 1 minute and 30 seconds faster than the previous record",
+          "26 minutes and 30 seconds"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "graphiti_style": {
+        "current": "26 minutes and 30 seconds",
+        "history": [
+          "27 minutes and 45 seconds",
+          "about 1 minute and 30 seconds faster than the previous record",
+          "26 minutes and 30 seconds"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "latest_explicit": {
+        "current": "26 minutes and 30 seconds",
+        "history": [
+          "27 minutes and 45 seconds",
+          "26 minutes and 30 seconds"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene": {
+        "current": "27 minutes and 45 seconds",
+        "history": [
+          "27 minutes and 45 seconds"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_ask": {
+        "current": "26 minutes and 30 seconds",
+        "history": [
+          "27 minutes and 45 seconds",
+          "26 minutes and 30 seconds"
+        ],
+        "correct": true,
+        "questions": 1
+      },
+      "memorygene_latest": {
+        "current": "26 minutes and 30 seconds",
+        "history": [
+          "27 minutes and 45 seconds",
+          "26 minutes and 30 seconds"
+        ],
+        "correct": true,
+        "questions": 0
+      }
+    },
+    {
+      "question_id": "eace081b",
+      "kind": "current",
+      "question": "Where am I planning to stay for my birthday trip to Hawaii?",
+      "answer": "Oahu",
+      "extracted": [
+        {
+          "value": "Kauai",
+          "at": "2023-05-26T12:09:00+00:00",
+          "certainty": "inferred",
+          "intent": "assert"
+        },
+        {
+          "value": "Oahu",
+          "at": "2023-05-30T03:06:00+00:00",
+          "certainty": "explicit",
+          "intent": "change"
+        }
+      ],
+      "overwrite": {
+        "current": "Oahu",
+        "history": [
+          "Oahu"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "append_latest": {
+        "current": "Oahu",
+        "history": [
+          "Kauai",
+          "Oahu"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "mem0_style": {
+        "current": "Oahu",
+        "history": [
+          "Kauai",
+          "Oahu"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "graphiti_style": {
+        "current": "Oahu",
+        "history": [
+          "Kauai",
+          "Oahu"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "latest_explicit": {
+        "current": "Oahu",
+        "history": [
+          "Oahu"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene": {
+        "current": "Oahu",
+        "history": [
+          "Oahu"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_ask": {
+        "current": "Oahu",
+        "history": [
+          "Oahu"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_latest": {
+        "current": "Oahu",
+        "history": [
+          "Oahu"
+        ],
+        "correct": true,
+        "questions": 0
+      }
+    },
+    {
+      "question_id": "ed4ddc30",
+      "kind": "current",
+      "question": "How many dozen eggs do we currently have stocked up in our refrigerator?",
+      "answer": "20",
+      "extracted": [
+        {
+          "value": "30 dozen",
+          "at": "2023-01-11T08:24:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "20 dozen",
+          "at": "2023-03-15T12:06:00+00:00",
+          "certainty": "explicit",
+          "intent": "change"
+        }
+      ],
+      "overwrite": {
+        "current": "20 dozen",
+        "history": [
+          "20 dozen"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "append_latest": {
+        "current": "20 dozen",
+        "history": [
+          "30 dozen",
+          "20 dozen"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "mem0_style": {
+        "current": "20 dozen",
+        "history": [
+          "30 dozen",
+          "20 dozen"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "graphiti_style": {
+        "current": "20 dozen",
+        "history": [
+          "30 dozen",
+          "20 dozen"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "latest_explicit": {
+        "current": "20 dozen",
+        "history": [
+          "30 dozen",
+          "20 dozen"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene": {
+        "current": "20 dozen",
+        "history": [
+          "30 dozen",
+          "20 dozen"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_ask": {
+        "current": "20 dozen",
+        "history": [
+          "30 dozen",
+          "20 dozen"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_latest": {
+        "current": "20 dozen",
+        "history": [
+          "30 dozen",
+          "20 dozen"
+        ],
+        "correct": true,
+        "questions": 0
+      }
+    },
+    {
+      "question_id": "f685340e",
+      "kind": "history",
+      "question": "How often do I play tennis with my friends at the local park previously? How often do I play now?",
+      "answer": "Previously, you play tennis with your friends at the local park every week (on Sunday). Currently, you play tennis every other week (on Sunday).",
+      "extracted": [
+        {
+          "value": "weekly",
+          "at": "2023-03-11T07:01:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "every other week",
+          "at": "2023-07-30T01:19:00+00:00",
+          "certainty": "explicit",
+          "intent": "change"
+        }
+      ],
+      "overwrite": {
+        "current": "every other week",
+        "history": [
+          "every other week"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "append_latest": {
+        "current": "every other week",
+        "history": [
+          "weekly",
+          "every other week"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "mem0_style": {
+        "current": "every other week",
+        "history": [
+          "weekly",
+          "every other week"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "graphiti_style": {
+        "current": "every other week",
+        "history": [
+          "weekly",
+          "every other week"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "latest_explicit": {
+        "current": "every other week",
+        "history": [
+          "weekly",
+          "every other week"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene": {
+        "current": "every other week",
+        "history": [
+          "weekly",
+          "every other week"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_ask": {
+        "current": "every other week",
+        "history": [
+          "weekly",
+          "every other week"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_latest": {
+        "current": "every other week",
+        "history": [
+          "weekly",
+          "every other week"
+        ],
+        "correct": true,
+        "questions": 0
+      }
+    },
+    {
+      "question_id": "f685340e_abs",
+      "kind": "abstention",
+      "question": "How often do I play table tennis with my friends at the local park?",
+      "answer": "The information provided is not enough. You mentioned playing tennis but not table tennis.",
+      "extracted": [
+        {
+          "value": "weekly",
+          "at": "2023-05-20T22:59:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "every other week",
+          "at": "2023-05-25T01:49:00+00:00",
+          "certainty": "explicit",
+          "intent": "change"
+        }
+      ],
+      "overwrite": {
+        "current": "every other week",
+        "history": [
+          "every other week"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "append_latest": {
+        "current": "every other week",
+        "history": [
+          "weekly",
+          "every other week"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "mem0_style": {
+        "current": "every other week",
+        "history": [
+          "weekly",
+          "every other week"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "graphiti_style": {
+        "current": "every other week",
+        "history": [
+          "weekly",
+          "every other week"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "latest_explicit": {
+        "current": "every other week",
+        "history": [
+          "weekly",
+          "every other week"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "memorygene": {
+        "current": "every other week",
+        "history": [
+          "weekly",
+          "every other week"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "memorygene_ask": {
+        "current": "every other week",
+        "history": [
+          "weekly",
+          "every other week"
+        ],
+        "correct": false,
+        "questions": 0
+      },
+      "memorygene_latest": {
+        "current": "every other week",
+        "history": [
+          "weekly",
+          "every other week"
+        ],
+        "correct": false,
+        "questions": 0
+      }
+    },
+    {
+      "question_id": "f9e8c073",
+      "kind": "current",
+      "question": "How many sessions of the bereavement support group did I attend?",
+      "answer": "five",
+      "extracted": [
+        {
+          "value": "three",
+          "at": "2023-05-11T15:30:00+00:00",
+          "certainty": "explicit",
+          "intent": "assert"
+        },
+        {
+          "value": "five",
+          "at": "2023-10-30T14:10:00+00:00",
+          "certainty": "explicit",
+          "intent": "correct"
+        }
+      ],
+      "overwrite": {
+        "current": "five",
+        "history": [
+          "five"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "append_latest": {
+        "current": "five",
+        "history": [
+          "three",
+          "five"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "mem0_style": {
+        "current": "five",
+        "history": [
+          "three",
+          "five"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "graphiti_style": {
+        "current": "five",
+        "history": [
+          "three",
+          "five"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "latest_explicit": {
+        "current": "five",
+        "history": [
+          "three",
+          "five"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene": {
+        "current": "five",
+        "history": [
+          "three",
+          "five"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_ask": {
+        "current": "five",
+        "history": [
+          "three",
+          "five"
+        ],
+        "correct": true,
+        "questions": 0
+      },
+      "memorygene_latest": {
+        "current": "five",
+        "history": [
+          "three",
+          "five"
+        ],
+        "correct": true,
+        "questions": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "question_id": "5c40ec5b",
+  "exit": 0,
+  "seconds": 15.9,
+  "final": "[\n  {\n    \"session\": 1,\n    \"source\": \"met this guy Alex from Germany\",\n    \"value\": \"once\",\n    \"certainty\": \"inferred\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"we've met up twice already\",\n    \"value\": \"twice\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"change\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"we've met up twice before\",\n    \"value\": \"twice\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  }\n]"
+}

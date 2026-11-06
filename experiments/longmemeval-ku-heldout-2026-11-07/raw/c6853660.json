@@ -1,0 +1,6 @@
+{
+  "question_id": "c6853660",
+  "exit": 0,
+  "seconds": 9.9,
+  "final": "[\n  {\n    \"session\": 1,\n    \"source\": \"cut back to just one cup in the morning\",\n    \"value\": \"one cup\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"change\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"changing my morning coffee limit to two cups\",\n    \"value\": \"two cups\",\n    \"certainty\": \"uncertain\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"increased the limit to two cups\",\n    \"value\": \"two cups\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"change\"\n  }\n]"
+}

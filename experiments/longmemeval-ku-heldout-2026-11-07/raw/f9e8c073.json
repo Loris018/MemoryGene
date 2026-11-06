@@ -1,0 +1,6 @@
+{
+  "question_id": "f9e8c073",
+  "exit": 0,
+  "seconds": 16.9,
+  "final": "[\n  {\n    \"session\": 1,\n    \"source\": \"three sessions\",\n    \"value\": \"three\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"five sessions\",\n    \"value\": \"five\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"correct\"\n  }\n]"
+}

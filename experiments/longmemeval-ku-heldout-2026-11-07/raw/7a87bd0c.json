@@ -1,0 +1,6 @@
+{
+  "question_id": "7a87bd0c",
+  "exit": 0,
+  "seconds": 5.7,
+  "final": "[\n  {\n    \"session\": 1,\n    \"source\": \"it's already been 3 weeks\",\n    \"value\": \"3 weeks\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 1,\n    \"source\": \"I've been doing it for 3 weeks\",\n    \"value\": \"3 weeks\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"I've been sticking to my daily tidying routine for 4 weeks now\",\n    \"value\": \"4 weeks\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"change\"\n  }\n]"
+}

@@ -1,0 +1,6 @@
+{
+  "question_id": "42ec0761",
+  "exit": 0,
+  "seconds": 16.7,
+  "final": "[\n  {\n    \"session\": 1,\n    \"source\": \"I misplaced the small screwdriver I use for that\",\n    \"value\": \"no — misplaced the small screwdriver\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"I actually have a spare screwdriver\",\n    \"value\": \"yes — has a spare screwdriver\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"correct\"\n  }\n]"
+}

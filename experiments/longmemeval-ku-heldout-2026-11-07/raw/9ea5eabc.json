@@ -1,0 +1,6 @@
+{
+  "question_id": "9ea5eabc",
+  "exit": 0,
+  "seconds": 29.5,
+  "final": "[\n  {\n    \"session\": 1,\n    \"source\": \"my recent family trip to Hawaii\",\n    \"value\": \"Hawaii\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"Paris, we just went there as a family last month\",\n    \"value\": \"Paris\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"since I recently went to Paris with my family\",\n    \"value\": \"Paris\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"my recent family trip to Paris\",\n    \"value\": \"Paris\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  }\n]"
+}

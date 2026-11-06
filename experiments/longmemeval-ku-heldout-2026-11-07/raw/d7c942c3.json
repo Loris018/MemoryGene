@@ -1,0 +1,6 @@
+{
+  "question_id": "d7c942c3",
+  "exit": 0,
+  "seconds": 3.3,
+  "final": "[\n  {\n    \"session\": 1,\n    \"source\": \"I'm using that new grocery list app\",\n    \"value\": \"new grocery list app\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 1,\n    \"source\": \"she's still stuck on her old paper list\",\n    \"value\": \"old paper list\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"my mom is actually using the same grocery list app as me now\",\n    \"value\": \"same grocery list app as me\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"change\"\n  }\n]"
+}

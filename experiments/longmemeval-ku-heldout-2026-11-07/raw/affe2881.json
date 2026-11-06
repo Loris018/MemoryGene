@@ -1,0 +1,6 @@
+{
+  "question_id": "affe2881",
+  "exit": 0,
+  "seconds": 5.7,
+  "final": "[\n  {\n    \"session\": 1,\n    \"source\": \"27 different species\",\n    \"value\": \"27\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"total species count to 32\",\n    \"value\": \"32\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"change\"\n  }\n]"
+}

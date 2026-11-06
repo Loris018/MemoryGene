@@ -1,0 +1,6 @@
+{
+  "question_id": "945e3d21",
+  "exit": 0,
+  "seconds": 12.1,
+  "final": "[\n  {\n    \"session\": 1,\n    \"source\": \"I've been doing yoga twice a week\",\n    \"value\": \"twice a week\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"which is three times a week\",\n    \"value\": \"three times a week\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  }\n]"
+}

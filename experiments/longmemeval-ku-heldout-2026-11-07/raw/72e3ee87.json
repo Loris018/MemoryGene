@@ -1,0 +1,6 @@
+{
+  "question_id": "72e3ee87",
+  "exit": 0,
+  "seconds": 11.8,
+  "final": "[\n  {\n    \"session\": 1,\n    \"source\": \"currently on episode 10\",\n    \"value\": \"episode 10\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"I just completed 50 episodes\",\n    \"value\": \"50 episodes\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"change\"\n  }\n]"
+}

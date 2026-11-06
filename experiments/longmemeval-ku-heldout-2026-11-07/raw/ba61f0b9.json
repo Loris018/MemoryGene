@@ -1,0 +1,6 @@
+{
+  "question_id": "ba61f0b9",
+  "exit": 0,
+  "seconds": 73.8,
+  "final": "[\n  {\n    \"session\": 1,\n    \"source\": \"a team of 10 people, and I was impressed to learn that half of them are women\",\n    \"value\": \"5 women\",\n    \"certainty\": \"inferred\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 1,\n    \"source\": \"the 5 women on Rachel's team of 10 people\",\n    \"value\": \"5 women\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  },\n  {\n    \"session\": 2,\n    \"source\": \"with 6 women out of 10 people\",\n    \"value\": \"6 women\",\n    \"certainty\": \"explicit\",\n    \"intent\": \"assert\"\n  }\n]"
+}
