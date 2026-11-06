@@ -64,6 +64,8 @@ def recall(store, namespace, subject, query, *, now=None, visible_session="",
         if row["id"] is None or row["route"] != row["head_route"]:
             raise IntegrityError("Head points to missing or misrouted evidence")
         event = store._read(row)
+        if event["status"] == "retracted":
+            continue
         if event["status"] != "confirmed":
             raise IntegrityError("Head points to unconfirmed evidence")
         if not store._live(event, clock):

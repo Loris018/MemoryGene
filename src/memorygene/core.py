@@ -42,6 +42,12 @@ def now_string() -> str:
     return datetime.now(timezone.utc).isoformat()
 
 
+INTENTS = {"assert", "change", "correct", "supplement", "retract"}
+# Events a head may point to. A ``retracted`` head means the user withdrew the
+# value: the slot has no current value, and its history is kept.
+HEAD_STATUSES = {"confirmed", "retracted"}
+
+
 @dataclass(frozen=True)
 class Candidate:
     namespace: str
@@ -51,7 +57,7 @@ class Candidate:
     source: str
     at: str
     certainty: str = "explicit"  # explicit, uncertain, inferred
-    intent: str = "assert"  # assert, change, correct, supplement
+    intent: str = "assert"  # assert, change, correct, supplement, retract
     importance: float = 0.7
     scope: str = "persistent"
     session: str = ""
@@ -76,7 +82,7 @@ class Candidate:
                 raise ValueError(f"{name} must be nonempty text")
         if self.certainty not in {"explicit", "uncertain", "inferred"}:
             raise ValueError("Invalid certainty")
-        if self.intent not in {"assert", "change", "correct", "supplement"}:
+        if self.intent not in INTENTS:
             raise ValueError("Invalid intent")
         if isinstance(self.importance, bool) or not isinstance(
             self.importance, (int, float)
@@ -234,7 +240,7 @@ class MemoryStore:
         if row is not None and row["route"] != route:
             raise IntegrityError("Head points outside requested memory route")
         event = self._read(row)
-        if event and event["status"] != "confirmed":
+        if event and event["status"] not in HEAD_STATUSES:
             raise IntegrityError("Head points to unconfirmed evidence")
         return event
 
@@ -319,22 +325,40 @@ class MemoryStore:
                 # Rejected evidence is never persisted, including in a backup.
                 return {"id": event_id, "status": status, "previous_id": None}
             head = self._head(route)
-            live = head if head and self._live(head, clock) else None
+            live = (
+                head
+                if head and head["status"] == "confirmed" and self._live(head, clock)
+                else None
+            )
             accepted_by_policy = False
-            if c.certainty != "explicit":
+            if c.intent == "retract":
+                # Withdraws the current value; it must name that value.
+                if resolves is not None:
+                    raise ValueError("A retraction cannot resolve other evidence")
+                if c.certainty != "explicit":
+                    status = "pending"
+                elif live and live["candidate"]["value"] == c.value:
+                    status = "retracted"
+                else:
+                    self.db.commit()
+                    return {"id": event_id, "status": "nothing_to_retract",
+                            "previous_id": None}
+            elif c.certainty != "explicit":
                 status = "pending"
             elif live and live["candidate"]["value"] == c.value:
                 status = "duplicate"
             elif (
                 head
-                and c.value != head["candidate"]["value"]
+                and (c.value != head["candidate"]["value"] or head["status"] == "retracted")
                 and instant(c.at) < instant(head["candidate"]["at"])
             ):
+                # Older evidence never overrides a newer version or retraction.
                 status = "conflict"
+            elif c.intent == "supplement":
+                # "X is nice too" never sets the slot, even when it is empty.
+                status = "pending"
             elif live and c.intent not in {"change", "correct"}:
-                if c.intent == "supplement":
-                    status = "pending"
-                elif update == "latest":
+                if update == "latest":
                     status, accepted_by_policy = "confirmed", True
                 else:
                     status = "conflict"
@@ -366,7 +390,7 @@ class MemoryStore:
                 "INSERT INTO events(id,route,payload,digest,backup) VALUES (?,?,?,?,?)",
                 (event_id, route, payload, checksum(payload), backup),
             )
-            if status == "confirmed":
+            if status in HEAD_STATUSES:
                 self.db.execute(
                     "INSERT INTO heads VALUES (?,?) ON CONFLICT(route) DO UPDATE SET event_id=excluded.event_id",
                     (route, event_id),
@@ -382,9 +406,9 @@ class MemoryStore:
     ):
         route = self._route(namespace, subject, topic, scope, session)
         event = self._head(route)
-        return (
-            event if event and self._live(event, instant(now or now_string())) else None
-        )
+        if not event or event["status"] != "confirmed":
+            return None
+        return event if self._live(event, instant(now or now_string())) else None
 
     def history(
         self, namespace, subject, topic, *, scope="persistent", session="", now=None
@@ -448,8 +472,13 @@ class MemoryStore:
                 )
             ]
             head = self._head(route)
-            live = head if head and self._live(head, clock) else None
-            counts = {"confirmed": 0, "pending": 0, "conflict": 0, "duplicate": 0}
+            live = (
+                head
+                if head and head["status"] == "confirmed" and self._live(head, clock)
+                else None
+            )
+            counts = {"confirmed": 0, "pending": 0, "conflict": 0, "duplicate": 0,
+                      "retracted": 0}
             for event in events:
                 counts[event["status"]] = counts.get(event["status"], 0) + 1
             out.append(
@@ -460,7 +489,9 @@ class MemoryStore:
                     "scope": scope,
                     "session": session,
                     "status": (
-                        "current" if live else ("expired" if head else "unconfirmed")
+                        "current" if live
+                        else "retracted" if head and head["status"] == "retracted"
+                        else "expired" if head else "unconfirmed"
                     ),
                     "current": (
                         {
@@ -513,7 +544,7 @@ class MemoryStore:
                 )
                 continue
             seen[row["id"]] = event
-            if event["status"] == "confirmed":
+            if event["status"] in HEAD_STATUSES:
                 previous = latest_confirmed.get(row["route"])
                 if previous is None or row["seq"] > previous[0]:
                     latest_confirmed[row["route"]] = (row["seq"], row["id"])
@@ -532,7 +563,7 @@ class MemoryStore:
                     }
                 )
                 continue
-            if event["status"] != "confirmed":
+            if event["status"] not in HEAD_STATUSES:
                 problems.append(
                     {
                         "kind": "head",

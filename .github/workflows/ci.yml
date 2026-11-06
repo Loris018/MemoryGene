@@ -22,6 +22,7 @@ jobs:
       - run: python experiments/reconsolidation_eval.py --out smoke-results
       - run: python experiments/strand_eval.py --out smoke-results
       - run: python experiments/baselines_eval.py --out smoke-results
+      - run: python experiments/simulator/evaluate.py --out smoke-results
       - run: python scripts/acceptance.py
       - run: python -m build
       - run: python -m twine check dist/*

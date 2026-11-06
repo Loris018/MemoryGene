@@ -81,7 +81,8 @@ def slots(store, namespace, subject, *, now=None, visible_session=""):
             )
         ]
         head = store._head(row["route"])
-        live = head if head and store._live(head, clock) else None
+        live = (head if head and head["status"] == "confirmed" and store._live(head, clock)
+                else None)
         out.append({
             "topic": topic, "scope": scope, "session": session,
             "head": live, "events": events,
@@ -109,7 +110,7 @@ def open_evidence(slot, *, now=None):
             continue
         if event["candidate"]["value"] == current:
             continue
-        if any(e["status"] == "confirmed" for e in events[i + 1:]):
+        if any(e["status"] in ("confirmed", "retracted") for e in events[i + 1:]):
             continue
         out.append(event)
     return out
@@ -208,7 +209,8 @@ def advise(store, candidate: Candidate, result, *, now=None, visible_session="")
       (content not found in the evidence, or negated there); see strands.py.
     """
     status = result["status"]
-    if status in {"discarded", "rejected_sensitive", "expired", "duplicate"}:
+    if status in {"discarded", "rejected_sensitive", "expired", "duplicate",
+                  "retracted", "nothing_to_retract"}:
         return []
     related = locate(
         store, candidate.namespace, candidate.subject, candidate.topic,

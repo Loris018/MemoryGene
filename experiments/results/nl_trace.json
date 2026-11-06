@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generated_at": "2026-11-02T03:32:39.276683+00:00",
+    "generated_at": "2026-11-06T12:05:51.376541+00:00",
     "fictional_data": true,
     "purpose": "rule-based extractor prototype regression/quality check",
     "not_a_benchmark": true,
@@ -4380,12 +4380,10 @@
       },
       "extractor": {
         "statuses": [
-          "confirmed"
+          "pending"
         ],
-        "current": "跑步",
-        "history": [
-          "跑步"
-        ]
+        "current": null,
+        "history": []
       },
       "turns": [
         {

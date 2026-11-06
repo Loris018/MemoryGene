@@ -17,14 +17,16 @@
 | 敏感且无同意 | rejected_sensitive | 否 / 否 |
 | persistent 且重要性 < 0.5 | discarded | 否 / 否 |
 | 输入已过期 | expired | 否 / 否 |
+| intent=retract 且明确、等于当前值 | retracted | 是 / 是（当前值变为空） |
+| intent=retract 但不等于当前值 | nothing_to_retract | 否 / 否 |
 | uncertain 或 inferred | pending | 是 / 否 |
 | 当前有效值相同 | duplicate | 是 / 否 |
-| 与最新确认版本相比证据时间更早且值不同 | conflict | 是 / 否 |
-| 当前值不同且 intent=assert | conflict | 是 / 否 |
-| 当前值不同且 intent=supplement | pending | 是 / 否 |
+| 证据时间早于当前版本（或撤回）且值不同（或当前为撤回） | conflict | 是 / 否 |
+| intent=supplement | pending | 是 / 否 |
+| 当前值不同且 intent=assert | conflict（`latest` 模式下为 confirmed） | 是 / 否 |
 | 无有效旧值，或显式 change/correct | confirmed | 是 / 是 |
 
-intent=supplement 在空槽位且 explicit 时可建立初值；如果适配器认为“补充”不足以确定单值，应标记 uncertain。相同值不会更新 head、延长 TTL 或改变确定性。event_id 重试必须对应同一候选和 resolves；同 ID 不同内容报错。被拒绝的输入不保存去重回执，因此重试它们会重新判定。
+intent=supplement 在任何情况下都不直接成为当前值，包括空槽位（“X 也不错”不等于“最喜欢 X”）；该规则于 2026-11-06 由模拟器数据中“撤回后接补充”的错误发现并修改。撤回（retract）必须指明被撤回的当前值；撤回后 head 指向 status=retracted 的事件，`current` 返回空，历史保留；之后的新陈述可重新确立当前值，证据时间早于撤回的旧陈述进入 conflict。含撤回 head 的数据库不能被 0.2.0.dev2 之前的版本读取。相同值不会更新 head、延长 TTL 或改变确定性。event_id 重试必须对应同一候选和 resolves；同 ID 不同内容报错。被拒绝的输入不保存去重回执，因此重试它们会重新判定。
 
 `resolves="pending-event-id"` 需要同主题、同值的 pending/conflict 证据，新输入必须能形成 confirmed 或 duplicate；它记录确认关系，保留原证据。不得把冲突内容自动当作用户确认。未提供 resolves 的新版本仍会更新，但不会声明已解决某个具体待确认项。
 

@@ -136,7 +136,10 @@ def run_simple(policy, stream):
             elif _passes_filters(c, now) and (
                     policy != "latest_explicit" or c.certainty == "explicit"):
                 key = arrival if policy == "mem0_style" else (instant(c.at), arrival)
-                accepted.append((key, arrival, c.value, c))
+                # A retraction (Mem0 DELETE, Graphiti invalidation) leaves no
+                # current value; it is recorded as a None entry.
+                value = None if c.intent == "retract" else c.value
+                accepted.append((key, arrival, value, c))
         steps.append(_current(policy, accepted, now))
     current = steps[-1] if steps else None
     if policy == "overwrite":
@@ -147,7 +150,7 @@ def run_simple(policy, stream):
         ordered = sorted(accepted, key=lambda a: (a[0], a[1]))
         history = []
         for a in ordered:
-            if _live(a[3], now) and (not history or history[-1] != a[2]):
+            if a[2] is not None and _live(a[3], now) and (not history or history[-1] != a[2]):
                 history.append(a[2])
     return {"steps": steps, "current": current, "history": history, "questions": 0}
 

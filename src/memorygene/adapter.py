@@ -483,7 +483,7 @@ def build_parser():
     )
     remember.add_argument(
         "--intent",
-        choices=["assert", "change", "correct", "supplement"],
+        choices=["assert", "change", "correct", "supplement", "retract"],
         default="assert",
     )
     remember.add_argument("--importance", type=float, default=0.7)

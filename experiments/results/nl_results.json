@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generated_at": "2026-11-02T03:32:39.276683+00:00",
+    "generated_at": "2026-11-06T12:05:51.376541+00:00",
     "fictional_data": true,
     "purpose": "rule-based extractor prototype regression/quality check",
     "not_a_benchmark": true,
@@ -165,22 +165,22 @@
     },
     "extractor": {
       "current_correct": {
-        "correct": 44,
+        "correct": 43,
         "total": 47,
-        "rate": 0.9361702127659575
+        "rate": 0.9148936170212766
       },
       "history_correct": {
-        "correct": 44,
+        "correct": 43,
         "total": 47,
-        "rate": 0.9361702127659575
+        "rate": 0.9148936170212766
       },
       "statuses_correct": {
-        "correct": 76,
+        "correct": 75,
         "total": 79,
-        "rate": 0.9620253164556962
+        "rate": 0.9493670886075949
       }
     },
-    "oracle_vs_extractor_outcomes_different": 4,
+    "oracle_vs_extractor_outcomes_different": 5,
     "classification": {
       "extraction_only": {
         "count": 5,
@@ -208,6 +208,7 @@
     "status_confusion": {
       "oracle": {},
       "extractor": {
+        "confirmed->pending": 1,
         "skipped->confirmed": 2,
         "discarded->pending": 1
       }
@@ -279,12 +280,10 @@
         },
         "extractor": {
           "statuses": [
-            "confirmed"
+            "pending"
           ],
-          "current": "跑步",
-          "history": [
-            "跑步"
-          ]
+          "current": null,
+          "history": []
         },
         "extraction_failures": [
           {
@@ -432,13 +431,13 @@
         "index": "plain",
         "protection": "none",
         "events": 56,
-        "payload_bytes": 27163,
+        "payload_bytes": 27161,
         "backup_bytes": 0,
         "route_key_bytes": 4184,
         "database_bytes": 36864,
-        "semantic_digest": "8d12163d88585d702057c64f01262bc57941d52ba6d20b5f6b6df4784072be1e",
+        "semantic_digest": "004a0e90334645718b57102bf19bcb570c766839e74d2826658b0d75a2c02fa9",
         "redundancy_bytes": 0,
-        "logical_bytes": 31347,
+        "logical_bytes": 31345,
         "logical_overhead_vs_no_protection": 0.0,
         "database_overhead_vs_no_protection": 0.0
       },
@@ -446,92 +445,92 @@
         "index": "plain",
         "protection": "copy",
         "events": 56,
-        "payload_bytes": 27163,
-        "backup_bytes": 27163,
+        "payload_bytes": 27161,
+        "backup_bytes": 27161,
         "route_key_bytes": 4184,
         "database_bytes": 36864,
-        "semantic_digest": "8d12163d88585d702057c64f01262bc57941d52ba6d20b5f6b6df4784072be1e",
-        "redundancy_bytes": 27163,
-        "logical_bytes": 58510,
-        "logical_overhead_vs_no_protection": 0.8665263023574824,
+        "semantic_digest": "004a0e90334645718b57102bf19bcb570c766839e74d2826658b0d75a2c02fa9",
+        "redundancy_bytes": 27161,
+        "logical_bytes": 58506,
+        "logical_overhead_vs_no_protection": 0.8665177859307704,
         "database_overhead_vs_no_protection": 0.0
       },
       {
         "index": "plain",
         "protection": "complement",
         "events": 56,
-        "payload_bytes": 27163,
-        "backup_bytes": 27163,
+        "payload_bytes": 27161,
+        "backup_bytes": 27161,
         "route_key_bytes": 4184,
         "database_bytes": 36864,
-        "semantic_digest": "8d12163d88585d702057c64f01262bc57941d52ba6d20b5f6b6df4784072be1e",
-        "redundancy_bytes": 27163,
-        "logical_bytes": 58510,
-        "logical_overhead_vs_no_protection": 0.8665263023574824,
+        "semantic_digest": "004a0e90334645718b57102bf19bcb570c766839e74d2826658b0d75a2c02fa9",
+        "redundancy_bytes": 27161,
+        "logical_bytes": 58506,
+        "logical_overhead_vs_no_protection": 0.8665177859307704,
         "database_overhead_vs_no_protection": 0.0
       },
       {
         "index": "complement",
         "protection": "none",
         "events": 56,
-        "payload_bytes": 27163,
+        "payload_bytes": 27161,
         "backup_bytes": 0,
         "route_key_bytes": 16736,
         "database_bytes": 36864,
-        "semantic_digest": "8d12163d88585d702057c64f01262bc57941d52ba6d20b5f6b6df4784072be1e",
+        "semantic_digest": "004a0e90334645718b57102bf19bcb570c766839e74d2826658b0d75a2c02fa9",
         "redundancy_bytes": 0,
-        "logical_bytes": 43899,
-        "logical_overhead_vs_no_protection": 0.4004210929275529,
+        "logical_bytes": 43897,
+        "logical_overhead_vs_no_protection": 0.4004466422076886,
         "database_overhead_vs_no_protection": 0.0
       },
       {
         "index": "complement",
         "protection": "copy",
         "events": 56,
-        "payload_bytes": 27163,
-        "backup_bytes": 27163,
+        "payload_bytes": 27161,
+        "backup_bytes": 27161,
         "route_key_bytes": 16736,
         "database_bytes": 45056,
-        "semantic_digest": "8d12163d88585d702057c64f01262bc57941d52ba6d20b5f6b6df4784072be1e",
-        "redundancy_bytes": 27163,
-        "logical_bytes": 71062,
-        "logical_overhead_vs_no_protection": 1.2669473952850352,
+        "semantic_digest": "004a0e90334645718b57102bf19bcb570c766839e74d2826658b0d75a2c02fa9",
+        "redundancy_bytes": 27161,
+        "logical_bytes": 71058,
+        "logical_overhead_vs_no_protection": 1.266964428138459,
         "database_overhead_vs_no_protection": 0.2222222222222222
       },
       {
         "index": "complement",
         "protection": "complement",
         "events": 56,
-        "payload_bytes": 27163,
-        "backup_bytes": 27163,
+        "payload_bytes": 27161,
+        "backup_bytes": 27161,
         "route_key_bytes": 16736,
         "database_bytes": 45056,
-        "semantic_digest": "8d12163d88585d702057c64f01262bc57941d52ba6d20b5f6b6df4784072be1e",
-        "redundancy_bytes": 27163,
-        "logical_bytes": 71062,
-        "logical_overhead_vs_no_protection": 1.2669473952850352,
+        "semantic_digest": "004a0e90334645718b57102bf19bcb570c766839e74d2826658b0d75a2c02fa9",
+        "redundancy_bytes": 27161,
+        "logical_bytes": 71058,
+        "logical_overhead_vs_no_protection": 1.266964428138459,
         "database_overhead_vs_no_protection": 0.2222222222222222
       }
     ],
     "semantic_identical": true,
     "main_l2_extractor_digest_matches_fairness": true,
-    "main_l2_extractor_digest": "8d12163d88585d702057c64f01262bc57941d52ba6d20b5f6b6df4784072be1e",
+    "main_l2_extractor_digest": "004a0e90334645718b57102bf19bcb570c766839e74d2826658b0d75a2c02fa9",
     "semantic_digests": {
-      "plain/none": "8d12163d88585d702057c64f01262bc57941d52ba6d20b5f6b6df4784072be1e",
-      "plain/copy": "8d12163d88585d702057c64f01262bc57941d52ba6d20b5f6b6df4784072be1e",
-      "plain/complement": "8d12163d88585d702057c64f01262bc57941d52ba6d20b5f6b6df4784072be1e",
-      "complement/none": "8d12163d88585d702057c64f01262bc57941d52ba6d20b5f6b6df4784072be1e",
-      "complement/copy": "8d12163d88585d702057c64f01262bc57941d52ba6d20b5f6b6df4784072be1e",
-      "complement/complement": "8d12163d88585d702057c64f01262bc57941d52ba6d20b5f6b6df4784072be1e"
+      "plain/none": "004a0e90334645718b57102bf19bcb570c766839e74d2826658b0d75a2c02fa9",
+      "plain/copy": "004a0e90334645718b57102bf19bcb570c766839e74d2826658b0d75a2c02fa9",
+      "plain/complement": "004a0e90334645718b57102bf19bcb570c766839e74d2826658b0d75a2c02fa9",
+      "complement/none": "004a0e90334645718b57102bf19bcb570c766839e74d2826658b0d75a2c02fa9",
+      "complement/copy": "004a0e90334645718b57102bf19bcb570c766839e74d2826658b0d75a2c02fa9",
+      "complement/complement": "004a0e90334645718b57102bf19bcb570c766839e74d2826658b0d75a2c02fa9"
     },
     "equal_redundancy_bytes": true,
     "redundancy_bytes_per_config": {
       "plain/none": 0,
-      "plain/copy": 27163,
-      "plain/complement": 27163,
+      "plain/copy": 27161,
+      "plain/complement": 27161,
       "complement/none": 0,
-      "complement/copy": 27163,
-      "complement/complement": 27163
+      "complement/copy": 27161,
+      "complement/complement": 27161
     },
     "index_route_key_byte_ratio_complement_over_plain": 4.0,
     "logical_bytes_note": "logical_bytes = payload 表字节 + backup 副本字节 + route 键字节的实测合计；与 SQLite 页对齐后的 database_bytes 分开报告。",

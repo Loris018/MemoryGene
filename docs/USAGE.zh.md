@@ -55,7 +55,7 @@ python3 -m venv .venv
 
 - `--source` 必须为用户原话，不得概括或编造；`--value` 不应包含原话中没有的信息，否则将返回 `unpaired_value` 提示。
 - `--certainty`：仅直接、明确的陈述使用 `explicit`；"也喜欢""还不错""可能""好像"等使用 `uncertain`；模型推断使用 `inferred`。
-- `--intent`：默认为 `assert`；仅当用户明确改变（"现在最喜欢……""改成……"）时使用 `change` 或 `correct`。
+- `--intent`：默认为 `assert`；仅当用户明确改变（"现在最喜欢……""改成……"）时使用 `change` 或 `correct`；"X 也不错"使用 `supplement`（只作为证据保留）；用户明确撤回（"我不再喜欢玫瑰了"）时使用 `retract`，`--value` 填被撤回的当前值。
 - 闲聊与一次性内容无需写入；长期记忆的 `--importance` 低于 0.5 时将被丢弃。
 
 返回结果中 `result.status` 的含义：
@@ -88,6 +88,10 @@ python3 -m venv .venv
 # 带有效期的信息
 "$MG" remember --topic promotion.code --value "FICTIONAL-CODE" \
   --source "优惠码是 FICTIONAL-CODE，11 月 1 日前有效。" --expires-at 2026-11-01T00:00:00Z
+
+# 用户撤回当前值（当前值变为空，历史保留）
+"$MG" remember --topic preference.favorite_flower --value "栀子花" \
+  --source "我不再喜欢栀子花了。" --certainty explicit --intent retract
 
 # 遗忘某一主题（含全部历史）
 "$MG" forget --topic preference.favorite_flower
