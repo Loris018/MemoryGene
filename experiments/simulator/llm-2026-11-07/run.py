@@ -32,6 +32,7 @@ PROJECT = HERE.parents[2]
 sys.path[:0] = [str(PROJECT / "src"), str(PROJECT / "experiments"), str(HERE.parent)]
 
 import baselines_eval as b  # noqa: E402
+import evaluate as sim_eval  # noqa: E402
 import simulate  # noqa: E402
 
 from memorygene import Candidate  # noqa: E402
@@ -221,6 +222,20 @@ def score_condition(label, data):
             "policies": by_policy}
 
 
+def rule_contrast():
+    zh = [t for t in timelines() if t["lang"] == "zh"]
+    out = {"timelines": len(zh)}
+    for p in POLICIES:
+        out[p] = {}
+        for convention in ("confirm", "latest"):
+            ok = 0
+            for t in zh:
+                stream, _ = sim_eval.stream_for(t, sim_eval.rule_candidates(t), p)
+                ok += b.run(p, stream)["current"] == t["gold"][convention]["current"]
+            out[p][convention] = ok
+    return out
+
+
 def score():
     para, fallbacks = paraphrased_timelines()
     result = {
@@ -229,6 +244,9 @@ def score():
                        "fallbacks": fallbacks},
         "template": score_condition("template", timelines()),
         "paraphrased": score_condition("paraphrased", para),
+        # Contrast added after the run: the rule-based extractor on the same
+        # Chinese template timelines (no model call).
+        "rule_extractor_zh_template": rule_contrast(),
         "examples": [{"id": t["id"], "texts": [e["text"] for e in t["events"]]} for t in para[:6]],
     }
     (HERE / "results.json").write_text(json.dumps(result, ensure_ascii=False, indent=1) + "\n",

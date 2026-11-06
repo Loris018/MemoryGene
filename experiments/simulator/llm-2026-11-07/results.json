@@ -1,0 +1,188 @@
+{
+ "sample": {
+  "n": 120,
+  "seed": 20261107
+ },
+ "paraphrase": {
+  "utterances": 394,
+  "fallbacks": {
+   "hedge_missing": 13,
+   "negation_missing": 2
+  }
+ },
+ "template": {
+  "timelines": 120,
+  "labels": {
+   "messages": 394,
+   "returned": 394,
+   "decision": 394,
+   "intent": 296,
+   "certainty": 322,
+   "value": 329,
+   "invalid": 0
+  },
+  "both_write": 329,
+  "intent_confusion": {
+   "assert->assert": 198,
+   "change->change": 46,
+   "assert->change": 28,
+   "supplement->supplement": 24,
+   "retract->retract": 16,
+   "correct->correct": 12,
+   "assert->supplement": 5
+  },
+  "policies": {
+   "overwrite": {
+    "confirm": 55,
+    "latest": 82
+   },
+   "mem0_style": {
+    "confirm": 66,
+    "latest": 93
+   },
+   "graphiti_style": {
+    "confirm": 66,
+    "latest": 93
+   },
+   "latest_explicit": {
+    "confirm": 84,
+    "latest": 112
+   },
+   "memorygene": {
+    "confirm": 110,
+    "latest": 99
+   },
+   "memorygene_latest": {
+    "confirm": 90,
+    "latest": 119
+   }
+  }
+ },
+ "paraphrased": {
+  "timelines": 120,
+  "labels": {
+   "messages": 394,
+   "returned": 394,
+   "decision": 394,
+   "intent": 294,
+   "certainty": 318,
+   "value": 329,
+   "invalid": 0
+  },
+  "both_write": 329,
+  "intent_confusion": {
+   "assert->assert": 197,
+   "change->change": 45,
+   "assert->change": 28,
+   "supplement->supplement": 24,
+   "retract->retract": 16,
+   "correct->correct": 12,
+   "assert->supplement": 4,
+   "assert->correct": 2,
+   "change->assert": 1
+  },
+  "policies": {
+   "overwrite": {
+    "confirm": 55,
+    "latest": 82
+   },
+   "mem0_style": {
+    "confirm": 66,
+    "latest": 93
+   },
+   "graphiti_style": {
+    "confirm": 66,
+    "latest": 93
+   },
+   "latest_explicit": {
+    "confirm": 86,
+    "latest": 116
+   },
+   "memorygene": {
+    "confirm": 104,
+    "latest": 97
+   },
+   "memorygene_latest": {
+    "confirm": 87,
+    "latest": 118
+   }
+  }
+ },
+ "rule_extractor_zh_template": {
+  "timelines": 60,
+  "overwrite": {
+   "confirm": 22,
+   "latest": 27
+  },
+  "mem0_style": {
+   "confirm": 22,
+   "latest": 27
+  },
+  "graphiti_style": {
+   "confirm": 22,
+   "latest": 27
+  },
+  "latest_explicit": {
+   "confirm": 25,
+   "latest": 29
+  },
+  "memorygene": {
+   "confirm": 31,
+   "latest": 23
+  },
+  "memorygene_latest": {
+   "confirm": 25,
+   "latest": 29
+  }
+ },
+ "examples": [
+  {
+   "id": "sim-zh-0000",
+   "texts": [
+    "我最喜欢的运动就是攀岩。",
+    "游泳我也挺喜欢的。",
+    "要说最喜欢的，还是攀岩。",
+    "游泳是我最爱的运动。",
+    "今天路过一家店，看见里头摆了好多乒乓球。"
+   ]
+  },
+  {
+   "id": "sim-en-0001",
+   "texts": [
+    "My favourite colour is teal.",
+    "My favourite colour is blue.",
+    "I passed a shop today that had loads of orange stuff in it."
+   ]
+  },
+  {
+   "id": "sim-zh-0002",
+   "texts": [
+    "寿司是我最爱吃的。",
+    "我室友最喜欢吃煲仔饭。"
+   ]
+  },
+  {
+   "id": "sim-en-0003",
+   "texts": [
+    "My favourite food is hot pot.",
+    "My favourite is sushi."
+   ]
+  },
+  {
+   "id": "sim-zh-0004",
+   "texts": [
+    "向日葵是我最喜欢的花。",
+    "百合是我朋友的最爱。"
+   ]
+  },
+  {
+   "id": "sim-en-0005",
+   "texts": [
+    "Beijing is where I live.",
+    "Shanghai is home to me.",
+    "I've just moved to Hangzhou.",
+    "Last week I was in Chengdu on a work trip."
+   ]
+  }
+ ]
+}
