@@ -84,10 +84,10 @@ def prompt_for(item):
         "{{SESSIONS}}", "\n\n".join(blocks))
 
 
-def extract(items):
-    RAW.mkdir(exist_ok=True)
+def extract(items, raw=RAW):
+    raw.mkdir(exist_ok=True)
     for n, item in enumerate(items, 1):
-        out = RAW / f"{item['question_id']}.json"
+        out = raw / f"{item['question_id']}.json"
         if out.is_file():
             print(f"[{n}/{len(items)}] {item['question_id']} cached", flush=True)
             continue
@@ -153,13 +153,13 @@ def candidates(item, rows):
     return out, dropped, verbatim
 
 
-def score(items):
+def score(items, raw=RAW, out=HERE / "results.json"):
     rows_out, totals = [], {p: 0 for p in POLICIES}
     by_kind = {}
     stats = {"parsed": 0, "candidates": 0, "dropped": 0, "verbatim_source": 0, "questions": 0}
     for item in items:
-        raw = json.loads((RAW / f"{item['question_id']}.json").read_text("utf-8"))
-        rows = parse(raw["final"])
+        record = json.loads((raw / f"{item['question_id']}.json").read_text("utf-8"))
+        rows = parse(record["final"])
         stats["parsed"] += rows is not None
         cands, dropped, verbatim = candidates(item, rows or [])
         stats["candidates"] += len(cands)
@@ -197,7 +197,7 @@ def score(items):
     kinds = {k: sum(r["kind"] == k for r in rows_out) for k in by_kind}
     result = {"sample": len(items), "kinds": kinds, "correct": totals, "correct_by_kind": by_kind,
               "extraction": stats, "rows": rows_out}
-    (HERE / "results.json").write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n",
+    out.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n",
                                        encoding="utf-8")
     print(json.dumps({k: v for k, v in result.items() if k != "rows"}, ensure_ascii=False, indent=2))
 
