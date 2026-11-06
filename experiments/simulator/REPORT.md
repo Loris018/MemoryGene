@@ -28,14 +28,16 @@ The first run, with perfect labels, revealed two gaps that the hand-written sets
 
 Correct final current value out of 400 timelines (perfect labels) or 200 Chinese timelines (rule-based extractor).
 
+Template fix (2026-11-07): one Chinese city template ("我现在住在…") contained the change word "现在" and was also used for unmarked changes. It was replaced and both seeds were re-run; the perfect-label numbers did not change, and the rule-extractor numbers below are the corrected ones.
+
 | Policy | Perfect labels, `confirm` | Perfect labels, `latest` | Rule extractor, `confirm` | Rule extractor, `latest` |
 | --- | --- | --- | --- | --- |
-| overwrite | 190 | 259 | 62 | 78 |
-| mem0_style | 215 | 284 | 62 | 78 |
-| graphiti_style | 215 | 284 | 62 | 78 |
-| latest_explicit | 278 | 357 | 75 | 92 |
-| memorygene | **400** | 308 | **97** | 84 |
-| memorygene_latest | 308 | **400** | 78 | **99** |
+| overwrite | 190 | 259 | 60 | 74 |
+| mem0_style | 215 | 284 | 60 | 74 |
+| graphiti_style | 215 | 284 | 60 | 74 |
+| latest_explicit | 278 | 357 | 72 | 87 |
+| memorygene | **400** | 308 | **94** | 79 |
+| memorygene_latest | 308 | **400** | 75 | **94** |
 
 Causes of error with perfect labels: the baselines fail on hesitations (about 77 cases for those without a certainty filter), on supplements (about 31) and on retractions (`overwrite` only). The other differences come from unmarked changes, which are counted against the `confirm` gold.
 

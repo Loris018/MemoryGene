@@ -80,99 +80,98 @@
     "summary": {
       "overwrite": {
         "timelines": 200,
-        "confirm_current": 62,
-        "confirm_history": 29,
-        "latest_current": 78,
-        "latest_history": 27
+        "confirm_current": 60,
+        "confirm_history": 26,
+        "latest_current": 74,
+        "latest_history": 24
       },
       "mem0_style": {
         "timelines": 200,
-        "confirm_current": 62,
-        "confirm_history": 40,
-        "latest_current": 78,
-        "latest_history": 44
+        "confirm_current": 60,
+        "confirm_history": 36,
+        "latest_current": 74,
+        "latest_history": 38
       },
       "graphiti_style": {
         "timelines": 200,
-        "confirm_current": 62,
-        "confirm_history": 40,
-        "latest_current": 78,
-        "latest_history": 44
+        "confirm_current": 60,
+        "confirm_history": 36,
+        "latest_current": 74,
+        "latest_history": 38
       },
       "latest_explicit": {
         "timelines": 200,
-        "confirm_current": 75,
-        "confirm_history": 55,
-        "latest_current": 92,
-        "latest_history": 59
+        "confirm_current": 72,
+        "confirm_history": 50,
+        "latest_current": 87,
+        "latest_history": 52
       },
       "memorygene": {
         "timelines": 200,
-        "confirm_current": 97,
-        "confirm_history": 81,
-        "latest_current": 84,
-        "latest_history": 63
+        "confirm_current": 94,
+        "confirm_history": 76,
+        "latest_current": 79,
+        "latest_history": 56
       },
       "memorygene_latest": {
         "timelines": 200,
-        "confirm_current": 78,
-        "confirm_history": 60,
-        "latest_current": 99,
-        "latest_history": 66
+        "confirm_current": 75,
+        "confirm_history": 55,
+        "latest_current": 94,
+        "latest_history": 59
       }
     },
     "error_causes_vs_confirm_gold": {
       "overwrite": {
-        "assert": 64,
-        "change_marked": 19,
-        "hesitate": 16,
-        "change_unmarked": 15,
-        "retract": 12,
+        "assert": 73,
+        "change_marked": 18,
+        "hesitate": 15,
+        "change_unmarked": 11,
+        "retract": 11,
         "mention": 6,
         "correct": 3,
         "supplement": 3
       },
       "mem0_style": {
-        "assert": 64,
-        "change_marked": 19,
-        "hesitate": 16,
-        "change_unmarked": 15,
-        "retract": 12,
+        "assert": 73,
+        "change_marked": 18,
+        "hesitate": 15,
+        "change_unmarked": 11,
+        "retract": 11,
         "mention": 6,
         "correct": 3,
         "supplement": 3
       },
       "graphiti_style": {
-        "assert": 64,
-        "change_marked": 19,
-        "hesitate": 16,
-        "change_unmarked": 15,
-        "retract": 12,
+        "assert": 73,
+        "change_marked": 18,
+        "hesitate": 15,
+        "change_unmarked": 11,
+        "retract": 11,
         "mention": 6,
         "correct": 3,
         "supplement": 3
       },
       "latest_explicit": {
-        "assert": 62,
-        "change_marked": 20,
-        "change_unmarked": 17,
-        "retract": 13,
+        "assert": 71,
+        "change_marked": 19,
+        "change_unmarked": 13,
+        "retract": 12,
         "mention": 6,
         "correct": 4,
         "supplement": 3
       },
       "memorygene": {
-        "assert": 59,
-        "change_marked": 22,
-        "retract": 15,
-        "correct": 4,
-        "change_unmarked": 3
+        "assert": 69,
+        "change_marked": 19,
+        "retract": 14,
+        "correct": 4
       },
       "memorygene_latest": {
-        "assert": 61,
-        "change_marked": 20,
-        "change_unmarked": 17,
-        "retract": 14,
+        "assert": 70,
+        "change_marked": 19,
+        "change_unmarked": 13,
+        "retract": 13,
         "mention": 6,
         "correct": 4
       }
