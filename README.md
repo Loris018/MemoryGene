@@ -60,6 +60,7 @@ All data used here is fictional. Each experiment can be reproduced from this rep
 | Same inputs under re-implemented Mem0-style, Graphiti-style and latest-explicit policies (100 cases) | the certainty filter explains most differences; against the strongest baseline MemoryGene differs in 7 cases: 4 supplements kept from replacing a favourite, 3 unmarked changes held for one confirmation question | [BASELINES](experiments/BASELINES.md) |
 | LongMemEval knowledge-update, first 20 questions (external benchmark, small sample) | MemoryGene 14/20 without confirmation vs 16/20 for the best baselines; 16/20 with one confirmation question per detected change (2 questions in total), and 16/20 with no questions in the optional `latest` mode (designed after seeing this sample) | [LongMemEval](experiments/longmemeval-ku-2026-11-02/REPORT.md) |
 | Simulated timelines with gold by construction (400 per seed, 10 event types, zh/en) | revealed two rule gaps (retraction, supplements filling an empty slot), now fixed; on a fresh seed MemoryGene matches the gold in 400/400 with perfect labels; the rule-based extractor gets about half right | [simulator](experiments/simulator/REPORT.md) |
+| Simulated timelines paraphrased by an LLM, then labelled by an independent LLM extractor (120 timelines, fresh seed) | `latest` mode 118/120 on paraphrased text vs 116 for the strongest baseline; the extractor labelled a third of unmarked changes as changes, which undermines the default `confirm` mode; paraphrasing barely hurt LLM extraction | [LLM run](experiments/simulator/llm-2026-11-07/REPORT.md) |
 | Cross-session use inside a real agent host | write, read in a new session, revise and forget all work | [integration](docs/DSH-INTEGRATION.md) |
 | Unit and integration tests | 187 pass on Python 3.10 to 3.14 | CI |
 
@@ -72,7 +73,7 @@ Several of the findings below are negative. They are documented here because the
 - **Selective memory is not yet learned.** Importance is still supplied by the calling model. Repeated low-importance remarks are dropped and leave no trace.
 - **The conservative update rule has a cost when no one confirms.** On a 20-question LongMemEval sample, MemoryGene scored 14/20 without confirmation and 16/20 with it, the same as the best baseline. Extractors often label real updates as plain statements, and they do so inconsistently.
 - **Matching is lexical.** It cannot know that tea is a kind of drink. Equal values can be mistaken for the same attribute.
-- **Extraction is the bottleneck.** On simulated timelines the rule-based extractor gets about half of the cases right whatever the policy; template utterances are also easier than real speech.
+- **Extraction is the bottleneck.** On simulated timelines the rule-based extractor gets about half of the cases right whatever the policy. An LLM extractor does much better, but it labels intent inconsistently, and an LLM paraphraser tends to erase hedges.
 - **The data is small and fictional.** Labels were written by the project authors, and no user study has been conducted yet. These results show that the prototype behaves as designed. The comparison with other designs is at the policy level only (no real Mem0 or Graphiti runs), and the external benchmark run so far is a 20-question sample.
 
 ## Getting started
@@ -140,7 +141,7 @@ MemoryGene 是面向大语言模型助手的长期记忆研究项目，研究以
 - 再巩固支持：写入前定位相关的已有记忆，必要时提示助手向用户确认，其余情况下不打扰用户。
 - 值与原话的"双链配对"检查：识别经由正常写入流程产生、校验和无法发现的语义错误。
 
-项目同时记录了负面结果：最初的"互补编码"与"互补备份"与普通存储完全等价，未带来额外收益；预先登记的宽松配对规则不及最简单的子串匹配。与 Mem0 式、Graphiti 式更新策略的对比显示，差异主要来自确定性过滤；与最强基线相比，MemoryGene 仅在 100 个用例中的 7 个上结论不同。在 LongMemEval 知识更新题的 20 题小样本上，不向用户确认时 MemoryGene 得分 14/20，低于最佳基线的 16/20；每次检测到变化时确认一次（共 2 次）可达到 16/20。为缓解数据不足，项目加入了场景模拟器：自动生成带标准答案的虚构对话时间线，标准答案由事件语义直接推出、不依赖被测系统；它发现并促成修复了两处规则缺陷（无法表达撤回、补充陈述会填入空槽位）。数据规模仍然较小，抽取环节是目前的主要瓶颈。
+项目同时记录了负面结果：最初的"互补编码"与"互补备份"与普通存储完全等价，未带来额外收益；预先登记的宽松配对规则不及最简单的子串匹配。与 Mem0 式、Graphiti 式更新策略的对比显示，差异主要来自确定性过滤；与最强基线相比，MemoryGene 仅在 100 个用例中的 7 个上结论不同。在 LongMemEval 知识更新题的 20 题小样本上，不向用户确认时 MemoryGene 得分 14/20，低于最佳基线的 16/20；每次检测到变化时确认一次（共 2 次）可达到 16/20。为缓解数据不足，项目加入了场景模拟器：自动生成带标准答案的虚构对话时间线，标准答案由事件语义直接推出、不依赖被测系统；它发现并促成修复了两处规则缺陷（无法表达撤回、补充陈述会填入空槽位）。在经大模型改写、再由独立大模型抽取的 120 条模拟时间线上，`latest` 模式答对 118/120，高于最强基线的 116/120；抽取模型把约三分之一“没标明的改口”标成了“改变”，使默认的确认模式难以成立，改写模型则倾向于抹去犹豫语气。数据规模仍然较小，抽取环节是目前的主要瓶颈。
 
 ## License
 
