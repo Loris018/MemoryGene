@@ -1,0 +1,5 @@
+{
+ "exit": 0,
+ "final": "[\n  {\"conversation\": \"sim-en-0059\", \"value\": \"coffee\", \"sure\": true},\n  {\"conversation\": \"sim-zh-0060\", \"value\": \"跑步\", \"sure\": true},\n  {\"conversation\": \"sim-en-0061\", \"value\": \"blue\", \"sure\": true},\n  {\"conversation\": \"sim-en-0063\", \"value\": \"badminton\", \"sure\": true},\n  {\"conversation\": \"sim-en-0065\", \"value\": \"green tea\", \"sure\": true},\n  {\"conversation\": \"sim-zh-0066\", \"value\": \"椰子水\", \"sure\": true},\n  {\"conversation\": \"sim-en-0067\", \"value\": \"Beijing\", \"sure\": true},\n  {\"conversation\": \"sim-en-0069\", \"value\": null, \"sure\": false},\n  {\"conversation\": \"sim-zh-0070\", \"value\": null, \"sure\": false},\n  {\"conversation\": \"sim-en-0071\", \"value\": \"tacos\", \"sure\": true}\n]",
+ "seconds": 3.2
+}

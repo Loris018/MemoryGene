@@ -1,0 +1,61 @@
+{
+ "timelines": 50,
+ "rounds": {
+  "A1": {
+   "value_wrong": 6,
+   "hedge_or_supplement_promoted": 6,
+   "unsupported_value": 0,
+   "certainty_wrong": 1,
+   "history_lost": 2
+  },
+  "A2": {
+   "value_wrong": 6,
+   "hedge_or_supplement_promoted": 6,
+   "unsupported_value": 0,
+   "certainty_wrong": 1,
+   "history_lost": 2
+  },
+  "A3": {
+   "value_wrong": 6,
+   "hedge_or_supplement_promoted": 6,
+   "unsupported_value": 0,
+   "certainty_wrong": 1,
+   "history_lost": 2
+  },
+  "B1": {
+   "value_wrong": 6,
+   "hedge_or_supplement_promoted": 6,
+   "unsupported_value": 0,
+   "certainty_wrong": 1,
+   "history_lost": 2
+  },
+  "B2": {
+   "value_wrong": 6,
+   "hedge_or_supplement_promoted": 6,
+   "unsupported_value": 0,
+   "certainty_wrong": 1,
+   "history_lost": 2
+  },
+  "B3": {
+   "value_wrong": 6,
+   "hedge_or_supplement_promoted": 6,
+   "unsupported_value": 0,
+   "certainty_wrong": 1,
+   "history_lost": 2
+  }
+ },
+ "readers": {
+  "summary_A": {
+   "value_correct": 44,
+   "value_and_sureness_correct": 43
+  },
+  "summary_B": {
+   "value_correct": 44,
+   "value_and_sureness_correct": 43
+  },
+  "summary_A_plus_source": {
+   "value_correct": 44,
+   "value_and_sureness_correct": 43
+  }
+ }
+}

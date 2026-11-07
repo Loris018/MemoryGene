@@ -1,0 +1,5 @@
+{
+ "exit": 0,
+ "final": "[{\"conversation\":\"sim-zh-0034\",\"value\":\"攀岩\",\"sure\":true},{\"conversation\":\"sim-en-0035\",\"value\":null,\"sure\":false},{\"conversation\":\"sim-zh-0036\",\"value\":\"绣球花\",\"sure\":true},{\"conversation\":\"sim-en-0039\",\"value\":\"dumplings\",\"sure\":true},{\"conversation\":\"sim-zh-0040\",\"value\":\"饺子\",\"sure\":true},{\"conversation\":\"sim-en-0041\",\"value\":\"coffee\",\"sure\":true},{\"conversation\":\"sim-zh-0042\",\"value\":\"椰子水\",\"sure\":true},{\"conversation\":\"sim-en-0043\",\"value\":\"cycling\",\"sure\":true},{\"conversation\":\"sim-en-0045\",\"value\":\"coffee\",\"sure\":false},{\"conversation\":\"sim-zh-0046\",\"value\":\"豆浆\",\"sure\":true}]",
+ "seconds": 3.3
+}

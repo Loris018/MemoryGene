@@ -1,0 +1,5 @@
+{
+ "exit": 0,
+ "final": "[\n  {\n    \"conversation\": \"sim-zh-0034\",\n    \"value\": \"攀岩\",\n    \"sure\": true\n  },\n  {\n    \"conversation\": \"sim-en-0035\",\n    \"value\": null,\n    \"sure\": false\n  },\n  {\n    \"conversation\": \"sim-zh-0036\",\n    \"value\": \"绣球花\",\n    \"sure\": true\n  },\n  {\n    \"conversation\": \"sim-en-0039\",\n    \"value\": \"dumplings\",\n    \"sure\": true\n  },\n  {\n    \"conversation\": \"sim-zh-0040\",\n    \"value\": \"饺子\",\n    \"sure\": true\n  },\n  {\n    \"conversation\": \"sim-en-0041\",\n    \"value\": \"coffee\",\n    \"sure\": true\n  },\n  {\n    \"conversation\": \"sim-zh-0042\",\n    \"value\": \"椰子水\",\n    \"sure\": true\n  },\n  {\n    \"conversation\": \"sim-en-0043\",\n    \"value\": \"cycling\",\n    \"sure\": true\n  },\n  {\n    \"conversation\": \"sim-en-0045\",\n    \"value\": \"coffee\",\n    \"sure\": false\n  },\n  {\n    \"conversation\": \"sim-zh-0046\",\n    \"value\": \"豆浆\",\n    \"sure\": true\n  }\n]",
+ "seconds": 5.4
+}
