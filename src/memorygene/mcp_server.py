@@ -58,6 +58,11 @@ TOOLS = [
          "consent_evidence": {"type": "string", "description": "the user's own words allowing it to be kept"},
      },
      "required": ["topic", "value", "source"]},
+    {"name": "memory_profile", "command": "profile",
+     "description": "The user's profile: current memories grouped into basic facts, preferences, "
+                    "recent situation (expires after 30 days unless mentioned again), life events "
+                    "and projects, each with the user's original words.",
+     "properties": {}, "required": []},
     {"name": "memory_review", "command": "review",
      "description": "Self-check when the user asks: unresolved evidence, duplicate-looking topics, "
                     "values not supported by the user's words.", "properties": {}, "required": []},

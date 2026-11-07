@@ -37,6 +37,10 @@ Store only the user's own, lasting information (preferences, profile facts, ongo
 
 Read `result.status` before telling the user anything was saved: only `confirmed` changed the current value. Follow `advice` when present (for example `confirm_change`: ask once whether this is a change, then write again with `--intent change --resolves <evidence_id>`).
 
+## Profile
+
+Prefix topics by category: `profile.*` basic facts, `preference.*` likes, `recent.*` the user's recent situation (worries, mood, what they are busy with; expires after 30 days unless mentioned again), `life.*` personal experiences, `project.*` their projects. `"$MG" profile` lists the current profile with the user's words.
+
 ## Forgetting and checking
 
 - `"$MG" forget --topic <topic>` only when the user asks to forget it.

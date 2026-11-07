@@ -40,6 +40,10 @@ intent=supplement 在任何情况下都不直接成为当前值，包括空槽�
 
 scope=persistent 禁止 session 值；scope=session 必须携带 session ID。namespace、subject 由可信宿主提供；它们是逻辑分区，不是登录鉴权。API 调用者能读取整个文件，不应直接暴露成不受信任的网络服务。
 
+## 续期与用户画像
+
+相同值再次写入时，若新证据的到期时间晚于当前版本，记为一次续期：生成同值的新确认版本，事件带 `renewal: true`；否则仍为 duplicate。适配器对 `recent.*` 主题默认设置 30 天到期，因此用户再次提到近期状态时会自动续期。`profile` 按主题前缀把当前记忆分为 basic / preferences / recent / life / projects / other，只读，不改变记忆。
+
 ## 更新模式
 
 `ingest(..., update="confirm")` 为默认值：当前值不同且未声明改变（intent=assert）时进入 conflict。`update="latest"` 用于无人确认的场景：证据时间不早于当前值的明确陈述直接成为当前值，事件记录 `policy: "latest"`，`advise` 返回 `auto_updated`。补充（supplement）、不确定或推断的陈述、证据时间更早的不同值，在两种模式下处理方式相同。该模式不写入数据库配置，按次调用指定；适配器支持 `--update latest` 或配置项 `"update_policy": "latest"`。

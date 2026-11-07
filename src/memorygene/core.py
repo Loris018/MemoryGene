@@ -330,7 +330,7 @@ class MemoryStore:
                 if head and head["status"] == "confirmed" and self._live(head, clock)
                 else None
             )
-            accepted_by_policy = False
+            accepted_by_policy = renewal = False
             if c.intent == "retract":
                 # Withdraws the current value; it must name that value.
                 if resolves is not None:
@@ -346,7 +346,14 @@ class MemoryStore:
             elif c.certainty != "explicit":
                 status = "pending"
             elif live and live["candidate"]["value"] == c.value:
-                status = "duplicate"
+                old_expiry = live["candidate"]["expires_at"]
+                if (old_expiry is not None and c.expires_at is not None
+                        and instant(c.expires_at) > instant(old_expiry)):
+                    # Restating a time-limited fact renews it (a new version
+                    # with the same value and the later expiry).
+                    status, renewal = "confirmed", True
+                else:
+                    status = "duplicate"
             elif (
                 head
                 and (c.value != head["candidate"]["value"] or head["status"] == "retracted")
@@ -378,6 +385,8 @@ class MemoryStore:
             if accepted_by_policy:
                 # Recorded so history shows the change was not stated as one.
                 event["policy"] = "latest"
+            if renewal:
+                event["renewal"] = True
             payload = canonical(event).encode()
             backup = (
                 None

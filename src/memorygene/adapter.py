@@ -19,11 +19,12 @@ import sqlite3
 import sys
 import unicodedata
 import uuid
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 from . import __version__, tasks
-from .core import Candidate, MemoryStore, canonical
+from .core import Candidate, MemoryStore, canonical, instant
+from .profile import RECENT_DAYS, profile
 from .recall import recall
 from .reconsolidate import advise, locate, review
 from .strands import pairing
@@ -100,6 +101,9 @@ def resolve_settings(args):
     for label, value in (("namespace", namespace), ("subject", subject)):
         if not isinstance(value, str) or not value.strip():
             raise ValueError(f"{label} must be nonempty text")
+    recent_days = config.get("recent_days", RECENT_DAYS)
+    if type(recent_days) is not int or not 1 <= recent_days <= 365:
+        raise ValueError("recent_days in the configuration must be an integer from 1 to 365")
     update_policy = config.get("update_policy", "confirm")
     if update_policy not in {"confirm", "latest"}:
         raise ValueError("update_policy in the configuration must be confirm or latest")
@@ -110,6 +114,7 @@ def resolve_settings(args):
         "config": str(config_path) if config_path else None,
         "env_session": os.environ.get("DSH_SESSION_ID", ""),
         "update_policy": update_policy,
+        "recent_days": recent_days,
     }
 
 
@@ -235,6 +240,11 @@ def cmd_remember(args, settings):
         raise ValueError(f"consent evidence exceeds {MAX_SOURCE_CHARS} characters")
     if sensitive and consent:
         source = f"{source}【用户同意原话：{consent_evidence}】"
+    expires_at = args.expires_at
+    if expires_at is None and args.topic.startswith("recent."):
+        # The user's recent situation is current for a limited time; saying it
+        # again renews it.
+        expires_at = (instant(args.at or now) + timedelta(days=settings["recent_days"])).isoformat()
     candidate = Candidate(
         namespace=settings["namespace"],
         subject=settings["subject"],
@@ -247,7 +257,7 @@ def cmd_remember(args, settings):
         importance=args.importance,
         scope=args.scope,
         session=session if args.scope == "session" else "",
-        expires_at=args.expires_at,
+        expires_at=expires_at,
         sensitive=sensitive,
         consent=consent,
     )
@@ -346,6 +356,13 @@ def cmd_locate(args, settings):
         )
     return payload(command="locate", db=settings["db"], related=related,
                    note="lexical recognition cues; suggestions only, nothing was written")
+
+
+def cmd_profile(args, settings):
+    with open_store(settings, args.allow_create) as store:
+        result = profile(store, settings["namespace"], settings["subject"], now=args.now,
+                         visible_session=resolve_session(args, settings))
+    return payload(db=settings["db"], **{k: v for k, v in result.items() if k != "ok"})
 
 
 def cmd_review(args, settings):
@@ -532,6 +549,7 @@ def build_parser():
     find.add_argument("--source", default="")
     find.add_argument("--limit", type=int, default=5)
     sub.add_parser("review", help="unresolved evidence and possible duplicate slots")
+    sub.add_parser("profile", help="current memories grouped by category, with evidence")
     sub.add_parser("verify")
     repair = sub.add_parser("repair")
     repair.add_argument("--event-id", required=True)
@@ -560,6 +578,7 @@ COMMANDS = {
     "recall": cmd_recall,
     "locate": cmd_locate,
     "review": cmd_review,
+    "profile": cmd_profile,
     "verify": cmd_verify,
     "forget": cmd_forget,
     "repair": cmd_repair,
