@@ -35,6 +35,8 @@ Store only the user's own, lasting information (preferences, profile facts, ongo
 - Before inventing a new topic, run `"$MG" locate --topic <topic> --value <value> --source <words>` and reuse an existing topic for the same attribute.
 - Do not store small talk, other people's preferences, or sensitive data without the user's explicit consent (`--sensitive --consent --consent-evidence "<their words>"`).
 
+Low-importance remarks (importance below 0.5) are not stored; only an anonymous trace is kept for 30 days. If the same thing comes up on three different days, `advice` contains `recurring_low_importance`: ask the user once whether to remember it.
+
 Read `result.status` before telling the user anything was saved: only `confirmed` changed the current value. Follow `advice` when present (for example `confirm_change`: ask once whether this is a change, then write again with `--intent change --resolves <evidence_id>`).
 
 ## Profile

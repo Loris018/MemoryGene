@@ -205,10 +205,20 @@ def advise(store, candidate: Candidate, result, *, now=None, visible_session="")
       least twice, at different times; the user may be asked once.
     * ``auto_updated``: in ``update="latest"`` mode an unmarked assertion
       replaced the previous value; the agent may mention the change.
+    * ``recurring_low_importance``: a statement discarded as unimportant has now
+      come up on several different days (see ``MemoryStore._trace``).
     * ``unpaired_value``: the value does not pair with its own verbatim source
       (content not found in the evidence, or negated there); see strands.py.
     """
     status = result["status"]
+    if status == "discarded" and result.get("ask_to_remember"):
+        return [{
+            "kind": "recurring_low_importance", "topic": candidate.topic,
+            "value": candidate.value, "days": result.get("trace_days"),
+            "next": "this has come up on several different days; if it fits the conversation, "
+                    "ask the user once whether to remember it, and store it with higher "
+                    "importance only if they agree",
+        }]
     if status in {"discarded", "rejected_sensitive", "expired", "duplicate",
                   "retracted", "nothing_to_retract"}:
         return []

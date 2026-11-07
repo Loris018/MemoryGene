@@ -1,11 +1,12 @@
 """Structured policy core. Natural-language extraction is an external adapter."""
 
+import hashlib
 import json
 import math
 import sqlite3
 import unicodedata
 from dataclasses import asdict, dataclass
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 from .codec import (
@@ -43,6 +44,10 @@ def now_string() -> str:
 
 
 INTENTS = {"assert", "change", "correct", "supplement", "retract"}
+# Discarded low-importance statements leave an anonymous trace for this long;
+# a value seen on this many different days is worth asking about once.
+TRACE_DAYS = 30
+TRACE_ASK_DAYS = 3
 # Events a head may point to. A ``retracted`` head means the user withdrew the
 # value: the slot has no current value, and its history is kept.
 HEAD_STATUSES = {"confirmed", "retracted"}
@@ -151,6 +156,7 @@ class MemoryStore:
             "heads",
             "sqlite_sequence",
             "task_checkpoints",
+            "traces",
         }
         # A MemoryGene store always has the three core tables. Requiring them
         # before creating anything prevents an unrelated SQLite file from being
@@ -321,9 +327,12 @@ class MemoryStore:
             else:
                 status = None
             if status:
+                result = {"id": event_id, "status": status, "previous_id": None}
+                if status == "discarded":
+                    result.update(self._trace(route, c, clock))
                 self.db.commit()
                 # Rejected evidence is never persisted, including in a backup.
-                return {"id": event_id, "status": status, "previous_id": None}
+                return result
             head = self._head(route)
             live = (
                 head
@@ -668,6 +677,36 @@ class MemoryStore:
             self.db.rollback()
             raise
 
+    def _trace(self, route, c, clock):
+        """Keep an anonymous 30-day trace of a discarded low-importance statement.
+
+        Only hashes of the topic and of topic+value are stored, with the day the
+        statement was made: no words, no readable value. When the same value has
+        come up on TRACE_ASK_DAYS different days, the caller is told once that it
+        may be worth asking the user whether to remember it.
+        """
+        self.db.execute(
+            "CREATE TABLE IF NOT EXISTS traces (route_key TEXT NOT NULL, value_key TEXT NOT NULL, "
+            "day TEXT NOT NULL, expires TEXT NOT NULL, asked INTEGER NOT NULL DEFAULT 0, "
+            "PRIMARY KEY (value_key, day))"
+        )
+        self.db.execute("DELETE FROM traces WHERE expires <= ?", (clock.isoformat(),))
+        route_key = hashlib.sha256(route.encode()).hexdigest()
+        value_key = hashlib.sha256(canonical([route, c.value]).encode()).hexdigest()
+        day = instant(c.at).date().isoformat()
+        expires = (instant(c.at) + timedelta(days=TRACE_DAYS)).isoformat()
+        self.db.execute(
+            "INSERT OR IGNORE INTO traces(route_key, value_key, day, expires) VALUES (?,?,?,?)",
+            (route_key, value_key, day, expires),
+        )
+        days, asked = self.db.execute(
+            "SELECT COUNT(DISTINCT day), MAX(asked) FROM traces WHERE value_key=?", (value_key,)
+        ).fetchone()
+        ask = days >= TRACE_ASK_DAYS and not asked
+        if ask:
+            self.db.execute("UPDATE traces SET asked=1 WHERE value_key=?", (value_key,))
+        return {"trace_days": days, "ask_to_remember": ask}
+
     def forget(self, namespace, subject, topic, *, scope="persistent", session=""):
         route = self._route(namespace, subject, topic, scope, session)
         self.db.execute("BEGIN IMMEDIATE")
@@ -675,6 +714,11 @@ class MemoryStore:
             from .tasks import purge_dependents
 
             purge_dependents(self, route)
+            if self.db.execute(
+                "SELECT 1 FROM sqlite_master WHERE type='table' AND name='traces'"
+            ).fetchone():
+                self.db.execute("DELETE FROM traces WHERE route_key=?",
+                                (hashlib.sha256(route.encode()).hexdigest(),))
             self.db.execute("DELETE FROM heads WHERE route=?", (route,))
             count = self.db.execute(
                 "DELETE FROM events WHERE route=?", (route,)

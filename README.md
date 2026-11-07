@@ -65,7 +65,7 @@ All data used here is fictional. Each experiment can be reproduced from this rep
 | LongMemEval knowledge-update, 58 unseen questions (pre-registered held-out test) | `latest` mode 51/58, equal to the strongest baseline with a certainty filter; default mode 36/58 without confirmation (51/58 with 19 questions); policies without a certainty filter 53/58 | [held-out](experiments/longmemeval-ku-heldout-2026-11-07/REPORT.md) |
 | Simulated timelines paraphrased by an LLM, then labelled by an independent LLM extractor (120 timelines, fresh seed) | `latest` mode 118/120 on paraphrased text vs 116 for the strongest baseline; the extractor labelled a third of unmarked changes as changes, which undermines the default `confirm` mode; paraphrasing barely hurt LLM extraction | [LLM run](experiments/simulator/llm-2026-11-07/REPORT.md) |
 | Cross-session use inside a real agent host | write, read in a new session, revise and forget all work | [integration](docs/DSH-INTEGRATION.md) |
-| Unit and integration tests | 197 pass on Python 3.10 to 3.14 | CI |
+| Unit and integration tests | 202 pass on Python 3.10 to 3.14 | CI |
 
 ## Limitations and negative results
 
@@ -73,7 +73,7 @@ Several of the findings below are negative. They are documented here because the
 
 - **Complementary encoding gave no benefit.** The initial DNA-inspired design stored lookup keys as complementary base sequences and kept a complementary backup copy. Both turned out to be equivalent to ordinary storage: identical results, four times larger keys, slower lookups, and recovery exactly the same as a plain copy. Both are retained only as baselines.
 - **The pre-registered pairing rule underperformed the simplest baseline.** The hypothesis and thresholds were fixed before the two-strand experiment was run. A tolerant rule that accepted partial matches did worse than plain substring matching on two damage types. The stricter rule now in use was chosen after seeing those results and still needs fresh data.
-- **Selective memory is not yet learned.** Importance is still supplied by the calling model. Repeated low-importance remarks are dropped and leave no trace.
+- **Selective memory is only partly automatic.** Importance is still supplied by the calling model. Low-importance remarks leave an anonymous 30-day trace (hashes only), and a remark that recurs on three different days prompts one question to the user; this has not been evaluated with users.
 - **No single policy wins everywhere.** The certainty filter is the largest advantage on simulated timelines with frequent hesitations, but on the LongMemEval held-out set it cost two questions, because real updates were sometimes worded approximately ("close to 1300 followers") and labelled as hedged.
 - **The conservative update rule has a cost when no one confirms.** On a 20-question LongMemEval sample, MemoryGene scored 14/20 without confirmation and 16/20 with it, the same as the best baseline. Extractors often label real updates as plain statements, and they do so inconsistently.
 - **Matching is lexical.** It cannot know that tea is a kind of drink. Equal values can be mistaken for the same attribute.

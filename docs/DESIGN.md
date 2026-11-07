@@ -15,7 +15,7 @@
 | 条件（按优先顺序） | 结果 | 持久化 / 改当前头 |
 | --- | --- | --- |
 | 敏感且无同意 | rejected_sensitive | 否 / 否 |
-| persistent 且重要性 < 0.5 | discarded | 否 / 否 |
+| persistent 且重要性 < 0.5 | discarded（仅留 30 天匿名痕迹） | 否 / 否 |
 | 输入已过期 | expired | 否 / 否 |
 | intent=retract 且明确、等于当前值 | retracted | 是 / 是（当前值变为空） |
 | intent=retract 但不等于当前值 | nothing_to_retract | 否 / 否 |
@@ -39,6 +39,10 @@ intent=supplement 在任何情况下都不直接成为当前值，包括空槽�
 每个连接按事务串行比较和更新；测试覆盖独立连接并发。事件历史按写入序列排列，证据时间单独保留；这不是支持任意历史时点查询的双时间数据库。`history` 默认过滤到期事件，包含 pending/conflict/duplicate，不应直接作为“全部事实”输出。调用者可据 `resolves` 识别已处理证据。
 
 scope=persistent 禁止 session 值；scope=session 必须携带 session ID。namespace、subject 由可信宿主提供；它们是逻辑分区，不是登录鉴权。API 调用者能读取整个文件，不应直接暴露成不受信任的网络服务。
+
+## 低重要性痕迹
+
+被判为 discarded 的长期候选不写入事件，只在可选的 `traces` 表中留一条匿名痕迹：主题路由的哈希、主题+值的哈希、陈述日期和 30 天后的到期时间，不含原话和可读的值。同一值在 3 个不同日期出现时，`ingest` 返回 `ask_to_remember: true`（只返回一次），`advise` 给出 `recurring_low_importance`，由助手询问用户是否记住；用户同意后以更高重要性重新写入。`forget` 同时删除该主题的痕迹。含 `traces` 表的数据库不能被更早的版本打开。
 
 ## 续期与用户画像
 

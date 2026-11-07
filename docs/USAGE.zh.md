@@ -66,7 +66,7 @@ python3 -m venv .venv
 | `pending` | 不确定或补充性陈述，作为证据保留，不成为当前值 |
 | `conflict` | 与当前值不同且用户未声明改变，需要确认 |
 | `duplicate` | 与当前值相同，状态不变 |
-| `discarded` / `rejected_sensitive` / `expired` | 未写入 |
+| `discarded` / `rejected_sensitive` / `expired` | 未写入（`discarded` 只留 30 天匿名痕迹，用于判断是否反复出现） |
 
 默认情况下，与当前值不同、但未声明改变的陈述会进入 `conflict`，等待用户确认。若部署场景中无人可确认，可在写入时加 `--update latest`，或在适配器配置中设置 `"update_policy": "latest"`：此时较新的明确陈述会直接成为当前值，并在历史中标记。
 
@@ -76,6 +76,7 @@ python3 -m venv .venv
 - `possible_same_slot`：新主题可能与已有主题指向同一属性，确认后应统一使用已有主题。
 - `repeated_uncertain`：同一不确定陈述已在不同时间出现两次以上，可在合适时机向用户确认。
 - `auto_updated`：`latest` 模式下，未声明改变的陈述已替换旧值。相关时可向用户说明这一变化，以便其更正。
+- `recurring_low_importance`：一件原本被判为不重要的小事，已在 3 个不同的日子被提到。可在合适时问用户一次是否要记住，同意后以更高的 `--importance` 重新写入。
 - `unpaired_value`：值在原话中找不到，或原话为否定表述。
 
 ## 用户画像
