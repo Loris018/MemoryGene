@@ -83,6 +83,9 @@ def recall(store, namespace, subject, query, *, now=None, visible_session="",
         ranked.append((score, {
             "id": event["id"], "topic": topic, "scope": scope,
             "preview": c["value"][:120], "preview_truncated": len(c["value"]) > 120,
+            # The original words travel with the value, so details the value
+            # dropped (a hedge, a condition) are still visible at read time.
+            "source": c["source"][:160], "source_truncated": len(c["source"]) > 160,
             "matched_fields": [f for f, overlap in overlaps.items() if overlap],
         }))
     # No recency boost: an old, relevant fact can outrank recent distractions.

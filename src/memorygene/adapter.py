@@ -26,6 +26,7 @@ from . import __version__, tasks
 from .core import Candidate, MemoryStore, canonical
 from .recall import recall
 from .reconsolidate import advise, locate, review
+from .strands import pairing
 
 TOPIC_PATTERN = re.compile(r"^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$")
 MAX_TOPIC_CHARS = 120
@@ -284,10 +285,24 @@ def _query_args(args, settings):
     return fields
 
 
+def evidence(event):
+    """The original-words strand of a stored value, and whether the two pair."""
+    if event is None:
+        return None
+    c = event["candidate"]
+    check = pairing(c["value"], c["source"])
+    out = {"source": c["source"], "paired": check["paired"]}
+    if not check["paired"]:
+        out["note"] = ("the stored value is not fully supported by the user's words; "
+                       "answer from the source text")
+    return out
+
+
 def cmd_current(args, settings):
     with open_store(settings, args.allow_create) as store:
         result = store.current(**_query_args(args, settings))
-    return payload(command="current", db=settings["db"], current=result)
+    return payload(command="current", db=settings["db"], current=result,
+                   evidence=evidence(result))
 
 
 def cmd_history(args, settings):
