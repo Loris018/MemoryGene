@@ -19,6 +19,7 @@ Issues = "https://github.com/Loris018/MemoryGene/issues"
 [project.scripts]
 memorygene = "memorygene.cli:main"
 memorygene-dsh = "memorygene.adapter:main"
+memorygene-mcp = "memorygene.mcp_server:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]

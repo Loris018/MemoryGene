@@ -63,7 +63,7 @@ All data used here is fictional. Each experiment can be reproduced from this rep
 | LongMemEval knowledge-update, 58 unseen questions (pre-registered held-out test) | `latest` mode 51/58, equal to the strongest baseline with a certainty filter; default mode 36/58 without confirmation (51/58 with 19 questions); policies without a certainty filter 53/58 | [held-out](experiments/longmemeval-ku-heldout-2026-11-07/REPORT.md) |
 | Simulated timelines paraphrased by an LLM, then labelled by an independent LLM extractor (120 timelines, fresh seed) | `latest` mode 118/120 on paraphrased text vs 116 for the strongest baseline; the extractor labelled a third of unmarked changes as changes, which undermines the default `confirm` mode; paraphrasing barely hurt LLM extraction | [LLM run](experiments/simulator/llm-2026-11-07/REPORT.md) |
 | Cross-session use inside a real agent host | write, read in a new session, revise and forget all work | [integration](docs/DSH-INTEGRATION.md) |
-| Unit and integration tests | 187 pass on Python 3.10 to 3.14 | CI |
+| Unit and integration tests | 193 pass on Python 3.10 to 3.14 | CI |
 
 ## Limitations and negative results
 
@@ -106,7 +106,7 @@ with MemoryStore(":memory:") as memory:
     print(memory.current("demo", "fictional-user", "preference.favorite_flower"))
 ```
 
-There is also a command-line tool for agents, `memorygene-dsh`, with the commands `remember`, `current`, `history`, `recall`, `locate`, `review`, `forget` and `verify`. It never guesses the meaning of a sentence, never invents consent or sources, and never creates a database unless asked. Usage is described in [docs/USAGE.zh.md](docs/USAGE.zh.md).
+MemoryGene also runs as an MCP server (`memorygene-mcp`) for clients such as Claude Desktop, Cursor and Cherry Studio, and as a skill for Claude Code and Codex; see [docs/INTEGRATIONS.md](docs/INTEGRATIONS.md). There is also a command-line tool for agents, `memorygene-dsh`, with the commands `remember`, `current`, `history`, `recall`, `locate`, `review`, `forget` and `verify`. It never guesses the meaning of a sentence, never invents consent or sources, and never creates a database unless asked. Usage is described in [docs/USAGE.zh.md](docs/USAGE.zh.md).
 
 ## Repository structure
 
