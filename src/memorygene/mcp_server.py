@@ -63,6 +63,18 @@ TOOLS = [
                     "recent situation (expires after 30 days unless mentioned again), life events "
                     "and projects, each with the user's original words.",
      "properties": {}, "required": []},
+    {"name": "memory_impressions", "command": "impressions",
+     "description": "List your impressions of the user with the memories they rest on. Show them "
+                    "when the user asks what you think of them; stale ones are not current.",
+     "properties": {"current_only": {"type": "boolean", "default": False}}, "required": []},
+    {"name": "memory_impression_save", "command": "impression-save",
+     "description": "Save a short impression of the user. It must cite the event ids of current "
+                    "memories it rests on, and becomes stale when any of them changes.",
+     "properties": {"text": TEXT, "cite": {"type": "array", "items": TEXT}},
+     "required": ["text", "cite"]},
+    {"name": "memory_impression_forget", "command": "impression-forget",
+     "description": "Delete one impression by id, or all of them, when the user asks.",
+     "properties": {"id": TEXT, "all": {"type": "boolean", "default": False}}, "required": []},
     {"name": "memory_review", "command": "review",
      "description": "Self-check when the user asks: unresolved evidence, duplicate-looking topics, "
                     "values not supported by the user's words.", "properties": {}, "required": []},
@@ -93,7 +105,15 @@ def argv_for(tool, arguments, base):
         if key == "consent_evidence":
             argv += ["--consent", "--consent-evidence", str(value)]
             continue
-        argv += ["--" + key.replace("_", "-"), str(value)]
+        flag = "--" + key.replace("_", "-")
+        if isinstance(value, bool):
+            if value:
+                argv.append(flag)
+        elif isinstance(value, list):
+            for item in value:
+                argv += [flag, str(item)]
+        else:
+            argv += [flag, str(value)]
     return argv
 
 

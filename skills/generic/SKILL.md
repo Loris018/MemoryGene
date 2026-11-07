@@ -43,6 +43,10 @@ Read `result.status` before telling the user anything was saved: only `confirmed
 
 Prefix topics by category: `profile.*` basic facts, `preference.*` likes, `recent.*` the user's recent situation (worries, mood, what they are busy with; expires after 30 days unless mentioned again), `life.*` personal experiences, `project.*` their projects. `"$MG" profile` lists the current profile with the user's words.
 
+## Your impressions of the user
+
+You may record a short impression (personality, habits, lasting interests) with `"$MG" impression-save --text "..." --cite <event_id>`, citing the current memories it rests on and nothing more. When the user asks what you think of them, show `"$MG" impressions` with the evidence; delete with `impression-forget` when asked. Do not use impressions marked `stale`.
+
 ## Forgetting and checking
 
 - `"$MG" forget --topic <topic>` only when the user asks to forget it.

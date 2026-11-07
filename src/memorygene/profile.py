@@ -15,6 +15,7 @@ the history but are no longer the user's current state.
 """
 
 from .core import instant, now_string
+from .impressions import listing
 from .reconsolidate import slots
 
 CATEGORIES = {"profile": "basic", "preference": "preferences", "recent": "recent",
@@ -49,4 +50,6 @@ def profile(store, namespace, subject, *, now=None, visible_session=""):
             if last["expires_at"] and instant(last["expires_at"]) <= clock:
                 past.append({"topic": slot["topic"], "value": last["value"],
                              "source": last["source"], "ended": last["expires_at"]})
-    return {"ok": True, "command": "profile", "profile": groups, "past_situations": past}
+    views = listing(store, namespace, subject, now=clock.isoformat(), include_stale=False)
+    return {"ok": True, "command": "profile", "profile": groups, "past_situations": past,
+            "impressions": views}

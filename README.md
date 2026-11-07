@@ -45,6 +45,8 @@ On top of this state machine there are two newer components.
 
 **User profile** (`profile.py`). Topic prefixes group memories into basic facts, preferences, recent situation, life events and projects. The recent situation expires after 30 days unless the user mentions it again, so worries and moods do not linger as permanent facts.
 
+**Impressions** (`impressions.py`). The assistant may form its own view of the user, but every impression must cite current memories. It becomes stale when that evidence changes, it is deleted together with a forgotten memory, and the user can list and delete impressions at any time.
+
 **Two-strand pairing** (`strands.py`). Every memory holds two pieces of information: the condensed value and the user's original sentence. The system checks that the value can be found in the sentence and is not negated there. If it cannot, the memory is flagged, never silently repaired. This is where the DNA analogy turned out to be useful: two strands that carry independent information can check each other, and damage shows up as a mismatch.
 
 ## Results so far
@@ -65,7 +67,7 @@ All data used here is fictional. Each experiment can be reproduced from this rep
 | LongMemEval knowledge-update, 58 unseen questions (pre-registered held-out test) | `latest` mode 51/58, equal to the strongest baseline with a certainty filter; default mode 36/58 without confirmation (51/58 with 19 questions); policies without a certainty filter 53/58 | [held-out](experiments/longmemeval-ku-heldout-2026-11-07/REPORT.md) |
 | Simulated timelines paraphrased by an LLM, then labelled by an independent LLM extractor (120 timelines, fresh seed) | `latest` mode 118/120 on paraphrased text vs 116 for the strongest baseline; the extractor labelled a third of unmarked changes as changes, which undermines the default `confirm` mode; paraphrasing barely hurt LLM extraction | [LLM run](experiments/simulator/llm-2026-11-07/REPORT.md) |
 | Cross-session use inside a real agent host | write, read in a new session, revise and forget all work | [integration](docs/DSH-INTEGRATION.md) |
-| Unit and integration tests | 202 pass on Python 3.10 to 3.14 | CI |
+| Unit and integration tests | 209 pass on Python 3.10 to 3.14 | CI |
 
 ## Limitations and negative results
 

@@ -157,6 +157,7 @@ class MemoryStore:
             "sqlite_sequence",
             "task_checkpoints",
             "traces",
+            "impressions",
         }
         # A MemoryGene store always has the three core tables. Requiring them
         # before creating anything prevents an unrelated SQLite file from being
@@ -711,9 +712,12 @@ class MemoryStore:
         route = self._route(namespace, subject, topic, scope, session)
         self.db.execute("BEGIN IMMEDIATE")
         try:
+            from .impressions import purge_citing
             from .tasks import purge_dependents
 
             purge_dependents(self, route)
+            # Impressions derived from a forgotten memory are deleted with it.
+            purge_citing(self, route)
             if self.db.execute(
                 "SELECT 1 FROM sqlite_master WHERE type='table' AND name='traces'"
             ).fetchone():

@@ -22,7 +22,7 @@ import uuid
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
-from . import __version__, tasks
+from . import __version__, impressions, tasks
 from .core import Candidate, MemoryStore, canonical, instant
 from .profile import RECENT_DAYS, profile
 from .recall import recall
@@ -365,6 +365,23 @@ def cmd_profile(args, settings):
     return payload(db=settings["db"], **{k: v for k, v in result.items() if k != "ok"})
 
 
+def cmd_impression(args, settings):
+    ns, subj = settings["namespace"], settings["subject"]
+    with open_store(settings, args.allow_create) as store:
+        if args.command == "impression-save":
+            result = impressions.save(store, ns, subj, args.text, args.cite, now=args.now)
+            return payload(command=args.command, db=settings["db"], result=result)
+        if args.command == "impression-forget":
+            if bool(args.id) == bool(args.all):
+                raise ValueError("pass exactly one of --id or --all")
+            count = impressions.forget(store, ns, subj, None if args.all else args.id)
+            return payload(command=args.command, db=settings["db"], forgotten=count)
+        listed = impressions.listing(store, ns, subj, now=args.now,
+                                     include_stale=not args.current_only)
+    return payload(command=args.command, db=settings["db"], impressions=listed,
+                   note="stale impressions cite memories that changed; do not use them as current views")
+
+
 def cmd_review(args, settings):
     with open_store(settings, args.allow_create) as store:
         result = review(
@@ -550,6 +567,14 @@ def build_parser():
     find.add_argument("--limit", type=int, default=5)
     sub.add_parser("review", help="unresolved evidence and possible duplicate slots")
     sub.add_parser("profile", help="current memories grouped by category, with evidence")
+    imp_save = sub.add_parser("impression-save", help="save an impression of the user citing memories")
+    imp_save.add_argument("--text", required=True)
+    imp_save.add_argument("--cite", action="append", required=True, help="event id of a current memory")
+    imp_list = sub.add_parser("impressions", help="list impressions with their evidence")
+    imp_list.add_argument("--current-only", action="store_true")
+    imp_forget = sub.add_parser("impression-forget", help="delete one or all impressions")
+    imp_forget.add_argument("--id", default=None)
+    imp_forget.add_argument("--all", action="store_true")
     sub.add_parser("verify")
     repair = sub.add_parser("repair")
     repair.add_argument("--event-id", required=True)
@@ -579,6 +604,9 @@ COMMANDS = {
     "locate": cmd_locate,
     "review": cmd_review,
     "profile": cmd_profile,
+    "impression-save": cmd_impression,
+    "impressions": cmd_impression,
+    "impression-forget": cmd_impression,
     "verify": cmd_verify,
     "forget": cmd_forget,
     "repair": cmd_repair,

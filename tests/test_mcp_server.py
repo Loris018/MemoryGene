@@ -60,6 +60,20 @@ class McpServerTests(unittest.TestCase):
                          ("玫瑰", "我最喜欢玫瑰"))
         self.assertEqual([u["preview"] for u in body(replies[5])["unresolved"]], ["百合"])
 
+    def test_impression_with_a_list_of_citations(self):
+        body = lambda r: json.loads(r["result"]["content"][0]["text"])  # noqa: E731
+        first = self.session(self.call(1, "memory_remember", {
+            "topic": "preference.favorite_sport", "value": "攀岩", "source": "我最喜欢攀岩"}))
+        event = body(first[0])["event_id"]
+        replies = self.session(
+            self.call(2, "memory_impression_save", {"text": "喜欢攀岩", "cite": [event]}),
+            self.call(3, "memory_impressions", {"current_only": True}),
+            self.call(4, "memory_impression_forget", {"all": True}),
+        )
+        self.assertEqual(body(replies[0])["result"]["status"], "current")
+        self.assertEqual(len(body(replies[1])["impressions"]), 1)
+        self.assertEqual(body(replies[2])["forgotten"], 1)
+
     def test_errors_are_reported_not_fatal(self):
         replies = self.session(
             self.call(1, "memory_remember", {"topic": "Bad Topic", "value": "x", "source": "x"}),
