@@ -1,0 +1,12 @@
+include README.md install.sh Install.command Install-Windows.cmd LICENSE SECURITY.md CONTRIBUTING.md
+include docs/DESIGN.md docs/DSH-INTEGRATION.md docs/FOUR-CLIENT-PROJECT.zh.md docs/INTEGRATIONS.md docs/TASK-CARD-0.2.zh.md docs/TASKS.zh.md docs/USAGE.zh.md
+recursive-include skills *.md
+recursive-include examples *.py *.json
+recursive-include tests *.py
+recursive-include scripts *.py
+recursive-include tools *.py *.yml *.md
+include .github/workflows/*.yml
+include .gitignore
+prune experiments
+prune evidence
+exclude tests/test_baselines.py tests/test_simulator.py

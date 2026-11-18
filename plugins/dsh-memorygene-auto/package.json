@@ -1,0 +1,12 @@
+{
+  "name": "dsh-memorygene-auto",
+  "version": "0.2.0",
+  "type": "module",
+  "description": "Automatic, session-scoped task continuity for MemoryGene; background evidence-linked notes.",
+  "main": "index.js",
+  "exports": {".": "./index.js", "./package.json": "./package.json", "./cordis.patch.yml": "./cordis.patch.yml"},
+  "files": ["index.js", "continuity.js", "task-card.js", "cordis.patch.yml", "README.md", "CHANGELOG.md"],
+  "license": "MIT",
+  "dsh": {"bundle": {"patch": "./cordis.patch.yml"}},
+  "scripts": {"test": "node --test test/*.test.js"}
+}

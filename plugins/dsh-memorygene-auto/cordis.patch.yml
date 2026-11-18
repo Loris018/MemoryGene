@@ -1,0 +1,10 @@
+- insert:
+    - id: memorygene-auto
+      name: dsh-memorygene-auto
+      config:
+        minEvents: 6
+        cooldownMs: 30000
+        timeoutMs: 45000
+        maxInputChars: 18000
+        maxContextChars: 10000
+        retentionDays: 7

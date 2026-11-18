@@ -1,0 +1,47 @@
+name: test-and-package
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  windows-installer:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Install twice in a practice workspace
+        shell: cmd
+        run: |
+          set "MEMORYGENE_DEMO_WORKSPACE=%RUNNER_TEMP%\Practice Folder"
+          set "MEMORYGENE_DEMO_DB=%RUNNER_TEMP%\Practice Data\decisions.sqlite"
+          call Install-Windows.cmd || exit /b 1
+          call Install-Windows.cmd || exit /b 1
+          if not exist "%MEMORYGENE_DEMO_WORKSPACE%\.grok\config.toml" exit /b 1
+  harness-plugin:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+      - run: node --test plugins/dsh-memorygene-auto/test/*.test.js
+      - run: npm pack --dry-run
+        working-directory: plugins/dsh-memorygene-auto
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ['3.10', '3.11', '3.12', '3.13', '3.14']
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: ${{ matrix.python }}
+      - run: python -m pip install . build twine ruff
+      - run: ruff check src tests examples
+      - run: python -m unittest discover -s tests -v
+      - run: python examples/lifecycle.py
+      - run: python scripts/acceptance.py
+      - run: python -m build
+      - run: python -m twine check dist/*
