@@ -18,7 +18,7 @@
 mg_installer=$(mktemp) && curl -fsSL https://raw.githubusercontent.com/Loris018/MemoryGene/main/install.sh -o "$mg_installer" && bash "$mg_installer"
 ```
 
-安装完成后，在助手中打开主目录下的 `MemoryGene-Demo`。Codex 和 Grok Build 从该目录启动；DeepSeek Harness 在 macOS/Linux 上使用目录内的 `.memorygene/start-dsh` 启动。首次连接时，按客户端提示确认项目工具。要用于已有项目，可以把多个工作目录绑定到同一数据库。[配置指南](docs/FOUR-CLIENT-PROJECT.zh.md)
+安装完成后，在助手中打开主目录下的 `MemoryGene-Demo`。Codex 和 Grok Build 从该目录启动；DeepSeek Harness 在 macOS/Linux 上使用目录内的 `.memorygene/start-dsh-turns` 启动。首次连接时，按客户端提示确认项目工具。要用于已有项目，可以把多个工作目录绑定到同一数据库。[配置指南](docs/FOUR-CLIENT-PROJECT.zh.md)
 
 ## 跨助手使用
 
@@ -31,6 +31,12 @@ mg_installer=$(mktemp) && curl -fsSL https://raw.githubusercontent.com/Loris018/
 | 回到原会话 | “继续 `release`。两个环境现在各保留几天？给我上一次修改的原话。” |
 
 每个决定都有版本和记录它的客户端。两个助手基于同一旧版本修改同一条目时，第二次写入会收到冲突提示，可以重新读取后再决定如何合并。历史保留写入方引用的原话，方便核对“仅生产环境”这样的限定。
+
+## 接手续做中的任务
+
+在第一个助手中说：“做库存导出工具，列出商品编号和库存。字段已核对，下一步是计算合计。” 换一个助手后，说：“继续做库存导出，先告诉我做到哪了，再完成下一步。” 任务卡分别保存目标、要求、进度、待办、来源和版本。描述可能指向多个任务时，助手应先让你选择。
+
+安装器在示例目录配置逐轮读取与短期上下文采集。Codex 用户需在 `/hooks` 或桌面端 **Review hooks** 中核对并启用命令；Grok Build 需要信任该目录。工作区可按任务选用编程或教学模式，任务偏好优先于该库的默认偏好。当前对话中的新指示优先。有关临时数据、冲突处理和接续检查，见[工作区指南](docs/FOUR-CLIENT-PROJECT.zh.md)。
 
 ## 客户端与数据
 
@@ -62,7 +68,7 @@ Install Python 3.10 or later and sign in to your assistant. macOS and Linux also
 mg_installer=$(mktemp) && curl -fsSL https://raw.githubusercontent.com/Loris018/MemoryGene/main/install.sh -o "$mg_installer" && bash "$mg_installer"
 ```
 
-Open `MemoryGene-Demo` in your home directory. Start Codex or Grok Build there. For DeepSeek Harness on macOS or Linux, run `.memorygene/start-dsh` inside that directory. Approve the project tools when prompted. To use an existing project, bind its working directories to the same database. [Client setup](docs/INTEGRATIONS.md)
+Open `MemoryGene-Demo` in your home directory. Start Codex or Grok Build there. For DeepSeek Harness on macOS or Linux, run `.memorygene/start-dsh-turns` inside that directory. Approve the project tools when prompted. To use an existing project, bind its working directories to the same database. [Client setup](docs/INTEGRATIONS.md)
 
 ### Example handoff
 
@@ -71,6 +77,12 @@ Open `MemoryGene-Demo` in your home directory. Start Codex or Grok Build there. 
 3. Return to the original session and ask “How long do we keep logs in each environment? Quote the last change.”
 
 Each entry has a version and a writing client. If two clients edit the same version, the second receives a conflict and can reread the entry before merging. The history retains the source quote supplied by the client that wrote it.
+
+### Continue a task
+
+Start a task in one client, record its goal, requirements, completed steps and next action, then describe it in another client. Task cards preserve versioned entries and their sources. Ask the assistant to finish the next open step. When several tasks fit, choose one before continuing. Tasks can select coding or study guidance and override workspace defaults.
+
+The starter workspace includes per-turn hooks for short local lookups and temporary evidence capture. In Codex, review and enable both commands in `/hooks` or **Review hooks**. Grok Build requires project trust. Use the project tools to retrieve a full card, check what changed after compaction or resolve incompatible proposals. [Workspace guide](docs/FOUR-CLIENT-PROJECT.zh.md)
 
 ### Clients and storage
 

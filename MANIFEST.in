@@ -10,3 +10,4 @@ include .gitignore
 prune experiments
 prune evidence
 exclude tests/test_baselines.py tests/test_simulator.py
+include plugins/dsh-memorygene-auto/package.json plugins/dsh-memorygene-auto/project-turns.js plugins/dsh-memorygene-auto/continuity.js

@@ -14,7 +14,7 @@ if errorlevel 1 goto :failed
 ".venv\Scripts\python.exe" -m pip install -q -e . || goto :failed
 if not defined MEMORYGENE_DEMO_WORKSPACE set "MEMORYGENE_DEMO_WORKSPACE=%USERPROFILE%\MemoryGene-Demo"
 if not defined MEMORYGENE_DEMO_DB set "MEMORYGENE_DEMO_DB=%USERPROFILE%\.memorygene\projects\starter\decisions.sqlite"
-".venv\Scripts\python.exe" scripts\bind_project.py --workspace "%MEMORYGENE_DEMO_WORKSPACE%" --db "%MEMORYGENE_DEMO_DB%" --name mg_starter --grok || goto :failed
+".venv\Scripts\python.exe" scripts\bind_project.py --workspace "%MEMORYGENE_DEMO_WORKSPACE%" --db "%MEMORYGENE_DEMO_DB%" --name mg_starter --grok --turn-hooks || goto :failed
 echo {"task":"poster"}| ".venv\Scripts\python.exe" -m memorygene.project project_read --db "%MEMORYGENE_DEMO_DB%" >nul || goto :failed
 echo Ready. Open this folder in your assistant: "%MEMORYGENE_DEMO_WORKSPACE%"
 if not defined CI pause

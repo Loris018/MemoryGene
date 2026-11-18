@@ -67,7 +67,7 @@ say "自检 memorygene-dsh doctor"
 demo_workspace="${MEMORYGENE_DEMO_WORKSPACE:-$HOME/MemoryGene-Demo}"
 demo_db="${MEMORYGENE_DEMO_DB:-$HOME/.memorygene/projects/starter/decisions.sqlite}"
 say "连接练习工作区 / Preparing the practice workspace"
-.venv/bin/python scripts/bind_project.py --workspace "$demo_workspace" --db "$demo_db" --name mg_starter --grok
+.venv/bin/python scripts/bind_project.py --workspace "$demo_workspace" --db "$demo_db" --name mg_starter --grok --turn-hooks
 .venv/bin/python -m memorygene.project project_read --db "$demo_db" <<<'{"task":"poster"}' >/dev/null
 
 say "安装完成 / Ready"

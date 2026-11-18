@@ -18,6 +18,7 @@ jobs:
           call Install-Windows.cmd || exit /b 1
           call Install-Windows.cmd || exit /b 1
           if not exist "%MEMORYGENE_DEMO_WORKSPACE%\.grok\config.toml" exit /b 1
+          ".venv\Scripts\python.exe" -m unittest discover -s tests -p test_workspace.py -q
   harness-plugin:
     runs-on: ubuntu-latest
     steps:
