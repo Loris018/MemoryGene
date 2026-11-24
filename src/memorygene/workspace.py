@@ -8,9 +8,9 @@ INT = {"type": "integer", "minimum": 0}
 KINDS = ("goal", "requirement", "step", "decision", "preference")
 STATES = ("active", "planned", "in_progress", "done", "cancelled")
 MODES = {
-    "coding": "State the relevant assumptions, follow the project's constraints, and verify the change.",
-    "study": "Explain the source material first. Label any additional examples or background separately.",
-    "general": "Follow the current goal and constraints. Check the next unfinished step.",
+    "coding": "State key assumptions and check project constraints before editing; verify the change with tests or concrete checks before reporting done.",
+    "study": "Explain the source material accurately first; clearly separate and label supplementary examples, intuition, or background from the original text.",
+    "general": "Follow the current goal and constraints; verify the next unfinished step before acting.",
 }
 TASK_SPEC = {
     "task_remove": (
@@ -179,15 +179,59 @@ def matches(db, query, task=None):
     words = tokens(query)[:80]
     if not words:
         return []
-    params = list(words)
-    where = "term IN (" + ",".join("?" for _ in words) + ")"
+    marks = ",".join("?" for _ in words)
     if task:
-        where += " AND task=?"
-        params.append(task)
-        sql = f"SELECT item,sum(weight) FROM card_terms WHERE {where} GROUP BY item ORDER BY 2 DESC,item LIMIT 12"
-    else:
-        sql = f"SELECT task,sum(w) FROM (SELECT term,task,max(weight) w FROM card_terms WHERE {where} AND task!='defaults' AND task NOT IN (SELECT task FROM closed_tasks) GROUP BY term,task) GROUP BY task ORDER BY 2 DESC,task LIMIT 5"
-    return db.execute(sql, params).fetchall()
+        # Weight rarer terms inside the task higher so common words do not drown out specific items.
+        sql = f"""
+            SELECT c.item,
+                   sum(c.weight * (1.0 / (1 + (
+                       SELECT count(*) FROM card_terms c2 WHERE c2.task=c.task AND c2.term=c.term
+                   ))))
+            FROM card_terms c
+            WHERE c.term IN ({marks}) AND c.task=?
+            GROUP BY c.item
+            ORDER BY 2 DESC, c.item
+            LIMIT 12
+        """
+        return db.execute(sql, (*words, task)).fetchall()
+    sql = f"""
+        SELECT task, sum(w)
+        FROM (
+            SELECT term, task, max(weight) w
+            FROM card_terms
+            WHERE term IN ({marks})
+              AND task!='defaults'
+              AND task NOT IN (SELECT task FROM closed_tasks)
+            GROUP BY term, task
+        )
+        GROUP BY task
+        ORDER BY 2 DESC, task
+        LIMIT 5
+    """
+    return db.execute(sql, words).fetchall()
+
+
+def similar_items(db, task, item, value=""):
+    """Find existing active items in the same task that may represent the same attribute."""
+    probe = set(tokens(item)) | set(tokens(value))
+    if not probe:
+        return []
+    candidates = []
+    for row in db.execute(
+        "SELECT item FROM heads WHERE task=? AND item!=? ORDER BY item LIMIT 64",
+        (task, item),
+    ):
+        existing = row[0]
+        existing_tokens = set(tokens(existing))
+        overlap = probe & existing_tokens
+        if overlap and (
+            existing in item
+            or item in existing
+            or len(overlap) >= 2
+            or (len(overlap) == 1 and any(t.isascii() and len(t) >= 4 for t in overlap))
+        ):
+            candidates.append(existing)
+    return candidates[:5]
 
 
 def resolve(db, query):
@@ -253,15 +297,26 @@ def current(db, task, item):
 
 
 def style(text):
-    if re.search(r"课件|复习|课程|学习|lecture|study|tutor", text, re.I):
+    if re.search(
+        r"课件|复习|课程|学习|教案|讲义|概念|原理|习题|lecture|study|tutor|syllabus|quiz",
+        text,
+        re.I,
+    ):
         return "study"
     if re.search(
-        r"代码|编程|调试|测试|coding|code|debug|software|release|deploy|python",
+        r"代码|编程|调试|测试|重构|架构|接口|coding|code|debug|software|release|deploy|python|refactor|api|schema",
         text,
         re.I,
     ):
         return "coding"
     return "general"
+
+
+def preference_mode(item_key):
+    prefix = item_key.split(".", 1)[0]
+    if prefix in MODES:
+        return prefix
+    return "all"
 
 
 def resume(db, args):
@@ -294,18 +349,46 @@ def resume(db, args):
         + " WHERE h.task=? AND m.kind='goal' AND m.state='active' ORDER BY h.item LIMIT 1",
         (task,),
     ).fetchone()
-    preferences = {}
+    mode = (
+        goal["mode"]
+        if goal and goal["mode"] != "auto"
+        else style(task + " " + (goal["value"] if goal else "") + " " + query)
+    )
+    raw_prefs = {}
     for scope in dict.fromkeys(("defaults", task)):
         for pref in db.execute(
             SELECT
-            + " WHERE h.task=? AND m.kind='preference' AND m.state='active' ORDER BY h.item LIMIT 17",
+            + " WHERE h.task=? AND m.kind='preference' AND m.state='active' ORDER BY h.item LIMIT 32",
             (scope,),
         ):
-            preferences[pref["item"]] = {
+            pref_mode = preference_mode(pref["item"])
+            if pref_mode != "all" and pref_mode != mode:
+                continue
+            raw_prefs[pref["item"]] = {
                 "value": pref["value"],
                 "scope": scope,
+                "mode": pref_mode,
                 "version": pref["version"],
             }
+    preferences = dict(
+        sorted(
+            raw_prefs.items(),
+            key=lambda kv: (
+                0 if kv[1]["scope"] == task else 1,
+                0 if kv[1]["mode"] == mode else 1,
+                kv[0],
+            ),
+        )
+    )
+    relevant = []
+    if query and not after:
+        seen_rel = set()
+        for hit_item, _ in matches(db, query, task)[:6]:
+            if hit_item not in seen_rel:
+                seen_rel.add(hit_item)
+                entry = current(db, task, hit_item)
+                if entry:
+                    relevant.append(entry)
     focus = {}
     for label, kind, states in [
         ("requirements", "requirement", ("active", "in_progress")),
@@ -328,11 +411,6 @@ def resume(db, args):
             ],
             "more": len(items) > 3,
         }
-    mode = (
-        goal["mode"]
-        if goal and goal["mode"] != "auto"
-        else style(task + " " + (goal["value"] if goal else "") + " " + query)
-    )
     return {
         "status": closed[0] if closed else ("ready" if records or after else "empty"),
         "task": task,
@@ -341,6 +419,7 @@ def resume(db, args):
         "preferences": preferences,
         "goal": goal["value"] if goal else None,
         "entries": records,
+        "relevant": relevant,
         "focus": focus,
         "next_cursor": keys[7] if len(keys) > 8 else None,
         "check": ["missing goal"] if not goal else [],

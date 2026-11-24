@@ -226,6 +226,7 @@ def turn(db, client, session, event, role, text, now=None):
             (*stream, task),
         ).fetchone()
         identifier = None
+        clip_ready = False
         if pending and role == "user" and pending[2]:
             if sample and LIMIT.search(text):
                 retained = json.loads(pending[1])[:3] + [sample]
@@ -234,12 +235,9 @@ def turn(db, client, session, event, role, text, now=None):
                     (json.dumps(retained), pending[0]),
                 )
                 identifier = pending[0]
-            else:
-                identifier = (
-                    pending[0]
-                    if re.match(r"^(确认|确定|confirm|yes)", text, re.I)
-                    else None
-                )
+            elif re.match(r"^(确认|确定|就这么定|confirm|yes)", text, re.I):
+                identifier = pending[0]
+                clip_ready = True
             db.execute("UPDATE capture_clip SET following=0 WHERE id=?", (pending[0],))
         if (
             sample
@@ -277,6 +275,14 @@ def turn(db, client, session, event, role, text, now=None):
         if role == "assistant":
             return {}
         packet = workspace.resume(db, {"task": task, "query": text[:4000]})
+        prioritized = []
+        seen_items = set()
+        for r in [*packet.get("relevant", []), *packet["entries"]]:
+            if r["item"] not in seen_items:
+                seen_items.add(r["item"])
+                prioritized.append(r)
+            if len(prioritized) >= 8:
+                break
         # A short foreground packet points back to complete, versioned evidence.
         context = {
             "task": task,
@@ -296,10 +302,11 @@ def turn(db, client, session, event, role, text, now=None):
                     r["value"][:110],
                     len(r["value"]) > 110,
                 ]
-                for r in packet["entries"]
+                for r in prioritized
             ],
             "more": bool(packet["next_cursor"]),
             "pending_clip": identifier,
+            "clip_ready": clip_ready,
             "recorded_step": recorded,
         }
         return context

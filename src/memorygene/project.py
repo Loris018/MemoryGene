@@ -261,6 +261,9 @@ def invoke(path, client, name, args):
                     raise ValueError("use task_record for a structured task entry")
                 meta = None
             version = current + 1
+            similar = (
+                workspace.similar_items(db, task, item, value) if current == 0 else []
+            )
             workspace.store_revision(
                 db, task, item, version, client, value, quote, meta
             )
@@ -274,7 +277,10 @@ def invoke(path, client, name, args):
                     turns.discard(db, args["clip"])
                 else:
                     turns.confirm_matching(db, client, task, args["speaker"], quote)
-        return {"status": "saved", "version": version}
+        result = {"status": "saved", "version": version}
+        if similar:
+            result["similar_items"] = similar
+        return result
 
 
 SPECS = {

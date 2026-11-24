@@ -268,3 +268,36 @@ class TaskWorkflow(unittest.TestCase):
         self.assertEqual(check["removed"], ["format"])
         self.assertTrue(check["entries"][0]["review_required"])
         self.assertEqual(self.write("format", "fresh", 2)["version"], 3)
+
+    def test_mode_scoped_preferences_and_similar_key_warning(self):
+        self.write("goal", "开发库存导出代码", kind="goal", state="active")
+        self.write(
+            "coding.testing",
+            "always run pytest before reporting done",
+            task="defaults",
+            kind="preference",
+            state="active",
+        )
+        self.write(
+            "study.depth",
+            "explain intuition before formulas",
+            task="defaults",
+            kind="preference",
+            state="active",
+        )
+        self.write("prod_log_days", "keep 30 days", kind="decision", state="active")
+        dup = self.write("log_days_prod", "keep 30 days", kind="decision", state="active")
+        self.assertIn("prod_log_days", dup.get("similar_items", []))
+        coding_packet = self.call("task_resume", query="库存导出")
+        self.assertIn("coding.testing", coding_packet["preferences"])
+        self.assertNotIn("study.depth", coding_packet["preferences"])
+
+    def test_query_relevant_entries_prioritized_in_turns(self):
+        self.write("goal", "widgets coding", kind="goal", state="active")
+        for i in range(10):
+            self.write(f"alpha_{i:02d}", f"routine step {i}")
+        self.write("zebra_cache", "redis cache ttl 60s", kind="decision", state="active")
+        packet = turns.turn(
+            self.db, "gpt", "s_rel", "ev1", "user", "widgets redis cache"
+        )
+        self.assertEqual(packet["entries"][0][0], "zebra_cache")
